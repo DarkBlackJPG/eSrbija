@@ -1,0 +1,2 @@
+# eSrbija
+Projekat „e-Srbija“ je web aplikacija koja se izrađuje kao praktični deopredmeta principi softverskog inženjerstva.„e-Srbija“ je osmišljena kao rešenje koje za cilj ima spajanje različitihdržavnihorgana i institucijaujednu jedinstvenu internet mrežupredstavljenu kao tip „društvenemreže“ na kojoj građani Srbije mogu da prate obaveštenja od značaja kao i da popunjavaju ankete/referendume koje se tiču opština u kojim boraveili cele države.
