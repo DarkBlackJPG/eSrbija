@@ -23,10 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('homepages.obavestenja');
-    }
-    public function createObavestenje()
-    {
-        return view('homepages.createpost');
+        return view('home');
     }
 }

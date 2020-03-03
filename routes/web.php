@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function (){
-    return view('homepages.obavestenja');
-})->name('home2');
+
 
 
 Auth::routes();
@@ -46,8 +44,20 @@ Route::get('/statistikaankete', function (){
 Route::get('/mojeobjave', function (){
     return view('homepages.mojeobjave');
 })->name('mojeobjave');
-//Route::get('/createpost', 'HomeController@createObavestenje')->name('createpost');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+
+Route::get('/user/register', 'RegistrationController@getUserRegistrationForm')->name('user.register');
+Route::get('/moderator/register', 'RegistrationController@getModeratorRegistrationForm')->name('moderator.register');
+Route::get('/admin/moderators', function (){ return view('admin.moderatorApproval');});
+
+Route::post('/user/register', 'RegistrationController@saveUser')->name('user.register.save');
+
