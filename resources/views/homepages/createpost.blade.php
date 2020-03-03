@@ -7,10 +7,10 @@
 
             <form action="" method="POST">
 
-                <div class="form-group has-error">
+                <div class="form-group has-error pt-5">
                     <label for="slug">Kategorija  </label>
                     <br/>
-                    <select>
+                    <select multiple>
                         <option>Sport</option>
                         <option>Zdravlje</option>
                         <option>Finansije</option>
@@ -18,6 +18,18 @@
                         <option>Energetika</option>
                         <option>VAZNO</option>
                     </select>
+                    <br/>
+                    <table>
+
+                        <tr>
+                            <td>
+                                <form>
+                                    <input type="radio" name="nivo">Lokalni nivo <br/>
+                                    <input type="radio" name="nivo">Nacionalni nivo <br/>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
                 <div class="form-group has-error">

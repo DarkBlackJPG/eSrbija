@@ -32,27 +32,32 @@
 
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="{{'home'}}">Finansije</a>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="{{'objavefinansije'}}">Finansije</a>
+                                        <input type="checkbox">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="{{'home'}}">Zdravlje</a>
+                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="{{'nemaobjava'}}">Zdravlje</a>
+                                        <input type="checkbox">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{'home'}}">Energetika</a>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{'nemaobjava'}}">Energetika</a>
+                                        <input type="checkbox">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{'home'}}">Kultura</a>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{'nemaobjava'}}">Kultura</a>
+                                        <input type="checkbox">
                                     </td>
 
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="{{'home'}}">Sport</a>
+                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="{{'objavesport'}}">Sport</a>
+                                        <input type="checkbox">
 
                                     </td>
                                 </tr>
@@ -94,7 +99,8 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
-                            </span>Zahtevi za moderatora</a>
+                                    </span><a href="{{"/admin/moderators"}}">Zahtevi za moderatora</a>
+                            </a>
                         </h4>
                     </div>
 
@@ -121,7 +127,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Napravi anketu</a>
+                                        <span class="glyphicon glyphicon-tasks"></span><a href="{{'createpoll'}}">Napravi anketu</a>
                                     </td>
                                 </tr>
                                 <tr>

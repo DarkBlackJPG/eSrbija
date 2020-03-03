@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('fixed.home')
 
-@section('content')
+@section('homepagecontent')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row ">
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-header">

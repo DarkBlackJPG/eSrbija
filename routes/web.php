@@ -34,16 +34,32 @@ Route::get('/home', function (){
         return view('homepages.aktivneAnkete');
     })->name('referendumi');
 
-Route::get('/mojeankete', function (){
+    Route::get('/mojeankete', function (){
     return view('homepages.mojeankete');
-})->name('mojeankete');
-Route::get('/statistikaankete', function (){
+    })->name('mojeankete');
+    Route::get('/statistikaankete', function (){
     return view('homepages.statistikaanketa');
-})->name('statistikaankete');
+    })->name('statistikaankete');
 
-Route::get('/mojeobjave', function (){
+     Route::get('/mojeobjave', function (){
     return view('homepages.mojeobjave');
-})->name('mojeobjave');
+    })->name('mojeobjave');
+
+
+    Route::get('/objavesport', function (){
+    return view('homepages.obavestenjasport');
+    })->name('objavesport');
+Route::get('/objavefinansije', function (){
+    return view('homepages.obavestenjafinansije');
+})->name('objavefinansije');
+Route::get('/nemaobjava', function (){
+    return view('homepages.nemaobjava');
+})->name('nemaobjava');
+Route::get('/createpoll', function (){
+    return view('homepages.napraviankete');
+})->name('createpoll');
+
+
 
 Auth::routes();
 
@@ -57,7 +73,7 @@ Auth::routes();
 
 Route::get('/user/register', 'RegistrationController@getUserRegistrationForm')->name('user.register');
 Route::get('/moderator/register', 'RegistrationController@getModeratorRegistrationForm')->name('moderator.register');
-Route::get('/admin/moderators', function (){ return view('admin.moderatorApproval');});
+Route::get('/admin/moderators', function (){ return view('admin.moderatorApproval');})->name('odobravanjemoderatora');
 
 Route::post('/user/register', 'RegistrationController@saveUser')->name('user.register.save');
 
