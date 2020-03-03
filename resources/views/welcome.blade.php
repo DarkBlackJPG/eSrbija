@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
         <!-- Styles -->
     </head>
@@ -30,6 +31,7 @@
                     @if (Route::has('moderator.register'))
                         <a class="linkTransitionToRed" href="{{ route('moderator.register') }}">Registracija moderatora</a>
                     @endif
+
                 </div>
             </div>
         </div>
