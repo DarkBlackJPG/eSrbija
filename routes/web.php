@@ -22,4 +22,5 @@ Route::get('/user/register', 'RegistrationController@getUserRegistrationForm')->
 Route::get('/moderator/register', 'RegistrationController@getModeratorRegistrationForm')->name('moderator.register');
 Route::get('/admin/moderators', function (){ return view('admin.moderatorApproval');});
 
+
 Route::post('/user/register', 'RegistrationController@saveUser')->name('user.register.save');
