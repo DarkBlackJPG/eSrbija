@@ -26,37 +26,37 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{'home'}}">VAZNO</a>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('home')}}">VAZNO</a>
                                         <span class="badge">2</span>
                                     </td>
 
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="{{'objavefinansije'}}">Finansije</a>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="{{route('objavefinansije')}}">Finansije</a>
                                         <input type="checkbox">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="{{'nemaobjava'}}">Zdravlje</a>
+                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="{{route('nemaobjava')}}">Zdravlje</a>
                                         <input type="checkbox">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{'nemaobjava'}}">Energetika</a>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('nemaobjava')}}">Energetika</a>
                                         <input type="checkbox">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{'nemaobjava'}}">Kultura</a>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('nemaobjava')}}">Kultura</a>
                                         <input type="checkbox">
                                     </td>
 
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="{{'objavesport'}}">Sport</a>
+                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="{{route('objavesport')}}">Sport</a>
                                         <input type="checkbox">
 
                                     </td>
@@ -77,17 +77,17 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <a href="{{'izbori'}}">Izbori</a> <span class="label label-success"></span>
+                                        <a href="{{route('izbori')}}">Izbori</a> <span class="label label-success"></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="{{'referendumi'}}">Referendumi</a>
+                                        <a href="{{route('referendumi')}}">Referendumi</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a href="{{'ankete'}}">Aktivne ankete</a>
+                                        <a href="{{route('ankete')}}">Aktivne ankete</a>
                                     </td>
                                 </tr>
 
@@ -117,22 +117,22 @@
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-usd"></span><a href="{{'mojeankete'}}">Moje ankete</a>
+                                        <span class="glyphicon glyphicon-usd"></span><a href="{{route('mojeankete')}}">Moje ankete</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-user"></span><a href="{{'mojeobjave'}}">Moja obavestenja</a>
+                                        <span class="glyphicon glyphicon-user"></span><a href="{{route('mojeobjave')}}">Moja obavestenja</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-tasks"></span><a href="{{'createpoll'}}">Napravi anketu</a>
+                                        <span class="glyphicon glyphicon-tasks"></span><a href="{{route('createpoll')}}">Napravi anketu</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-shopping-cart"></span> <a  href="{{'createpost'}}">Napravi obavestenje</a>
+                                        <span class="glyphicon glyphicon-shopping-cart"></span> <a  href="{{route('createpost')}}">Napravi obavestenje</a>
 
                                     </td>
                                 </tr>

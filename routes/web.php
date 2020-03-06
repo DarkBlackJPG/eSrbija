@@ -66,7 +66,7 @@ Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -74,6 +74,7 @@ Auth::routes();
 Route::get('/user/register', 'RegistrationController@getUserRegistrationForm')->name('user.register');
 Route::get('/moderator/register', 'RegistrationController@getModeratorRegistrationForm')->name('moderator.register');
 Route::get('/admin/moderators', function (){ return view('admin.moderatorApproval');})->name('odobravanjemoderatora');
+
 
 Route::post('/user/register', 'RegistrationController@saveUser')->name('user.register.save');
 

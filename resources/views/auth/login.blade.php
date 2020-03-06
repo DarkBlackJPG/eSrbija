@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="get" action="{{ route('home') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -53,10 +53,10 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <a href="{{'home'}}"><input type="button" class="btn btn-primary">
-                                    Uloguj se
-                                    </a>
-
+                                <!-- Ne treba link, bypass logovanja -->
+{{--                                <a href="{{route('home')}}">--}}
+                                    <input type="submit" class="btn btn-primary" value="Uloguj se">
+{{--                                </a>--}}
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Zaboravljena sifra?') }}

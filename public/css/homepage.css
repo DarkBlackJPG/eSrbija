@@ -10,7 +10,11 @@ body{
     }
 
 }
+.privremenaklasa{
+    background-color: #1b1e21;
 
+
+}
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

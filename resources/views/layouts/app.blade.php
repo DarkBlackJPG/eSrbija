@@ -10,10 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
+    <!-- Izbrisao sam pozivanje app.js ovde jer nije radio logout -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
         crossorigin="anonymous"></script>
@@ -43,7 +40,20 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+{{--                Created by Stefan Teslic--}}
+{{--                Napravljeno zbog funkcionalnog prototipa--}}
+{{--                Linije proveravaju na kojoj stranici se nalazimo --}}
+{{--                da daju iluziju dobrog route-ovanja--}}
+                <a class="navbar-brand" href=" @if(Request::path() === 'login' ||
+                            Request::path() === 'register' ||
+                            Request::path() === 'moderator/register' ||
+                            Request::path() === 'user/register'||
+                            Request::path() === 'verify' ||
+                            Request::path() === 'password/reset')
+                            {{ url('/') }}
+                            @else
+                            {{ url('/home') }}
+                            @endif">
 
                     eSrbija
 
@@ -60,8 +70,15 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
+
+{{--                Created by Stefan Teslic--}}
+{{--                Ovo parce ifova dinamicki menja header--}}
+                        @if(Request::path() === 'login' ||
+                            Request::path() === 'register' ||
+                            Request::path() === 'moderator/register' ||
+                            Request::path() === 'user/register'||
+                            Request::path() === 'verify' ||
+                            Request::path() === 'password/reset')
                             <li class="nav-item">
 
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Logovanje') }}</a>
@@ -79,8 +96,8 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
+                                    {{ __("Marko Markovic") }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -90,12 +107,12 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('welcome') }}" method="GET" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endif
                     </ul>
                 </div>
             </div>
