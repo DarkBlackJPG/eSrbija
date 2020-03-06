@@ -10,14 +10,35 @@
                 <div class="form-group has-error pt-5">
                     <label for="slug">Kategorija  </label>
                     <br/>
-                    <select multiple>
-                        <option>Sport</option>
-                        <option>Zdravlje</option>
-                        <option>Finansije</option>
-                        <option>Kultura</option>
-                        <option>Energetika</option>
-                        <option>VAZNO</option>
-                    </select>
+                    <label for="vazno">Vazno</label>
+                    <input type="radio" id="vazno" name="severity" checked>
+                    &nbsp;
+                    <label for="informatiovno">Informativno</label>
+                    <input type="radio" id="informatiovno" name="severity">
+
+                    <div id="categories" >
+
+                        <v-select multiple :options="categories"  v-model="selected" >
+                            <template  #search="{attributes, events}">
+                                <input
+                                    placeholder="Odaberi informativnu kategoriju"
+                                    id="infoKat"
+                                    class="vs__search"
+                                    :required="!selected"
+                                    v-bind="attributes"
+                                    v-on="events"
+                                >
+                            </template>
+                        </v-select>
+                        <input type="hidden" name="kategorije"  id="kategorije" :value="selected{{old('kategorije')}}">
+                    </div>
+
+
+                    @error('kategorije')
+                    <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                    @enderror
                     <br/>
                     <table>
 
@@ -64,4 +85,22 @@
             </form>
         </div>
 
+        <script>
+            Vue.component('v-select', VueSelect.VueSelect)
+
+            new Vue({
+                el: '#selectMunicipalityContainer',
+                data: {
+                    selected: '',
+                    muncipalities: ['Subotica', 'Beograd', 'Novi Sad']
+                }
+            })
+            new Vue({
+                el: '#categories',
+                data: {
+                    selected: '',
+                    categories: [ 'Sport', 'Finansije','Kultura','Energetika']
+                }
+            })
+        </script>
 @endsection
