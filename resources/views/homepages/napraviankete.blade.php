@@ -3,7 +3,18 @@
 @section('homepagecontent')
 
     <div class="container">
+        <div class="row"> <form>
+                <div class="form-group pt-15">
+                    <button type="submit" class="btn btn-primary">
+                        Objavi
+                    </button>
+                    <button class="btn btn-default">
+                        Odustani
+                    </button>
+                </div>
+            </form></div>
         <div class="row">
+
             <table>
                 <tr>
                 <td>

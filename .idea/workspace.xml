@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15c5ae8f-66a0-44e3-b112-0450c33e06a4" name="Default Changelist" comment="" />
+    <list default="true" id="15c5ae8f-66a0-44e3-b112-0450c33e06a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/mojeankete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/mojeankete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,7 +177,7 @@
       <workItem from="1583194631221" duration="2924000" />
       <workItem from="1583264732160" duration="6300000" />
       <workItem from="1583516330257" duration="1074000" />
-      <workItem from="1583533016674" duration="462000" />
+      <workItem from="1583533016674" duration="1758000" />
     </task>
     <servers />
   </component>

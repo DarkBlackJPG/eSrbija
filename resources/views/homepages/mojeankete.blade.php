@@ -14,7 +14,8 @@
                             <p>Anketu je popunilo..</p>
                         </div>
                         <div class = "offset-sm-2 align-self-center">
-                            <button class = "btn"> <a href = "{{'statistikaankete'}}">statistika</a></button>
+                            <button class = "btn"> <a href = "{{route('statistikaankete')}}">statistika</a></button>
+                            <button class = "btn"> <a href = "#">obrisi</a></button>
                         </div>
                     </div>
                 </div>
