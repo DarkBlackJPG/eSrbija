@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+
+
+
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+.btn{
+  background-color: rgb(32, 29, 29);
+  color:white;
+}
+
+.ankete a:link {
+  color: white;
+}
+
+/* visited link */
+.ankete a:visited {
+  color: grey;
+}
+
+/* mouse over link */
+.ankete a:hover {
+  color: white;
+}
+
+/* selected link */
+.ankete a:active {
+  color: white;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}

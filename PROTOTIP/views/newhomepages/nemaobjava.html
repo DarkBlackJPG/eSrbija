@@ -1,0 +1,224 @@
+<!-- Luka Spehar -->
+<!doctype html>
+<html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <title>eSrbija</title>
+
+    <!-- Scripts -->
+    <!-- Izbrisao sam pozivanje app.js ovde jer nije radio logout -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+    <!-- include VueJS first -->
+    <script src="https://unpkg.com/vue@latest"></script>
+
+    <!-- use the latest vue-select release -->
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+    <script src="../../js/app.js" defer></script>
+    <script src="https://kit.fontawesome.com/662634c78e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="../css/app.css" rel="stylesheet">
+
+    <link href="../css/homepage.css" rel="stylesheet">
+    <link href="../css/mojeankete.css" rel="stylesheet">
+    <link href="../css/statistikaankete.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+
+                <a class="navbar-brand" href="#">
+                    eSrbija
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                            <li class="nav-item ">
+                                <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
+                                    Administrator <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="../../landing.html"
+                                    >
+                                    Izloguj se
+                                    </a>
+                                </div>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            <div class="container">
+                <div class="row  ">
+                    <div class="col-sm-3 col-md-3">
+                <form>
+                        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                </form>
+                        <div class="panel-group pt-5" id="accordion">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                                        </span>Obavestenja</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="../newhomepages/obavestenja.html">VAZNO</a>
+                                                    <span class="badge">2</span>
+                                                </td>
+            
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-pencil text-primary"></span><a href="../newhomepages/finansije.html">Finansije</a>
+                                                    <input type="checkbox">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-flash text-success"></span><a href="../newhomepages/nemaobjava.html">Zdravlje</a>
+                                                    <input type="checkbox">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="../newhomepages/nemaobjava.html">Energetika</a>
+                                                    <input type="checkbox">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-file text-info"></span><a href="../newhomepages/nemaobjava.html">Kultura</a>
+                                                    <input type="checkbox">
+                                                </td>
+            
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-comment text-success"></span><a href="../newhomepages/sport.html">Sport</a>
+                                                    <input type="checkbox">
+            
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+                                        </span>Ankete</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tr>
+                                                <td>
+                                                    <a href="../newhomepages/nemaanketa.html">Izbori</a> <span class="label label-success"></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="../newhomepages/nemaanketa.html">Referendumi</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="../newhomepages/nemaanketa.html">Aktivne ankete</a>
+                                                </td>
+                                            </tr>
+            
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+                                                </span><a href="../../moderatorApproval.html">Zahtevi za moderatora</a>
+                                        </a>
+                                    </h4>
+                                </div>
+            
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+                                        </span>Moje objave</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <table class="table">
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-usd"></span><a href="../newhomepages/mojeankete.html">Moje ankete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-user"></span><a href="../newhomepages/mojaobavestenja.html">Moja obavestenja</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-tasks"></span><a href="../newhomepages/napravianketu.html">Napravi anketu</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="glyphicon glyphicon-shopping-cart"></span> <a  href="../newhomepages/napraviobavestenje.html">Napravi obavestenje</a>
+            
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 justify-content-center">
+                    <h1>Nema obavestenja</h1>
+                     </div>
+            
+                </div>
+            </div>
+           
+        </main>
+    </div>
+</body>
+</html>

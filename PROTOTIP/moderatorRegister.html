@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+
+<!-- Created by Stefan Teslic 2017/0124-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Login</title>
+
+    <!-- Scripts -->
+    <!-- Izbrisao sam pozivanje app.js ovde jer nije radio logout -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+    <!-- include VueJS first -->
+    <script src="https://unpkg.com/vue@latest"></script>
+
+    <!-- use the latest vue-select release -->
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+    <script src="js/app.js" defer></script>
+    <script src="https://kit.fontawesome.com/662634c78e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/app.css" rel="stylesheet">
+
+    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/mojeankete.css" rel="stylesheet">
+    <link href="css/statistikaankete.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="landing.html">
+
+                    eSrbija
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+
+                                <a class="nav-link" href="login.html">Logovanje</a>
+                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="userRegister.html">Registracija korisnika
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="moderatorRegister.html">Registracija moderatora</a>
+
+                                </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Forma za prijavu moderatora</div>
+
+                <div class="card-body">
+                    <form method="POST" action="landing.html">
+                        
+
+                        <div class="form-group row">
+                            <label for="naziv" class="col-md-4 col-form-label text-md-right">Naziv</label>
+
+                            <div class="col-md-6">
+                                <input id="naziv" type="text" class="form-control " name="naziv"  required autocomplete="naziv" autofocus>
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Email adresa</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" required autocomplete="email">
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="opstina" class="col-md-4 col-form-label text-md-right">Opstina poslovanja</label>
+
+                            <div class="col-md-6">
+                                <div id="selectMunicipalityContainer" >
+                                    <v-select :options="muncipalities"  v-model="selected" >
+                                        <template  #search="{attributes, events}">
+                                            <input
+                                                class="vs__search"
+                                                :required="!selected"
+                                                
+
+                                               
+                                            >
+                                        </template>
+                                    </v-select>
+                                    
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="adresa" class="col-md-4 col-form-label text-md-right">Adresa</label>
+
+                            <div class="col-md-6">
+                                <input id="adresa" type="text" class="form-control " name="adresa" required autocomplete="adresa">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="pib" class="col-md-4 col-form-label text-md-right">PIB</label>
+
+                            <div class="col-md-6">
+                                <input id="pib" type="pib" class="form-control" name="pib" required autocomplete="pib">
+
+                               
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="matBr" class="col-md-4 col-form-label text-md-right">Maticni broj</label>
+
+                            <div class="col-md-6">
+                                <input id="matBr" type="text" class="form-control" name="matBr"  required autocomplete="matBr">
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="kategorije" class="col-md-4 col-form-label text-md-right">Kategorije za objavljivanje</label>
+
+                            <div class="col-md-6">
+                                <div id="categories" >
+                                    <v-select multiple :options="categories"  v-model="selected" >
+                                        <template >
+                                            <input
+                                                class="vs__search"
+                                                :required="!selected"
+                                            >
+                                        </template>
+                                    </v-select>
+                                    
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <script>
+                            Vue.component('v-select', VueSelect.VueSelect)
+                        
+                            new Vue({
+                                el: '#selectMunicipalityContainer',
+                                data: {
+                                    selected: '',
+                                    muncipalities: ['Subotica', 'Beograd', 'Novi Sad']
+                                }
+                            })
+                            new Vue({
+                                el: '#categories',
+                                data: {
+                                    selected: '',
+                                    categories: ['Vazno', 'Glupo', 'Sehsipipi']
+                                }
+                            })
+                        </script>
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Lozinka</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password">
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Ponovite lozinku</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Posalji zahtev
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </main>
+    </div>
+</body>
+</html>

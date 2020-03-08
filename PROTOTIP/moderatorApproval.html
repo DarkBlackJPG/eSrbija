@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+
+<!-- Created by Stefan Teslic 2017/0124-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Login</title>
+
+    <!-- Scripts -->
+    <!-- Izbrisao sam pozivanje app.js ovde jer nije radio logout -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+        crossorigin="anonymous"></script>
+    <!-- include VueJS first -->
+    <script src="https://unpkg.com/vue@latest"></script>
+
+    <!-- use the latest vue-select release -->
+    <script src="https://unpkg.com/vue-select@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+    <script src="js/app.js" defer></script>
+    <script src="https://kit.fontawesome.com/662634c78e.js" crossorigin="anonymous"></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/app.css" rel="stylesheet">
+
+    <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/mojeankete.css" rel="stylesheet">
+    <link href="css/statistikaankete.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="hompage.html">
+
+                    eSrbija
+
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
+                                Administrator <span class="caret"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="landing.html"
+                                >
+                                Izloguj se
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            
+<div class="container">
+    <div class="row  ">
+        <div class="col-sm-3 col-md-3">
+    <form>
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+    </form>
+            <div class="panel-group pt-5" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Obavestenja</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="views/newhomepages/obavestenja.html">VAZNO</a>
+                                        <span class="badge">2</span>
+                                    </td>
+
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="views/newhomepages/finansije.html">Finansije</a>
+                                        <input type="checkbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="views/newhomepages/nemaobjava.html">Zdravlje</a>
+                                        <input type="checkbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="views/newhomepages/nemaobjava.html">Energetika</a>
+                                        <input type="checkbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="views/newhomepages/nemaobjava.html">Kultura</a>
+                                        <input type="checkbox">
+                                    </td>
+
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="views/newhomepages/sport.html">Sport</a>
+                                        <input type="checkbox">
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+                            </span>Ankete</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a href="views/newhomepages/nemaanketa.html">Izbori</a> <span class="label label-success"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="views/newhomepages/nemaanketa.html">Referendumi</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="views/newhomepages/nemaanketa.html">Aktivne ankete</a>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+                                    </span><a href="moderatorApproval.html">Zahtevi za moderatora</a>
+                            </a>
+                        </h4>
+                    </div>
+
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+                            </span>Moje objave</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-usd"></span><a href="views/newhomepages/mojeankete.html">Moje ankete</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-user"></span><a href="views/newhomepages/mojaobavestenja.html">Moja obavestenja</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-tasks"></span><a href="views/newhomepages/napravianketu.html">Napravi anketu</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-shopping-cart"></span> <a  href="views/newhomepages/napraviobavestenje.html">Napravi obavestenje</a>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 justify-content-center">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-7">
+                        <div class="row">&nbsp;</div>
+                        <div class="card">
+                            <div class="card-header">
+                                Ministarstvo unutrasnjih poslova
+                            </div>
+        
+                            <div class="card-body">
+                                <form method="POST" action="moderatorApproval.html">
+                                    <div class="row col-md-12">
+                                        <label class="col-md-4">
+                                            Naziv:
+                                        </label>
+                                        <label class="offset-1 col-md-7">
+                                            Ministarstvo unutrasnjih poslova
+                                        </label>
+                                    </div>
+                                    <hr/>
+                                    <div class="row col-md-12">
+                                        <label class="col-md-4">
+                                            Opstina:
+                                        </label>
+                                        <label class="offset-1 col-md-7">
+                                            Rakovica
+                                        </label>
+                                    </div>
+                                    <hr>
+                                    <div class="row col-md-12">
+                                        <label class="col-md-4">
+                                            Adresa:
+                                        </label>
+                                        <label class="offset-1 col-md-7">
+                                            Bulevar kralja Karnevala 22/2
+                                        </label>
+                                    </div>
+                                    <hr>
+                                    <div class="row col-md-12">
+                                        <label class="col-md-4">
+                                            PIB:
+                                        </label>
+                                        <label class="offset-1 col-md-7">
+                                            72617
+                                        </label>
+                                    </div>
+                                    <hr>
+                                    <div class="row col-md-12">
+                                        <label class="col-md-4">
+                                            Maticni broj:
+                                        </label>
+                                        <label class="offset-1 col-md-7">
+                                            82991829
+                                        </label>
+                                    </div>
+                                    <hr>
+                                    <div class="row col-md-12">
+                                        <label class="col-md-4">
+                                            Kategorije za objave:
+                                        </label>
+                                        <div class=" categories offset-1 col-md-7">
+                                            <v-select multiple :options="categories"  v-model="selected" >
+                                                <template >
+                                                    <input
+                                                        class="vs__search"
+                                                        :required="!selected"
+                                                        
+                                                    >
+                                                </template>
+                                            </v-select>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row col-md-12">
+                                        <div class="offset-md-4">
+                                            <button formaction="#" type="submit" class="btn btn-danger"><i class="fas fa-times">&nbsp;Odbij</i></button>
+                                            <button formaction="#" class="btn btn-success"><i class="fas fa-check">&nbsp;Odobri</i></button>
+                                        </div>
+        
+                                    </div>
+                                </form>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                Vue.component('v-select', VueSelect.VueSelect)
+                let elements = document.getElementsByClassName('categories')
+                for(let el of elements){
+                    new Vue({
+                        el:el,
+                        data: {
+                            selected: '',
+                            categories: ['Vazno', 'Onako', 'Slabo']
+                        }
+                    })
+                }
+        
+        
+        
+            </script>
+        </div>
+    </div>
+</div>
+        </main>
+    </div>
+</body>
+</html>
