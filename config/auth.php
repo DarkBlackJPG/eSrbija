@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'korisnik',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'korisnik',
             'hash' => false,
         ],
     ],
@@ -66,9 +66,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'korisnik' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\NeprivilegovanKorisnik::class,
         ],
 
         // 'users' => [
