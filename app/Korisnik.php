@@ -9,8 +9,14 @@ class Korisnik extends Model
     /*
      *  Ovom metodom se vezuje za decu
      */
-    public function tabelakorisnika(){
-        return $this->morphTo();
+    public function admini() {
+        return $this->hasMany('App\Administrator', 'id', 'id');
+    }
+    public function neprivilegovaniKorisnici() {
+        return $this->hasMany('App\NeprivilegovanKorisnik', 'id', 'id');
+    }
+    public function moderatori() {
+        return $this->hasMany('App\Moderator', 'id', 'id');
     }
     public function ovlascenja(){
         return $this->belongsToMany('App\Kategorije', 'kategorije_korisnik_ovlascenjas', 'korisnik_id', 'kategorije_id')->withTimestamps();

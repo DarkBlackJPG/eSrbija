@@ -14,7 +14,13 @@ class CreateAdministratorsTable extends Migration
     public function up()
     {
         Schema::create('administrators', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id');
+            $table->foreign('id')
+                ->references('id')
+                ->on('korisniks')
+                ->onDelete('cascade');
+            $table->primary('id');
+
             $table->timestamps();
         });
     }

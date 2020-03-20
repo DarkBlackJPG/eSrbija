@@ -10,7 +10,7 @@ class NeprivilegovanKorisnik extends Model
      * Ovom metodom se vezuje za roditelja
      */
     public function korisnik(){
-        return $this->morphMany('App\Korisnik', 'tabelakorisnika');
+        return $this->belongsTo('App\Korisnik', 'id', 'id');
     }
     public function opstinaRodjenja(){
         return $this->belongsTo('App\Mesto','opstinaRodjenja_id', 'id');

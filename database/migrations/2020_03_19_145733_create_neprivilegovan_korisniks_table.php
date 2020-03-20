@@ -14,7 +14,13 @@ class CreateNeprivilegovanKorisniksTable extends Migration
     public function up()
     {
         Schema::create('neprivilegovan_korisniks', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id');
+            $table->foreign('id')
+                ->references('id')
+                ->on('korisniks')
+                ->onDelete('cascade');
+            $table->primary('id');
+
             $table->string('ime');
             $table->string('prezime');
             $table->date('datumRodjenja');

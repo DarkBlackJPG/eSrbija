@@ -14,7 +14,13 @@ class CreateModeratorsTable extends Migration
     public function up()
     {
         Schema::create('moderators', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id');
+            $table->foreign('id')
+                ->references('id')
+                ->on('korisniks')
+                ->onDelete('cascade');
+            $table->primary('id');
+
             $table->string('naziv')->unique();
             $table->string('adresa');
             $table->string('pib', 9)->unique();
@@ -27,6 +33,7 @@ class CreateModeratorsTable extends Migration
                 ->references('id')
                 ->on('mestos')
                 ->onDelete('cascade');
+
         });
     }
 
