@@ -53,5 +53,6 @@ class CreateObavestenjasTable extends Migration
     public function down()
     {
         Schema::dropIfExists('obavestenjas');
+        Schema::dropIfExists('kategorije_obavestenja');
     }
 }

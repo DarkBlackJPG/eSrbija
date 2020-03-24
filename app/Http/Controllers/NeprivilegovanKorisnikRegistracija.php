@@ -7,6 +7,7 @@ use App\Mesto;
 use App\NeprivilegovanKorisnik;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -47,35 +48,35 @@ class NeprivilegovanKorisnikRegistracija extends Controller
     }
 
 
-    protected function saveUnpriviledgedUser(Request $data)
+    protected function register(Request $request)
     {
         // Imam neki bag, nece da tadi TODO: Resiti ovaj bag ovde da validira kako treba
-//        $validate = $data->validate([
-//            'ime' => ['required', 'string', 'max:255'],
-//            'prezime' => ['required', 'string', 'max:255'],
-//            'email' => ['required', 'string', 'email', 'max:255', 'unique:korisniks,e-mail'],
-//            'rodjendan' => ['required', 'date', 'max:255'],
-//            'prebivaliste' => ['required', 'string', 'max:255', 'exists:mestos,naziv'],
-//            'adresaPrebivalista' => ['required', 'string', 'max:255'],
-//            'JMBG' => ['required', 'string', 'max:13', 'unique:neprivilegovan_korisniks,jmbg'],
-//            'pol' => ['required', 'boolean'],
-//            'rodjenje' => ['required', 'string', 'exists:mestos,naziv'],
-//            'brojLicne' => ['required', 'string', 'email', 'max:9', 'unique:neprivilegovan_korisniks,brojLicneKarte'],
-//            'password' => ['required', 'string', 'min:8', 'confirmed'],
-//            'password_confirmation' => ['required', 'string', 'min:8', 'confirmed'],
-//        ]);
-//        if ($validate->fails()) {
-//            dd($this->validator()->getMessageBag());
-//            return redirect()->back()->withInput();
-//        }
+        $validate = $request->validate([
+            'ime' => ['required', 'string', 'max:255'],
+            'prezime' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:korisniks,e-mail'],
+            'rodjendan' => ['required', 'date', 'max:255'],
+            'prebivaliste' => ['required', 'string', 'max:255', 'exists:mestos,naziv'],
+            'adresaPrebivalista' => ['required', 'string', 'max:255'],
+            'JMBG' => ['required', 'string', 'max:13', 'unique:neprivilegovan_korisniks,jmbg'],
+            'pol' => ['required', 'boolean'],
+            'rodjenje' => ['required', 'string', 'exists:mestos,naziv'],
+            'brojLicne' => ['required', 'string', 'max:9', 'unique:neprivilegovan_korisniks,brojLicneKarte'],
+            'password' => ['required', 'string', 'min:8', 'required_with:password_confirmation', 'same:password_confirmation'],
+            'password_confirmation' => ['required', 'string', 'min:8'],
+        ]);
 
-        $temp = Korisnik::create([
-            'e-mail' =>$data['email'],
-            'password' => Hash::make($data['password']),
+        //dd('ds');
+
+        $user = Korisnik::create([
+            'e-mail' =>$request['email'],
+            'password' => Hash::make($request['password']),
             // Type = 0 jer je default
         ]);
+        $data = $request;
+
         NeprivilegovanKorisnik::create([
-            'id' => $temp->id,
+            'id' => $user->id,
             'ime' => $data['ime'],
             'prezime' => $data['prezime'],
             'datumRodjenja' => $data['rodjendan'],
@@ -87,6 +88,9 @@ class NeprivilegovanKorisnikRegistracija extends Controller
             'brojLicneKarte' => $data['brojLicne'],
         ]);
 
-        return view('homepages.obavestenja');
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+            ?: redirect($this->redirectPath());
     }
 }

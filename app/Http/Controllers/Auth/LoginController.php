@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use const http\Client\Curl\AUTH_ANY;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -44,19 +45,55 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function loginIntoSystem(Request $request) {
-        $request->validate([
+    public function validateLogin(Request $request) {
+        return $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:8',
         ]);
-        if (Auth::guard('korisnik')->attempt(['e-mail' => $request->email, 'password' => $request->password], $request->remember)) {
-            return redirect()->route('home');
-        }
-        return redirect()->route('login');
     }
-    public function logoutUser() {
-        Auth::logout();
-        return redirect()->route('welcome');
+
+    public function attemptLogin(Request $request)
+    {
+        if (Auth::guard()->attempt(['e-mail' => $request->email, 'password' => $request->password], $request->remember)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function login(Request $request) {
+
+        $this->validateLogin($request);
+
+        if (method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+
+
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
+    public function guard()
+    {
+        return Auth::guard('korisnik');
+    }
+
+    public function logout(Request $request) {
+
+        $this->guard()->logout();
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return $this->loggedOut($request) ?: redirect('/');
+
     }
 
 }

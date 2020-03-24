@@ -63,13 +63,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/logout', 'Auth\LoginController@logoutUser')->name('logout');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('login', 'Auth\LoginController@getForm')->name('login');
-Route::post('login', 'Auth\LoginController@loginIntoSystem')->name('loginPost');
+
+Route::post('login', 'Auth\LoginController@login')->name('loginPost');
 Route::get('/user/register', 'RegistrationController@getUserRegistrationForm')->name('user.register');
 Route::get('/moderator/register', 'RegistrationController@getModeratorRegistrationForm')->name('moderator.register');
 Route::get('/admin/moderators', function (){ return view('admin.moderatorApproval');})->name('odobravanjemoderatora');
 
 
-Route::post('/user/register', 'NeprivilegovanKorisnikRegistracija@saveUnpriviledgedUser')->name('user.register.save');
+Route::post('/user/register', 'NeprivilegovanKorisnikRegistracija@register')->name('user.register.save');
 

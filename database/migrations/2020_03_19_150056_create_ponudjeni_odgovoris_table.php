@@ -35,5 +35,7 @@ class CreatePonudjeniOdgovorisTable extends Migration
     public function down()
     {
         Schema::dropIfExists('ponudjeni_odgovoris');
+
+        Schema::disableForeignKeyConstraints();
     }
 }
