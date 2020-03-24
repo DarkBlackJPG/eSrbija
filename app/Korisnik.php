@@ -3,9 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Korisnik extends Model
+class Korisnik extends Authenticatable
 {
+    protected $fillable = [
+        'e-mail',
+        'password'
+    ];
+
+    use Notifiable;
     /*
      *  Ovom metodom se vezuje za decu
      */

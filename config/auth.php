@@ -38,14 +38,23 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'korisnik',
+            'provider' => 'users',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'korisnik',
+            'provider' => 'users',
             'hash' => false,
         ],
+
+        'korisnik' => [
+            'driver' => 'session',
+            'provider' => 'korisnici',
+        ],
+        'korisnik-api' => [
+            'driver' => 'token',
+            'provider' => 'korisnici',
+        ]
     ],
 
     /*
@@ -66,11 +75,14 @@ return [
     */
 
     'providers' => [
-        'korisnik' => [
+        'users' => [
             'driver' => 'eloquent',
-            'model' => App\NeprivilegovanKorisnik::class,
+            'model' => App\User::class,
         ],
-
+        'korisnici' => [
+            'driver' => 'eloquent',
+            'model' => App\Korisnik::class,
+        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -95,6 +107,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'korisnici' => [
+            'provider' => 'korisnici',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

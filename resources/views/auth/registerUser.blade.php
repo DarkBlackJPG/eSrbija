@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Registracija korisnika') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('user.register') }}">
+                        <form method="POST" action="{{ route('user.register.save') }}">
                             @csrf
 
                             <!-- Ime -->
@@ -163,13 +163,13 @@
 
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input @error('pol') is-invalid @enderror" type="radio" name="pol" id="muski" value="m">
+                                        <input class="form-check-input @error('pol') is-invalid @enderror" type="radio" name="pol" id="muski" value="1">
                                         <label class="form-check-label @error('pol') is-invalid @enderror" for="Muski">
                                             Muski
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input @error('pol') is-invalid @enderror" type="radio" name="pol" id="zenski" value="z">
+                                        <input class="form-check-input @error('pol') is-invalid @enderror" type="radio" name="pol" id="zenski" value="0">
                                         <label class="form-check-label @error('pol') is-invalid @enderror" for="Zenski">
                                             Zenski
                                         </label>

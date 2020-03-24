@@ -6,6 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class NeprivilegovanKorisnik extends Model
 {
+    protected $fillable = [
+        'id',
+        'ime',
+        'prezime',
+        'datumRodjenja',
+        'opstinaPrebivalista_id',
+        'adresaPrebivalista',
+        'jmbg',
+        'pol' ,
+        'opstinaRodjenja_id' ,
+        'brojLicneKarte' ,
+    ];
     /*
      * Ovom metodom se vezuje za roditelja
      */

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -37,4 +39,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function getForm(){
+        return view('auth.login');
+    }
+
+    public function loginIntoSystem(Request $request) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+        if (Auth::guard('korisnik')->attempt(['e-mail' => $request->email, 'password' => $request->password], $request->remember)) {
+            return redirect()->route('home');
+        }
+        return redirect()->route('login');
+    }
+    public function logoutUser() {
+        Auth::logout();
+        return redirect()->route('welcome');
+    }
+
 }

@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth:korisnik');
     }
 
     /**
@@ -24,5 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function glavnaStranica() {
+        return view('homepages.obavestenja');
     }
 }
