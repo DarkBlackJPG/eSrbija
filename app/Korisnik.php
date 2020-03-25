@@ -33,7 +33,7 @@ class Korisnik extends Authenticatable
         return $this->belongsToMany('App\Kategorije', 'kategorije_korisnik_pretplates', 'korisnik_id', 'kategorije_id')->withTimestamps();
     }
     public function sviOdgovori(){
-        return $this->belongsToMany('App\PonudjeniOdgovori', 'odgovori_korisnik', 'korisnik_id', 'ponudjeni_odgovori_id')->withTimestamps();
+        return $this->belongsToMany('App\PonudjeniOdgovori', 'odgovori_korisnik', 'korisnik_id', 'ponudjeni_odgovori_id'); //OVO VRATI///->withTimestamps();
     }
     public function mojeAnkete(){
         return $this->hasMany('App\Ankete', 'korisnik_id', 'id');//->withTimestamps();

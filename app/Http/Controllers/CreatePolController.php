@@ -80,7 +80,7 @@ class CreatePolController extends Controller
 
         }
 
-
+   return redirect(route('ankete'));
 
     }
 }

@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="15c5ae8f-66a0-44e3-b112-0450c33e06a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Ankete.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Ankete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CreatePolController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CreatePolController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_19_150043_create_anketes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_19_150043_create_anketes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Korisnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Korisnik.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/homepages/aktivneAnkete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/aktivneAnkete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +188,7 @@
       <workItem from="1583533016674" duration="1758000" />
       <workItem from="1585053055733" duration="10287000" />
       <workItem from="1585094496713" duration="5916000" />
-      <workItem from="1585133095696" duration="11109000" />
+      <workItem from="1585133095696" duration="23730000" />
     </task>
     <servers />
   </component>
@@ -197,17 +196,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="517" y="295" key="NewPhpFileDialog" timestamp="1583267468552">
+    <state x="517" y="295" key="NewPhpFileDialog" timestamp="1585147992514">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="517" y="295" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1583267468552" />
+    <state x="517" y="295" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1585147992514" />
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585133222398">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585133222398" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585144781894">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1585149291000">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585144781894" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1585149291000" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585157853389">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585157853389" />
   </component>
 </project>

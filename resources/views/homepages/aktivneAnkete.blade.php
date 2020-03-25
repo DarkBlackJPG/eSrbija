@@ -4,11 +4,13 @@
     <div class = "container">
         <div class="row">
             <div class= " col-sm-8 ankete">
-    @if(request('ankete')==null)
+
+    @if($ankete==null || count($ankete)==0 )
+
          <div class="card">
              <div class="row">
                  <div class="col-8">
-                     <h1>Nema aktivnijh anketa</h1>
+                     <h3>Nema anketa raspolozivih za popunjavanje</h3>
                  </div>
              </div>
          </div>
@@ -16,26 +18,26 @@
 
 
 
-
+                @foreach($ankete as $anketa)
 
                 <div class="card">
                     <div class = "row">
                         <div class = "col-sm-8">
-                            <h2>Anketa 1</h2>
-                            <h5>Title description, Dec 7, 2017</h5>
-                            <p>Anketu je popunilo..</p>
+                            <h2>{{$anketa->naziv}}</h2>
+                            <h5>{{$anketa->created_at}}</h5>
+
                         </div>
-                        <div class = "offset-sm-2 align-self-center">
-                            <button class = "btn"> <a href = "{{route('statistikaankete')}}">statistika</a></button>
-                            <button class = "btn"> <a href = "#">obrisi</a></button>
+                        <div class = "offset-sm-2 align-self-right align-self-bottom">
+                            <button class = "btn"> <a href = "{{route('anketeid', ['id' => $anketa->id])}}">PopuniAnketu</a></button>
+
                         </div>
                     </div>
                 </div>
-
+               @endforeach
+                @endif
 
             </div>
         </div>
- @endif
 
 
 @endsection

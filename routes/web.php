@@ -22,9 +22,7 @@ Route::get('/createpost', function (){
 
 Route::get('/home', 'HomeController@glavnaStranica')->name('home');
 
-    Route::get('/ankete', function (){
-        return view('homepages.aktivneAnkete');
-    })->name('ankete');
+
 
     Route::get('/izbori', function (){
         return view('homepages.aktivneAnkete');
@@ -77,7 +75,9 @@ Route::post('/user/register', 'NeprivilegovanKorisnikRegistracija@register')->na
 //Pazi na createPol a ne POLL
 
 
-
+Route::get('/ankete', 'AnswerPollController@list_active')->name('ankete');
+Route::get('/ankete/{id}', 'AnswerPollController@answer_poll')->name('anketeid');
+Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
 Route::get('/createpoll', 'CreatePolController@return_view')->name('createpoll');
 Route::post('/savepoll', 'CreatePolController@create_poll')->name('savepoll');
 ////////////////////////////////////////////////////////////////////////////////////
