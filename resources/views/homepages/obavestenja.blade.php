@@ -2,7 +2,6 @@
 
 @section('homepagecontent')
 
-
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
             <div class="carousel-inner " style=" width:100%; height: 200px !important;">

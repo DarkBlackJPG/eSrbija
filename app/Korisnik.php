@@ -36,9 +36,9 @@ class Korisnik extends Authenticatable
         return $this->belongsToMany('App\PonudjeniOdgovori', 'odgovori_korisnik', 'korisnik_id', 'ponudjeni_odgovori_id')->withTimestamps();
     }
     public function mojeAnkete(){
-        return $this->hasMany('App\Ankete', 'korisnik_id', 'id')->withTimestamps();
+        return $this->hasMany('App\Ankete', 'korisnik_id', 'id');//->withTimestamps();
     }
     public function mojaObavestenja(){
-        return $this->hasMany('App\Obavestenja', 'korisnik_id', 'id')->withTimestamps();
+        return $this->hasMany('App\Obavestenja', 'korisnik_id', 'id');//->withTimestamps();
     }
 }

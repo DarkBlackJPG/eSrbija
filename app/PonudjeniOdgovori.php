@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PonudjeniOdgovori extends Model
 {
+    protected $fillable=['tekst'];
     public function pitanje(){
         return $this->belongsTo('App\Pitanja', 'pitanja_id');
     }

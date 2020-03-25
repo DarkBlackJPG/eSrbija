@@ -1,14 +1,14 @@
 @extends('fixed.home')
 
 @section('homepagecontent')
-        <div class="col-md-8 col-md-offset-2">
+
+        <div class="col-md-8 col-md-offset-2 ">
 
             <h1>Novo obavestenje</h1>
-
+            <hr>
             <form action="" method="POST">
-
-                <div class="form-group has-error pt-5">
-                    <label for="slug">Kategorija  </label>
+                <div class="form-group has-error">
+                    <h4>Kategorija <span class="requred">*</span>  </h4>
                     <br/>
                     <label for="vazno">Vazno</label>
                     <input type="radio" id="vazno" name="severity" checked>
@@ -16,58 +16,65 @@
                     <label for="informatiovno">Informativno</label>
                     <input type="radio" id="informatiovno" name="severity">
 
-                    <div id="categories" >
-
-                        <v-select multiple :options="categories"  v-model="selected" >
-                            <template  #search="{attributes, events}">
+                    <div class="col-md-12" style="padding:0;" id="categories">
+                        <v-select multiple :options="categories" style="background-color: white;" v-model="selected" >
+                            <template >
                                 <input
-                                    placeholder="Odaberi informativnu kategoriju"
-                                    id="infoKat"
                                     class="vs__search"
                                     :required="!selected"
-                                    v-bind="attributes"
-                                    v-on="events"
+
                                 >
                             </template>
                         </v-select>
-                        <input type="hidden" name="kategorije"  id="kategorije" :value="selected{{old('kategorije')}}">
+
                     </div>
 
 
-                    @error('kategorije')
-                    <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                    @enderror
                     <br/>
                     <table>
 
                         <tr>
                             <td>
-                                <form>
-                                    <input type="radio" name="nivo">Lokalni nivo <br/>
-                                    <input type="radio" name="nivo">Nacionalni nivo <br/>
-                                </form>
+                                <input type="radio" name="nivo" checked>&nbsp;Lokalni nivo &nbsp;&nbsp;
+                                <input type="radio" name="nivo"> Nacionalni nivo <br/>
+
                             </td>
                         </tr>
                     </table>
                 </div>
+                <hr>
+                <h5>Lokaliteti za koje se obavestenje vezuje <span class="requred">*</span></h5>
+                <div class="col-sm-12" style="padding: 0;" id="cities" >
+                    <v-select multiple :options="cities" style="background-color: white;" v-model="selected" >
+                        <template >
+                            <input
 
+                                id="citesInput"
+                                class="vs__search"
+                                :required="!selected"
+
+                            >
+                        </template>
+                    </v-select>
+
+                </div>
+                <hr>
                 <div class="form-group has-error">
-                    <label for="title">Naslov <span class="require">*</span></label>
+                    <label for="title"><h5>Naslov<span class="require"> </span>*</h5></label>
                     <input type="text" class="form-control" name="title" />
                 </div>
-
+                <hr>
                 <div class="form-group has-error">
-                    <label for="description">Opis</label> <span class="require">*</span>
+                    <label for="description"><h5>Opis <span class="require">*</span></h5></label>
                     <textarea rows="5" class="form-control" name="description" ></textarea>
                 </div>
-
+                <hr>
 
                 <div class="form-group ">
-                    <label for="title">Link do vesti </label>
+                    <label for="title"><h5>Link do vesti </h5></label>
                     <input type="text" class="form-control" name="title" />
                 </div>
+                <hr>
                 <div class="form-group">
                     <p><span class="require">*</span> - obavezna polja</p>
                 </div>
@@ -85,22 +92,25 @@
             </form>
         </div>
 
+
         <script>
             Vue.component('v-select', VueSelect.VueSelect)
 
             new Vue({
-                el: '#selectMunicipalityContainer',
+                el: '#cities',
                 data: {
                     selected: '',
-                    muncipalities: ['Subotica', 'Beograd', 'Novi Sad']
+                    cities: ['Subotica', 'Beograd', 'Cacak', 'Novi Sad']
                 }
             })
             new Vue({
                 el: '#categories',
                 data: {
                     selected: '',
-                    categories: [ 'Sport', 'Finansije','Kultura','Energetika']
+                    categories: ['Sport', 'Finansije', 'Zdravlje','Energetika']
                 }
             })
         </script>
+
+
 @endsection

@@ -4,107 +4,22 @@
     <list default="true" id="15c5ae8f-66a0-44e3-b112-0450c33e06a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/e-Srbija.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/e-Srbija.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NeprivilegovanKorisnikRegistracija.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NeprivilegovanKorisnikRegistracija.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_19_144218_create_korisniks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_19_144218_create_korisniks_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_19_150023_create_obavestenjas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_19_150023_create_obavestenjas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_19_150056_create_ponudjeni_odgovoris_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_19_150056_create_ponudjeni_odgovoris_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Ankete.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Ankete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Korisnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Korisnik.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Pitanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pitanja.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/PonudjeniOdgovori.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PonudjeniOdgovori.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/aktivneAnkete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/aktivneAnkete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/createpost.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/createpost.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/mojeankete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/mojeankete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/mojeobjave.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/mojeobjave.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/nemaobjava.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/nemaobjava.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/obavestenja.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/obavestenja.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/obavestenjafinansije.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/obavestenjafinansije.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/obavestenjasport.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/obavestenjasport.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/homepages/statistikaanketa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/statistikaanketa.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/node_modules/" />
-    <ignored path="$PROJECT_DIR$/vendor/composer/" />
-    <ignored path="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir/" />
-    <ignored path="$PROJECT_DIR$/vendor/doctrine/inflector/" />
-    <ignored path="$PROJECT_DIR$/vendor/doctrine/instantiator/" />
-    <ignored path="$PROJECT_DIR$/vendor/doctrine/lexer/" />
-    <ignored path="$PROJECT_DIR$/vendor/dragonmantank/cron-expression/" />
-    <ignored path="$PROJECT_DIR$/vendor/egulias/email-validator/" />
-    <ignored path="$PROJECT_DIR$/vendor/facade/flare-client-php/" />
-    <ignored path="$PROJECT_DIR$/vendor/facade/ignition/" />
-    <ignored path="$PROJECT_DIR$/vendor/facade/ignition-contracts/" />
-    <ignored path="$PROJECT_DIR$/vendor/fideloper/proxy/" />
-    <ignored path="$PROJECT_DIR$/vendor/filp/whoops/" />
-    <ignored path="$PROJECT_DIR$/vendor/fzaninotto/faker/" />
-    <ignored path="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php/" />
-    <ignored path="$PROJECT_DIR$/vendor/jakub-onderka/php-console-color/" />
-    <ignored path="$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter/" />
-    <ignored path="$PROJECT_DIR$/vendor/laravel/framework/" />
-    <ignored path="$PROJECT_DIR$/vendor/laravel/tinker/" />
-    <ignored path="$PROJECT_DIR$/vendor/laravel/ui/" />
-    <ignored path="$PROJECT_DIR$/vendor/league/commonmark/" />
-    <ignored path="$PROJECT_DIR$/vendor/league/flysystem/" />
-    <ignored path="$PROJECT_DIR$/vendor/mockery/mockery/" />
-    <ignored path="$PROJECT_DIR$/vendor/monolog/monolog/" />
-    <ignored path="$PROJECT_DIR$/vendor/myclabs/deep-copy/" />
-    <ignored path="$PROJECT_DIR$/vendor/nesbot/carbon/" />
-    <ignored path="$PROJECT_DIR$/vendor/nikic/php-parser/" />
-    <ignored path="$PROJECT_DIR$/vendor/nunomaduro/collision/" />
-    <ignored path="$PROJECT_DIR$/vendor/opis/closure/" />
-    <ignored path="$PROJECT_DIR$/vendor/paragonie/random_compat/" />
-    <ignored path="$PROJECT_DIR$/vendor/phar-io/manifest/" />
-    <ignored path="$PROJECT_DIR$/vendor/phar-io/version/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpoption/phpoption/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpspec/prophecy/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-code-coverage/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-file-iterator/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-text-template/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-timer/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpunit/php-token-stream/" />
-    <ignored path="$PROJECT_DIR$/vendor/phpunit/phpunit/" />
-    <ignored path="$PROJECT_DIR$/vendor/psr/container/" />
-    <ignored path="$PROJECT_DIR$/vendor/psr/log/" />
-    <ignored path="$PROJECT_DIR$/vendor/psr/simple-cache/" />
-    <ignored path="$PROJECT_DIR$/vendor/psy/psysh/" />
-    <ignored path="$PROJECT_DIR$/vendor/ramsey/uuid/" />
-    <ignored path="$PROJECT_DIR$/vendor/scrivo/highlight.php/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/comparator/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/diff/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/environment/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/exporter/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/global-state/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/object-enumerator/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/object-reflector/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/recursion-context/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/resource-operations/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/type/" />
-    <ignored path="$PROJECT_DIR$/vendor/sebastian/version/" />
-    <ignored path="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/console/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/css-selector/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/debug/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/error-handler/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/event-dispatcher/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/finder/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/http-foundation/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/http-kernel/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/mime/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-php72/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/polyfill-php73/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/process/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/routing/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/service-contracts/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/translation/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/translation-contracts/" />
-    <ignored path="$PROJECT_DIR$/vendor/symfony/var-dumper/" />
-    <ignored path="$PROJECT_DIR$/vendor/theseer/tokenizer/" />
-    <ignored path="$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles/" />
-    <ignored path="$PROJECT_DIR$/vendor/vlucas/phpdotenv/" />
-    <ignored path="$PROJECT_DIR$/vendor/webmozart/assert/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,102 +45,6 @@
     <expand />
     <select />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150034_create_pitanjas_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-111">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150043_create_anketes_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-48">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150056_create_ponudjeni_odgovoris_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/homepages/obavestenja.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="17" selection-start-line="17" selection-end-line="24" selection-end-column="29" />
-              <folding>
-                <element signature="e#38#74#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsMod.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="11" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="11" />
-              <folding>
-                <element signature="e#39#51#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/fixed/home.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>table</find>
@@ -238,31 +57,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/NeprivilegovanKorisnikRegistracija.php" />
-        <option value="$PROJECT_DIR$/app/Korisnik.php" />
-        <option value="$PROJECT_DIR$/app/NeprivilegovanKorisnik.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/registerUser.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/NeprivilegovanKorisnikRegistracija.php" />
-        <option value="$PROJECT_DIR$/config/auth.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_03_19_144218_create_korisniks_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_03_19_150023_create_obavestenjas_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2020_03_19_150056_create_ponudjeni_odgovoris_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/IsMod.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/homepages/obavestenja.blade.php" />
-      </list>
-    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -362,103 +156,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="843" />
-    <option name="y" value="-16" />
-    <option name="width" value="974" />
-    <option name="height" value="1087" />
-  </component>
   <component name="ProjectId" id="1Yaxfp22fvp2YMU2WEhyhnhJAAW" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Middleware" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="homepages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="eSrbija" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eSrbija" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -483,18 +181,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\stefa\OneDrive\Desktop\ETF kodovi\PSI\eSrbija\e-Srbija\resources\views\auth" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -522,38 +208,10 @@
       <workItem from="1583264732160" duration="6300000" />
       <workItem from="1583516330257" duration="1074000" />
       <workItem from="1583533016674" duration="1758000" />
-      <workItem from="1585053055733" duration="9679000" />
+      <workItem from="1585053055733" duration="10287000" />
+      <workItem from="1585094496713" duration="5916000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12881000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info id="npm" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.25373134" />
-      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.38633937" />
-      <window_info anchor="bottom" id="Database Changes" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" weight="0.17929563" />
-      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -563,257 +221,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="295" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1583267468552" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1583533015763">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585094495518">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583533015763" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/homepagecontroller.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="67" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="10" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Korisnik.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/NeprivilegovanKorisnik.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#7#389#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="104" column="71" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#form#0;n#div#0;n#li#3;n#ul#1;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/NeprivilegovanKorisnikRegistracija.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="68" column="10" selection-start-line="68" selection-start-column="10" selection-end-line="68" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="182" column="23" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-279">
-          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/registerUser.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="181" column="38" selection-start-line="181" selection-start-column="38" selection-end-line="181" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="73" column="44" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_144218_create_korisniks_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_145733_create_neprivilegovan_korisniks_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_145749_create_administrators_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_145800_create_moderators_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-447">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_145818_create_mestos_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_145839_create_zahtevi_moderators_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150012_create_kategorijes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150023_create_obavestenjas_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150034_create_pitanjas_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150043_create_anketes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_03_19_150056_create_ponudjeni_odgovoris_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="17" selection-start-line="17" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="e#38#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/IsMod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="e#39#51#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/fixed/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/homepages/obavestenja.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585094495518" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585099833615">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585099833615" />
   </component>
 </project>

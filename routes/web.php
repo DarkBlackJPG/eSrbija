@@ -55,9 +55,7 @@ Route::get('/objavefinansije', function (){
 Route::get('/nemaobjava', function (){
     return view('homepages.nemaobjava');
 })->name('nemaobjava');
-Route::get('/createpoll', function (){
-    return view('homepages.napraviankete');
-})->name('createpoll');
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -74,3 +72,12 @@ Route::get('/admin/moderators', function (){ return view('admin.moderatorApprova
 
 Route::post('/user/register', 'NeprivilegovanKorisnikRegistracija@register')->name('user.register.save');
 
+///////////////////////////////////////////
+// CAREVIC
+//Pazi na createPol a ne POLL
+
+
+
+Route::get('/createpoll', 'CreatePolController@return_view')->name('createpoll');
+Route::post('/savepoll', 'CreatePolController@create_poll')->name('savepoll');
+////////////////////////////////////////////////////////////////////////////////////
