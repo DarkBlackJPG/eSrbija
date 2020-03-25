@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15c5ae8f-66a0-44e3-b112-0450c33e06a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/e-Srbija.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/e-Srbija.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Ankete.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Ankete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Korisnik.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Korisnik.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Pitanja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Pitanja.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PonudjeniOdgovori.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PonudjeniOdgovori.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CreatePolController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CreatePolController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_03_19_150043_create_anketes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_03_19_150043_create_anketes_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/homepages/aktivneAnkete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/aktivneAnkete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/createpost.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/createpost.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/mojeankete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/mojeankete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/mojeobjave.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/mojeobjave.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/napraviankete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/nemaobjava.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/nemaobjava.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/obavestenja.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/obavestenja.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/obavestenjafinansije.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/obavestenjafinansije.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/obavestenjasport.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/obavestenjasport.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/homepages/statistikaanketa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/homepages/statistikaanketa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +33,6 @@
     </option>
     <expand />
     <select />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>table</find>
-      <find>muski</find>
-      <find>form</find>
-      <find>login</find>
-      <find>logout</find>
-      <find>logou</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -175,11 +154,11 @@
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\stefa\OneDrive\Desktop\ETF kodovi\PSI\GitProject\eSrbija\app\Http\Controllers" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\stefa\OneDrive\Desktop\ETF kodovi\PSI\eSrbija\e-Srbija\resources\views\auth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\stefa\OneDrive\Desktop\ETF kodovi\PSI\GitProject\eSrbija\app\Http\Controllers" />
     </key>
   </component>
   <component name="RunManager">
@@ -210,6 +189,7 @@
       <workItem from="1583533016674" duration="1758000" />
       <workItem from="1585053055733" duration="10287000" />
       <workItem from="1585094496713" duration="5916000" />
+      <workItem from="1585133095696" duration="11109000" />
     </task>
     <servers />
   </component>
@@ -221,13 +201,13 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="517" y="295" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1583267468552" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585094495518">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1585133222398">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585094495518" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585099833615">
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1585133222398" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1585144781894">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585099833615" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1585144781894" />
   </component>
 </project>

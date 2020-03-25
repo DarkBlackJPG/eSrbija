@@ -17,6 +17,7 @@ class CreateAnketesTable extends Migration
             $table->bigIncrements('id');
             $table->string('naziv');
             $table->boolean('obrisanoFlag');
+            $table->boolean('isActive');
             $table->integer('nivoLokNac');
             $table->unsignedBigInteger('korisnik_id');
             $table->timestamps();
@@ -24,6 +25,22 @@ class CreateAnketesTable extends Migration
             $table->foreign('korisnik_id')
                 ->references('id')
                 ->on('korisniks')
+                ->onDelete('cascade');
+        });
+        Schema::create('ankete_mestos', function (Blueprint $table){
+            $table->unsignedBigInteger('ankete_id');
+            $table->unsignedBigInteger('mesto_id');
+            $table->timestamps();
+            $table->unique(['ankete_id', 'mesto_id']);
+
+            $table->foreign('ankete_id')
+                ->references('id')
+                ->on('anketes')
+                ->onDelete('cascade');
+
+            $table->foreign('mesto_id')
+                ->references('id')
+                ->on('mestos')
                 ->onDelete('cascade');
         });
     }

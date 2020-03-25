@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="col-sm-5" style="padding: 0;" id="cities" >
-                    <v-select multiple :options="cities" style="background-color: white;" v-model="selected" >
+                    <v-select multiple :options="cities"  style="background-color: white;" v-model="selected" >
                         <template >
                             <input
 
@@ -64,9 +64,11 @@
                                 class="vs__search"
                                 :required="!selected"
 
+
                             >
                         </template>
                     </v-select>
+                    <input type="hidden" name="mesta[]" :value="selected">
 
                 </div>
 
@@ -85,15 +87,17 @@
         </div>
 
                 </form>
+
             </div>
         <script>
             Vue.component('v-select', VueSelect.VueSelect)
 
             new Vue({
-                el: '#cities',
+                el: '#forma',
                 data: {
                     selected: '',
-                    cities: ['Subotica', 'Beograd', 'Cacak', 'Novi Sad']
+                cities: [{!! $mesta !!}]
+                    //['Subotica', 'Beograd', 'Cacak', 'Novi Sad']
                 }
             })
 

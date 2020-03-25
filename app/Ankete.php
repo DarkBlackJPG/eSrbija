@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ankete extends Model
 {
-    protected $fillable = ['naziv', 'nivoLokNac', 'obrisanoFlag'];
+    protected $fillable = ['naziv', 'nivoLokNac', 'obrisanoFlag', 'isActive'];
     public function korisnik() {
         return $this->belongsTo('App\Korisnik', 'korisnik_id', 'id'); //->withTimestamps();
     }
