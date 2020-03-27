@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
     public function getUserRegistrationForm()
     {
         $allPlaces = \App\Mesto::all();

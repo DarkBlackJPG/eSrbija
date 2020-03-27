@@ -203,12 +203,18 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <i style="color: gray;">
+                                        <ul>
+                                            <li>Minimalno 8 karaktera</li>
+                                            <li>Maksimalno 20 karaktera</li>
+                                            <li>Minimalno 1 karakter</li>
+                                        </ul>
+                                    </i>
                                 </div>
                             </div>
 
