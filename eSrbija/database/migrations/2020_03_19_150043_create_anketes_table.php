@@ -30,8 +30,9 @@ class CreateAnketesTable extends Migration
         Schema::create('ankete_mestos', function (Blueprint $table){
             $table->unsignedBigInteger('ankete_id');
             $table->unsignedBigInteger('mesto_id');
-            $table->timestamps();
+
             $table->unique(['ankete_id', 'mesto_id']);
+            $table->primary(['ankete_id', 'mesto_id']);
 
             $table->foreign('ankete_id')
                 ->references('id')

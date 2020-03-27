@@ -20,7 +20,7 @@ class CreateObavestenjasTable extends Migration
             $table->string('link');
             $table->smallInteger('nivoLokNac');
             $table->unsignedBigInteger('korisnik_id');
-            $table->boolean('obrisano');
+            $table->boolean('obrisanoFlag');
             $table->timestamps();
 
             $table->foreign('korisnik_id')
@@ -32,7 +32,7 @@ class CreateObavestenjasTable extends Migration
             $table->unsignedBigInteger('obavestenja_id');
             $table->unsignedBigInteger('kategorije_id');
             $table->unique(['obavestenja_id', 'kategorije_id']);
-
+            $table->primary(['obavestenja_id', 'kategorije_id']);
             $table->foreign('obavestenja_id')
                 ->references('id')
                 ->on('obavestenjas')

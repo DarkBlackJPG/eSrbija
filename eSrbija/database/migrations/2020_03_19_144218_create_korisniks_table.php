@@ -30,7 +30,7 @@ class CreateKorisniksTable extends Migration
             $table->unsignedBigInteger('korisnik_id');
             $table->unsignedBigInteger('kategorije_id');
             $table->unique(['korisnik_id', 'kategorije_id']);
-
+            $table->primary(['korisnik_id', 'kategorije_id']);
             $table->foreign('korisnik_id')
                 ->references('id')
                 ->on('korisniks')
@@ -46,7 +46,7 @@ class CreateKorisniksTable extends Migration
             $table->unsignedBigInteger('korisnik_id');
             $table->unsignedBigInteger('kategorije_id');
             $table->unique(['korisnik_id', 'kategorije_id']);
-
+            $table->primary(['korisnik_id', 'kategorije_id']);
             $table->foreign('korisnik_id')
                 ->references('id')
                 ->on('korisniks')
@@ -62,7 +62,7 @@ class CreateKorisniksTable extends Migration
             $table->unsignedBigInteger('korisnik_id');
             $table->unsignedBigInteger('ponudjeni_odgovori_id');
             $table->unique(['korisnik_id', 'ponudjeni_odgovori_id']);
-
+            $table->primary(['korisnik_id', 'ponudjeni_odgovori_id']);
             $table->foreign('korisnik_id')
                 ->references('id')
                 ->on('korisniks')
@@ -83,9 +83,10 @@ class CreateKorisniksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('korisniks');
         Schema::dropIfExists('ponudjeni_odgovori_korisnik');
         Schema::dropIfExists('kategorije_korisnik_ovlascenjas');
         Schema::dropIfExists('kategorije_korisnik_pretplates');
+        Schema::dropIfExists('korisniks');
+
     }
 }
