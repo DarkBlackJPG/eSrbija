@@ -20,7 +20,7 @@ class CreateModeratorsTable extends Migration
                 ->on('korisniks')
                 ->onDelete('cascade');
             $table->primary('id');
-
+            $table->boolean('approved')->default(false);
             $table->string('naziv')->unique();
             $table->string('adresa');
             $table->string('pib', 9)->unique();

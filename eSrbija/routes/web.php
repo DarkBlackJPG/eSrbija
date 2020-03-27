@@ -57,7 +57,7 @@ Route::get('/nemaobjava', function (){
 
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+})->middleware('guest')->name('welcome');
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('login', 'Auth\LoginController@getForm')->name('login');
@@ -69,7 +69,7 @@ Route::get('/admin/moderators', function (){ return view('admin.moderatorApprova
 
 
 Route::post('/user/register', 'NeprivilegovanKorisnikRegistracija@register')->name('user.register.save');
-
+Route::post('/moderator/register', 'ModeratorRegistracija@register')->name('moderator.register.save');
 ///////////////////////////////////////////
 // CAREVIC
 //Pazi na createPol a ne POLL

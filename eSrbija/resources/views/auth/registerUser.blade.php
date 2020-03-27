@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
     @section('content')
+    <link rel="stylesheet" href="{{asset('css/authentication.css')}}">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Registracija korisnika') }}</div>
+                <div class="card no-padding">
+                    <div class="card-header"><h3>{{ __('Registracija korisnika') }}</h3></div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('user.register.save') }}">
@@ -163,7 +164,7 @@
 
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input @error('pol') is-invalid @enderror" type="radio" name="pol" id="muski" value="1">
+                                        <input class="form-check-input @error('pol') is-invalid @enderror" type="radio" name="pol" id="muski" value="1" checked>
                                         <label class="form-check-label @error('pol') is-invalid @enderror" for="Muski">
                                             Muski
                                         </label>
@@ -240,14 +241,22 @@
             el: '#selectMunicipalityContainer',
             data: {
                 selected: '',
-                muncipalities: ['Subotica', 'Beograd', 'Novi Sad']
+                muncipalities: [
+                    @foreach($mesta as $element)
+                    '{{$element->naziv}}',
+                    @endforeach
+                ]
             }
         })
         new Vue({
             el: '#muncipalityContainer',
             data: {
                 selected: '',
-                muncipalities: ['Subotica', 'Beograd', 'Novi Sad']
+                muncipalities: [
+                    @foreach($mesta as $element)
+                        '{{$element->naziv}}',
+                    @endforeach
+                ]
             }
         })
     </script>

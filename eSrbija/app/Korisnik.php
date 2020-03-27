@@ -27,10 +27,10 @@ class Korisnik extends Authenticatable
         return $this->hasMany('App\Moderator', 'id', 'id');
     }
     public function ovlascenja(){
-        return $this->belongsToMany('App\Kategorije', 'kategorije_korisnik_ovlascenjas', 'korisnik_id', 'kategorije_id')->withTimestamps();
+        return $this->belongsToMany('App\Kategorije', 'kategorije_ovlascenjas', 'korisnik_id', 'kategorije_id');
     }
     public function pretplate(){
-        return $this->belongsToMany('App\Kategorije', 'kategorije_korisnik_pretplates', 'korisnik_id', 'kategorije_id')->withTimestamps();
+        return $this->belongsToMany('App\Kategorije', 'kategorije_pretplates', 'korisnik_id', 'kategorije_id');
     }
     public function sviOdgovori(){
         return $this->belongsToMany('App\PonudjeniOdgovori', 'odgovori_korisnik', 'korisnik_id', 'ponudjeni_odgovori_id'); //OVO VRATI///->withTimestamps();

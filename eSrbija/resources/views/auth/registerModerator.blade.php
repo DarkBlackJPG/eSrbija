@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{asset('css/authentication.css')}}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Forma za prijavu moderatora') }}</div>
+            <div class="card no-padding">
+                <div class="card-header"><h3>{{ __('Forma za prijavu moderatora') }} </h3></div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('moderator.register.save') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -179,14 +180,22 @@
         el: '#selectMunicipalityContainer',
         data: {
             selected: '',
-            muncipalities: ['Subotica', 'Beograd', 'Novi Sad']
+            muncipalities: [
+                @foreach($mesta as $element)
+                    '{{$element->naziv}}',
+                @endforeach
+            ]
         }
     })
     new Vue({
         el: '#categories',
         data: {
             selected: '',
-            categories: ['Vazno', 'Glupo', 'Sehsipipi']
+            categories: [
+                @foreach($kategorije as $element)
+                    '{{$element->naziv}}',
+                @endforeach
+            ]
         }
     })
 </script>

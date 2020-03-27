@@ -2,6 +2,16 @@
 
 @section('homepagecontent')
 
+        @if(session('userRegisterSuccess'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '{{session('userRegisterSuccess')}}',
+                    text: 'Proverite prilozenu elektronsku postu sa linkom da potvrdite prijavu. Link traje 24h!',
+                    confirmButtonText: 'Razumem',
+                })
+            </script>
+        @endif
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
             <div class="carousel-inner " style=" width:100%; height: 200px !important;">
