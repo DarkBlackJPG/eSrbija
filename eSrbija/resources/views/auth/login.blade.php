@@ -1,11 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{asset('css/authentication.css')}}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            <div class="card no-padding">
+                <div class="card-header">
+                    <h3>{{ __('Login') }}</h3>
+                </div>
+
+
 
                 <div class="card-body">
                     <form method="post" action="{{ route('loginPost') }}">

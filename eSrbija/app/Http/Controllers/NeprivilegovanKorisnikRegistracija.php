@@ -25,72 +25,108 @@ class NeprivilegovanKorisnikRegistracija extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        //$this->middleware('guest:korisnik');
-    }
-
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'ime' => ['required', 'string', 'max:255'],
-            'prezime' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:korisniks,e-mail'],
-            'rodjendan' => ['required', 'date', 'email', 'max:255'],
-            'prebivaliste' => ['required', 'string', 'max:255', 'exists:mestos,naziv'],
-            'adresaPrebivalista' => ['required', 'string', 'max:255'],
-            'JMBG' => ['required', 'string', 'max:13', 'unique:neprivilegovan_korisniks,jmbg'],
-            'pol' => ['required', 'boolean'],
-            'rodjenje' => ['required', 'string', 'exists:mestos,naziv'],
-            'brojLicne' => ['required', 'string', 'email', 'max:9', 'unique:neprivilegovan_korisniks,brojLicneKarte'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'password_confirmation' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
     }
 
 
     protected function register(Request $request)
     {
         // Imam neki bag, nece da tadi TODO: Resiti ovaj bag ovde da validira kako treba
-        $validate = $request->validate([
-            'ime' => ['required', 'string', 'max:255'],
-            'prezime' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:korisniks,e-mail'],
-            'rodjendan' => ['required', 'date', 'max:255'],
-            'prebivaliste' => ['required', 'string', 'max:255', 'exists:mestos,naziv'],
-            'adresaPrebivalista' => ['required', 'string', 'max:255'],
-            'JMBG' => ['required', 'string', 'max:13', 'unique:neprivilegovan_korisniks,jmbg'],
-            'pol' => ['required', 'boolean'],
-            'rodjenje' => ['required', 'string', 'exists:mestos,naziv'],
-            'brojLicne' => ['required', 'string', 'max:9', 'unique:neprivilegovan_korisniks,brojLicneKarte'],
-            'password' => ['required', 'string', 'min:8', 'required_with:password_confirmation', 'same:password_confirmation'],
-            'password_confirmation' => ['required', 'string', 'min:8'],
+        $request->validate([
+            'ime' => [
+                'required',
+                'string',
+                'max:255'
+            ],
+            'prezime' => [
+                'required',
+                'string',
+                'max:255'
+            ],
+            'email' => ['required',
+                'email',
+                'max:255',
+                'unique:korisniks,e-mail'
+            ],
+            'rodjendan' => [
+                'required',
+                'date',
+                'max:255'
+            ],
+            'prebivaliste' => [
+                'required',
+                'string',
+                'max:255',
+                'exists:mestos,naziv'
+            ],
+            'adresaPrebivalista' => [
+                'required',
+                'string',
+                'max:255'
+            ],
+            'JMBG' => [
+                'required',
+                'string',
+                'max:13',
+                'unique:neprivilegovan_korisniks,jmbg'
+            ],
+            'pol' => [
+                'required',
+                'boolean'
+            ],
+            'rodjenje' => [
+                'required',
+                'string',
+                'exists:mestos,naziv'
+            ],
+            'brojLicne' => [
+                'required',
+                'string',
+                'max:9',
+                'unique:neprivilegovan_korisniks,brojLicneKarte'
+            ],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'max:20',
+                'regex:/[0-9]/i',
+                'required_with:password_confirmation',
+                'same:password_confirmation'
+            ],
+            'password_confirmation' => [
+                'required',
+                'string',
+                'min:8',
+                'max:20',
+                'regex:/[0-9]/i',
+            ],
         ]);
 
-        //dd('ds');
+        $user = new Korisnik();
+        $user->{"e-mail"} = $request['email'];
+        $user->password = Hash::make($request['password']);
+        $user->isMod = false;
+        $user->isAdmin = false;
+        $user->save();
 
-        $user = Korisnik::create([
-            'e-mail' =>$request['email'],
-            'password' => Hash::make($request['password']),
-            // Type = 0 jer je default
-        ]);
         $data = $request;
 
-        NeprivilegovanKorisnik::create([
-            'id' => $user->id,
-            'ime' => $data['ime'],
-            'prezime' => $data['prezime'],
-            'datumRodjenja' => $data['rodjendan'],
-            'opstinaPrebivalista_id' => Mesto::where('naziv','=',$data['prebivaliste'])->first()->id,
-            'adresaPrebivalista' => $data['adresaPrebivalista'],
-            'jmbg' => $data['JMBG'],
-            'pol' => $data['pol'],
-            'opstinaRodjenja_id' => Mesto::where('naziv','=',$data['rodjenje'])->first()->id,
-            'brojLicneKarte' => $data['brojLicne'],
-        ]);
+        $unprivUser = new NeprivilegovanKorisnik();
+        $unprivUser->id = $user->id;
+        $unprivUser->ime = $data['ime'];
+        $unprivUser->prezime = $data['prezime'];
+        $unprivUser->datumRodjenja = $data['rodjendan'];
+        $unprivUser->opstinaPrebivalista_id = Mesto::where('naziv','=',$data['prebivaliste'])->first()->id;
+        $unprivUser->adresaPrebivalista = $data['adresaPrebivalista'];
+        $unprivUser->jmbg = $data['JMBG'];
+        $unprivUser->pol = $data['pol'];
+        $unprivUser->opstinaRodjenja_id = Mesto::where('naziv','=',$data['rodjenje'])->first()->id;
+        $unprivUser->brojLicneKarte = $data['brojLicne'];
+        $unprivUser->save();
 
         $this->guard()->login($user);
 
         return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+            ?: redirect($this->redirectPath())->with('userRegisterSuccess', 'Uspesna registracija!');
     }
 }

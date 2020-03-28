@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Moderator extends Model
 {
+    protected $fillable = [
+        'id',
+        'approved',
+        'naziv',
+        'adresa',
+        'pib',
+        'maticniBroj',
+        'opstinaPoslovanja_id',
+    ];
     /*
      * Ovom metodom se vezuje za roditelja
      */
