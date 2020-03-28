@@ -156,7 +156,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="../newhomepages/nemaanketa.html">Aktivne ankete</a>
+                                                    <a href="../newhomepages/aktivneankete.html">Aktivne ankete</a>
                                                 </td>
                                             </tr>
             
@@ -221,10 +221,10 @@
                                     <h4>Kategorija <span class="requred">*</span>  </h4>
                                     <br/>
                                     <label for="vazno">Vazno</label>
-                                    <input type="radio" id="vazno" name="severity" checked>
+                                    <input type="radio" onclick="prikaziVue()" id="vazno" name="severity" >
                                     &nbsp;
                                     <label for="informatiovno">Informativno</label>
-                                    <input type="radio" id="informatiovno" name="severity">
+                                    <input type="radio" onclick="prikaziVue()" id="informativno" name="severity" checked>
                 
                                     <div class="col-md-12" style="padding:0;" id="categories">
                                         <v-select multiple :options="categories" style="background-color: white;" v-model="selected" >
@@ -245,14 +245,15 @@
                 
                                         <tr>
                                             <td>
-                                                <input type="radio" name="nivo" checked>&nbsp;Lokalni nivo &nbsp;&nbsp; 
-                                                <input type="radio" name="nivo"> Nacionalni nivo <br/>
+                                                <input type="radio" onclick="prikaziVue()" name="nivo" id="lokalni" checked>&nbsp;Lokalni nivo &nbsp;&nbsp; 
+                                                <input type="radio"  onclick="prikaziVue()" name="nivo"> Nacionalni nivo <br/>
                                             
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                                 <hr>
+                                <div id="lokalniLok">
                                 <h5>Lokaliteti za koje se obavestenje vezuje <span class="requred">*</span></h5>
                                 <div class="col-sm-12" style="padding: 0;" id="cities" >
                                         <v-select multiple :options="cities" style="background-color: white;" v-model="selected" >
@@ -268,6 +269,7 @@
                                         </v-select>
                                         
                                     </div>
+                                </div>
                                <hr>
                                 <div class="form-group has-error">
                                     <label for="title"><h5>Naslov<span class="require"> </span>*</h5></label>
@@ -282,7 +284,7 @@
                 
                                 <div class="form-group ">
                                     <label for="title"><h5>Link do vesti </h5></label>
-                                    <input type="text" class="form-control" name="title" />
+                                    <input type="text" class="form-control" name="link" />
                                 </div>
                                 <hr>
                                 <div class="form-group">
@@ -291,10 +293,10 @@
                 
                 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="button"  onclick="posalji()" class="btn btn-primary">
                                         Objavi
                                     </button>
-                                    <button class="btn btn-default">
+                                    <button type="button" class="btn btn-default" onclick='window.location= "./obavestenja.html"'>
                                         Odustani
                                     </button>
                                 </div>
@@ -306,21 +308,44 @@
                         <script>
                             Vue.component('v-select', VueSelect.VueSelect)
                         
-                            new Vue({
+                           var gradovi= new Vue({
                                 el: '#cities',
                                 data: {
                                     selected: '',
                                     cities: ['Subotica', 'Beograd', 'Cacak', 'Novi Sad']
                                 }
                             })
-                            new Vue({
+                            var kategorije = new Vue({
                                 el: '#categories',
                                 data: {
                                     selected: '',
                                     categories: ['Sport', 'Finansije', 'Zdravlje','Energetika']
                                 }
                             })
+
+function posalji(){
+        if(document.getElementById("informativno").checked && kategorije.selected=="") alert("Nisu unete informativne kategorije");
+        else if(document.getElementById("lokalni").checked && gradovi.selected=="") alert("Nisu uneti lokaliteti");
+            else if (document.getElementsByName("title")[0].value=="")alert("Nije unet naslov");
+                else if(document.getElementsByName("description")[0].value=="")alert("Nije unet opis")
+        else window.location= "./obavestenja.html";
+
+
+
+}
+function prikaziVue(){
+    if(document.getElementById("informativno").checked) document.getElementById("categories").style.visibility="visible";
+    else document.getElementById("categories").style.visibility="hidden";
+     
+         if(document.getElementById("lokalni").checked) document.getElementById("lokalniLok").style.visibility="visible";
+            else document.getElementById("lokalniLok").style.visibility="hidden";
+             
+
+
+}
+
                         </script>
+                        
                     
                      </div>
             

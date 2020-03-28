@@ -1,6 +1,5 @@
 <!-- Filip Carevic -->
 <!doctype html>
-<html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +20,7 @@
     <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
     <script src="../../js/app.js" defer></script>
     <script src="https://kit.fontawesome.com/662634c78e.js" crossorigin="anonymous"></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -155,7 +155,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <a href="../newhomepages/nemaanketa.html">Aktivne ankete</a>
+                                                    <a href="../newhomepages/aktivneankete.html">Aktivne ankete</a>
                                                 </td>
                                             </tr>
             
@@ -212,12 +212,34 @@
                     </div>
                     <div class="col-md-8 justify-content-center">
                         <div class="container">
+                            
                             <div class="row"> <form>
                                     <div class="form-group pt-15">
-                                        <button type="submit" class="btn btn-primary">
+                                        <script >
+                                            function posalji()
+{
+    let flag=true;
+  let polja = document.getElementsByName("optionsRadios");
+  for(let i=0;i<polja.length;i++) if(polja[i].value=="") flag=false;
+if(document.getElementById("naziv").value=="") alert("Nije unet naziv")
+		else 		if(document.getElementById("lokalni").checked && vue.selected=="") alert("Lokaliteti nisu uneti");
+
+        else if(document.getElementById("polja").value=="") alert("Unesite pitanje");
+            else if(!flag) alert("Neki odgovori nisu uneti")
+            else {
+				window.location="aktivneankete.html"; alert("Napravljena anketa");}
+return true;
+
+}
+                                        </script>
+                                        
+                           <button type="button"  onclick='posalji()'
+					class="btn btn-primary">
                                             Objavi
                                         </button>
-                                        <button class="btn btn-default">
+
+
+                                        <button type="button" class="btn btn-default" onclick='window.location="aktivneankete.html";'>
                                             Odustani
                                         </button>
                                     </div>
@@ -225,6 +247,10 @@
 				<hr/>
 				</div>
                             <div class="row">
+					<input type="text" id="naziv" placeholder="Uneti naziv ankete">
+								<br/>
+					</div>
+				<div class="row">
                     
                                 <table>
                                     <tr>
@@ -236,22 +262,29 @@
                                     </tr>
                                     <tr>
                                 <td>
+                                    <script>
+                                        function prikaziVue(){
+                                        if(document.getElementById("lokalni").checked) document.getElementById("citiesLok").style.visibility="visible";
+                                        else document.getElementById("citiesLok").style.visibility="hidden";
+                                        }
+                                    </script>
                                 <form>
-                                <input type="radio" name="nivo">Lokalni nivo <br/>
-                                <input type="radio" name="nivo">Nacionalni nivo <br/>
+                                <input type="radio" name="nivo" id="lokalni" onclick="prikaziVue()" checked="checked">Lokalni nivo <br/>
+                                <input type="radio" name="nivo" id="nacionalni" onclick="prikaziVue()" >Nacionalni nivo <br/>
                                 </form>
                                 </td>
                                     </tr>
                                 </table>
 					</div>
-		<div class="row">
+		<div class="row" id="citiesLok">
 		<div class="col-sm-12" >
-					<br/>
+                    <br/>
+                    
 				 <h5>Lokaliteti za koje se anketa vezuje <span class="requred">*</span></h5>
 			
 			</div>
                                 <div class="col-sm-5" style="padding: 0;" id="cities" >
-                                        <v-select multiple :options="cities" style="background-color: white;" v-model="selected" >
+                                        <v-select multiple :options="cities" style="background-color: white;" v-model="selected"  >
                                             <template >
                                                 <input
                                                 
@@ -270,10 +303,14 @@
                             <div class="row pt-5">
 
                                 <div class="col-md-3">
+
+						
+
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
                                             <h3 class="panel-title">
-                                                <span class="glyphicon glyphicon-arrow-right"></span>Pitanje? <a href="http://www.jquery2dotnet.com" target="_blank"><span
+                                                <input type="text"  id="polja" placeholder="Unesite pitanje">
+                                                <span class="glyphicon glyphicon-arrow-right"></span> <a href="http://www.jquery2dotnet.com" target="_blank"><span
                                                         class="glyphicon glyphicon-new-window"></span></a>
                                             </h3>
                                         </div>
@@ -281,44 +318,30 @@
                                             <ul class="list-group">
                                                 <li class="list-group-item">
                                                     <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios">
-                                                        </label>
-                                                        Odgovor 1
+                                                        
+                                                            <input type="text" name="optionsRadios" placeholder="Unesite odgovor">
+                                                        
+                                                        
                                                     </div>
                                                 </li>
                                                 <li class="list-group-item">
                                                     <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios">
-                                                            Odgovor 2
-                                                        </label>
+                                                        
+                                                            <input type="text" name="optionsRadios" placeholder="Unesite odgovor">
+                                                            
+                                                        
                                                     </div>
                                                 </li>
                                                 <li class="list-group-item">
                                                     <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios">
-                                                            Odgovor 3
-                                                        </label>
+                                                        
+                                                            <input type="text" name="optionsRadios"placeholder="Unesite odgovor">
+                                                           
+                                                        
                                                     </div>
                                                 </li>
-                                                <li class="list-group-item">
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios">
-                                                            Odgovor 4
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" name="optionsRadios">
-                                                            Odgovor 5
-                                                        </label>
-                                                    </div>
-                                                </li>
+                                                
+                                                
                                             </ul>
                                         </div>
                                         <div class="panel-footer">
@@ -332,20 +355,14 @@
  <script>
                             Vue.component('v-select', VueSelect.VueSelect)
                         
-                            new Vue({
+                            var vue=new Vue({
                                 el: '#cities',
                                 data: {
                                     selected: '',
                                     cities: ['Subotica', 'Beograd', 'Cacak', 'Novi Sad']
                                 }
                             })
-                            new Vue({
-                                el: '#categories',
-                                data: {
-                                    selected: '',
-                                    categories: ['Sport', 'Finansije', 'Zdravlje','Energetika']
-                                }
-                            })
+                           
                         </script>
                     
                     

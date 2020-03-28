@@ -1,6 +1,5 @@
-<!-- Luka Spehar -->
+<!-- Filip Carevic -->
 <!doctype html>
-<html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +20,7 @@
     <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
     <script src="../../js/app.js" defer></script>
     <script src="https://kit.fontawesome.com/662634c78e.js" crossorigin="anonymous"></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -61,7 +61,6 @@
                                 <a id="navbarDropdown" class="nav-link " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
                                     Administrator <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="../../landing.html"
                                     >
@@ -212,20 +211,96 @@
                         </div>
                     </div>
                     <div class="col-md-8 justify-content-center">
-                        <div class="blog-grids">
+                        <div class="container">
+                            
+                   
 
-                            <div class="grid">
-                                <div class="entry-body">
-                                    <span class="cat">Finansije</span>
-                                    <h3><a href="#" target="_blank">Odluka o kupoprodaji Komercijalne banke</a></h3>
-                                    <p>Министар финансија у Влади Републике Србије Синиша Мали, председник Извршног одбора Нове Љубљанске банке д.д (НЛБ) Блаж Бродњак и члан Извршног одбора те банке Арчибалд Кремсер потписали су данас у Министарству финансија Уговор о купопродаји акција, у вези са 83,23% обичних акција Комерцијалне банке а.д Београд. Потписивањем овог уговора, банка ће добити новог стратешког партнера, који ће након завршетка трансакције преузети и управљање банком.</p>
-                                    <div class="read-more-date">
-                                        <a href="#" target="_blank">Read More..</a>
-                                        <span class="date">3 Hours ago</span>
+                            <div class="row pt-5">
+
+                                <div class="col-md-3">
+
+						
+
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">
+                                                <span class="glyphicon glyphicon-arrow-right"></span>Pitanje? <a href="http://www.jquery2dotnet.com" target="_blank"><span
+                                                        class="glyphicon glyphicon-new-window"></span></a>
+                                            </h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="optionsRadios">
+                                                        </label>
+                                                        Odgovor 1
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="optionsRadios">
+                                                            Odgovor 2
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="optionsRadios">
+                                                            Odgovor 3
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="optionsRadios">
+                                                            Odgovor 4
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" name="optionsRadios">
+                                                            Odgovor 5
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <button type="button" class="btn btn-primary btn-sm" onclick="posalji()">
+                                           Posalji odgovore</button>
+                                                <button type="button" class="btn btn-primary btn-sm" onclick='window.location="./aktivneankete.html"'>
+                                                    Odustani</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+ <script>
+                           
+                           function posalji(){
+                               let flag=false;
+                               let boxes =document.getElementsByName("optionsRadios");
+                               for(let i=0; i<boxes.length;i++) {
+                                   if (boxes[i].checked) flag=true;
+
+                               }
+                               if(!flag) alert('Niste odgovorili na pitanje');
+                                else {window.location="./nemaanketa.html"; alert('Uspesno odgovoreno na pitanja')}
+
+
+
+
+
+                           }
+                        </script>
+                    
+                    
                      </div>
             
                 </div>
