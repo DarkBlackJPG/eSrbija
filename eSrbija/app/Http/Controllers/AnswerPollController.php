@@ -14,10 +14,11 @@ class AnswerPollController extends Controller
         if($user->isAdmin) {
             $ankete = DB::table('anketes')->where('obrisanoFlag' , false)->orderBy('created_at','DESC')->get();
         } else {
-            if($user->isMod) $ankete = $user->mojeAnkete();
+            if($user->isMod){ $ankete = DB::table('anketes')->where(['korisnik_id'=> auth()->user()->id] )->get();
+            if($ankete != null && count($ankete)>0)
                 foreach($ankete as $key =>$val){
                     if($val->obrisanoFlag) unset($ankete[$key]);
-            }
+            }}
 
         }
         return view('homepages.mojeankete',['anketeMoje' =>$ankete]);
