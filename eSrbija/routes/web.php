@@ -32,9 +32,7 @@ Route::get('/home', 'HomeController@glavnaStranica')->name('home');
         return view('homepages.aktivneAnkete');
     })->name('referendumi');
 
-    Route::get('/mojeankete', function (){
-    return view('homepages.mojeankete');
-    })->name('mojeankete');
+
     Route::get('/statistikaankete', function (){
     return view('homepages.statistikaanketa');
     })->name('statistikaankete');
@@ -75,6 +73,9 @@ Route::post('/moderator/register', 'ModeratorRegistracija@register')->name('mode
 //Pazi na createPol a ne POLL
 
 
+Route::get('/mojeankete','AnswerPollController@list_all_polls_created_by_me')->name('mojeankete');
+Route::post('/mojeankete/{id}','AnswerPollController@close_poll')->name('zatvorianketu');
+Route::post('/obrisianketu/{id}','CreatePolController@delete_poll')->name('obrisianketu');
 Route::get('/ankete', 'AnswerPollController@list_active')->name('ankete');
 Route::get('/ankete/{id}', 'AnswerPollController@answer_poll')->name('anketeid');
 Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');

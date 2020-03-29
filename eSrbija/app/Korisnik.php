@@ -21,7 +21,7 @@ class Korisnik extends Authenticatable
         return $this->hasMany('App\Administrator', 'id', 'id');
     }
     public function neprivilegovaniKorisnici() {
-        return $this->hasMany('App\NeprivilegovanKorisnik', 'id', 'id');
+        return $this->hasOne('App\NeprivilegovanKorisnik', 'id', 'id');
     }
     public function moderatori() {
         return $this->hasMany('App\Moderator', 'id', 'id');

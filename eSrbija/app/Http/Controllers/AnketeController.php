@@ -4,9 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Ankete;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AnketeController extends Controller
 {
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Display a listing of the resource.
      *

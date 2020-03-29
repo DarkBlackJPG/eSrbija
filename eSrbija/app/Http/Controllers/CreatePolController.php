@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ankete;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -83,4 +84,17 @@ class CreatePolController extends Controller
    return redirect(route('ankete'));
 
     }
+
+        public function delete_poll($id){
+
+          /*  $anketa= Ankete::findOrFail($id);
+            $anketa->obrisanoFlag=true;
+            $anketa->save();*/
+
+          DB::table('anketes')->where(['id' => $id])->update(['obrisanoFlag' => true]);
+
+
+            return redirect(route('mojeankete'));
+
+        }
 }

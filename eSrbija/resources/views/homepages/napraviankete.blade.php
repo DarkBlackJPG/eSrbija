@@ -5,15 +5,15 @@
 
         <div class="container" >
 
-                <form action="{{route('savepoll')}}"  enctype="multipart/form-data" method="post" id="forma">
+                <form action="{{ route('savepoll')}}"  enctype="multipart/form-data" method="post" id="forma" name="forma">
                     @csrf
 
             <div class="row">
                     <div class="form-group pt-15">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="button" class="btn btn-primary" onclick="check_and_send()">
                             Objavi
                         </button>
-                        <button type="button" class="btn btn-default">
+                        <button type="button" class="btn btn-default" onclick="window.location='{{route('ankete')}};'">
                             Odustani
                         </button>
                     </div>
@@ -42,14 +42,14 @@
                     <tr>
                         <td>
 
-                                <input type="radio" name="nivo" value="lokalni">Lokalni nivo <br/>
-                                <input type="radio" name="nivo" value="nacionalni">Nacionalni nivo <br/>
+                                <input type="radio" name="nivo" value="lokalni" checked onclick="prikaziVue()" id="lokalni">Lokalni nivo <br/>
+                                <input type="radio" name="nivo" value="nacionalni" onclick="prikaziVue()">Nacionalni nivo <br/>
 
                         </td>
                     </tr>
                 </table>
             </div>
-            <div class="row">
+            <div class="row" id="citiesDiv">
                 <div class="col-sm-12" >
                     <br/>
                     <h5>Lokaliteti za koje se anketa vezuje <span class="required">*</span></h5>
@@ -81,7 +81,7 @@
             <div class="row pt-5">
 
 
-                <div class="col-md-4 offset-2" id="pitanja">
+                <div class="col-8 offset-2" id="pitanja">
 
                      </div>
         </div>
@@ -89,10 +89,22 @@
                 </form>
 
             </div>
+
+
+
+
         <script>
+
+            function prikaziVue(){
+                if(document.getElementById("lokalni").checked) document.getElementById("citiesDiv").style.visibility="visible";
+                else document.getElementById("citiesDiv").style.visibility="hidden";
+
+
+
+            }
             Vue.component('v-select', VueSelect.VueSelect)
 
-            new Vue({
+           var mesta =  new Vue({
                 el: '#forma',
                 data: {
                     selected: '',
@@ -101,9 +113,11 @@
                 }
             })
 
-        </script>
 
-<script type="text/javascript" >
+            function  delete_question(id) {
+                id.parentElement.parentElement.parentElement.removeChild(id.parentElement.parentElement);
+
+            }
     function deleteAnswer(id) {
         id.parentElement.parentElement.removeChild(id.parentElement); // iz ul brisi li
 
@@ -112,7 +126,7 @@
 
     function create_new_answer(id) {
         countAnswers++;
-        console.log(id.id);
+        console.log(id.parentElement.parentElement.id);
 
 
         var elementListe= document.createElement("li");
@@ -122,6 +136,7 @@
         odgovor.setAttribute("type", "text");
         odgovor.setAttribute("name","odgovor"+ countAnswers);
         odgovor.setAttribute("placeholder", "Odgovor");
+        odgovor.setAttribute("class", "odgovor");
         elementListe.appendChild(odgovor);
 
         var buttonClose= document.createElement("button");
@@ -145,6 +160,7 @@
     var  pitanjePolje = document.createElement("input");
     pitanjePolje.setAttribute("type","text");
     pitanjePolje.setAttribute("name","pitanje"+countQuestions);
+    pitanjePolje.setAttribute("class", "pitanje");
     pitanjePolje.setAttribute("placeholder", "Unesite pitanje");
 
 
@@ -174,8 +190,17 @@
        buttonDodajOdgovor.setAttribute("onclick","create_new_answer(this);" );
     buttonDodajOdgovor.setAttribute("value","Dodaj odgovor");
     buttonDodajOdgovor.setAttribute("id", "dodajOdgovor" + countQuestions)
-      buttonDodajOdgovor.innerText="dodaj odgovor";
-       divFooter.appendChild(buttonDodajOdgovor);
+      buttonDodajOdgovor.innerText="Dodaj odgovor";
+        divFooter.appendChild(buttonDodajOdgovor);
+
+        var buttonObrisiPitanje= document.createElement("button");
+        buttonObrisiPitanje.setAttribute("class", "btn btn-primary btn-sm ml-2");
+        buttonObrisiPitanje.setAttribute("type","button");
+        buttonObrisiPitanje.setAttribute("onclick","delete_question(this);" );
+        buttonObrisiPitanje.setAttribute("value","Obrisi pitanje");
+        buttonObrisiPitanje.setAttribute("id", "obrisiPitanje" + countQuestions)
+        buttonObrisiPitanje.innerText="Obrisi pitanje";
+       divHeading.appendChild(buttonObrisiPitanje);
 
        divPanel.appendChild(divHeading);
        divPanel.appendChild(divBody);
@@ -187,6 +212,35 @@
 
 
        return false;
+
+    }
+
+
+    function  check_and_send() {
+
+        if(document.forma.naziv.value == "") alert("Nije unet naziv ankete")
+        else if(document.getElementById("lokalni").checked && mesta.selected =="")  alert("Nisu uneti lokaliteti");
+        else {
+            let pitanja = document.getElementsByClassName("pitanje");
+            if(pitanja.length==0){alert("Nije uneto nijedno pitanje"); return;}
+
+            for(let i=0 ; i<pitanja.length; i++ ){
+                if(pitanja[i].value=="") {alert('Nisu uneti tekstovi svih pitanja'); return;}
+                else {
+                        let odgovori = pitanja[i].parentElement.parentElement.getElementsByTagName("input");
+                         if(odgovori.length==1) {alert("Neka pitanja nemaju definisan nijedan odgovor"); return;}
+
+                        for(let j =0 ; j< odgovori.length; j++) {
+                            if(odgovori[j].class=="pitanje") { console.log("preskace pitanje") ;continue;}
+                             if (odgovori[j].value=="") {alert("Nisu uneti tekstovi svih odgovora"); return ;}
+                    }
+                }
+            }
+
+
+        }
+        document.forma.submit();
+
 
     }
 
