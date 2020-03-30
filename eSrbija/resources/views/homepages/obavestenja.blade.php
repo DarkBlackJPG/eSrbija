@@ -2,12 +2,23 @@
 
 @section('homepagecontent')
 
-        @if(session('userRegisterSuccess'))
+
+        @if(session('tokenVerifiedSuccessfully'))
             <script>
                 Swal.fire({
                     icon: 'success',
-                    title: '{{session('userRegisterSuccess')}}',
-                    text: 'Proverite prilozenu elektronsku postu sa linkom da potvrdite prijavu. Link traje 24h!',
+                    title: '{{session('tokenVerifiedSuccessfully')}}',
+                    text: 'Uspesno ste potvrdili Vasu elektronsku postu!',
+                    confirmButtonText: 'Razumem',
+                })
+            </script>
+        @endif
+        @if(session('tokenInvalid'))
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: '{{session('tokenInvalid')}}',
+                    text: 'Vas link je istekao',
                     confirmButtonText: 'Razumem',
                 })
             </script>

@@ -19,18 +19,28 @@ class NeprivilegovanKorisnikRegistracija extends Controller
     use RegistersUsers;
 
 
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::WELCOME;
 
 
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except(['verify','resend']);
     }
 
-
+    /**
+     *  This method registers the unprivileged user and sends him the verification link
+     *  to the email that he entered.
+     *
+     *  Redirects to the welcome page for guests with a success alert.
+     *
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author Stefan Teslic
+     */
     protected function register(Request $request)
     {
-        // Imam neki bag, nece da tadi TODO: Resiti ovaj bag ovde da validira kako treba
+
         $request->validate([
             'ime' => [
                 'required',
@@ -45,7 +55,7 @@ class NeprivilegovanKorisnikRegistracija extends Controller
             'email' => ['required',
                 'email',
                 'max:255',
-                'unique:korisniks,e-mail'
+                'unique:korisniks,email'
             ],
             'rodjendan' => [
                 'required',
@@ -103,10 +113,12 @@ class NeprivilegovanKorisnikRegistracija extends Controller
         ]);
 
         $user = new Korisnik();
-        $user->{"e-mail"} = $request['email'];
+        $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
         $user->isMod = false;
         $user->isAdmin = false;
+        $user->verification_token = Hash::make((string)$user->email.(string)now());
+        $user->verification_token = str_replace("/", "_", $user->verification_token);
         $user->save();
 
         $data = $request;
@@ -124,9 +136,76 @@ class NeprivilegovanKorisnikRegistracija extends Controller
         $unprivUser->brojLicneKarte = $data['brojLicne'];
         $unprivUser->save();
 
-        $this->guard()->login($user);
+
+        \Mail::to($user->email)->send(new \App\Mail\EmailVerification($user));
 
         return $this->registered($request, $user)
-            ?: redirect($this->redirectPath())->with('userRegisterSuccess', 'Uspesna registracija!');
+            ?: redirect('/')->with('userRegisterSuccess', 'Uspesna registracija!');
     }
+
+    /**
+     * Method verifies the user. This method is invoked
+     * from the sent link to the users' mail address.
+     *
+     * The $request has a token and user element which is recieved
+     * from the GET link request from the link provided
+     * in the sent mail.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @author Stefan Teslic
+     */
+    public function verify(Request $request) {
+        $token = $request['token'];
+        $user_id = $request['user'];
+
+        $user = Korisnik::where('id', '=', $user_id)->first();
+
+        if(!$user->verification_token == null && $user->verification_token == $token) {
+            $user->email_verified_at = now();
+            $user->verification_token = null;
+            $user->save();
+            if(auth()->user() != null)
+                return redirect('/home')
+                    ->with('tokenVerifiedSuccessfully', 'Uspesno ste potvrdili vasu email adresu!');
+            else
+                return redirect('/')
+                    ->with('tokenVerifiedSuccessfully', 'Uspesno ste potvrdili vasu email adresu!');
+        } else {
+            if(auth()->user() != null)
+                return redirect('/home')
+                    ->with('tokenInvalid', 'Problem sa linkom');
+            else
+                return redirect('/')
+                    ->with('tokenInvalid', 'Problem sa linkom');
+
+        }
+
+
+    }
+
+    /**
+     * Returns the resend form for email verification concerning the "NeprivilegovanKorisnik" users.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Stefan Teslic
+     */
+    public function getResendForm() {
+        return view('auth.verify');
+    }
+
+    /**
+     * This function handles the requested mail resend for verification of users' email address
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @author Stefan Teslic
+     */
+    public function resend() {
+        $user = auth()->user();
+        \Mail::to($user->email)->send(new \App\Mail\EmailVerification($user));
+        return redirect()->back()->with('resent', 'Uspesno poslato!');
+    }
+
+
 }

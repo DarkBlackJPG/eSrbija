@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('content')
+<link rel="stylesheet" href="{{asset('css/authentication.css')}}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card no-padding">
                 <div class="card-header">{{ __('Zahtev za slanje linka za oporavak sifre') }}</div>
 
                 <div class="card-body">

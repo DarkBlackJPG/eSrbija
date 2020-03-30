@@ -72,48 +72,36 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-{{--                Created by Stefan Teslic--}}
-{{--                Ovo parce ifova dinamicki menja header--}}
-                        @if(Request::path() === 'login' ||
-                            Request::path() === 'register' ||
-                            Request::path() === 'moderator/register' ||
-                            Request::path() === 'user/register'||
-                            Request::path() === 'verify' ||
-                            Request::path() === 'password/reset')
-                            <li class="nav-item">
 
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Logovanje') }}</a>
-                            </li>
-                            @if (Route::has('user.register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('user.register') }}">{{ __('Registracija korisnika') }}</a>
-                                </li>
-                            @endif
-                            @if (Route::has('moderator.register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('moderator.register') }}">{{ __('Registracija moderatora') }}</a>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
 
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
-                                    {{ __("Marko Markovic") }} <span class="caret"></span>
+    {{--                                    This block of code sets the navbar name of current user
+
+                                    @author Stefan Teslic
+    --}}
+                                @if(auth()->user()->isAdmin == true)
+                                    Admin <span class="caret"></span>
+                                @elseif(auth()->user()->isMod == true)
+                                    {{auth()->user()->moderatori()->first()->naziv}} <span class="caret"></span>
+                                @else
+                                    {{auth()->user()->neprivilegovaniKorisnici()->first()->ime." ".auth()->user()->neprivilegovaniKorisnici()->first()->prezime}} <span class="caret"></span>
+                                @endif
+
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('home') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('home') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endif
+                                <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

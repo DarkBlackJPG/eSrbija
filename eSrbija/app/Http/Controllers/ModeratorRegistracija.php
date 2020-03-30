@@ -15,15 +15,20 @@ class ModeratorRegistracija extends Controller
 {
     use RegistersUsers;
 
-
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-
     public function __construct()
     {
-        $this->middleware('guest');
+        //
     }
 
+    /**
+     *  This method registers a new moderator, sends him an email
+     * and redirects the user to the welcome page.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     * @author Stefan Teslic
+     */
     public function register(Request $request)
     {
 
@@ -41,7 +46,7 @@ class ModeratorRegistracija extends Controller
               'required',
                 'email',
                 'max:255',
-                'unique:korisniks,e-mail'
+                'unique:korisniks,email'
             ],
             'opstina' => [
                 'required',
@@ -93,10 +98,11 @@ class ModeratorRegistracija extends Controller
         }
 
         $user = new Korisnik();
-        $user->{"e-mail"} = $request['email'];
+        $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
         $user->isMod = true;
         $user->isAdmin = false;
+        $user->email_verified_at = now();
         $user->save();
 
         $data = $request;
@@ -113,7 +119,7 @@ class ModeratorRegistracija extends Controller
         foreach ($categoryIds as $categoryId) {
             $user->ovlascenja()->attach($categoryId);
         }
-
+        \Mail::to($user->email)->send(new \App\Mail\ModeratorEmailVerification());
         return redirect('/')->with('successModReg',
             'Uspesno ste poslali zahtev za registrovanje');
     }

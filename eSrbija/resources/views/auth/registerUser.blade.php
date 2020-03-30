@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
     @section('content')
     <link rel="stylesheet" href="{{asset('css/authentication.css')}}">
@@ -212,7 +212,7 @@
                                         <ul>
                                             <li>Minimalno 8 karaktera</li>
                                             <li>Maksimalno 20 karaktera</li>
-                                            <li>Minimalno 1 karakter</li>
+                                            <li>Minimalno 1 broj</li>
                                         </ul>
                                     </i>
                                 </div>

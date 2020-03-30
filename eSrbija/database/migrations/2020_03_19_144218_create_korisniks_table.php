@@ -15,9 +15,9 @@ class CreateKorisniksTable extends Migration
     {
         Schema::create('korisniks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('e-mail')->unique();
-            //$table->morphs('tabelakorisnika');
+            $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('verification_token')->nullable();
             $table->string('password');
             $table->boolean('isAdmin');
             $table->boolean('isMod');

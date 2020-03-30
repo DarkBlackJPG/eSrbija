@@ -10,6 +10,8 @@ class IsMod
     /**
      * Handle an incoming request.
      *
+     * Checks if currently authenticated user is moderator user
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed

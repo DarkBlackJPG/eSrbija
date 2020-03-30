@@ -45,7 +45,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        //
     }
 
     public function getForm(){
@@ -67,7 +67,7 @@ class LoginController extends Controller
 
     public function attemptLogin(Request $request)
     {
-        $user = Korisnik::where('e-mail','=',$request->email)->first();
+        $user = Korisnik::where('email','=',$request->email)->first();
         if ($user != null && $user->isMod == true){
             $moderator = $user->moderatori()->first();
             if($moderator->approved == false) {
@@ -75,7 +75,7 @@ class LoginController extends Controller
 
             }
         }
-        if (Auth::guard()->attempt(['e-mail' => $request->email, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard()->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             return true;
         }
         return false;

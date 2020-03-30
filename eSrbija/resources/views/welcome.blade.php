@@ -18,7 +18,16 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-
+            @if(session('userRegisterSuccess'))
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: '{{session('userRegisterSuccess')}}',
+                        text: 'Proverite prilozenu elektronsku postu sa linkom da potvrdite prijavu. Link traje 24h!',
+                        confirmButtonText: 'Razumem',
+                    })
+                </script>
+            @endif
             @if(session('successModReg'))
                 <script>
                     Swal.fire({
@@ -39,7 +48,26 @@
                     })
                 </script>
             @endif
-
+            @if(session('tokenVerifiedSuccessfully'))
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        title: '{{session('tokenVerifiedSuccessfully')}}',
+                        text: 'Mozete da se ulogujete na sistem!',
+                        confirmButtonText: 'Razumem',
+                    })
+                </script>
+            @endif
+            @if(session('tokenInvalid'))
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: '{{session('tokenInvalid')}}',
+                        text: 'Vas link je istekao',
+                        confirmButtonText: 'Razumem',
+                    })
+                </script>
+            @endif
 
             <div class="content">
                 <div class="title m-b-md highlightText">
