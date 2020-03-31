@@ -95,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+                @if(auth()->user()->isAdmin)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -105,6 +106,8 @@
                     </div>
 
                 </div>
+                @endif
+                @if(auth()->user()->isAdmin || auth()->user()->isMod)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -140,6 +143,7 @@
                         </div>
                     </div>
                 </div>
+                    @endif
             </div>
         </div>
         <div class="col-md-8 justify-content-center">

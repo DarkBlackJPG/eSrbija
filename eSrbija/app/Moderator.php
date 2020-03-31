@@ -24,4 +24,5 @@ class Moderator extends Model
     public function opstinaPoslovanja() {
         return $this->belongsTo('App\Mesto', 'opstinaPoslovanja_id', 'id');
     }
+
 }

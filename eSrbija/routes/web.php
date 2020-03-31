@@ -147,10 +147,14 @@ Route::middleware(['verified', 'auth'])->group(function () {
      */
     Route::middleware(['isAdmin'])->group(function () {
         Route::get('/admin/moderators',
-            function (){
-                return view('admin.moderatorApproval');
-            })
+            'AdministratorController@getModeratorApprovalForms')
             ->name('odobravanjemoderatora');
+        Route::post('/admin/moderators/{id}/approve',
+            'AdministratorController@moderatorApprove')
+            ->name('admin.moderatorApprove');
+        Route::post('/admin/moderators/{id}/reject',
+            'AdministratorController@moderatorReject')
+            ->name('admin.moderatorReject');
     });
 
     /**
