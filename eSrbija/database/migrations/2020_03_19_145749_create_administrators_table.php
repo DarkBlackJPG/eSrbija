@@ -19,6 +19,9 @@ class CreateAdministratorsTable extends Migration
                 ->references('id')
                 ->on('korisniks')
                 ->onDelete('cascade');
+            $table->string('ime');
+            $table->string('prezime');
+
             $table->primary('id');
 
             $table->timestamps();
