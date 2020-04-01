@@ -26,11 +26,43 @@ class CreatePolController extends Controller
         }
 
 
-        return view('homepages.napraviankete',['mesta' => $nazivi]);
+        return view('homepages.ankete.napraviankete',['mesta' => $nazivi]);
     }
-
+    public function isEmptyOrNullString($arg) {
+        if(empty($arg)) return true;
+        if($arg=='') return true;
+        return false;
+    }
     public function create_poll (){
+        { //provera ispravnosti
+            $ispravno = true;
+            if($this->isEmptyOrNullString( \request('naziv'))) $ispravno=false;
+            if($this->isEmptyOrNullString( \request('nivo'))) $ispravno=false;
+            if(\request('nivo')=="lokalni"){
+            if($this->isEmptyOrNullString(\request('mesta'))) $ispravno=false;
+            }
+            $biloJednoPitanje=false;
+            $pitanjeDoPitanja=false;
+            foreach (\request()->all() as $key => $val) {
+                            if($key=='_token') continue;
+                            if(Str::is('pitanje*', $key)){
+                                 $biloJednoPitanje=true;
+                                 if ($pitanjeDoPitanja) {$ispravno=false; break;}
+                                    else $pitanjeDoPitanja=true;
+                                if($this->isEmptyOrNullString($val)) {$ispravno=false; break;}
+                                }
+                            else if(Str::is('odgovor*', $key)){
+                                 $pitanjeDoPitanja=false;
+                                 if($this->isEmptyOrNullString($val)) { $ispravno=false; break;}
+                                 }
+                        }
+             if ($biloJednoPitanje==false)$ispravno=false;
 
+             if (!$ispravno) return redirect(route('ankete'));
+
+
+
+        }
        $user=auth()->user();
        //dodaj ako je null
         //ubacivanje u tabelu ankete
@@ -74,11 +106,7 @@ class CreatePolController extends Controller
                 $pitanje->odgovori()->create([
                     'tekst'=> $val
                 ]);
-
             }
-
-
-
         }
 
    return redirect(route('ankete'));
@@ -90,7 +118,8 @@ class CreatePolController extends Controller
           /*  $anketa= Ankete::findOrFail($id);
             $anketa->obrisanoFlag=true;
             $anketa->save();*/
-
+           $anketa =Ankete::findOrFail($id);
+           if($anketa->korisnik_id == auth()->user()->id || auth() -> user() ->isAdmin)
           DB::table('anketes')->where(['id' => $id])->update(['obrisanoFlag' => true]);
 
 

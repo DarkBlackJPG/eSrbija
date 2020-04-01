@@ -61,14 +61,14 @@ class LoginController extends Controller
                 'min:8',
                 'max:20',
                 'regex:/[0-9]/i',
-                ],
+            ],
         ]);
     }
 
     public function attemptLogin(Request $request)
     {
         $user = Korisnik::where('email','=',$request->email)->first();
-        if ($user != null && $user->isMod == true){
+        if ($user != null && $user->isMod == true && $user->isAdmin == false){
             $moderator = $user->moderatori()->first();
             if($moderator->approved == false) {
                 throw new ModeratorNotApprovedException();

@@ -28,7 +28,10 @@
 
                         </div>
                         <div class = "offset-sm-2 align-self-right align-self-bottom">
-                            <button class = "btn"> <a href = "{{route('anketeid', ['id' => $anketa->id])}}">PopuniAnketu</a></button>
+                            <form action="{{route('anketeid', ['id' => $anketa->id])}}" method="GET" >
+
+                            <button class = "btn"> PopuniAnketu</button>
+                            </form>
 
                         </div>
                     </div>
@@ -38,6 +41,7 @@
 
             </div>
         </div>
+    </div>
 
 
 @endsection

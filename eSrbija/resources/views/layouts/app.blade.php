@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ 'eSrbija' }}</title>
 
     <!-- Scripts -->
     <!-- Izbrisao sam pozivanje app.js ovde jer nije radio logout -->

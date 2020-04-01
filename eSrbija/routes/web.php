@@ -19,10 +19,6 @@
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
 
 Route::get('/createpost', function (){
     return view('homepages.createpost');
@@ -38,15 +34,15 @@ Route::get('/referendumi', function (){
 
 
 Route::get('/statistikaankete', function (){
-return view('homepages.statistikaanketa');
+    return view('homepages.statistikaanketa');
 })->name('statistikaankete');
 
- Route::get('/mojeobjave', function (){
-return view('homepages.mojeobjave');
+Route::get('/mojeobjave', function (){
+    return view('homepages.mojeobjave');
 })->name('mojeobjave');
 
 Route::get('/objavesport', function (){
-return view('homepages.obavestenjasport');
+    return view('homepages.obavestenjasport');
 })->name('objavesport');
 Route::get('/objavefinansije', function (){
     return view('homepages.obavestenjafinansije');
@@ -55,17 +51,6 @@ Route::get('/nemaobjava', function (){
     return view('homepages.nemaobjava');
 })->name('nemaobjava');
 
-
-/**
- *  These routes are not part of any group.
- *  This is because anyone (guest or authenticated) can access them
- *
- *  @author Stefan Teslic
- *  @middleware None
- */
-Route::get('email/resend', 'NeprivilegovanKorisnikRegistracija@getResendForm')->name('verification.resend');
-Route::post('email/resend', 'NeprivilegovanKorisnikRegistracija@resend')->name('verification.resend.post');
-Route::get('/user/confirm_mail/{user}/{token}', 'NeprivilegovanKorisnikRegistracija@verify')->name('user.verify');
 
 
 /**
@@ -111,6 +96,15 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/moderator/register',
         'ModeratorRegistracija@register')
         ->name('moderator.register.save');
+
+
+    /**
+     * @author Stefan Teslic
+     */
+    Route::get('/', function () { return view('welcome'); });
+    Route::get('email/resend', 'NeprivilegovanKorisnikRegistracija@getResendForm')->name('verification.resend');
+    Route::post('email/resend', 'NeprivilegovanKorisnikRegistracija@resend')->name('verification.resend.post');
+    Route::get('/user/confirm_mail/{user}/{token}', 'NeprivilegovanKorisnikRegistracija@verify')->name('user.verify');
 });
 
 /**
@@ -139,23 +133,15 @@ Route::middleware(['verified', 'auth'])->group(function () {
         'Auth\LoginController@logout')
         ->name('logout');
 
-    /**
-     *  Group for routes that are specific to Admins only
-     *
-     *  @author Stefan Teslic
-     *  @middleware IsAdmin
-     */
-    Route::middleware(['isAdmin'])->group(function () {
-        Route::get('/admin/moderators',
-            'AdministratorController@getModeratorApprovalForms')
-            ->name('odobravanjemoderatora');
-        Route::post('/admin/moderators/{id}/approve',
-            'AdministratorController@moderatorApprove')
-            ->name('admin.moderatorApprove');
-        Route::post('/admin/moderators/{id}/reject',
-            'AdministratorController@moderatorReject')
-            ->name('admin.moderatorReject');
-    });
+    /** @author Filip Carevic */
+    Route::get('/ankete', 'AnswerPollController@list_active')->name('ankete');
+    Route::get('/ankete/{id}', 'AnswerPollController@answer_poll')->name('anketeid');
+    Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
+    /** ********************************************* */
+
+
+
+
 
     /**
      *  Group for routes that are specific to Moderators only
@@ -167,31 +153,40 @@ Route::middleware(['verified', 'auth'])->group(function () {
      */
     Route::middleware(['isMod'])->group(function () {
 
+
+        /** @author Filip Carevic */
+        Route::get('/mojeankete','AnswerPollController@list_all_polls_created_by_me')->name('mojeankete');
+        Route::post('/mojeankete/{id}','AnswerPollController@close_poll')->name('zatvorianketu');
+        Route::post('/obrisianketu/{id}','CreatePolController@delete_poll')->name('obrisianketu');
+        Route::get('/createpoll', 'CreatePolController@return_view')->name('createpoll');
+        Route::post('/savepoll', 'CreatePolController@create_poll')->name('savepoll');
+        /** ********************************************** */
+
+
+
+
+
+        /**
+         *  Group for routes that are specific to Admins only
+         *
+         *  @author Stefan Teslic
+         *  @middleware IsAdmin
+         */
+        Route::middleware(['isAdmin'])->group(function () {
+            Route::get('/admin/moderators',
+                'AdministratorController@getModeratorApprovalForms')
+                ->name('odobravanjemoderatora');
+            Route::post('/admin/moderators/{id}/approve',
+                'AdministratorController@moderatorApprove')
+                ->name('admin.moderatorApprove');
+            Route::post('/admin/moderators/{id}/reject',
+                'AdministratorController@moderatorReject')
+                ->name('admin.moderatorReject');
+        });
+
     });
-
-    /**
-     *  Group for routes that Admins and Moderators share
-     *
-     *  @author Stefan Teslic
-     *  @middleware IsMod, IsAdmin
-     */
-    Route::middleware(['isAdmin', 'isMod'])->group(function () {
-
-    });
-
 });
 
 
-/**
- * Todo: Filipe, molim te prebaci ove rute u gore napisanu grupu, lepse je i organizovaniji smo
- *
- *  @author Stefan Teslic
- */
-Route::get('/mojeankete','AnswerPollController@list_all_polls_created_by_me')->name('mojeankete');
-Route::post('/mojeankete/{id}','AnswerPollController@close_poll')->name('zatvorianketu');
-Route::post('/obrisianketu/{id}','CreatePolController@delete_poll')->name('obrisianketu');
-Route::get('/ankete', 'AnswerPollController@list_active')->name('ankete');
-Route::get('/ankete/{id}', 'AnswerPollController@answer_poll')->name('anketeid');
-Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
-Route::get('/createpoll', 'CreatePolController@return_view')->name('createpoll');
-Route::post('/savepoll', 'CreatePolController@create_poll')->name('savepoll');
+
+

@@ -14,7 +14,7 @@ class AnswerPollController extends Controller
         if($user->isAdmin) {
             $ankete = DB::table('anketes')->where('obrisanoFlag' , false)->orderBy('created_at','DESC')->get();
         } else {
-            if($user->isMod){ $ankete = DB::table('anketes')->where(['korisnik_id'=> auth()->user()->id] )->get();
+            if($user->isMod){ $ankete = DB::table('anketes')->where(['korisnik_id'=> auth()->user()->id] )->orderBy('created_at','DESC')->get();
             if($ankete != null && count($ankete)>0)
                 foreach($ankete as $key =>$val){
                     if($val->obrisanoFlag) unset($ankete[$key]);
@@ -30,10 +30,12 @@ class AnswerPollController extends Controller
 
     public function close_poll($id){
 
-        $anketa= Ankete::findOrFail($id);
-        $anketa->isActive=false;
-        $anketa->save();
 
+        $anketa= Ankete::findOrFail($id);
+        if($anketa -> korisnik_id == auth()->user()->id || auth()->user()->isAdmin) {
+            $anketa->isActive = false;
+            $anketa->save();
+        }
      return redirect(route('mojeankete'));
 
     }
@@ -60,8 +62,9 @@ class AnswerPollController extends Controller
            if(!auth()->user()->isAdmin && !auth()->user()->isMod ) {
                 $nijeObicanKorisnik=false;
 
-                 $neprivKor= auth()->user()->neprivilegovaniKorisnici();
-                foreach ($neprivKor as $value) $userMesto=$value->opstinaPrebivalista->id;
+                 $neprivKor= auth()->user()->neprivilegovaniKorisnici()->first();
+                 $userMesto=$neprivKor->opstinaPrebivalista->id;
+
            }
 
 
@@ -85,12 +88,17 @@ class AnswerPollController extends Controller
          and odgovori_korisnik.korisnik_id = $userid )
          ")->orderBy('created_at', 'DESC')->get();
 
-      /*  foreach($ankete as $key=> $value)  {
-            $flag= false;
-            foreach ($value->vezanoZaMesto() as $mesto) if($mesto->id==$userMesto) $flag=true;
-            if($flag==false) unset($ankete[$key]);
+           if($nijeObicanKorisnik==false)
+       foreach($ankete as$key=> $value)  {
+           if($value->nivoLokNac == 1) { //lokalni = 1 , nacionalni = 0;
+               $flag = true;
+               $mesto = DB::table('ankete_mestos')->where(['mesto_id'=> $userMesto, 'ankete_id' => $value->id])->get();
 
-        }*/
+               if (empty($mesto) || count($mesto)==0) $flag = false;
+               //foreach ($value->vezanoZaMesto as $key=> $mesto) if($mesto->id==$userMesto) $flag=true;
+               if ($flag == false) unset($ankete[$key]);
+           }
+        }
 
         foreach($ankete as $key =>$val)
             if($val->obrisanoFlag) unset($ankete[$key]);
@@ -102,6 +110,46 @@ class AnswerPollController extends Controller
 
 
     public function save_answers($id){
+         // provera ispravnosti
+        $lista_odgovora_postojecih_u_bazi=[];
+        {
+            $anketa = Ankete::findOrFail($id);
+            $ispravno = true;
+            $i=1;
+
+            foreach ($anketa->pitanja as $pitanje) {
+
+                if(empty(\request($pitanje->id))) {
+                    echo 'usao ovde';
+                    return redirect(route('ankete'));
+                } else {
+
+                    $lista_odgovora_postojecih_u_bazi[$i] = \request($pitanje->id);
+                    $i++;
+
+                }
+
+                /*$odgovoreno = false;
+                foreach ($pitanje->odgovori as $odgovor) {
+                   if (in_array("$odgovor->id", \request()->all())) {
+                        if (!$odgovoreno) {
+                            $odgovoreno = true;
+                            dd('usao 2');
+                            $lista_odgovora_postojecih_u_bazi[$i]=$odgovor->id;
+                            $i++;
+                        }
+                        else {
+                            $ispravno = false;
+                            return redirect(route('ankete'));
+                        }
+                    }
+                    if (!$odgovoreno) {
+                        $ispravno = false;
+                        return redirect(route('ankete'));
+                    }
+                }*/
+            }
+        }
         $user=auth()->user();
         $niz_id_odgovora=null;
         $i=0;
@@ -110,7 +158,11 @@ class AnswerPollController extends Controller
                     $niz_id_odgovora[$i]=$odg_id;
                     $i++;
          }
-        $user->sviOdgovori()->attach($niz_id_odgovora);
+
+         if($niz_id_odgovora == $lista_odgovora_postojecih_u_bazi) {
+
+             $user->sviOdgovori()->attach($niz_id_odgovora);
+         }
          return redirect(route('ankete'));
 
 

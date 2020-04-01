@@ -1,6 +1,0 @@
-Ime baze "esrbija" promeniti da odgovara imenu svoje baze
-Ukoliko MySQL Server nije podignut, izvrsiti:
-		- u cmd-u ( run as administrator )  => net stat mysql80
-Ime servisa ne mora biti 'mysql80', moze se videti nakon:
-		- run (msconfig) > Services tab
-Potrebno je da port na kom radi MySQL Server bude slobodan (default 3306)   
