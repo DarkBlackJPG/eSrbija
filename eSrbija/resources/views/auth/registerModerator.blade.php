@@ -56,7 +56,7 @@
                                             >
                                         </template>
                                     </v-select>
-                                    <input type="hidden" name="opstina"  id="opstina" :value="selected{{old('prebivaliste')}}">
+                                    <input type="hidden" name="opstina"  id="opstina" :value="selected">
                                 </div>
 
 
@@ -72,7 +72,7 @@
                             <label for="adresa" class="col-md-4 col-form-label text-md-right">{{ __('Adresa') }}</label>
 
                             <div class="col-md-6">
-                                <input id="adresa" type="text" class="form-control @error('adresa') is-invalid @enderror" name="adresa" value="{{ old('adresa') }}" required autocomplete="adresa">
+                                <input id="adresa" type="text" class="form-control @error('adresa') is-invalid @enderror" name="adresa" value="{{ old('adresa') }}" required autocomplete="street-address">
 
                                 @error('adresa')
                                 <span class="invalid-feedback" role="alert">
@@ -125,7 +125,7 @@
                                             >
                                         </template>
                                     </v-select>
-                                    <input type="hidden" name="kategorije"  id="kategorije" :value="selected{{old('kategorije')}}">
+                                    <input type="hidden" name="kategorije"  id="kategorije" :value="selected">
                                 </div>
 
 
@@ -185,7 +185,7 @@
     new Vue({
         el: '#selectMunicipalityContainer',
         data: {
-            selected: '',
+            selected: "{{old('prebivaliste')}}",
             muncipalities: [
                 @foreach($mesta as $element)
                     '{{$element->naziv}}',
@@ -196,7 +196,7 @@
     new Vue({
         el: '#categories',
         data: {
-            selected: '',
+            selected: "{{old('kategorije')}}",
             categories: [
                 @foreach($kategorije as $element)
                     '{{$element->naziv}}',

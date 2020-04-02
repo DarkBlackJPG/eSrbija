@@ -17,7 +17,7 @@
                                 <label for="ime" class="col-md-4 col-form-label text-md-right">{{ __('Ime') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="ime" type="text" class="form-control @error('ime') is-invalid @enderror" name="ime" value="{{ old('ime') }}" required autocomplete="ime" autofocus>
+                                    <input id="ime" type="text" class="form-control @error('ime') is-invalid @enderror" name="ime" value="{{ old('ime') }}" required autocomplete="given-name" autofocus>
 
                                     @error('ime')
                                         <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                                 <label for="prezime" class="col-md-4 col-form-label text-md-right">{{ __('Prezime') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="prezime" type="text" class="form-control @error('prezime') is-invalid @enderror" name="prezime" value="{{ old('prezime') }}" required autocomplete="prezime" autofocus>
+                                    <input id="prezime" type="text" class="form-control @error('prezime') is-invalid @enderror" name="prezime" value="{{ old('prezime') }}" required autocomplete="family-name" autofocus>
 
                                     @error('prezime')
                                     <span class="invalid-feedback" role="alert">
@@ -62,7 +62,7 @@
                                 <label for="rodjendan" class="col-md-4 col-form-label text-md-right">{{ __('Datum rodjenja') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="rodjendan" type="date" class="form-control @error('rodjendan') is-invalid @enderror" name="rodjendan" value="{{ old('rodjendan') }}" required autocomplete="rodjendan" autofocus>
+                                    <input id="rodjendan" type="date" class="form-control @error('rodjendan') is-invalid @enderror" name="rodjendan" value="{{ old('rodjendan') }}" required autocomplete="bday" autofocus>
 
                                     @error('rodjendan')
                                     <span class="invalid-feedback" role="alert">
@@ -85,15 +85,11 @@
                                                     :required="!selected"
                                                     v-bind="attributes"
                                                     v-on="events"
-
-                                                    value="{{old('prebivaliste')}}"
                                                    >
                                             </template>
                                         </v-select>
-                                        <input type="hidden" name="prebivaliste"  id="birthCity" :value="selected{{old('prebivaliste')}}">
+                                        <input type="hidden" name="prebivaliste"  id="birthCity" :value="selected">
                                     </div>
-
-
                                     @error('prebivaliste')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -117,7 +113,7 @@
                                                     id="livingMuncipality">
                                             </template>
                                         </v-select>
-                                        <input type="hidden" name="rodjenje"  id="birthCity" :value="selected{{old('prebivaliste')}}">
+                                        <input type="hidden" name="rodjenje"  id="birthCity" :value="selected">
                                     </div>
 
 
@@ -134,7 +130,7 @@
                                 <label for="adresaPrebivalista" class="col-md-4 col-form-label text-md-right">{{ __('Adresa prebivalista') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="adresaPrebivalista" type="address" class="form-control @error('adresaPrebivalista') is-invalid @enderror" name="adresaPrebivalista" required >
+                                    <input id="adresaPrebivalista" type="address" class="form-control @error('adresaPrebivalista') is-invalid @enderror" value="{{old('adresaPrebivalista')}}" name="adresaPrebivalista" required autocomplete="street-address">
 
                                     @error('adresaPrebivalista')
                                     <span class="invalid-feedback" role="alert">
@@ -148,7 +144,7 @@
                                 <label for="JMBG" class="col-md-4 col-form-label text-md-right">{{ __('JMBG') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="JMBG" type="text" class="form-control @error('JMBG') is-invalid @enderror" name="JMBG" required >
+                                    <input id="JMBG" type="text" class="form-control @error('JMBG') is-invalid @enderror" name="JMBG" value="{{old('JMBG')}}" required >
 
                                     @error('JMBG')
                                     <span class="invalid-feedback" role="alert">
@@ -187,7 +183,7 @@
                                 <label for="brojLicne" class="col-md-4 col-form-label text-md-right">{{ __('Broj licne karte') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="brojLicne" type="text" class="form-control @error('brojLicne') is-invalid @enderror" name="brojLicne" required>
+                                    <input id="brojLicne" type="text" class="form-control @error('brojLicne') is-invalid @enderror" value="{{old('brojLicne')}}" name="brojLicne" required>
 
                                     @error('brojLicne')
                                     <span class="invalid-feedback" role="alert">
@@ -246,7 +242,7 @@
         new Vue({
             el: '#selectMunicipalityContainer',
             data: {
-                selected: '',
+                selected: "{{old('prebivaliste')}}",
                 muncipalities: [
                     @foreach($mesta as $element)
                     '{{$element->naziv}}',
@@ -257,7 +253,7 @@
         new Vue({
             el: '#muncipalityContainer',
             data: {
-                selected: '',
+                selected: "{{old('rodjenje')}}",
                 muncipalities: [
                     @foreach($mesta as $element)
                         '{{$element->naziv}}',

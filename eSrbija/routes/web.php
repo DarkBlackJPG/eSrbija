@@ -182,6 +182,13 @@ Route::middleware(['verified', 'auth'])->group(function () {
             Route::post('/admin/moderators/{id}/reject',
                 'AdministratorController@moderatorReject')
                 ->name('admin.moderatorReject');
+
+            /**
+             * Ajax request method for modderator approval
+             *
+             * @author Stefan Teslic
+             */
+            Route::get('/admin/moderator_request', 'AdministratorController@moderatorRequestCheck')->name('admin.ajax.moderatorRequestCheck');
         });
 
     });

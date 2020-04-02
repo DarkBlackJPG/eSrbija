@@ -24,6 +24,6 @@ class IsMod
             return $next($request);
         }
 
-        return redirect('/');
+        return redirect('/');//->back();
     }
 }

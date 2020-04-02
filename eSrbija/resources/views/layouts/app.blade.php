@@ -11,8 +11,9 @@
 
     <!-- Scripts -->
     <!-- Izbrisao sam pozivanje app.js ovde jer nije radio logout -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <!-- include VueJS first -->
     <script src="https://unpkg.com/vue@latest"></script>
@@ -122,6 +123,29 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @if(auth()->user() != null && (auth()->user()->isAdmin == true && auth()->user()->isMod == true ))
+            <script>
+                function checkMod() {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/admin/moderator_request",
+                        success: function (data) {
+                            if(data.number > 0) {
+                                Toast.fire({
+                                    icon: 'warning',
+                                    title: 'Imate '+data.number+' novih zahteva za moderatora!',
+                                })
+                            }
+
+                        },
+                    });
+                }
+
+                $(document).ready(function(){
+                    setInterval(checkMod,5000);
+                });
+            </script>
+        @endif
     </div>
 </body>
 </html>

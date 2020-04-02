@@ -23,6 +23,7 @@ class CreateModeratorsTable extends Migration
             $table->boolean('approved')->default(false);
             $table->string('naziv')->unique();
             $table->string('adresa');
+            $table->boolean('adminNotified')->default(false);
             $table->string('pib', 9)->unique();
             $table->string('maticniBroj', 8)->unique();
             $table->unsignedBigInteger('opstinaPoslovanja_id');

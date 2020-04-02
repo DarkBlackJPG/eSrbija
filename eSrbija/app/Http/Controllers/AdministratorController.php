@@ -6,6 +6,7 @@ use App\Administrator;
 use App\Kategorije;
 use App\Korisnik;
 use App\Moderator;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class AdministratorController extends Controller
@@ -85,9 +86,14 @@ class AdministratorController extends Controller
     {
         //
     }
+    private function generateModeratorArray(bool $ajax) {
+        $moderators = null;
+        if($ajax == true) {
+            $moderators = Moderator::where('approved',0)->where('adminNotified', 0)->with(['opstinaPoslovanja','korisnik', 'korisnik.ovlascenja'])->get();
+        } else {
+            $moderators =  Moderator::where('approved',0)->with(['opstinaPoslovanja','korisnik', 'korisnik.ovlascenja'])->get();
+        }
 
-    public function getModeratorApprovalForms() {
-        $moderators =  Moderator::where('approved',0)->with(['opstinaPoslovanja','korisnik', 'korisnik.ovlascenja'])->get();
         $ids = $moderators->pluck('id');
         $nazivi = $moderators->pluck('naziv');
         $opstine = $moderators->pluck('opstinaPoslovanja');
@@ -97,6 +103,10 @@ class AdministratorController extends Controller
         $ovlascenja = $moderators->pluck('korisnik.ovlascenja');
         $moderatorArray = [];
         for($i = 0; $i < sizeof($moderators); $i++) {
+            if($ajax){
+                $moderators[$i]->adminNotified = 1;
+                $moderators[$i]->save();
+            }
             $id = $ids[$i];
             $naziv = $nazivi[$i];
             $opstina = $opstine[$i]->naziv;
@@ -113,7 +123,13 @@ class AdministratorController extends Controller
                 'maticniBroj' =>$maticniBroj,
                 'ovlascenja' => $ovlascenje,
             ];
+
         }
+
+        return $moderatorArray;
+    }
+    public function getModeratorApprovalForms() {
+        $moderatorArray = $this->generateModeratorArray(false);
         $categories = Kategorije::all()->pluck('naziv');
         return view('admin.moderatorApproval', ['moderatori'=>$moderatorArray, 'kategorije' => $categories]);
     }
@@ -147,4 +163,14 @@ class AdministratorController extends Controller
         return redirect()->back()->with('successReject', 'Uspesno ste odbili '.$moderatorName.'!');
     }
 
+
+    public function moderatorRequestCheck() {
+        $moderators = Moderator::where('approved',0)->where('adminNotified', 0)->update(['adminNotified'=> 1]);
+
+        if($moderators > 0){
+            return response()->json(['number' => $moderators]);
+        } else {
+            return response('nothing', 500);
+        }
+    }
 }
