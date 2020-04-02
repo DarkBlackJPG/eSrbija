@@ -59,16 +59,16 @@ class ModeratorRegistracija extends Controller
                 'string',
                 'max:255',
             ],
-            // TODO Koliko pib ima brojeva
             'pib' => [
                 'required',
                 'string',
+                'size:9',
                 'unique:moderators,pib',
             ],
-            // TODO Koliko matbr ima brojeva
             'matBr' => [
                 'required',
                 'string',
+                'size:8',
                 'unique:moderators,maticniBroj',
             ],
             'password' => [

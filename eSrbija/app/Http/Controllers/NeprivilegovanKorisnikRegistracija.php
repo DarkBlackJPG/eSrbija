@@ -76,7 +76,7 @@ class NeprivilegovanKorisnikRegistracija extends Controller
             'JMBG' => [
                 'required',
                 'string',
-                'max:13',
+                'size:13',
                 'unique:neprivilegovan_korisniks,jmbg'
             ],
             'pol' => [
@@ -91,7 +91,7 @@ class NeprivilegovanKorisnikRegistracija extends Controller
             'brojLicne' => [
                 'required',
                 'string',
-                'max:9',
+                'size:9',
                 'unique:neprivilegovan_korisniks,brojLicneKarte'
             ],
             'password' => [
