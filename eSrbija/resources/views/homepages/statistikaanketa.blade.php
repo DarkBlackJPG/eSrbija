@@ -1,64 +1,28 @@
 @extends('fixed.home')
 @section('homepagecontent')
     <div class='statistika'>
-        <div class="row">
-            <div class=" col-sm-8">
-                <dl>
-                    <dt>
-                        Prvo Pitanje
-                    </dt>
-                    <dd class="percentage percentage-11"><span class="text">Odgovor1: 11.33%</span></dd>
-                    <dd class="percentage percentage-49"><span class="text">Odgovor2: 49.77%</span></dd>
-                    <dd class="percentage percentage-16"><span class="text">Odgovor3: 16.09%</span></dd>
-                    <dd class="percentage percentage-5"><span class="text">Odgovor4: 5.41%</span></dd>
-                    <dd class="percentage percentage-2"><span class="text">Odgovor5: 1.62%</span></dd>
-                    <dd class="percentage percentage-2"><span class="text">Odgovor6: 2%</span></dd>
-                </dl>
-            </div>
-        </div>
-        <div class="row">
-            <div class=" col-sm-8">
-                <dl>
-                    <dt>
-                        Drugo Pitanje
-                    </dt>
-                    <dd class="percentage percentage-11 "><span class="text">Odgovor1: 11.33%</span></dd>
-                    <dd class="percentage percentage-49"><span class="text">Odgovor2: 49.77%</span></dd>
-                    <dd class="percentage percentage-16"><span class="text">Odgovor3: 16.09%</span></dd>
-                    <dd class="percentage percentage-5"><span class="text">Odgovor4: 5.41%</span></dd>
-                </dl>
-            </div>
-        </div>
-        <div class="row">
-            <div class=" col-sm-8">
-                <dl>
-                    <dt>
-                        Trece Pitanje
-                    </dt>
-                    <dd class="percentage percentage-11"><span class="text">Odgovor1: 11.33%</span></dd>
-                    <dd class="percentage percentage-49"><span class="text">Odgovor2: 49.77%</span></dd>
-                    <dd class="percentage percentage-16"><span class="text">Odgovor3: 16.09%</span></dd>
-                    <dd class="percentage percentage-5"><span class="text">Odgovor4: 5.41%</span></dd>
-                    <dd class="percentage percentage-2"><span class="text">Odgovor5: 1.62%</span></dd>
-                    <dd class="percentage percentage-2"><span class="text">Odgovor6: 2%</span></dd>
-                </dl>
-            </div>
-        </div>
-        <div class="row">
-            <div class=" col-sm-8">
-                <dl>
-                    <dt>
-                        Cetvrto Pitanje
-                    </dt>
-                    <dd class="percentage percentage-11"><span class="text">Odgovor1: 11.33%</span></dd>
-                    <dd class="percentage percentage-49"><span class="text">Odgovor2: 49.77%</span></dd>
-                    <dd class="percentage percentage-16"><span class="text">Odgovor3: 16.09%</span></dd>
-                    <dd class="percentage percentage-5"><span class="text">Odgovor4: 5.41%</span></dd>
-                    <dd class="percentage percentage-2"><span class="text">Odgovor5: 1.62%</span></dd>
-                    <dd class="percentage percentage-2"><span class="text">Odgovor6: 2%</span></dd>
-                </dl>
-            </div>
-        </div>
-    </div>
 
+
+    @foreach ($pitanja as $pitanje)
+        <div class="row">
+            <div class=" col-sm-8">
+                <dl>
+                    <dt>
+                       {{$pitanje->tekst}}
+                    </dt>
+                
+                    @foreach ($pitanje->odgovori as $ponudjeniOdgovor)
+                        <dd class="percentage percentage--{{round(count($ponudjeniOdgovor->korisnici)/count($pitanje->odgovori))}}"><span class="text">{{$ponudjeniOdgovor->tekst}}: {{round(count($ponudjeniOdgovor->korisnici)/count($pitanje->odgovori))}}%</span></dd>             
+                
+                    @endforeach
+                </dl>
+            </div>
+        </div>
+    @endforeach
+<div class="row">
+    <div class="col-sm-8">
+        {{ $pitanja->links() }}
+    </div>
+</div>
+   
 @endsection

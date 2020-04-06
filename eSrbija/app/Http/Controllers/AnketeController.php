@@ -96,4 +96,13 @@ class AnketeController extends Controller
     {
         //
     }
+
+
+
+    public function statistikaAnkete($id){
+
+        $anketa = Ankete::where('id', $id)->with('pitanja.odgovori.korisnici')->first();
+        $pitanja = $anketa->pitanja()->paginate(3);
+        return view("homepages.statistikaanketa", ["pitanja"=>$pitanja]);
+    }
 }

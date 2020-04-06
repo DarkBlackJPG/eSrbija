@@ -33,9 +33,10 @@ Route::get('/referendumi', function (){
 })->name('referendumi');
 
 
-Route::get('/statistikaankete', function (){
-    return view('homepages.statistikaanketa');
-})->name('statistikaankete');
+Route::get('/statistikaankete/{id}', [
+"uses" => "AnketeController@statistikaAnkete",
+ "as" => "statistikaankete" 
+]);
 
 Route::get('/mojeobjave', function (){
     return view('homepages.mojeobjave');
