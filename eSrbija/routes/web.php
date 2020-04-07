@@ -33,14 +33,7 @@ Route::get('/referendumi', function (){
 })->name('referendumi');
 
 
-Route::get('/statistikaankete/{id}', [
-"uses" => "AnketeController@statistikaAnkete",
- "as" => "statistikaankete" 
-]);
 
-Route::get('/mojeobjave', function (){
-    return view('homepages.mojeobjave');
-})->name('mojeobjave');
 
 Route::get('/objavesport', function (){
     return view('homepages.obavestenjasport');
@@ -163,7 +156,19 @@ Route::middleware(['verified', 'auth'])->group(function () {
         Route::post('/savepoll', 'CreatePolController@create_poll')->name('savepoll');
         /** ********************************************** */
 
+             
+        Route::get('/statistikaankete/{id}', [
+            "uses" => "AnketeController@statistikaAnkete",
+            "as" => "statistikaankete" 
+            ]);
+        
 
+        Route::get('/mojaObavestenja', [
+            "uses" => "ObavestenjaController@prikaziMojaObavestenja",
+            "as" => "mojaObavestenja"
+        ]);
+           
+            
 
 
 

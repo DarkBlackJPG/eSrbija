@@ -125,7 +125,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-user"></span><a href="{{route('mojeobjave')}}">Moja obavestenja</a>
+                                        <span class="glyphicon glyphicon-user"></span><a href="{{route('mojaObavestenja')}}">Moja obavestenja</a>
                                     </td>
                                 </tr>
                                 <tr>

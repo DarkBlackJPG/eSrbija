@@ -82,4 +82,23 @@ class ObavestenjaController extends Controller
     {
         //
     }
+
+
+    public function prikaziMojaObavestenja(){
+
+
+        $user = auth()->user();
+        $obavestenja = null;
+        if($user->isMod){
+             $obavestenja = Obavestenja::where('korisnik_id',1)->get();
+          
+        }
+      
+
+          
+        return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja]);
+
+
+
+    }
 }
