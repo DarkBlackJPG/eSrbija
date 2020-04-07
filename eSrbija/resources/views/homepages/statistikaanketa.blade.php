@@ -12,8 +12,8 @@
                     </dt>
                 
                     @foreach ($pitanje->odgovori as $ponudjeniOdgovor)
-                        <dd class="percentage percentage--{{round(count($ponudjeniOdgovor->korisnici)/count($pitanje->odgovori))}}"><span class="text">{{$ponudjeniOdgovor->tekst}}: {{round(count($ponudjeniOdgovor->korisnici)/count($pitanje->odgovori))}}%</span></dd>             
-                
+                        <dd class="percentage percentage-{{round(count($ponudjeniOdgovor->korisnici)/$brojOdgovora[$pitanje->id] * 100)}}"><span class="text">{{$ponudjeniOdgovor->tekst}}: {{ round(count($ponudjeniOdgovor->korisnici)/$brojOdgovora[$pitanje->id] * 100) }}%</span></dd>             
+                               
                     @endforeach
                 </dl>
             </div>

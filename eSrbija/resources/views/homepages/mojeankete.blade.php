@@ -18,7 +18,7 @@
                         </div>
                         <div class = "col-4 align-self-center ">
 
-                            <button class = "btn"> <a href = "{{route('statistikaankete')}}">statistika</a></button>
+                            <button class = "btn"> <a href = "{{route('statistikaankete', ['id'=> $anketa->id])}}">statistika</a></button>
 
 
                         @if($anketa->obrisanoFlag==false)

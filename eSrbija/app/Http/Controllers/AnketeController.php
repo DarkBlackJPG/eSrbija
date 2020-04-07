@@ -103,6 +103,14 @@ class AnketeController extends Controller
 
         $anketa = Ankete::where('id', $id)->with('pitanja.odgovori.korisnici')->first();
         $pitanja = $anketa->pitanja()->paginate(3);
-        return view("homepages.statistikaanketa", ["pitanja"=>$pitanja]);
+        $brojOdgovora = array();
+        foreach($pitanja as $pitanje){
+            $brojOdgovoraPoPitanju = 0;
+            foreach($pitanje->odgovori as $poundjeniOdgovor){
+                $brojOdgovoraPoPitanju += count($poundjeniOdgovor->korisnici);
+            }
+            $brojOdgovora[$pitanje->id] = $brojOdgovoraPoPitanju;
+        }
+        return view("homepages.statistikaanketa", ["pitanja"=>$pitanja, "brojOdgovora"=>$brojOdgovora]);
     }
 }

@@ -59,7 +59,12 @@
  .percentage:hover:after, .percentage:focus:after {
 	 background-color: #aaa;
 }
- .percentage-1:after {
+
+.percentage-0:after {
+	width: 0%;
+}
+
+.percentage-1:after {
 	 width: 1%;
 }
  .percentage-2:after {
