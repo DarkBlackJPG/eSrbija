@@ -46,6 +46,17 @@ body{
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
+
+.blog-grids-moderator .grid {
+    background-color: #fff;
+    width:100%
+    float: left;
+    padding: 15px;
+    margin: 20px 15px 15px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
 .entry-media img {
     border-radius: 10px;
     width: 100%;

@@ -1,13 +1,21 @@
 @extends('fixed.home')
 @section('homepagecontent')
   
-
+<div class = "row" >
     @foreach($mojaObavestenja as $mojeObavestenje)
-
-        <p>{{ $mojeObavestenje->naslov }}</p>
-        <p>{{ $mojeObavestenje->opis }}</p>
-
-
+    
+          <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
+            <div class="blog-grids-moderator">
+                <div class="grid">
+                    <div class="entry-body">
+                        <span class="cat">Finansije</span>
+                        <h3><a href="#" target="_blank">{{ $mojeObavestenje->naslov }}</a></h3>
+                        <p>{{ $mojeObavestenje->opis }}</p>                              
+                    </div>
+                </div>
+            </div>
+        </div>
+   
     @endforeach
-
+</div>
     @endsection
