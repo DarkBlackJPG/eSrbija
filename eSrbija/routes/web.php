@@ -133,7 +133,10 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
     /** ********************************************* */
 
-
+    Route::get('/obavestenja/{id}', [
+        "uses" => "ObavestenjaController@prikaziObavesenjaZaKategoriju",
+         "as" => "obavestenja_za_kategoriju"
+    ]);
 
 
 

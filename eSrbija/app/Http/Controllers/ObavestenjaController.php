@@ -86,19 +86,25 @@ class ObavestenjaController extends Controller
 
     public function prikaziMojaObavestenja(){
 
-
         $user = auth()->user();
         $obavestenja = null;
-        if($user->isMod){
-             $obavestenja = Obavestenja::where('korisnik_id',1)->get();
-          
+        if(!$user->isMod){
+            return redirect()->route("home");
         }
-      
-
-          
+        
+        $obavestenja = Obavestenja::where('korisnik_id',1)->paginate(5);
         return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja]);
 
 
 
     }
+
+    public function prikaziObavesenjaZaKategoriju($id){
+
+            
+
+
+
+    }
+
 }

@@ -24,43 +24,24 @@
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <table class="table">
+
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('home')}}">VAZNO</a>
+                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="{{route('home')}}">Vazno</a>
                                         <span class="badge">2</span>
-                                    </td>
-
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="{{route('objavefinansije')}}">Finansije</a>
-                                        <input type="checkbox">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="{{route('nemaobjava')}}">Zdravlje</a>
-                                        <input type="checkbox">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('nemaobjava')}}">Energetika</a>
-                                        <input type="checkbox">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('nemaobjava')}}">Kultura</a>
-                                        <input type="checkbox">
-                                    </td>
-
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="{{route('objavesport')}}">Sport</a>
-                                        <input type="checkbox">
 
                                     </td>
                                 </tr>
+                                @foreach (App\Kategorije::all() as $kategorija)
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('obavestenja_za_kategoriju',$kategorija->id) }}">{{ $kategorija->naziv }}</a>
+                                              <input type="checkbox">
+                                        </td>
+
+                                    <tr>
+                                @endforeach
+                               
                             </table>
                         </div>
                     </div>

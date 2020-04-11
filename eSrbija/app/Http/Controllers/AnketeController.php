@@ -100,9 +100,13 @@ class AnketeController extends Controller
 
 
     public function statistikaAnkete($id){
+        $user = auth()->user();
+        if(!$user->isMod){
+              return redirect()->route("home");
+        }
 
         $anketa = Ankete::where('id', $id)->with('pitanja.odgovori.korisnici')->first();
-        $pitanja = $anketa->pitanja()->paginate(3);
+        $pitanja = $anketa->pitanja()->paginate(4);
         $brojOdgovora = array();
         foreach($pitanja as $pitanje){
             $brojOdgovoraPoPitanju = 0;

@@ -1,8 +1,6 @@
 @extends('fixed.home')
 @section('homepagecontent')
     <div class='statistika'>
-
-
     @foreach ($pitanja as $pitanje)
         <div class="row">
             <div class=" col-sm-8">
@@ -20,7 +18,7 @@
         </div>
     @endforeach
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
         {{ $pitanja->links() }}
     </div>
 </div>
