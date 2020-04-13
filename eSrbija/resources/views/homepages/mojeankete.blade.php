@@ -5,7 +5,7 @@
 
         <div class="row">
 
-            <div class= " col-12 ankete">
+            <div class= "col-lg-10 ankete ">
                 @if($anketeMoje == null || count($anketeMoje)==0) <h3>Nemate nijednu objavljenu anketu</h3>
             @else
                 @foreach($anketeMoje as $anketa)
@@ -16,7 +16,7 @@
                             <h5>{{$anketa->created_at}}</h5>
 
                         </div>
-                        <div class = "col-4 align-self-center ">
+                        <div class = "col-4 align-self-center text-center ">
 
                             <button class = "btn"> <a href = "{{route('statistikaankete', ['id'=> $anketa->id])}}">statistika</a></button>
 

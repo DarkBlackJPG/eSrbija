@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Obavestenja;
+use App\Kategorije;
 use Illuminate\Http\Request;
 
 class ObavestenjaController extends Controller
@@ -91,7 +92,10 @@ class ObavestenjaController extends Controller
         if(!$user->isMod){
             return redirect()->route("home");
         }
-        
+          /*
+
+        Treba dodati jos da iznbacim obavestenja koja nisu lokalna, odnosno nr peipadaju mestu korisnika
+        */
         $obavestenja = Obavestenja::where('korisnik_id',1)->paginate(5);
         return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja]);
 
@@ -101,9 +105,13 @@ class ObavestenjaController extends Controller
 
     public function prikaziObavesenjaZaKategoriju($id){
 
-            
+        $kategorija = Kategorije::where("id",$id)->first();
+        $obavestenja = $kategorija->obavestenja()->paginate(5);
+        /*
 
-
+        Treba dodati jos da iznbacim obavestenja koja nisu lokalna, odnosno nr peipadaju mestu korisnika
+        */
+        return view("homepages.obavestenja_po_kategorijama", ['mojaObavestenja' => $obavestenja, "imeKategorije" => $kategorija->naziv]);
 
     }
 
