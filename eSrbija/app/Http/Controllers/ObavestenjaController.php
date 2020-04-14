@@ -89,25 +89,46 @@ class ObavestenjaController extends Controller
 
         $user = auth()->user();
         $obavestenja = null;
-        if(!$user->isMod){
+        if ( !$user->isMod && !$user->isAdmin ) {
             return redirect()->route("home");
         }
-          /*
-
-        Treba dodati jos da iznbacim obavestenja koja nisu lokalna, odnosno nr peipadaju mestu korisnika
-        */
-        $obavestenja = Obavestenja::where('korisnik_id',1)->paginate(5);
+    
+        $obavestenja = Obavestenja::where(['korisnik_id' => $user->id, 'obrisanoFlag' => false])->paginate(5);
+     
+    
+        
         return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja]);
 
 
 
     }
 
-    public function prikaziObavesenjaZaKategoriju($id){
+    public function prikaziObavesenjaZaKategoriju($id){//Greske ako je null nesto, pogledati i obezbediti se od toga
+        //Prebaciti sve ovo u model, da ne bude u kontroleru
+       
+        $kategorija = Kategorije::where("id", '=' , $id)->first();
+        $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(5);
+      /*  $obavestenjaForMe = [];
+        foreach ($obavestenja as $obavestenje){
+            if($obavestenje->nivoLokNac == 1){
+                $obavestenjaForMe[] = $obavestenje;
+            } else {
+                //Sta prikazati adminu, sve ili nema tu opciju
+                $mesta = $obavestenje->vezanoZaMesto();
+                $idMesto = null;
+                if( auth()->user()->isMod){
+                    $idMesto = Modderator::find(auth()->user()->id)->first();
+                } else{
+                    $idMesto = NeprivilegovaniKorisnik::find(auth()->user()->id())->first();
+                }
 
-        $kategorija = Kategorije::where("id",$id)->first();
-        $obavestenja = $kategorija->obavestenja()->paginate(5);
-        /*
+                if( in_array($idMesto, $mesta) ){
+                    $obavestenjaForMe[]= $obavestenje;
+                }
+            }
+        }
+        
+
 
         Treba dodati jos da iznbacim obavestenja koja nisu lokalna, odnosno nr peipadaju mestu korisnika
         */

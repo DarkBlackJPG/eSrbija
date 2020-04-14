@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col text-center" >
-        {{ $imeKategorije }}
+         {{ $imeKategorije }}
     </div>
 </div>
 
@@ -15,7 +15,6 @@
             <div class="blog-grids-moderator">
                 <div class="grid">
                     <div class="entry-body">
-                        <span class="cat">Finansije</span>
                         <h3><a href="#" target="_blank">{{ $mojeObavestenje->naslov }}</a></h3>
                         <p>{{ $mojeObavestenje->opis }}</p>                              
                     </div>
