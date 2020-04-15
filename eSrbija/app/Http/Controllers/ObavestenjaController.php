@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Obavestenja;
 use App\Kategorije;
+use App\Moderator;
+use App\NeprivilegovanKorisnik;
 use Illuminate\Http\Request;
 
 class ObavestenjaController extends Controller
@@ -108,28 +110,31 @@ class ObavestenjaController extends Controller
        
         $kategorija = Kategorije::where("id", '=' , $id)->first();
         $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(5);
-      /*  $obavestenjaForMe = [];
-        foreach ($obavestenja as $obavestenje){
-            if($obavestenje->nivoLokNac == 1){
-                $obavestenjaForMe[] = $obavestenje;
-            } else {
+      
+        if( auth()->user()->isMod){
+            $idMesto = Moderator::find(auth()->user()->id)->first()->opstinaPoslovanja_id;
+        } else{
+            $idMesto = NeprivilegovanKorisnik::find(auth()->user()->id)->first()->opstinaPrebivalista_id;
+        }
+        
+        foreach ($obavestenja as  $key => $obavestenje){
+            if($obavestenje->nivoLokNac == 0){
                 //Sta prikazati adminu, sve ili nema tu opciju
-                $mesta = $obavestenje->vezanoZaMesto();
-                $idMesto = null;
-                if( auth()->user()->isMod){
-                    $idMesto = Modderator::find(auth()->user()->id)->first();
-                } else{
-                    $idMesto = NeprivilegovaniKorisnik::find(auth()->user()->id())->first();
-                }
+                $mesta = $obavestenje->vezanoZaMesto;
 
-                if( in_array($idMesto, $mesta) ){
-                    $obavestenjaForMe[]= $obavestenje;
+               $mesta_id = [];
+               foreach ($mesta as $mesto){
+                    $mesta_id [] = $mesto->id;
+               }
+
+               if( !in_array($idMesto, $mesta_id) ){
+                    $obavestenja->forget($key);
                 }
             }
         }
         
 
-
+        /*
         Treba dodati jos da iznbacim obavestenja koja nisu lokalna, odnosno nr peipadaju mestu korisnika
         */
         return view("homepages.obavestenja_po_kategorijama", ['mojaObavestenja' => $obavestenja, "imeKategorije" => $kategorija->naziv]);

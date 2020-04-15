@@ -14,6 +14,6 @@ class Obavestenja extends Model
     }
 
     public function vezanoZaMesto() {
-        return $this->belongsToMany('App\Mesto', 'mesto_obavestenjes', 'obavestenje_id', 'mesto_id');
+        return $this->belongsToMany('App\Mesto', 'mesto_obavestenjas', 'obavestenja_id', 'mesto_id');
     }
 }
