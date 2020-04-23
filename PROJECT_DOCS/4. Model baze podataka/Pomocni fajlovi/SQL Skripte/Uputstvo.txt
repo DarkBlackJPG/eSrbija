@@ -4,3 +4,5 @@ Ukoliko MySQL Server nije podignut, izvrsiti:
 Ime servisa ne mora biti 'mysql80', moze se videti nakon:
 		- run (msconfig) > Services tab
 Potrebno je da port na kom radi MySQL Server bude slobodan (default 3306)   
+///////////
+sifra za administratora je 12345678

@@ -1,13 +1,38 @@
 @extends('fixed.home')
 @section('homepagecontent')
 
+    @if(session('poruka'))
+
+        <script>
+            Toast.fire({
+                icon: '{{session('icon')}}',
+                title: '{{session('poruka')}}',
+            })
+        </script>
+
+    @endif
+   <?php
+    /*@if(isset($poruka))
+
+        <script>
+            Toast.fire({
+                icon: '{{$poruka}}',
+                title: '{{$icon}}',
+            })
+        </script>*/
+
+    ?>
+
     <div class = "container">
 
         <div class="row">
 
-            <div class= "col-lg-10 ankete ">
-                @if($anketeMoje == null || count($anketeMoje)==0) <h3>Nemate nijednu objavljenu anketu</h3>
-            @else
+            <div class= "col-lg-8 ankete ">
+                @if($anketeMoje == null || count($anketeMoje)==0)
+                    <div class="card">
+                    <h3>Nemate nijednu objavljenu anketu</h3>
+                    </div>
+                @else
                 @foreach($anketeMoje as $anketa)
                 <div class="card">
                     <div class = "row">

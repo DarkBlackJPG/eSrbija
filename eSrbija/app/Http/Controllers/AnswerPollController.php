@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class AnswerPollController extends Controller
 {
-    public function list_all_polls_created_by_me(){
+    public function list_all_polls_created_by_me($poruka=null,$icon=null){
         $user = auth()->user();
         $ankete = null;
         if($user->isAdmin) {
@@ -21,7 +21,13 @@ class AnswerPollController extends Controller
             }}
 
         }
-        return view('homepages.mojeankete',['anketeMoje' =>$ankete]);
+        $niz = ['anketeMoje' =>$ankete];
+//        if(isset($poruka)) {
+//            $niz['poruka']=$poruka;
+//            $niz['icon']=$icon;
+//        }
+
+        return view('homepages.mojeankete',$niz);
 
 
 
@@ -36,7 +42,9 @@ class AnswerPollController extends Controller
             $anketa->isActive = false;
             $anketa->save();
         }
-     return redirect(route('mojeankete'));
+        unset(\request()->all()['id']);
+
+    return redirect(route('mojeankete'))->with(['poruka'=>'Uspesno zatvorena anketa', 'icon'=>'success']);;
 
     }
 
@@ -103,7 +111,9 @@ class AnswerPollController extends Controller
         foreach($ankete as $key =>$val)
             if($val->obrisanoFlag) unset($ankete[$key]);
 
-        return view('homepages.aktivneAnkete', ['ankete' => $ankete]);
+         $niz= ['ankete'=> $ankete];
+
+        return view('homepages.aktivneAnkete',$niz);
 
 
     }
@@ -121,7 +131,7 @@ class AnswerPollController extends Controller
 
                 if(empty(\request($pitanje->id))) {
                     echo 'usao ovde';
-                    return redirect(route('ankete'));
+                    return redirect(route('ankete'))->with(['poruka'=>'Neuspesno odgovoreno na anketu', 'icon'=>'warning']);;
                 } else {
 
                     $lista_odgovora_postojecih_u_bazi[$i] = \request($pitanje->id);
@@ -163,7 +173,7 @@ class AnswerPollController extends Controller
 
              $user->sviOdgovori()->attach($niz_id_odgovora);
          }
-         return redirect(route('ankete'));
+         return redirect(route('ankete'))->with(['poruka'=>'Uspesno odgovoreno na anketu', 'icon'=>'success']);;
 
 
 

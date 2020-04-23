@@ -131,7 +131,9 @@
                     <div class="row">&nbsp;</div>
                     @endforeach
                 @else
-                <h1>Nema neobradjenih moderatora</h1>
+                    <div class ="card">
+                <h3>Nema neobradjenih moderatora</h3>
+                    </div>
                 @endif
 
             </div>

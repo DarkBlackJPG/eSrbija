@@ -66,7 +66,12 @@
                 for(let j=0; j<odgovori.length; j++){
                     if(odgovori[j].checked)flag=true;
                 }
-                if(!flag) {alert("Niste odgovorili na sva pitanja"); return;}
+                if(!flag) {
+                    Toast.fire({
+                        icon: 'warning',
+                        title: 'Niste odgovorili na sva pitanja',
+                    });
+                    return;}
            }
 
 

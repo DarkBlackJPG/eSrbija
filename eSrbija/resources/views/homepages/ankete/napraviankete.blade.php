@@ -202,21 +202,47 @@
 
         function  check_and_send() {
 
-            if(document.forma.naziv.value == "") alert("Nije unet naziv ankete")
-            else if(document.getElementById("lokalni").checked && mesta.selected =="")  alert("Nisu uneti lokaliteti");
+            if(document.forma.naziv.value == ""){
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Niste uneli naziv ankete!',
+                });
+                return;
+            }
+            else if(document.getElementById("lokalni").checked && mesta.selected =="") {
+
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Nisu uneti lokaliteti!',
+                });
+                return;
+            }
             else {
                 let pitanja = document.getElementsByClassName("pitanje");
-                if(pitanja.length==0){alert("Nije uneto nijedno pitanje"); return;}
+                if(pitanja.length==0){
+                    Toast.fire({
+                        icon: 'warning',
+                        title: 'Niste uneli nijedno pitanje!',
+                    });return;}
 
                 for(let i=0 ; i<pitanja.length; i++ ){
-                    if(pitanja[i].value=="") {alert('Nisu uneti tekstovi svih pitanja'); return;}
+                    if(pitanja[i].value=="") {Toast.fire({
+                        icon: 'warning',
+                        title: 'Niste uneli tekstove svih pitanja!',
+                    }); return;}
                     else {
                         let odgovori = pitanja[i].parentElement.parentElement.getElementsByTagName("input");
-                        if(odgovori.length==1) {alert("Neka pitanja nemaju definisan nijedan odgovor"); return;}
+                        if(odgovori.length==1) {Toast.fire({
+                            icon: 'warning',
+                            title: 'Neka pitanja nemaju nijedan odgovor!',
+                        }); return;}
 
                         for(let j =0 ; j< odgovori.length; j++) {
                             if(odgovori[j].class=="pitanje") { console.log("preskace pitanje") ;continue;}
-                            if (odgovori[j].value=="") {alert("Nisu uneti tekstovi svih odgovora"); return ;}
+                            if (odgovori[j].value=="") {Toast.fire({
+                                icon: 'warning',
+                                title: 'Nisu uneti tekstovi svih odgovora!',
+                            }); return ;}
                         }
                     }
                 }

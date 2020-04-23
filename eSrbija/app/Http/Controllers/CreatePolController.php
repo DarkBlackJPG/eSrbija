@@ -58,7 +58,7 @@ class CreatePolController extends Controller
                         }
              if ($biloJednoPitanje==false)$ispravno=false;
 
-             if (!$ispravno) return redirect(route('ankete'));
+             if (!$ispravno) return redirect(route('ankete'))->with(['poruka'=>'Neuspesno napravljena anketa', 'icon'=>'warning']);;
 
 
 
@@ -109,7 +109,7 @@ class CreatePolController extends Controller
             }
         }
 
-   return redirect(route('ankete'));
+   return redirect(route('ankete'))->with(['poruka'=>'Uspesno napravljenja anketa', 'icon'=>'success']);;
 
     }
 
@@ -123,7 +123,8 @@ class CreatePolController extends Controller
           DB::table('anketes')->where(['id' => $id])->update(['obrisanoFlag' => true]);
 
 
-            return redirect(route('mojeankete'));
+
+            return redirect()->route('mojeankete')->with(['poruka'=>'Uspesno obrisana anketa', 'icon'=>'success']);
 
         }
 }

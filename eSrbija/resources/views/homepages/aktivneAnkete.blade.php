@@ -1,6 +1,20 @@
 @extends('fixed.home')
 
 @section('homepagecontent')
+
+    @if(session('poruka'))
+ 
+        <script>
+            Toast.fire({
+                icon: '{{session('icon')}}',
+                title: '{{session('poruka')}}',
+            })
+        </script>
+
+    @endif
+
+
+
     <div class = "container">
         <div class="row">
             <div class= " col-sm-8 ankete">
