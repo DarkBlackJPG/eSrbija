@@ -7,6 +7,12 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class EmailVerification - Reprezentuje email koji se salje
+ * korisniku
+ *
+ * @package App\Mail
+ */
 class EmailVerification extends Mailable
 {
     use Queueable, SerializesModels;
@@ -14,19 +20,19 @@ class EmailVerification extends Mailable
     /**
      * Create a new message instance.
      *
+     * @var App/User class, reprezentuje korisnika kome je potrebno poslati poruku
      * @return void
      * @author Stefan Teslic
      */
-
     public function __construct($user)
     {
         $this->url = "http://localhost:8000/user/confirm_mail/".$user->id."/".$user->verification_token;
     }
 
     /**
-     * Build the message.
+     * Poruka se bilduje
      *
-     * @return $this
+     * @return Bildovana poruka tipa Mailable
      * @author Stefan Teslic
      */
     public function build()

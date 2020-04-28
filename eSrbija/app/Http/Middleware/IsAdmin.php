@@ -4,6 +4,11 @@ namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Closure;
 
+/**
+ * Class IsAdmin - middleware klasa koja treba da proveri da li je autentifikovan
+ * korisnik administrator
+ * @package App\Http\Middleware
+ */
 class IsAdmin
 {
     /**

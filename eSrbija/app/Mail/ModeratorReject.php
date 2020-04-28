@@ -7,6 +7,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class ModeratorReject - Reprezentuje mail objekat koji salje mejl koji treba da javi osobi da li je
+ * zahtev za moderatora odbijen
+ * @package App\MailS
+ */
 class ModeratorReject extends Mailable
 {
     use Queueable, SerializesModels;

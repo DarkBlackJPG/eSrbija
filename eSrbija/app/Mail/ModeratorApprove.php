@@ -7,6 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class ModeratorApprove - Salje se mejl moderatoru sa statusom da li je prihvacen
+ * @package App\Mail
+ */
 class ModeratorApprove extends Mailable
 {
     use Queueable, SerializesModels;
@@ -24,7 +28,7 @@ class ModeratorApprove extends Mailable
     /**
      * Build the message.
      *
-     * @return $this
+     * @return vraca Mailable objekat
      */
     public function build()
     {

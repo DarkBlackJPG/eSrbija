@@ -5,6 +5,11 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class IsMod - Predstavlja middleware klasu koja ima zadatak da proveri da li je
+ * autentifikovan korisnik moderator
+ * @package App\Http\Middleware
+ */
 class IsMod
 {
     /**

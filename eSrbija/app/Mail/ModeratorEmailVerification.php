@@ -7,6 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
+/**
+ * Class ModeratorEmailVerification - Salje mail poruku sa potvrdom da je zahtev za moderatora prihvacen
+ * @package App\Mail
+ */
 class ModeratorEmailVerification extends Mailable
 {
     use Queueable, SerializesModels;
