@@ -11,6 +11,8 @@
         </script>
 
     @endif
+
+
    <?php
     /*@if(isset($poruka))
 
@@ -43,7 +45,7 @@
                         </div>
                         <div class = "col-4 align-self-center text-center ">
 
-                            <button class = "btn"> <a href = "{{route('statistikaankete', ['id'=> $anketa->id])}}">statistika</a></button>
+                            <button class = "btn"> <a href = "{{route('statistikaankete', ['id'=> $anketa->id])}}">Statistika</a></button>
 
 
                         @if($anketa->obrisanoFlag==false)
@@ -51,7 +53,7 @@
 
                                 <form action="{{route('obrisianketu', ['id' => $anketa->id])}}" method="post">
                                     @csrf
-                                    <button class = "btn mt-1"> Obrisi</button>
+                                    <button class = "btn mt-1"> &nbsp;&nbsp; Obrisi &nbsp;&nbsp;</button>
                                 </form>
 
                         @endif
@@ -60,7 +62,7 @@
 
                                 <form action="{{route('zatvorianketu', ['id' => $anketa->id])}}" method="post">
                                     @csrf
-                                <button class = "btn mt-1"> Zatvori </button>
+                                <button class = "btn mt-1">&nbsp; Zatvori&nbsp;&nbsp; </button>
                                 </form>
 
                             @endif

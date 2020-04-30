@@ -17,4 +17,26 @@ class Ankete extends Model
     public function vezanoZaMesto() {
         return $this->belongsToMany('App\Mesto', 'ankete_mestos', 'ankete_id', 'mesto_id');
     }
+
+    public static function pitanjaAnketeSaBrojemOdgovoraPoPitanju($id){
+        $anketa = Ankete::where('id', $id)->with('pitanja.odgovori.korisnici')->first();
+        $pitanja = $anketa->pitanja()->paginate(4);
+        $brojOdgovora = array();
+        $count = 0;
+        $isAnswered = true;
+        foreach($pitanja as $pitanje){
+            $brojOdgovoraPoPitanju = 0;
+            foreach($pitanje->odgovori as $poundjeniOdgovor){
+                $brojOdgovoraPoPitanju += count($poundjeniOdgovor->korisnici);
+            }
+            $brojOdgovora[$pitanje->id] = $brojOdgovoraPoPitanju;
+            if($brojOdgovoraPoPitanju == 0){
+                $count++;
+            }
+        }
+        if($count == count($brojOdgovora)){
+            $isAnswered = false;
+        }
+        return ["pitanja"=>$pitanja, "brojOdgovora"=>$brojOdgovora, "isAnswered"=> $isAnswered];
+    } 
 }

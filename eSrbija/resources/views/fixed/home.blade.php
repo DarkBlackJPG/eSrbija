@@ -128,8 +128,9 @@
             </div>
         </div>
         <div class="col-md-8 justify-content-center">
-         @yield('homepagecontent')
-         </div>
+             @include("sweetalert::alert")
+             @yield('homepagecontent')
+        </div>
 
     </div>
 </div>

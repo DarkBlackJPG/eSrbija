@@ -10,17 +10,6 @@ class AnketeController extends Controller
 {
 
 
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Display a listing of the resource.
      *
@@ -104,17 +93,14 @@ class AnketeController extends Controller
         if(!$user->isMod){
               return redirect()->route("home");
         }
+        $pitanjaSaBrojemOdgovora = Ankete::pitanjaAnketeSaBrojemOdgovoraPoPitanju($id);
 
-        $anketa = Ankete::where('id', $id)->with('pitanja.odgovori.korisnici')->first();
-        $pitanja = $anketa->pitanja()->paginate(4);
-        $brojOdgovora = array();
-        foreach($pitanja as $pitanje){
-            $brojOdgovoraPoPitanju = 0;
-            foreach($pitanje->odgovori as $poundjeniOdgovor){
-                $brojOdgovoraPoPitanju += count($poundjeniOdgovor->korisnici);
-            }
-            $brojOdgovora[$pitanje->id] = $brojOdgovoraPoPitanju;
+        if(!$pitanjaSaBrojemOdgovora["isAnswered"]){
+            alert()->info('Anketa','Za izabranu anketu nema statistike!')->autoClose(5000)->timerProgressBar();
+            return redirect()->back();
         }
-        return view("homepages.statistikaanketa", ["pitanja"=>$pitanja, "brojOdgovora"=>$brojOdgovora]);
+        return view("homepages.statistikaanketa", ["pitanja"=>$pitanjaSaBrojemOdgovora["pitanja"], "brojOdgovora"=>$pitanjaSaBrojemOdgovora["brojOdgovora"]]);
+        
+   
     }
 }

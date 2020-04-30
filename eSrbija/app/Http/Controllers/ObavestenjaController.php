@@ -95,13 +95,8 @@ class ObavestenjaController extends Controller
             return redirect()->route("home");
         }
     
-        $obavestenja = Obavestenja::where(['korisnik_id' => $user->id, 'obrisanoFlag' => false])->paginate(5);
-     
-    
-        
+        $obavestenja = Obavestenja::svaObavestenjaModeratora($user->id);
         return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja]);
-
-
 
     }
 
@@ -109,7 +104,7 @@ class ObavestenjaController extends Controller
         //Prebaciti sve ovo u model, da ne bude u kontroleru
        
         $kategorija = Kategorije::where("id", '=' , $id)->first();
-        $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(5);
+        $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
       
         if( auth()->user()->isMod){
             $idMesto = Moderator::find(auth()->user()->id)->first()->opstinaPoslovanja_id;
@@ -122,12 +117,12 @@ class ObavestenjaController extends Controller
                 //Sta prikazati adminu, sve ili nema tu opciju
                 $mesta = $obavestenje->vezanoZaMesto;
 
-               $mesta_id = [];
-               foreach ($mesta as $mesto){
-                    $mesta_id [] = $mesto->id;
-               }
+                $mesta_id = [];
+                foreach ($mesta as $mesto){
+                     $mesta_id [] = $mesto->id;
+                }
 
-               if( !in_array($idMesto, $mesta_id) ){
+                if( !in_array($idMesto, $mesta_id) ){
                     $obavestenja->forget($key);
                 }
             }
