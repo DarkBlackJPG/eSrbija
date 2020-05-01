@@ -8,8 +8,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class ModeratorEmailVerification - Salje mail poruku sa potvrdom da je zahtev za moderatora prihvacen
+ * Class ModeratorEmailVerification - Sends mail to potential moderator if his registration is successfully received
  * @package App\Mail
+ * @version 1.0
  */
 class ModeratorEmailVerification extends Mailable
 {

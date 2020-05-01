@@ -6,6 +6,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * User Model -  Each database table has a corresponding "Model" 
+ * which is used to interact with that table. Models allow you to query 
+ * for data in your tables, as well as insert new records into the table.
+ * 
+ * @version 1.0
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -14,6 +21,7 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array
+     * 
      */
     protected $fillable = [
         'name', 'email', 'password',

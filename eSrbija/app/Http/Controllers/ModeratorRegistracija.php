@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 
+/**
+ * ModeratorRegistracija - This Controller is used to register new moderators
+ * 
+ * @version 1.0
+ */
 class ModeratorRegistracija extends Controller
 {
     use RegistersUsers;
@@ -25,7 +30,7 @@ class ModeratorRegistracija extends Controller
      * and redirects the user to the welcome page.
      *
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Routing\Redirector
      *
      * @author Stefan Teslic
      */

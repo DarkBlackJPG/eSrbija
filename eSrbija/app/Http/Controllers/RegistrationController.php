@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Class RegistrationController - This controller fetches registration forms for Moderator and user
+ * @package App\Http\Controllers
+ * @author Stefan Teslic
+ * @version 1.0
+ */
 class RegistrationController extends Controller
 {
     public function __construct()
@@ -26,7 +32,7 @@ class RegistrationController extends Controller
     /**
      * Returns the registration form for moderators.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\View\View
      * @author Stefan Teslic
      */
     public function getModeratorRegistrationForm()

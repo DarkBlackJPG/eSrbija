@@ -8,10 +8,11 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class EmailVerification - Reprezentuje email koji se salje
- * korisniku
+ * Class EmailVerification - Mailable class that sends an email to user when he/she registers to eSrbija
  *
  * @package App\Mail
+ * @version 1.0
+ * @author Stefan Teslic
  */
 class EmailVerification extends Mailable
 {
@@ -20,7 +21,7 @@ class EmailVerification extends Mailable
     /**
      * Create a new message instance.
      *
-     * @var App/User class, reprezentuje korisnika kome je potrebno poslati poruku
+     * @var App\User
      * @return void
      * @author Stefan Teslic
      */

@@ -8,8 +8,10 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class ModeratorApprove - Salje se mejl moderatoru sa statusom da li je prihvacen
+ * Class ModeratorApprove - Sends email to potential moderator ih he/she is approved
+ *
  * @package App\Mail
+ * @version 1.0
  */
 class ModeratorApprove extends Mailable
 {

@@ -9,6 +9,12 @@ use App\Moderator;
 use http\Env\Response;
 use Illuminate\Http\Request;
 
+/**
+ * Class AdministratorController - Necessary functions for administrator functioning
+ * @package App\Http\Controllers
+ * @author Stefan Teslic
+ * @version 1.0
+ */
 class AdministratorController extends Controller
 {
     /**
@@ -86,6 +92,16 @@ class AdministratorController extends Controller
     {
         //
     }
+    /**
+     * Generates array of not-yet-approved moderators.
+     *
+     * If $ajax is true, then this method gets only moderators that the moderator was not
+     * notified about ('adminNotified' == 0)
+     *
+     * @param bool $ajax
+     * @return array $moderatorArray
+     * @author Stefan Teslic
+     */
     private function generateModeratorArray(bool $ajax) {
         $moderators = null;
         if($ajax == true) {
@@ -128,6 +144,14 @@ class AdministratorController extends Controller
 
         return $moderatorArray;
     }
+    /**
+     * This method gets all unapproved moderators and all categories.
+     * This returns a View with data 'moderatori' and 'kategorije'
+     *
+     * @uses private function generateModeratorArray(bool $ajax);
+     * @return Illuminate\View\View
+     * @author Stefan Teslic
+     */
     public function getModeratorApprovalForms() {
         $moderatorArray = $this->generateModeratorArray(false);
         $categories = Kategorije::all()->pluck('naziv');
@@ -154,6 +178,15 @@ class AdministratorController extends Controller
         return redirect()->back()->with('successApprove', 'Uspesno ste odobrili '.$moderator->naziv.' sa pravima moderatora!');
 
     }
+    /**
+     * This method sends an email to rejected moderator
+     * and deletes that moderator's record in DB
+     *
+     * @param Request $request
+     * @param App\Korisnik $id
+     * @return \Illuminate\Http\Response
+     * @author Stefan Teslic
+     */
     public function moderatorReject(Request $request, Korisnik $id) {
         $mailtoMail = $id->email;
         $moderatorName = $id->moderatori()->first()->naziv;
@@ -163,7 +196,14 @@ class AdministratorController extends Controller
         return redirect()->back()->with('successReject', 'Uspesno ste odbili '.$moderatorName.'!');
     }
 
-
+    /**
+     * This method checks if there are any moderators that were
+     * created and that were not used to notify the administrator
+     * user.
+     *
+     * @return \Illuminate\Http\Response
+     * @author Stefan Teslic
+     */
     public function moderatorRequestCheck() {
         $moderators = Moderator::where('approved',0)->where('adminNotified', 0)->update(['adminNotified'=> 1]);
 

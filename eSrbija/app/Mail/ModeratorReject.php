@@ -8,9 +8,10 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 /**
- * Class ModeratorReject - Reprezentuje mail objekat koji salje mejl koji treba da javi osobi da li je
- * zahtev za moderatora odbijen
+ * Class ModeratorReject - Sends email to potential moderator ih he/she is rejected
+ *
  * @package App\MailS
+ * @version 1.0
  */
 class ModeratorReject extends Mailable
 {
