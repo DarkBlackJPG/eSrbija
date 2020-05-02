@@ -55,49 +55,80 @@ Route::get('/nemaobjava', function (){
  */
 Route::middleware(['guest'])->group(function () {
     /**
-     * User and moderator login routes
+     * Get login form route
      *
      * @author Stefan Teslic
      */
     Route::get('login',
         'Auth\LoginController@getForm')
         ->name('login');
+    /**
+     * POST login form details to this route
+     *
+     * @author Stefan Teslic
+     */
     Route::post('login',
         'Auth\LoginController@login')
         ->name('loginPost');
 
     /**
-     * User and moderator GET registration routes
+     * Gets the registration form for User
      *
      * @author Stefan Teslic
      */
     Route::get('/user/register',
         'RegistrationController@getUserRegistrationForm')
         ->name('user.register');
+    /**
+     * Gets the registration form for Moderator
+     *
+     * @author Stefan Teslic
+     */
     Route::get('/moderator/register',
         'RegistrationController@getModeratorRegistrationForm')
         ->name('moderator.register');
 
     /**
-     * User and moderator POST registration routes
+     * Sends user registration details to this route
      *
      * @author Stefan Teslic
      */
     Route::post('/user/register',
         'NeprivilegovanKorisnikRegistracija@register')
         ->name('user.register.save');
-
+    /**
+     * Sends moderator registration details to this route
+     *
+     * @author Stefan Teslic
+     */
     Route::post('/moderator/register',
         'ModeratorRegistracija@register')
         ->name('moderator.register.save');
 
 
     /**
+     * Gets the welcome page
+     * 
      * @author Stefan Teslic
      */
     Route::get('/', function () { return view('welcome'); });
+     /**
+     * Gets the mail resend form
+     * 
+     * @author Stefan Teslic
+     */
     Route::get('email/resend', 'NeprivilegovanKorisnikRegistracija@getResendForm')->name('verification.resend');
+     /**
+     * Posts the reset email form details
+     * 
+     * @author Stefan Teslic
+     */
     Route::post('email/resend', 'NeprivilegovanKorisnikRegistracija@resend')->name('verification.resend.post');
+     /**
+     * Verifies the user and token from sent mail <-- reset form for password
+     * 
+     * @author Stefan Teslic
+     */
     Route::get('/user/confirm_mail/{user}/{token}', 'NeprivilegovanKorisnikRegistracija@verify')->name('user.verify');
 });
 

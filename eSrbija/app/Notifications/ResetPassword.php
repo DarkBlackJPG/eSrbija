@@ -8,6 +8,14 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 
+/**
+ * ResetPassword class - used when request for password reset is invoked
+ *
+ * Class ResetPassword
+ * @package App\Notifications
+ * @author Stefan Teslic
+ * @version 1.0
+ */
 class ResetPassword extends ResetPasswordNotification
 {
     use Queueable;

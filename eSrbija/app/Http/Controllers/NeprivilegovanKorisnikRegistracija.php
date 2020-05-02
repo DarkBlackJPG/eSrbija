@@ -14,6 +14,12 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+/**
+ * Class NeprivilegovanKorisnikRegistracija - User registration logic
+ * @package App\Http\Controllers
+ * @author Stefan Teslic
+ * @version 1.0
+ */
 class NeprivilegovanKorisnikRegistracija extends Controller
 {
     use RegistersUsers;
@@ -21,7 +27,14 @@ class NeprivilegovanKorisnikRegistracija extends Controller
 
     protected $redirectTo = RouteServiceProvider::WELCOME;
 
-
+    /**
+     * NeprivilegovanKorisnikRegistracija constructor. $this has the
+     * middleware guest so that only guest users can access this object and
+     * its methods. THis rule applies to all methods except
+     * verify and resend
+     *
+     * @author Stefan Teslic
+     */
     public function __construct()
     {
         $this->middleware('guest')->except(['verify','resend']);
