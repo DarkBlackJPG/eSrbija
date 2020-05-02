@@ -133,6 +133,11 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
     /** ********************************************* */
 
+    
+    /**
+    * Ruta za prikaz obavestenja za kategoriju za dati id-ijem
+    * @author Dušan Stijović
+    */   
     Route::get('/obavestenja/{id}', [
         "uses" => "ObavestenjaController@prikaziObavesenjaZaKategoriju",
          "as" => "obavestenja_za_kategoriju"
@@ -159,13 +164,22 @@ Route::middleware(['verified', 'auth'])->group(function () {
         Route::post('/savepoll', 'CreatePolController@create_poll')->name('savepoll');
         /** ********************************************** */
 
-             
+
+        /**
+        * Ruta za prikaz statistike za anketu za datim id-ijem
+        * @author Dušan Stijović
+        */   
         Route::get('/statistikaankete/{id}', [
             "uses" => "AnketeController@statistikaAnkete",
             "as" => "statistikaankete" 
             ]);
         
 
+        
+        /**
+        * Ruta za prikaz obavestenja za korisnika koji je ulogovan u sistem
+        * @author Dušan Stijović
+        */   
         Route::get('/mojaObavestenja', [
             "uses" => "ObavestenjaController@prikaziMojaObavestenja",
             "as" => "mojaObavestenja"

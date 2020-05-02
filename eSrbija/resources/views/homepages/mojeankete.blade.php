@@ -44,10 +44,10 @@
 
                         </div>
                         <div class = "col-4 align-self-center text-center ">
-
-                            <button class = "btn"> <a href = "{{route('statistikaankete', ['id'=> $anketa->id])}}">Statistika</a></button>
-
-
+                            <form action="{{route('statistikaankete', ['id'=> $anketa->id])}}" method="get">
+                                @csrf
+                                <button class = "btn mt-1">Statistika</button>
+                            </form>
                         @if($anketa->obrisanoFlag==false)
 
 

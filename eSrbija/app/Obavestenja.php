@@ -20,4 +20,31 @@ class Obavestenja extends Model
     public static function svaObavestenjaModeratora($id){
        return Obavestenja::where(['korisnik_id' => $id, 'obrisanoFlag' => false])->paginate(4);
     }
+
+    public static function svaObavestenjaZaKategorijuIMestoKorisnika($id, $idMesto){
+        
+        $kategorija = Kategorije::where("id", '=' , $id)->first();
+        $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
+        
+        foreach ($obavestenja as  $key => $obavestenje){
+            if($obavestenje->nivoLokNac == 0){
+                //Sta prikazati adminu, sve ili nema tu opciju
+                $mesta = $obavestenje->vezanoZaMesto;
+
+                $mesta_id = [];
+                foreach ($mesta as $mesto){
+                     $mesta_id [] = $mesto->id;
+                }
+
+                if( !in_array($idMesto, $mesta_id) ){
+                    $obavestenja->forget($key);
+                }
+            }
+        }
+        
+        return $obavestenja;
+
+    }
+
+
 }

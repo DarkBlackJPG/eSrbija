@@ -87,7 +87,12 @@ class AnketeController extends Controller
     }
 
 
-
+    /**
+    *Prikaz statistkike za anketu sa datim id-ijem
+    * @author Dušan Stijović
+    * @param int $id
+    * @return view
+    */
     public function statistikaAnkete($id){
         $user = auth()->user();
         if(!$user->isMod){
@@ -98,9 +103,9 @@ class AnketeController extends Controller
         if(!$pitanjaSaBrojemOdgovora["isAnswered"]){
             alert()->info('Anketa','Za izabranu anketu nema statistike!')->autoClose(5000)->timerProgressBar();
             return redirect()->back();
+        } else{
+            return view("homepages.statistikaanketa", ["pitanja"=>$pitanjaSaBrojemOdgovora["pitanja"], "brojOdgovora"=>$pitanjaSaBrojemOdgovora["brojOdgovora"], "isAnswered"=>$pitanjaSaBrojemOdgovora["isAnswered"]]);
         }
-        return view("homepages.statistikaanketa", ["pitanja"=>$pitanjaSaBrojemOdgovora["pitanja"], "brojOdgovora"=>$pitanjaSaBrojemOdgovora["brojOdgovora"]]);
-        
    
     }
 }

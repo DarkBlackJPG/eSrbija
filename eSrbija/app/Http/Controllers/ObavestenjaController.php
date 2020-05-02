@@ -87,6 +87,12 @@ class ObavestenjaController extends Controller
     }
 
 
+    /**
+    *Prikaz svih obavestenja koja je napravio moderator
+    *U slucaju da je korisnik admin, prikaz svih obavestenja u sistemu
+    * @author Dušan Stijović
+    * @return view
+    */
     public function prikaziMojaObavestenja(){
 
         $user = auth()->user();
@@ -94,46 +100,39 @@ class ObavestenjaController extends Controller
         if ( !$user->isMod && !$user->isAdmin ) {
             return redirect()->route("home");
         }
-    
-        $obavestenja = Obavestenja::svaObavestenjaModeratora($user->id);
+        if( $user->isAdmin ) {
+            $obavestenja = Obavestenja::paginate(4);
+        } else {
+            $obavestenja = Obavestenja::svaObavestenjaModeratora($user->id);
+        }
         return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja]);
 
     }
 
-    public function prikaziObavesenjaZaKategoriju($id){//Greske ako je null nesto, pogledati i obezbediti se od toga
-        //Prebaciti sve ovo u model, da ne bude u kontroleru
-       
+   /**
+    *Prikaz obavestenja za kategoriju, nacionalnih i lokalnih za korisnika za dati id
+    *U slucaju da je korisnik admin, prikaz svih obavestenja za datu kategoriju za dati id
+    * @author Dušan Stijović
+    * @param int $id
+    * @return view
+    */
+    public function prikaziObavesenjaZaKategoriju(int$id){//Greske ako je null nesto, pogledati i obezbediti se od toga
         $kategorija = Kategorije::where("id", '=' , $id)->first();
-        $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
-      
-        if( auth()->user()->isMod){
-            $idMesto = Moderator::find(auth()->user()->id)->first()->opstinaPoslovanja_id;
-        } else{
-            $idMesto = NeprivilegovanKorisnik::find(auth()->user()->id)->first()->opstinaPrebivalista_id;
+
+        if( auth()->user()->isAdmin ){
+            $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
         }
-        
-        foreach ($obavestenja as  $key => $obavestenje){
-            if($obavestenje->nivoLokNac == 0){
-                //Sta prikazati adminu, sve ili nema tu opciju
-                $mesta = $obavestenje->vezanoZaMesto;
-
-                $mesta_id = [];
-                foreach ($mesta as $mesto){
-                     $mesta_id [] = $mesto->id;
+        else {
+                if( auth()->user()->isMod){
+                    $idMesto = Moderator::find(auth()->user()->id)->first()->opstinaPoslovanja_id;
                 }
-
-                if( !in_array($idMesto, $mesta_id) ){
-                    $obavestenja->forget($key);
-                }
-            }
+                else{
+                    $idMesto = NeprivilegovanKorisnik::find(auth()->user()->id)->first()->opstinaPrebivalista_id;
+                }    
+                $obavestenja = Obavestenja::svaObavestenjaZaKategorijuIMestoKorisnika($id, $idMesto);
         }
-        
 
-        /*
-        Treba dodati jos da iznbacim obavestenja koja nisu lokalna, odnosno nr peipadaju mestu korisnika
-        */
         return view("homepages.obavestenja_po_kategorijama", ['mojaObavestenja' => $obavestenja, "imeKategorije" => $kategorija->naziv]);
-
     }
 
 }
