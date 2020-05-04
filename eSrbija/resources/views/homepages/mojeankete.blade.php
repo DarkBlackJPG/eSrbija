@@ -1,5 +1,21 @@
 @extends('fixed.home')
 @section('homepagecontent')
+  
+    @if(Session::has('info'))
+    <script>
+    Swal.fire({
+            icon: 'info',
+            title: 'Statistika',
+            text: 'Za datu anketu nema statistike',
+            timer: 2000,
+            timerProgressBar: true
+        })
+    </script>
+    {{Session::forget('info') }}
+    @endif
+
+
+
 
     @if(session('poruka'))
 

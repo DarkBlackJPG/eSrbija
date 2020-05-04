@@ -3,19 +3,7 @@
 
 
    
-   @if($isAnswered == false)
-
-        <script>
-           Swal.fire({
-                icon: 'info',
-                title: 'Statistika',
-                text: 'Za datu anketu nema statistike',
-                timer: 2000,
-                timerProgressBar: true
-            })
-        </script>
-
-    @endif
+ 
 
 
 
