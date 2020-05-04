@@ -216,7 +216,15 @@ Route::middleware(['verified', 'auth'])->group(function () {
             "as" => "mojaObavestenja"
         ]);
            
-            
+           
+         /**
+        * Ruta za brisanje odgovarajuceg obavestenja
+        * @author Dušan Stijović
+        */   
+        Route::post('/obrisiObavestenje/{id}', [
+            "uses" => "ObavestenjaController@obrisiObavestenje",
+            "as" => "obrisiObavestenje"
+        ]);
 
 
 

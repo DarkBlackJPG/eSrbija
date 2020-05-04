@@ -95,7 +95,7 @@ class AnketeController extends Controller
     */
     public function statistikaAnkete($id){
         $user = auth()->user();
-        if(!$user->isMod){
+        if(!$user->isMod && !$user->isAdmin){
               return redirect()->route("home");
         }
         $pitanjaSaBrojemOdgovora = Ankete::pitanjaAnketeSaBrojemOdgovoraPoPitanju($id);

@@ -100,7 +100,7 @@ class ObavestenjaController extends Controller
         if ( !$user->isMod && !$user->isAdmin ) {
             return redirect()->route("home");
         }
-        if( $user->isAdmin ) {
+        if( $user->isAdmin && $user->isMod ) {
             $obavestenja = Obavestenja::paginate(4);
         } else {
             $obavestenja = Obavestenja::svaObavestenjaModeratora($user->id);
@@ -116,10 +116,10 @@ class ObavestenjaController extends Controller
     * @param int $id
     * @return view
     */
-    public function prikaziObavesenjaZaKategoriju(int$id){//Greske ako je null nesto, pogledati i obezbediti se od toga
+    public function prikaziObavesenjaZaKategoriju($id){//Greske ako je null nesto, pogledati i obezbediti se od toga
         $kategorija = Kategorije::where("id", '=' , $id)->first();
 
-        if( auth()->user()->isAdmin ){
+        if( auth()->user()->isAdmin &&  auth()->user()->isMod ){
             $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
         }
         else {
@@ -135,4 +135,18 @@ class ObavestenjaController extends Controller
         return view("homepages.obavestenja_po_kategorijama", ['mojaObavestenja' => $obavestenja, "imeKategorije" => $kategorija->naziv]);
     }
 
+    public function obrisiObavestenje($id){
+
+        if(!auth()->user()->isMod && !auth()->user()->isAdmin) return;
+
+        if( auth()->user()->isMod && auth()->user()->isAdmin ){
+            Obavestenja::destroy($id);
+        }else{
+            $obavestenje = Obavestenja::find($id);
+            $obavestenje->obrisanoFlag = 1;
+            $obavestenje->save();
+        }
+        return redirect()->back()->with("info", "Obavestenje uspesno obrisano");
+        
+    }
 }

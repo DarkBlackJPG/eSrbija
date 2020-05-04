@@ -41,19 +41,21 @@
 
     ?>
 
-    <div class = "container">
-
-        <div class="row">
-
-            <div class= "col-lg-8 ankete ">
-                @if($anketeMoje == null || count($anketeMoje)==0)
-                    <div class="card">
-                    <h3>Nemate nijednu objavljenu anketu</h3>
-                    </div>
-                @else
+    @if($anketeMoje == null || count($anketeMoje)==0)
+        <div class="row justify-content-center align-items-center ">
+            <div class= "col-lg-12 ankete text-center">
+                <div class="card">
+                    <h2>Nemate nijednu objavljenu anketu</h2>
+                </div>
+            </div>
+        </div>
+    @else
+        <div class="row align-items-center">
+            <div class= "col-lg-12 ankete">
+               
                 @foreach($anketeMoje as $anketa)
                 <div class="card">
-                    <div class = "row">
+                    <div class = "row align-items-center">
                         <div class = "col-8">
                             <h3>{{$anketa->naziv}}</h3>
                             <h5>{{$anketa->created_at}}</h5>
@@ -86,14 +88,8 @@
 
                     </div>
                 </div>
-                    @endforeach
-                    @endif
-
-
+                 @endforeach
             </div>
         </div>
-    </div>
-
-
-
+    @endif
 @endsection
