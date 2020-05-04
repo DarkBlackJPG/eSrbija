@@ -108,25 +108,25 @@ Route::middleware(['guest'])->group(function () {
 
     /**
      * Gets the welcome page
-     * 
+     *
      * @author Stefan Teslic
      */
     Route::get('/', function () { return view('welcome'); });
      /**
      * Gets the mail resend form
-     * 
+     *
      * @author Stefan Teslic
      */
     Route::get('email/resend', 'NeprivilegovanKorisnikRegistracija@getResendForm')->name('verification.resend');
      /**
      * Posts the reset email form details
-     * 
+     *
      * @author Stefan Teslic
      */
     Route::post('email/resend', 'NeprivilegovanKorisnikRegistracija@resend')->name('verification.resend.post');
      /**
      * Verifies the user and token from sent mail <-- reset form for password
-     * 
+     *
      * @author Stefan Teslic
      */
     Route::get('/user/confirm_mail/{user}/{token}', 'NeprivilegovanKorisnikRegistracija@verify')->name('user.verify');
@@ -164,11 +164,11 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
     /** ********************************************* */
 
-    
+
     /**
     * Ruta za prikaz obavestenja za kategoriju za dati id-ijem
     * @author Dušan Stijović
-    */   
+    */
     Route::get('/obavestenja/{id}', [
         "uses" => "ObavestenjaController@prikaziObavesenjaZaKategoriju",
          "as" => "obavestenja_za_kategoriju"
@@ -180,7 +180,7 @@ Route::middleware(['verified', 'auth'])->group(function () {
      *  Group for routes that are specific to Moderators only
      *
      *  Possible that the project does't have 'moderator-specific' routes
-     *
+     *php
      *  @author Stefan Teslic
      *  @middleware IsMod
      */
@@ -199,28 +199,28 @@ Route::middleware(['verified', 'auth'])->group(function () {
         /**
         * Ruta za prikaz statistike za anketu za datim id-ijem
         * @author Dušan Stijović
-        */   
+        */
         Route::get('/statistikaankete/{id}', [
             "uses" => "AnketeController@statistikaAnkete",
-            "as" => "statistikaankete" 
+            "as" => "statistikaankete"
             ]);
-        
 
-        
+
+
         /**
         * Ruta za prikaz obavestenja za korisnika koji je ulogovan u sistem
         * @author Dušan Stijović
-        */   
+        */
         Route::get('/mojaObavestenja', [
             "uses" => "ObavestenjaController@prikaziMojaObavestenja",
             "as" => "mojaObavestenja"
         ]);
-           
-           
+
+
          /**
         * Ruta za brisanje odgovarajuceg obavestenja
         * @author Dušan Stijović
-        */   
+        */
         Route::post('/obrisiObavestenje/{id}', [
             "uses" => "ObavestenjaController@obrisiObavestenje",
             "as" => "obrisiObavestenje"

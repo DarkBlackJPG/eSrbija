@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Ankete;
+use App\Mesto;
+use App\Pitanja;
+use App\PonudjeniOdgovori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -12,7 +15,7 @@ class CreatePolController extends Controller
     //
 
     public function return_view(){
-        $mesta = DB::table('mestos')->get('naziv'); // ovo vraca objekte klase Mesto
+        $mesta = Mesto::dohvatiSveNaziveMesta(); // ovo vraca objekte klase Mesto
         $nazivi='';
         $count = count($mesta);
         $i=0;
@@ -24,15 +27,15 @@ class CreatePolController extends Controller
             $i++;
 
         }
-
-
         return view('homepages.ankete.napraviankete',['mesta' => $nazivi]);
     }
+
     public function isEmptyOrNullString($arg) {
         if(empty($arg)) return true;
         if($arg=='') return true;
         return false;
     }
+
     public function create_poll (){
         { //provera ispravnosti
             $ispravno = true;
@@ -63,17 +66,12 @@ class CreatePolController extends Controller
 
 
         }
-       $user=auth()->user();
+
        //dodaj ako je null
         //ubacivanje u tabelu ankete
         $naziv = \request('naziv');
         $nivoLokNac = \request('nivo') == 'lokalni'? 1 : 0; //Lokalni 1, nacionalni 0
-        $anketa= $user->mojeAnkete()->create( [
-            'naziv'=> $naziv,
-            'nivoLokNac' => $nivoLokNac,
-            'obrisanoFlag' =>false,
-            'isActive'=>true
-        ]);
+        $anketa= Ankete::napraviAnketu($naziv,$nivoLokNac);
         //dodati da je required u zavisnosti od popunjenih checkboxova
         //Ako je lokalni, ubacivanje u vezu mesta i ankete
             if($nivoLokNac==1){
@@ -81,7 +79,7 @@ class CreatePolController extends Controller
                 $nizmesta = explode(',', \request('mesta')[0]);
                 $i=0;
                 foreach ($nizmesta as $naziv){
-                    $mesto=DB::table('mestos')->where('naziv',$naziv)->first();
+                    $mesto=Mesto::dohvatiMestoPoNazivu($naziv);
                     $nizIdmesta[$i]=$mesto->id;
                     $i++;
                 }
@@ -98,14 +96,11 @@ class CreatePolController extends Controller
             foreach (\request()->all() as $key => $val) {
             if($key=='_token') continue;
             if(Str::is('pitanje*', $key)){
-                        $pitanje=$anketa->pitanja()->create([
-                  'tekst'=> $val
-                ]);
+                        $pitanje= Pitanja::napraviPitanje($anketa,$val);
+
                  }
             else if(Str::is('odgovor*', $key)){
-                $pitanje->odgovori()->create([
-                    'tekst'=> $val
-                ]);
+                    PonudjeniOdgovori::napraviOdgovor($pitanje,$val);
             }
         }
 

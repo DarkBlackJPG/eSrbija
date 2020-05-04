@@ -17,7 +17,7 @@ VALUES (1,'Omladina i sport',now(),now()),
 (16,'Pravda',now(),now()),
 (17,'Evropske integracije',now(),now()),
 (18,'Rad, zapošljavanje, boračka i socijalna pitanja',now(),now()),
-(19,'Demografija i populaciona politika',now(),now());
-
+(19,'Demografija i populaciona politika',now(),now()),
+(20,'VAZNO',now(),now());
 Select * from esrbija.kategorijes;
 

@@ -12,10 +12,11 @@ class AnswerPollController extends Controller
         $user = auth()->user();
         $ankete = null;
         if($user->isAdmin) {
-            $ankete = DB::table('anketes')->where('obrisanoFlag' , false)->orderBy('created_at','DESC')->get();
+            $ankete = Ankete::dohvatiSveAnkete();
         } else {
-            if($user->isMod){ $ankete = DB::table('anketes')->where(['korisnik_id'=> auth()->user()->id] )->orderBy('created_at','DESC')->get();
-            if($ankete != null && count($ankete)>0)
+            if($user->isMod){
+                $ankete = Ankete::dohvatiSveModeratoroveAnkete();
+                if($ankete != null && count($ankete)>0)
                 foreach($ankete as $key =>$val){
                     if($val->obrisanoFlag) unset($ankete[$key]);
             }}
@@ -87,21 +88,12 @@ class AnswerPollController extends Controller
 //         and odgovori_korisnik.korisnik_id = $userid )'
 //        )
     // dohvaata sve aktivne i neodgovorene ankete
-          $ankete = DB::table('anketes')->
-               whereRaw("anketes.isActive = 1 and  id not  in
-                 ( select a.id
-        from anketes a, korisniks, ponudjeni_odgovoris po, pitanjas, odgovori_korisnik
-        where a.id=pitanjas.ankete_id and pitanjas.id=po.pitanja_id
-        and po.id = odgovori_korisnik.ponudjeni_odgovori_id
-         and odgovori_korisnik.korisnik_id = $userid )
-         ")->orderBy('created_at', 'DESC')->get();
-
-           if($nijeObicanKorisnik==false)
+          $ankete = Ankete::dohvatiSveAktivneINeodgovoreneAnkete($userid);
+        if($nijeObicanKorisnik==false)
        foreach($ankete as$key=> $value)  {
            if($value->nivoLokNac == 1) { //lokalni = 1 , nacionalni = 0;
                $flag = true;
-               $mesto = DB::table('ankete_mestos')->where(['mesto_id'=> $userMesto, 'ankete_id' => $value->id])->get();
-
+               $mesto = Ankete::dohvatiVezuAnketeMesto($userMesto,$value);
                if (empty($mesto) || count($mesto)==0) $flag = false;
                //foreach ($value->vezanoZaMesto as $key=> $mesto) if($mesto->id==$userMesto) $flag=true;
                if ($flag == false) unset($ankete[$key]);
