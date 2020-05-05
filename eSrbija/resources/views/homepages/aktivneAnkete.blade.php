@@ -3,7 +3,7 @@
 @section('homepagecontent')
 
     @if(session('poruka'))
- 
+
         <script>
             Toast.fire({
                 icon: '{{session('icon')}}',
@@ -16,45 +16,65 @@
 
 
     <div class = "container">
-        <div class="row">
-            <div class= " col-sm-8 ankete">
+
 
     @if($ankete==null || count($ankete)==0 )
-
+            <div class="row">
+                <div class= " col-sm-6 ankete">
          <div class="card">
-             <div class="row">
-                 <div class="col-8">
-                     <h3>Nema anketa raspolozivih za popunjavanje</h3>
-                 </div>
+             <div class="card-header text-right">
+                 &nbsp;
+             </div >
+             <div class="card-body">
+                 <h3>Nema anketa raspolozivih za popunjavanje</h3>
+
              </div>
+
+                    <div class="card-footer text-right">
+                        &nbsp;
+                    </div>
          </div>
+                </div>
+            </div>
          @else
 
-
+            <div class = "row">
+                <div class = "col-6">
 
                 @foreach($ankete as $anketa)
 
-                <div class="card">
-                    <div class = "row">
-                        <div class = "col-sm-8">
-                            <h2>{{$anketa->naziv}}</h2>
-                            <h5>{{$anketa->created_at}}</h5>
 
-                        </div>
-                        <div class = "offset-sm-2 align-self-right align-self-bottom">
-                            <form action="{{route('anketeid', ['id' => $anketa->id])}}" method="GET" >
 
-                            <button class = "btn"> PopuniAnketu</button>
-                            </form>
+                            <div class="card">
+                                <div class="card-header inline text-right">
 
-                        </div>
-                    </div>
-                </div>
+
+                                            <p class="italic">  <i  class="fa fa-clock-o"></i><i> &nbsp; {{$anketa->created_at}} </i></p>
+                                </div>
+                                    <div class="card-body text-left">
+                                        <h3>{{$anketa->naziv}}</h3>
+                                    </div>
+                                    <div class=" card-footer card-footer2 text-right">
+                                        <form action="{{route('anketeid', ['id' => $anketa->id])}}" method="GET" >
+
+                                            <button class = " btn2  btn-outline-dark italic"> Popuni anketu</button>
+                                        </form>
+
+                                    </div>
+
+
+
+                            </div>
+
+
+
+
                @endforeach
+                </div>
+            </div>
                 @endif
 
-            </div>
-        </div>
+
     </div>
 
 
