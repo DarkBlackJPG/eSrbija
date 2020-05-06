@@ -75,7 +75,8 @@
                         <td>
                             <input type="radio" name="tip" value="izbori"   >Izbori <br/>
                             <input type="radio" name="tip" value="referendum" >Referendumi <br/>
-                            <input type="radio" name="tip" value="obicna" checked >Obična anketa <br/>
+                            <input type="radio" name="tip" value="obicna" id="obicna" checked >Obična anketa <br/>
+
                         </td>
                     </tr>
                 </table>
@@ -225,6 +226,11 @@
             return false;
 
         }
+        var dozvola_tip='';
+        var dozvola_lokalnosti='';
+        {{ ' dozvola_tip ='. $dozvola_tip}};
+         {{'  dozvola_lokalnosti =' .$dozvola_lokalnosti}};
+         var DOZVOLA_NACIONALNI_I_LOKALNI=2 , DOZVOLA_IZBORI_REFERENDUMI_OBICNE = 2
 
 
         function  check_and_send() {
@@ -243,6 +249,22 @@
                     title: 'Nisu uneti lokaliteti!',
                 });
                 return;
+            }
+            else if(!document.getElementById("lokalni").checked && dozvola_lokalnosti!= DOZVOLA_NACIONALNI_I_LOKALNI){
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Nemate dozvolu za pravljenje anketa nacionalnog nivoa!',
+                });
+                return;
+
+            }
+            else if(!document.getElementById("obicna").checked && dozvola_tip!=DOZVOLA_IZBORI_REFERENDUMI_OBICNE){
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Nemate dozvolu za pravljenje anketa tipa referenduma ili izbora!',
+                });
+                return;
+
             }
             else {
                 let pitanja = document.getElementsByClassName("pitanje");

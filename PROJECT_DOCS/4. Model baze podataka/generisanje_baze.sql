@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`korisniks` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `korisniks_email_unique` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`anketes` (
   `obrisanoFlag` TINYINT(1) NOT NULL,
   `isActive` TINYINT(1) NOT NULL,
   `nivoLokNac` INT(11) NOT NULL,
+  `tip` INT(11) NOT NULL,
   `korisnik_id` BIGINT(20) UNSIGNED NOT NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
@@ -84,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`anketes` (
     REFERENCES `esrbija`.`korisniks` (`id`)
     ON DELETE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
@@ -100,6 +102,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`mestos` (
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 114
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
@@ -140,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`kategorijes` (
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 21
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
@@ -167,7 +170,6 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`obavestenjas` (
     REFERENCES `esrbija`.`korisniks` (`id`)
     ON DELETE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
@@ -191,6 +193,21 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`kategorije_obavestenja` (
     FOREIGN KEY (`obavestenja_id`)
     REFERENCES `esrbija`.`obavestenjas` (`id`)
     ON DELETE CASCADE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+
+-- -----------------------------------------------------
+-- Table `esrbija`.`kategorije_obavestenjas`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `esrbija`.`kategorije_obavestenjas` ;
+
+CREATE TABLE IF NOT EXISTS `esrbija`.`kategorije_obavestenjas` (
+  `kategorije_id` INT(11) NOT NULL,
+  `obavestenja_id` INT(11) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT NULL,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -245,6 +262,21 @@ COLLATE = utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
+-- Table `esrbija`.`mesto_obavestenjas`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `esrbija`.`mesto_obavestenjas` ;
+
+CREATE TABLE IF NOT EXISTS `esrbija`.`mesto_obavestenjas` (
+  `mesto_id` INT(11) NOT NULL,
+  `obavestenja_id` INT(11) NOT NULL,
+  `created_at` TIMESTAMP NULL DEFAULT NULL,
+  `updated_at` TIMESTAMP NULL DEFAULT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_unicode_ci;
+
+
+-- -----------------------------------------------------
 -- Table `esrbija`.`migrations`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `esrbija`.`migrations` ;
@@ -255,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`migrations` (
   `batch` INT(11) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 12
+AUTO_INCREMENT = 14
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
@@ -273,6 +305,8 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`moderators` (
   `adminNotified` TINYINT(1) NOT NULL DEFAULT '0',
   `pib` VARCHAR(9) NOT NULL,
   `maticniBroj` VARCHAR(8) NOT NULL,
+  `lokalnost` SMALLINT(6) NOT NULL DEFAULT '1',
+  `ankete` SMALLINT(6) NOT NULL DEFAULT '1',
   `opstinaPoslovanja_id` BIGINT(20) UNSIGNED NOT NULL,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `updated_at` TIMESTAMP NULL DEFAULT NULL,
@@ -288,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`moderators` (
   CONSTRAINT `moderators_opstinaposlovanja_id_foreign`
     FOREIGN KEY (`opstinaPoslovanja_id`)
     REFERENCES `esrbija`.`mestos` (`id`)
-    ON DELETE RESTRICT)
+    ON DELETE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -315,8 +349,8 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`neprivilegovan_korisniks` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `neprivilegovan_korisniks_jmbg_unique` (`jmbg` ASC) VISIBLE,
   UNIQUE INDEX `neprivilegovan_korisniks_brojlicnekarte_unique` (`brojLicneKarte` ASC) VISIBLE,
-  INDEX `neprivilegovan_korisniks_opstinaprebivalista_id_foreign` (`opstinaPrebivalista_id` ASC) VISIBLE,
   INDEX `neprivilegovan_korisniks_opstinarodjenja_id_foreign` (`opstinaRodjenja_id` ASC) VISIBLE,
+  INDEX `neprivilegovan_korisniks_opstinaprebivalista_id_foreign` (`opstinaPrebivalista_id` ASC) VISIBLE,
   CONSTRAINT `neprivilegovan_korisniks_id_foreign`
     FOREIGN KEY (`id`)
     REFERENCES `esrbija`.`korisniks` (`id`)
@@ -324,11 +358,11 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`neprivilegovan_korisniks` (
   CONSTRAINT `neprivilegovan_korisniks_opstinaprebivalista_id_foreign`
     FOREIGN KEY (`opstinaPrebivalista_id`)
     REFERENCES `esrbija`.`mestos` (`id`)
-    ON DELETE RESTRICT,
+    ON DELETE CASCADE,
   CONSTRAINT `neprivilegovan_korisniks_opstinarodjenja_id_foreign`
     FOREIGN KEY (`opstinaRodjenja_id`)
     REFERENCES `esrbija`.`mestos` (`id`)
-    ON DELETE RESTRICT)
+    ON DELETE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -352,6 +386,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`pitanjas` (
     REFERENCES `esrbija`.`anketes` (`id`)
     ON DELETE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 
@@ -374,6 +409,7 @@ CREATE TABLE IF NOT EXISTS `esrbija`.`ponudjeni_odgovoris` (
     REFERENCES `esrbija`.`pitanjas` (`id`)
     ON DELETE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
 

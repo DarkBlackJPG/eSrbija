@@ -14,6 +14,7 @@ class CreatePolController extends Controller
 {
     //
     const IZBORI =2 , REFERENDUM=1, OBICNA=0;
+    const DOZVOLA_OBICNE=1, DOZVOLA_REFERENDUMI_IZBORI_OBICNE = 2, DOZVOLA_NACIONALNI_I_LOKALNI=2, DOZVOLA_LOKALNI=1;
 
     public function return_view(){
         $mesta = Mesto::dohvatiSveNaziveMesta(); // ovo vraca objekte klase Mesto
@@ -28,7 +29,16 @@ class CreatePolController extends Controller
             $i++;
 
         }
-        return view('homepages.ankete.napraviankete',['mesta' => $nazivi]);
+        $user = auth()->user();
+        $dozvola_tip = self::DOZVOLA_REFERENDUMI_IZBORI_OBICNE;
+        $dozvola_lokalnosti= self::DOZVOLA_NACIONALNI_I_LOKALNI;
+        if(!$user->isAdmin){
+            $moderator = $user->moderatori()->first();
+            $dozvola_lokalnosti=$moderator->lokalnost;
+            $dozvola_tip= $moderator->ankete;
+        }
+
+        return view('homepages.ankete.napraviankete',['mesta' => $nazivi,'dozvola_tip'=>$dozvola_tip, 'dozvola_lokalnosti'=> $dozvola_lokalnosti]);
     }
 
     public function isEmptyOrNullString($arg) {
@@ -40,12 +50,22 @@ class CreatePolController extends Controller
     public function create_poll (){
         { //provera ispravnosti
             $ispravno = true;
+
             if($this->isEmptyOrNullString( \request('naziv'))) $ispravno=false;
             if($this->isEmptyOrNullString( \request('nivo'))) $ispravno=false;
             if($this->isEmptyOrNullString( \request('tip'))) $ispravno=false;
             if(\request('nivo')=="lokalni"){
             if($this->isEmptyOrNullString(\request('mesta'))) $ispravno=false;
             }
+            $user = auth()->user();
+            if(!$user->isAdmin){ //ukoliko je moderator
+                $moderator = $user->moderatori()->first();
+                if(\request('nivo') =='nacionalni' && $moderator->lokalnost != self::DOZVOLA_NACIONALNI_I_LOKALNI) $ispravno=false;
+                if(\request('tip')!="obicna" && $moderator->ankete != self::DOZVOLA_REFERENDUMI_IZBORI_OBICNE ) $ispravno=false;
+            }
+
+
+
             $biloJednoPitanje=false;
             $pitanjeDoPitanja=false;
             foreach (\request()->all() as $key => $val) {
