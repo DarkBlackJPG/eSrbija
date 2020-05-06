@@ -31,6 +31,7 @@ class CreateKorisniksTable extends Migration
             $table->unsignedBigInteger('kategorije_id');
             $table->unique(['korisnik_id', 'kategorije_id']);
             $table->primary(['korisnik_id', 'kategorije_id']);
+
             $table->foreign('korisnik_id')
                 ->references('id')
                 ->on('korisniks')
