@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 class CreatePolController extends Controller
 {
     //
+    const IZBORI =2 , REFERENDUM=1, OBICNA=0;
 
     public function return_view(){
         $mesta = Mesto::dohvatiSveNaziveMesta(); // ovo vraca objekte klase Mesto
@@ -41,6 +42,7 @@ class CreatePolController extends Controller
             $ispravno = true;
             if($this->isEmptyOrNullString( \request('naziv'))) $ispravno=false;
             if($this->isEmptyOrNullString( \request('nivo'))) $ispravno=false;
+            if($this->isEmptyOrNullString( \request('tip'))) $ispravno=false;
             if(\request('nivo')=="lokalni"){
             if($this->isEmptyOrNullString(\request('mesta'))) $ispravno=false;
             }
@@ -70,8 +72,12 @@ class CreatePolController extends Controller
        //dodaj ako je null
         //ubacivanje u tabelu ankete
         $naziv = \request('naziv');
+        $tip= \request('tip');
+        if($tip == 'izbori') $tip=self::IZBORI;
+        else if ($tip=='referendum') $tip=self::REFERENDUM;
+        else if($tip=='obicna') $tip=self::OBICNA;
         $nivoLokNac = \request('nivo') == 'lokalni'? 1 : 0; //Lokalni 1, nacionalni 0
-        $anketa= Ankete::napraviAnketu($naziv,$nivoLokNac);
+        $anketa= Ankete::napraviAnketu($naziv,$nivoLokNac, $tip);
         //dodati da je required u zavisnosti od popunjenih checkboxova
         //Ako je lokalni, ubacivanje u vezu mesta i ankete
             if($nivoLokNac==1){

@@ -1,14 +1,13 @@
 @extends('fixed.home')
 
 @section('homepagecontent')
-    <div class = "container">
 
 
         <form action="{{route('save_answers',['id'=> $anketa->id])}}" name="forma" method="post" enctype="multipart/form-data">
             @csrf
 @foreach($anketa->pitanja as $pitanje)
         <div class="row p-3 pitanje" >
-                <div class="col-8">
+                <div class="col-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">
@@ -40,9 +39,9 @@
 
                         <div class="row p-3">
                             <div class="col-3">
-                            <input type="button"  onclick="check_and_send()" class="btn btn-primary btn-sm" value="Potvrdi">
+                            <input type="button"  onclick="check_and_send()" class="btn btn-dark btn-sm" value="Potvrdi">
 
-                            <button type="button" onclick='window.location="{{route('ankete')}}"'>Odustani</button></div>
+                            <button type="button"   class="btn btn-dark btn-sm" onclick='window.location="{{route('ankete')}}"'>Odustani</button></div>
                         </div>
                         </form>
 
@@ -52,8 +51,8 @@
 
 
 
-        </form>
-        </div>
+
+
 
     <script >
 

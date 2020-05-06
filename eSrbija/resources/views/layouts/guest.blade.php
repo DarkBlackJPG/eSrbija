@@ -9,6 +9,7 @@
 
     <title>{{'eSrbija'}}</title>
 
+
     <!-- Scripts -->
     <!-- Izbrisao sam pozivanje app.js ovde jer nije radio logout -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -28,12 +29,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel = "icon" href ="{{asset('icon.png')}}"  type = "image/x-icon">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
     <link href="{{ asset('css/mojeankete.css') }}" rel="stylesheet">
     <link href="{{ asset('css/statistikaankete.css') }}" rel="stylesheet">
+
 
 
 </head>
@@ -46,7 +48,7 @@
             {{--                Linije proveravaju na kojoj stranici se nalazimo --}}
             {{--                da daju iluziju dobrog route-ovanja--}}
             <a class="navbar-brand" href="{{ url('/') }}">
-
+                <img src="{{asset('grb.png')}}" alt="">
                 eSrbija
 
             </a>

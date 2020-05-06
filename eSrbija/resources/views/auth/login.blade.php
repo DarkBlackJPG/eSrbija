@@ -63,7 +63,7 @@
                                     <input type="submit" class="btn btn-primary" value="Uloguj se">
 {{--                                </a>--}}
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-primary" href="{{ route('password.request') }}">
                                         {{ __('Zaboravljena sifra?') }}
                                     </a>
                                 @endif

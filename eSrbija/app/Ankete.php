@@ -20,7 +20,7 @@ class Ankete extends Model
      * @var array $fillable
      * @author Stefan Teslic
      */
-    protected $fillable = ['naziv', 'nivoLokNac', 'obrisanoFlag', 'isActive'];
+    protected $fillable = ['naziv', 'nivoLokNac', 'obrisanoFlag', 'isActive','tip'];
 
     /**
      * Relationship method between Ankete and Korisnik model
@@ -82,12 +82,13 @@ class Ankete extends Model
      *
      *
      */
-    public static function napraviAnketu($naziv, $nivoLokNac){
+    public static function napraviAnketu($naziv, $nivoLokNac,$tip){
         return auth()->user()->mojeAnkete()->create( [
             'naziv'=> $naziv,
             'nivoLokNac' => $nivoLokNac,
             'obrisanoFlag' =>false,
-            'isActive'=>true
+            'isActive'=>true,
+            'tip' => $tip
         ]);
     }
 
@@ -116,6 +117,16 @@ class Ankete extends Model
 
     }
 
+    public static function dohvatiAktivneINeodgovorenePoTipu($tip, $userid){
+        return DB::table('anketes')->
+        whereRaw("anketes.isActive = 1 and anketes.tip =$tip and id not  in
+                 ( select a.id
+        from anketes a, korisniks, ponudjeni_odgovoris po, pitanjas, odgovori_korisnik
+        where a.id=pitanjas.ankete_id and pitanjas.id=po.pitanja_id
+        and po.id = odgovori_korisnik.ponudjeni_odgovori_id
+         and odgovori_korisnik.korisnik_id = $userid )
+         ")->orderBy('created_at', 'DESC')->get();
+    }
 
 
 }

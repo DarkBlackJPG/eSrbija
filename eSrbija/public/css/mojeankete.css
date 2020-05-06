@@ -22,16 +22,22 @@
 /* Add a card effect for articles */
 .card {
    background-color: white;
-   padding: 20px;
-   margin-top: 20px;
+
+    margin-top: 20px;
    border-radius: 10px;
    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-color: lightgrey;
 }
 
-.btn{
-  background-color: rgb(32, 29, 29);
-  color:white;
+
+
+.btn2{
+    font-weight: 2pt;
+    border-radius: 5pt;
+    margin-top: 0;
+    background-color: white;
+    border-width: 1pt;
 }
 
 .ankete a:link {
@@ -52,6 +58,14 @@
 .ankete a:active {
   color: white;
 }
+ .submitDugme{
+     background-color: transparent;
+     border-style: none;
+
+ }
+.fa-trash-alt, .fa-times-circle, .fa-analytics{
+    font-size: 15pt;
+}
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -60,4 +74,21 @@
     width: 100%;
     padding: 0;
   }
+}
+.inline form{
+    display: inline;
+}
+.visina30{
+    height: 30pt;
+}
+.visina15{
+    height: 15pt;
+}
+.card-footer2{
+    padding-top: 6pt;
+    padding-right: 10pt;
+    height: 35pt !important;
+}
+.italic{
+    font-style: italic;
 }

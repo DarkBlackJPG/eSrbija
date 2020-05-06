@@ -3,16 +3,16 @@
 @section('homepagecontent')
 
 
-    <div class="container" >
+
         <form action="{{ route('savepoll')}}"  enctype="multipart/form-data" method="post" id="forma" name="forma">
             @csrf
 
             <div class="row">
                 <div class="form-group pt-15">
-                    <button type="button" class="btn btn-primary" onclick="check_and_send()">
+                    <button type="button" class="btn btn-dark" onclick="check_and_send()">
                         Objavi
                     </button>
-                    <button type="button" class="btn btn-default" onclick="window.location='{{route('ankete')}};'">
+                    <button type="button" class="btn btn-dark" onclick="window.location='{{route('ankete')}}'">
                         Odustani
                     </button>
                 </div>
@@ -64,7 +64,24 @@
                 </div>
             </div>
             <div class="row pt-3">
-                <button type="button" class="btn btn-primary btn-sm" onclick="create_question();">
+                <table>
+                    <tr>
+                        <td>
+                            <h3> Tip:</h3>
+                            <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" name="tip" value="izbori"   >Izbori <br/>
+                            <input type="radio" name="tip" value="referendum" >Referendumi <br/>
+                            <input type="radio" name="tip" value="obicna" checked >Obična anketa <br/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row pt-3">
+                <button type="button" class="btn btn-dark btn-sm" onclick="create_question();">
                     Dodaj pitanje</button>
             </div>
             <div class="row pt-5">
@@ -73,7 +90,6 @@
                 </div>
             </div>
         </form>
-    </div>
 
 
 
@@ -81,8 +97,8 @@
     <script>
 
         function prikaziVue(){
-            if(document.getElementById("lokalni").checked) document.getElementById("citiesDiv").style.visibility="visible";
-            else document.getElementById("citiesDiv").style.visibility="hidden";
+            if(document.getElementById("lokalni").checked) document.getElementById("citiesDiv").style.display="initial";
+            else document.getElementById("citiesDiv").style.display="none";
 
 
 
@@ -99,7 +115,7 @@
 
 
         function  delete_question(id) {
-            id.parentElement.parentElement.parentElement.removeChild(id.parentElement.parentElement);
+            id.parentElement.parentElement.parentElement.parentElement.parentElement.removeChild(id.parentElement.parentElement.parentElement.parentElement);
 
         }
         function deleteAnswer(id) {
@@ -124,9 +140,9 @@
             elementListe.appendChild(odgovor);
 
             var buttonClose= document.createElement("button");
-            buttonClose.setAttribute("class", "close");
+            buttonClose.setAttribute("class", "close fa fa-trash ");
             buttonClose.setAttribute("onclick", "deleteAnswer(this)")
-            buttonClose.innerText="obrisi";
+           // buttonClose.innerText="obrisi";
             elementListe.appendChild(buttonClose);
 
             var ul = id.parentElement.parentElement.getElementsByTagName("ul");
@@ -140,22 +156,41 @@
         function create_question() {
             countQuestions++;
             var divPanel= document.createElement("div");
-            divPanel.setAttribute("class", "panel pt-4");
+            divPanel.setAttribute("class", "card ");
             var  pitanjePolje = document.createElement("input");
             pitanjePolje.setAttribute("type","text");
             pitanjePolje.setAttribute("name","pitanje"+countQuestions);
             pitanjePolje.setAttribute("class", "pitanje");
             pitanjePolje.setAttribute("placeholder", "Unesite pitanje");
 
+            var buttonObrisiPitanje= document.createElement("button");
+            buttonObrisiPitanje.setAttribute("class", "btn  fa fa-times-circle btn-sm ml-2");
+            buttonObrisiPitanje.setAttribute("type","button");
+            buttonObrisiPitanje.setAttribute("onclick","delete_question(this);" );
+            // buttonObrisiPitanje.setAttribute("value","Obrisi pitanje");
+            buttonObrisiPitanje.setAttribute("id", "obrisiPitanje" + countQuestions);
+
+            // buttonObrisiPitanje.innerText="Obrisi pitanje";
+
 
             var divHeading = document.createElement("div");
-            divHeading.setAttribute("class", "panel-heading pb-3");
+            divHeading.setAttribute("class", "card-header  ");
+            var divRow = document.createElement("div");
+            divRow.setAttribute("class", "row");
+            var divCol= document.createElement("div");
+            divCol.setAttribute("class", "col-6");
+            var divCol2= document.createElement("div");
+            divCol2.setAttribute("class", "col-6 text-right");
+            divCol.appendChild(pitanjePolje);
+            divCol2.appendChild(buttonObrisiPitanje);
 
-            divHeading.appendChild(pitanjePolje);
+            divRow.appendChild(divCol);
+            divRow.appendChild(divCol2);
+            divHeading.appendChild(divRow);
 
 
             var divBody=document.createElement("div");
-            divBody.setAttribute("class", "panel-body");
+            divBody.setAttribute("class", "card-body");
 
             var ul= document.createElement("ul");
             ul.setAttribute("class", "list-group");
@@ -166,10 +201,10 @@
 
 
             var divFooter= document.createElement("div");
-            divFooter.setAttribute("class", "panel-footer");
+            divFooter.setAttribute("class", "card-footer");
 
             var buttonDodajOdgovor= document.createElement("button");
-            buttonDodajOdgovor.setAttribute("class", "btn btn-primary btn-sm");
+            buttonDodajOdgovor.setAttribute("class", "btn btn-dark btn-sm");
             buttonDodajOdgovor.setAttribute("type","button");
             buttonDodajOdgovor.setAttribute("onclick","create_new_answer(this);" );
             buttonDodajOdgovor.setAttribute("value","Dodaj odgovor");
@@ -177,14 +212,6 @@
             buttonDodajOdgovor.innerText="Dodaj odgovor";
             divFooter.appendChild(buttonDodajOdgovor);
 
-            var buttonObrisiPitanje= document.createElement("button");
-            buttonObrisiPitanje.setAttribute("class", "btn btn-primary btn-sm ml-2");
-            buttonObrisiPitanje.setAttribute("type","button");
-            buttonObrisiPitanje.setAttribute("onclick","delete_question(this);" );
-            buttonObrisiPitanje.setAttribute("value","Obrisi pitanje");
-            buttonObrisiPitanje.setAttribute("id", "obrisiPitanje" + countQuestions)
-            buttonObrisiPitanje.innerText="Obrisi pitanje";
-            divHeading.appendChild(buttonObrisiPitanje);
 
             divPanel.appendChild(divHeading);
             divPanel.appendChild(divBody);
@@ -231,7 +258,7 @@
                         title: 'Niste uneli tekstove svih pitanja!',
                     }); return;}
                     else {
-                        let odgovori = pitanja[i].parentElement.parentElement.getElementsByTagName("input");
+                        let odgovori = pitanja[i].parentElement.parentElement.parentElement.parentElement.getElementsByTagName("input");
                         if(odgovori.length==1) {Toast.fire({
                             icon: 'warning',
                             title: 'Neka pitanja nemaju nijedan odgovor!',
@@ -253,6 +280,9 @@
 
 
         }
+
+
+
 
     </script>
 

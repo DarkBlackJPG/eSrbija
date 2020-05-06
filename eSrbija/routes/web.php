@@ -24,14 +24,6 @@ Route::get('/createpost', function (){
     return view('homepages.createpost');
 })->name('createpost');
 
-Route::get('/izbori', function (){
-    return view('homepages.aktivneAnkete');
-})->name('izbori');
-
-Route::get('/referendumi', function (){
-    return view('homepages.aktivneAnkete');
-})->name('referendumi');
-
 
 
 
@@ -162,6 +154,10 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::get('/ankete', 'AnswerPollController@list_active')->name('ankete');
     Route::get('/ankete/{id}', 'AnswerPollController@answer_poll')->name('anketeid');
     Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
+    Route::get('/izbori', 'AnswerPollController@list_active_elections' )->name('izbori');
+    Route::get('/referendumi', 'AnswerPollController@list_active_referendum')->name('referendumi');
+
+
     /** ********************************************* */
 
 

@@ -19,6 +19,7 @@ class CreateAnketesTable extends Migration
             $table->boolean('obrisanoFlag');
             $table->boolean('isActive');
             $table->integer('nivoLokNac');
+            $table->integer('tip');
             $table->unsignedBigInteger('korisnik_id');
             $table->timestamps();
 

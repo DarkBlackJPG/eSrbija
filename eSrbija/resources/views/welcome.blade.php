@@ -4,7 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{'eSrbija'}}</title>
+        <link rel = "icon" href ="{{asset('icon.png')}}"  type = "image/x-icon">
+
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -70,19 +72,22 @@
             @endif
 
             <div class="content">
+
+
                 <div class="title m-b-md highlightText">
-                    e<font class="blueTextHighlight">-Srbija</font>
+                    <img src="{{asset('zastava.gif')}}"  height="40px" alt="">
+                    e-<font class="blueTextHighlight">Srb</font><font color="white">ija</font>
                 </div>
 
                 <div class="links blueTextHighlight">
                     @if (Route::has('login'))
-                        <a  class="linkTransitionToRed" href="{{ route('login') }}">Login</a>
+                        <a  class="linkTransitionToRed highlightText" href="{{ route('login') }}">Login</a>
                     @endif
                     @if  (Route::has('user.register'))
                         <a class="linkTransitionToRed" href="{{ route('user.register') }}">Registracija korisnika</a>
                     @endif
                     @if (Route::has('moderator.register'))
-                        <a class="linkTransitionToRed" href="{{ route('moderator.register') }}">Registracija moderatora</a>
+                        <a class="linkTransitionToRed" href="{{ route('moderator.register') }}" >Registracija moderatora</a>
                     @endif
 
                 </div>

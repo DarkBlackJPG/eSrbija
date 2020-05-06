@@ -132,7 +132,9 @@
                     @endforeach
                 @else
                     <div class ="card">
-                <h3>Nema neobradjenih moderatora</h3>
+                        <div class="card-header"></div>
+                            <div class="card-body"> <h3>Nema neobradjenih moderatora</h3> </div>
+                        <div class="card-footer"></div>
                     </div>
                 @endif
 
