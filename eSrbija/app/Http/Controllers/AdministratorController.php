@@ -6,7 +6,6 @@ use App\Administrator;
 use App\Kategorije;
 use App\Korisnik;
 use App\Moderator;
-use http\Env\Response;
 use Illuminate\Http\Request;
 
 /**
@@ -160,7 +159,6 @@ class AdministratorController extends Controller
 
     public function moderatorApprove(Request $request, Korisnik $id) {
         $mailtoMail = $id->email;
-        \Mail::to($mailtoMail)->send(new \App\Mail\ModeratorApprove());
         $kategorije = $request->opstina;
 
         $kategorije = explode(",", $kategorije);
@@ -175,24 +173,27 @@ class AdministratorController extends Controller
         $moderator = $id->moderatori()->first();
         $moderator->approved = 1;
         $moderator->save();
+        \Mail::to($mailtoMail)->send(new \App\Mail\ModeratorApprove());
         return redirect()->back()->with('successApprove', 'Uspesno ste odobrili '.$moderator->naziv.' sa pravima moderatora!');
 
     }
+
     /**
      * This method sends an email to rejected moderator
      * and deletes that moderator's record in DB
      *
      * @param Request $request
      * @param App\Korisnik $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws Exception
+     * @throws \Exception
      * @author Stefan Teslic
      */
     public function moderatorReject(Request $request, Korisnik $id) {
         $mailtoMail = $id->email;
         $moderatorName = $id->moderatori()->first()->naziv;
-        \Mail::to($mailtoMail)->send(new \App\Mail\ModeratorReject());
         $id->delete();
-
+        \Mail::to($mailtoMail)->send(new \App\Mail\ModeratorReject());
         return redirect()->back()->with('successReject', 'Uspesno ste odbili '.$moderatorName.'!');
     }
 

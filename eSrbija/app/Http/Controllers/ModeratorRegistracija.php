@@ -13,7 +13,7 @@ use Illuminate\Validation\Validator;
 
 /**
  * ModeratorRegistracija - This Controller is used to register new moderators
- * 
+ *
  * @version 1.0
  */
 class ModeratorRegistracija extends Controller
@@ -92,6 +92,14 @@ class ModeratorRegistracija extends Controller
                 'max:20',
                 'regex:/[0-9]/i',
             ],
+            'lokalnost' => [
+                'required',
+                'regex:/[12]/i',
+            ],
+            'ankete' => [
+                'required',
+                'regex:/[12]/i',
+            ]
         ]);
         $categoryIds = [];
         foreach ($kategorije as $kategorija) {
@@ -111,7 +119,6 @@ class ModeratorRegistracija extends Controller
         $user->save();
 
         $data = $request;
-
         $moderator = new Moderator();
         $moderator->id = $user->id;
         $moderator->naziv = $data['naziv'];
@@ -119,6 +126,8 @@ class ModeratorRegistracija extends Controller
         $moderator->pib = $data['pib'];
         $moderator->maticniBroj = $data['matBr'];
         $moderator->opstinaPoslovanja_id = Mesto::where('naziv', '=', $data['opstina'])->first()->id;
+        $moderator->lokalnost = $data['lokalnost'];
+        $moderator->ankete = $data['ankete'];
         $moderator->save();
 
         foreach ($categoryIds as $categoryId) {

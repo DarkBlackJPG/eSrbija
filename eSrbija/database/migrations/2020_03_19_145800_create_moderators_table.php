@@ -26,6 +26,8 @@ class CreateModeratorsTable extends Migration
             $table->boolean('adminNotified')->default(false);
             $table->string('pib', 9)->unique();
             $table->string('maticniBroj', 8)->unique();
+            $table->smallInteger('lokalnost')->default(1);
+            $table->smallInteger('ankete')->default(1);
             $table->unsignedBigInteger('opstinaPoslovanja_id');
             /**===================================*/
             $table->timestamps();

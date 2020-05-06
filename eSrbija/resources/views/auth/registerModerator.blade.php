@@ -69,6 +69,32 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="lokalnost" class="col-md-4 col-form-label text-md-right">{{ __('Maksimalna lokalnost objava') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="radio" name="lokalnost" value="1" checked> Lokalno<br>
+                                <input type="radio" name="lokalnost" value="2"> Lokalno i nacionalno<br>
+                                @error('lokalnost')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="ankete" class="col-md-4 col-form-label text-md-right">{{ __('Tipovi anketa') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="radio" name="ankete" value="1" checked> Obicne<br>
+                                <input type="radio" name="ankete" value="2"> Svi tipovi<br>
+                                @error('ankete')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="adresa" class="col-md-4 col-form-label text-md-right">{{ __('Adresa') }}</label>
 
                             <div class="col-md-6">
