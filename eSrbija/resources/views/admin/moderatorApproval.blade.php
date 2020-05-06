@@ -118,6 +118,27 @@
                             </div>
                             <hr>
                             <div class="row col-md-12">
+                                <label class="col-md-4">
+                                    Tipovi anketa:
+                                </label>
+                                <label class="offset-1 col-md-7">
+                                    <input type="radio" name="ankete" value="1"  {!! $moderator['ankete'][0] == 1 ? "checked" : "" !!}> Obicno<br>
+                                    <input type="radio" name="ankete" value="2"  {!! $moderator['ankete'][0] == 2 ? "checked" : "" !!}> Sve vrste<br>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="row col-md-12">
+                                <label class="col-md-4">
+                                    Lokalnost:
+                                </label>
+
+                                <label class="offset-1 col-md-7">
+                                    <input type="radio" name="lokalnost" value="1"  {!! $moderator['lokalnost'][0] == 1 ? "checked" : "" !!}> Lokalno<br>
+                                    <input type="radio" name="lokalnost" value="2"  {!! $moderator['lokalnost'][0] == 2 ? "checked" : "" !!}> Lokalno i nacionalno<br>
+                                </label>
+                            </div>
+                            <hr>
+                            <div class="row col-md-12">
                                 <div class="offset-md-4">
                                     <button formaction="{{route('admin.moderatorReject',['id'=>$moderator['id']])}}" type="submit" class="btn btn-danger"><i class="fas fa-times">&nbsp;Odbij</i></button>
                                     <button formaction="{{route('admin.moderatorApprove',['id'=>$moderator['id']])}}" type="submit" class="btn btn-success"><i class="fas fa-check">&nbsp;Odobri</i></button>

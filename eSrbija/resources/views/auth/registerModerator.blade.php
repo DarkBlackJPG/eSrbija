@@ -219,10 +219,23 @@
             ]
         }
     })
-    new Vue({
+    var categories = new Vue({
         el: '#categories',
         data: {
-            selected: "{{old('kategorije')}}",
+            <?php
+                $old_kategorije = old('kategorije');
+                if($old_kategorije != null) :
+                    $old_kategorije = explode(',', $old_kategorije);
+
+            ?>
+            selected: [
+                @foreach($old_kategorije as $item)
+                "{{ $item }}",
+                @endforeach
+            ],
+            <?php else: ?>
+            selected: [],
+            <?php endif; ?>
             categories: [
                 @foreach($kategorije as $element)
                     '{{$element->naziv}}',

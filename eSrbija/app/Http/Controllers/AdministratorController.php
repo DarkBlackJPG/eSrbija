@@ -137,6 +137,8 @@ class AdministratorController extends Controller
                 'pib' => $pib,
                 'maticniBroj' =>$maticniBroj,
                 'ovlascenja' => $ovlascenje,
+                'ankete' =>  $moderators->pluck('ankete'),
+                'lokalnost' =>  $moderators->pluck('lokalnost'),
             ];
 
         }
@@ -170,8 +172,12 @@ class AdministratorController extends Controller
             }
         }
         $id->ovlascenja()->sync($categoryIds);
+
         $moderator = $id->moderatori()->first();
         $moderator->approved = 1;
+        $moderator->ankete = $request->ankete;
+        $moderator->lokalnost = $request->lokalnost;
+
         $moderator->save();
         \Mail::to($mailtoMail)->send(new \App\Mail\ModeratorApprove());
         return redirect()->back()->with('successApprove', 'Uspesno ste odobrili '.$moderator->naziv.' sa pravima moderatora!');
