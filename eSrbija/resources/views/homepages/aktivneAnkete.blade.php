@@ -20,13 +20,19 @@
 
     @if($ankete==null || count($ankete)==0 )
             <div class="row">
-                <div class= " col-sm-6 ankete">
+                <div class= " col-12 col-md-6 ankete">
          <div class="card">
              <div class="card-header text-right">
                  &nbsp;
              </div >
              <div class="card-body">
-                 <h3>Nema anketa raspolozivih za popunjavanje</h3>
+                 <h3>
+                     @if(empty($tipAnkete))
+                     Nema anketa raspolozivih za popunjavanje
+                         @else
+                     Trenutno nema aktivnih {{$tipAnkete}}
+                         @endif
+                 </h3>
 
              </div>
 
@@ -39,14 +45,14 @@
          @else
 
             <div class = "row">
-                <div class = "col-6">
+                <div class = "col-12  col-md-6">
 
                 @foreach($ankete as $anketa)
 
 
 
                             <div class="card">
-                                <div class="card-header inline text-right">
+                                <div class="card-header visina30 inline text-right">
 
 
                                             <p class="italic">  <i  class="fa fa-clock-o"></i><i> &nbsp; {{$anketa->created_at}} </i></p>

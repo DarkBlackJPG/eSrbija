@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class AnswerPollController extends Controller
 {
+    const IZBORI =2;
+    const REFERENDUM=1;
+    const OBICNA=0;
     public function list_all_polls_created_by_me($poruka=null,$icon=null){
         $user = auth()->user();
         $ankete = null;
@@ -169,5 +172,72 @@ class AnswerPollController extends Controller
 
 
 
+    }
+
+
+    public function  list_active_elections(){
+        $user = auth()->user();
+
+        $nijeObicanKorisnik=true;
+        $userMesto=1;
+        if(!auth()->user()->isAdmin && !auth()->user()->isMod ) {
+            $nijeObicanKorisnik=false;
+
+            $neprivKor= auth()->user()->neprivilegovaniKorisnici()->first();
+            $userMesto=$neprivKor->opstinaPrebivalista->id;
+
+        }
+        $ankete = Ankete::dohvatiAktivneINeodgovorenePoTipu(self::IZBORI, $user->id);
+
+        if($nijeObicanKorisnik==false)
+            foreach($ankete as$key=> $value)  {
+                if($value->nivoLokNac == 1) { //lokalni = 1 , nacionalni = 0;
+                    $flag = true;
+                    $mesto = Ankete::dohvatiVezuAnketeMesto($userMesto,$value);
+                    if (empty($mesto) || count($mesto)==0) $flag = false;
+                    //foreach ($value->vezanoZaMesto as $key=> $mesto) if($mesto->id==$userMesto) $flag=true;
+                    if ($flag == false) unset($ankete[$key]);
+                }
+            }
+
+        foreach($ankete as $key =>$val)
+            if($val->obrisanoFlag) unset($ankete[$key]);
+
+        $niz= ['ankete'=> $ankete, 'tipAnkete'=> 'izbora'];
+
+        return view('homepages.aktivneAnkete',$niz);
+    }
+
+    public function  list_active_referendum(){
+        $user = auth()->user();
+
+        $nijeObicanKorisnik=true;
+        $userMesto=1;
+        if(!auth()->user()->isAdmin && !auth()->user()->isMod ) {
+            $nijeObicanKorisnik=false;
+
+            $neprivKor= auth()->user()->neprivilegovaniKorisnici()->first();
+            $userMesto=$neprivKor->opstinaPrebivalista->id;
+
+        }
+        $ankete = Ankete::dohvatiAktivneINeodgovorenePoTipu(self::REFERENDUM, $user->id);
+
+        if($nijeObicanKorisnik==false)
+            foreach($ankete as$key=> $value)  {
+                if($value->nivoLokNac == 1) { //lokalni = 1 , nacionalni = 0;
+                    $flag = true;
+                    $mesto = Ankete::dohvatiVezuAnketeMesto($userMesto,$value);
+                    if (empty($mesto) || count($mesto)==0) $flag = false;
+                    //foreach ($value->vezanoZaMesto as $key=> $mesto) if($mesto->id==$userMesto) $flag=true;
+                    if ($flag == false) unset($ankete[$key]);
+                }
+            }
+
+        foreach($ankete as $key =>$val)
+            if($val->obrisanoFlag) unset($ankete[$key]);
+
+        $niz= ['ankete'=> $ankete, 'tipAnkete'=> 'referenduma'];
+
+        return view('homepages.aktivneAnkete',$niz);
     }
 }

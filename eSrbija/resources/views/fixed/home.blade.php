@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
     <div class="row  ">
-        <div class="col-sm-3 col-md-3">
+        <div class=" col-12  col-md-3">
     <form>
             <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
     </form>
@@ -127,7 +127,7 @@
                     @endif
             </div>
         </div>
-        <div class="col-md-8 justify-content-center">
+        <div class="col-12  col-md-9 justify-content-center">
              @yield('homepagecontent')
         </div>
 

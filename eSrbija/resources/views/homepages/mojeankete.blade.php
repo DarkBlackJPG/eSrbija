@@ -64,10 +64,10 @@
 
                 @foreach($anketeMoje as $anketa)
                     <div class = "row align-items-center">
-                        <div class = "col-8">
+                        <div class = "col-12  col-md-8">
                 <div class="card">
 
-                            <div class="card-header inline text-right">
+                            <div class="card-header visina30 inline text-right">
                              <div class="row">
                                  <div class="col-6 text-left">
                                  <p class="italic">  <i  class="fa fa-clock-o"></i> &nbsp; {{$anketa->created_at}}</p>
@@ -103,7 +103,7 @@
                         <div class="card-body text-left">
                             <h3>{{$anketa->naziv}}</h3>
                         </div>
-                        <div class="card-footer text-right">
+                        <div class="card-footer visina15 text-right">
                                  &nbsp;
                         </div>
                     </div>
