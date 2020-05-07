@@ -105,7 +105,7 @@ class ObavestenjaController extends Controller
         } else {
             $obavestenja = Obavestenja::svaObavestenjaModeratora($user->id);
         }
-        return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja]);
+        return view('homepages.mojaObavestenja',['mojaObavestenja' => $obavestenja, "isAdmin" => $user->isAdmin]);
 
     }
 
@@ -139,13 +139,10 @@ class ObavestenjaController extends Controller
 
         if(!auth()->user()->isMod && !auth()->user()->isAdmin) return;
 
-        if( auth()->user()->isMod && auth()->user()->isAdmin ){
-            Obavestenja::destroy($id);
-        }else{
             $obavestenje = Obavestenja::find($id);
             $obavestenje->obrisanoFlag = 1;
             $obavestenje->save();
-        }
+        
         return redirect()->back()->with("info", "Obavestenje uspesno obrisano");
         
     }

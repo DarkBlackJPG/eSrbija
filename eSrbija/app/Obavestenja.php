@@ -56,11 +56,13 @@ class Obavestenja extends Model
                 $mesta = $obavestenje->vezanoZaMesto;
 
                 $mesta_id = [];
+                $found = false;
                 foreach ($mesta as $mesto){
-                     $mesta_id [] = $mesto->id;
+                    if($mesto->id == $idMesto)
+                        $found = true;
                 }
 
-                if( !in_array($idMesto, $mesta_id) ){
+                if( !found ){
                     $obavestenja->forget($key);
                 }
             }

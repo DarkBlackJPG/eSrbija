@@ -19,7 +19,11 @@
     <div class = "row justify-content-center align-items-center" >
         <div class="col-md-12 text-center">
            <div class="card">
-                <h2>Nemate nijedno obavestenje</h2>
+               @if($isAdmin)
+                    <h2>U sistemu nema obavestenja</h2>
+                @else
+                    <h2>Nemate nijedno obavestenje</h2>
+               @endif
             </div>
         </div>
     </div>
