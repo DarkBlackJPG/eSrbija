@@ -151,11 +151,12 @@ Route::middleware(['verified', 'auth'])->group(function () {
         ->name('logout');
 
     /** @author Filip Carevic */
-    Route::get('/ankete', 'AnswerPollController@list_active')->name('ankete');
-    Route::get('/ankete/{id}', 'AnswerPollController@answer_poll')->name('anketeid');
-    Route::post('/ankete/{id}', 'AnswerPollController@save_answers')->name('save_answers');
-    Route::get('/izbori', 'AnswerPollController@list_active_elections' )->name('izbori');
-    Route::get('/referendumi', 'AnswerPollController@list_active_referendum')->name('referendumi');
+
+    Route::get('/ankete/{page?}', 'AnswerPollController@list_active')->name('ankete');
+    Route::get('/ankete/popuni/{id}', 'AnswerPollController@answer_poll')->name('anketeid');
+    Route::post('/ankete/popuni/{id}', 'AnswerPollController@save_answers')->name('save_answers');
+    Route::get('/izbori/{page?}', 'AnswerPollController@list_active_elections' )->name('izbori');
+    Route::get('/referendumi/{page?}', 'AnswerPollController@list_active_referendum')->name('referendumi');
 
 
     /** ********************************************* */
@@ -184,8 +185,8 @@ Route::middleware(['verified', 'auth'])->group(function () {
 
 
         /** @author Filip Carevic */
-        Route::get('/mojeankete','AnswerPollController@list_all_polls_created_by_me')->name('mojeankete');
-        Route::post('/mojeankete/{id}','AnswerPollController@close_poll')->name('zatvorianketu');
+        Route::get('/mojeankete/{page?}','AnswerPollController@list_all_polls_created_by_me')->name('mojeankete');
+        Route::post('/mojeankete/zatvori/{id}','AnswerPollController@close_poll')->name('zatvorianketu');
         Route::post('/obrisianketu/{id}','CreatePolController@delete_poll')->name('obrisianketu');
         Route::get('/createpoll', 'CreatePolController@return_view')->name('createpoll');
         Route::post('/savepoll', 'CreatePolController@create_poll')->name('savepoll');

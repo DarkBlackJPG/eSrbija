@@ -113,5 +113,27 @@
                  @endforeach
             </div>
         </div>
+
+        <br><br>
+
+        <div class="row">
+            <div class="col-6 text-left col-md-4">
+                @if($page!=0)
+                    <form action="{{route('mojeankete', ['page' => $page-1])}}" method="GET" >
+
+                        <button class = " btn2  btn-outline-dark italic"> Prethodna</button>
+                    </form>
+                @endif
+            </div>
+            <div class="col-6 col-md-4 text-right">
+                @if( $hasMore)
+
+                    <form action="{{route('mojeankete', ['page' => $page=$page+1])}}" method="GET" >
+
+                        <button class = " btn2  btn-outline-dark italic">Sledeca</button>
+                    </form>
+                @endif
+            </div>
+        </div>
     @endif
 @endsection

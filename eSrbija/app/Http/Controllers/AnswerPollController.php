@@ -11,7 +11,8 @@ class AnswerPollController extends Controller
     const IZBORI =2;
     const REFERENDUM=1;
     const OBICNA=0;
-    public function list_all_polls_created_by_me($poruka=null,$icon=null){
+    const PAGINATION_OFFSET=4;
+    public function list_all_polls_created_by_me($page=0){
         $user = auth()->user();
         $ankete = null;
         if($user->isAdmin) {
@@ -25,11 +26,20 @@ class AnswerPollController extends Controller
             }}
 
         }
-        $niz = ['anketeMoje' =>$ankete];
-//        if(isset($poruka)) {
-//            $niz['poruka']=$poruka;
-//            $niz['icon']=$icon;
-//        }
+
+        if(empty($page) || $page<0 ){
+            $page=0;
+        }
+
+        $hasmore=$page*self::PAGINATION_OFFSET + self::PAGINATION_OFFSET < count($ankete);
+        $ankete= $ankete->splice($page*self::PAGINATION_OFFSET, self::PAGINATION_OFFSET);
+
+        $niz= ['anketeMoje'=> $ankete,
+            'page' =>$page,
+            'hasMore' => $hasmore,
+         ];
+
+
 
         return view('homepages.mojeankete',$niz);
 
@@ -66,7 +76,7 @@ class AnswerPollController extends Controller
 
     }
 
-    public function list_active()
+    public function list_active($page=0)
     {
             $userid=auth()->user()->id;
             $nijeObicanKorisnik=true;
@@ -106,7 +116,20 @@ class AnswerPollController extends Controller
         foreach($ankete as $key =>$val)
             if($val->obrisanoFlag) unset($ankete[$key]);
 
-         $niz= ['ankete'=> $ankete];
+
+         if(empty($page) || $page<0 ){
+                $page=0;
+         }
+
+        $hasmore=$page*self::PAGINATION_OFFSET + self::PAGINATION_OFFSET < count($ankete);
+        $ankete= $ankete->splice($page*self::PAGINATION_OFFSET, self::PAGINATION_OFFSET);
+
+         $niz= ['ankete'=> $ankete,
+                'page' =>$page,
+                'hasMore' => $hasmore,
+                'route' => 'ankete'
+             ];
+
 
         return view('homepages.aktivneAnkete',$niz);
 
@@ -175,7 +198,7 @@ class AnswerPollController extends Controller
     }
 
 
-    public function  list_active_elections(){
+    public function  list_active_elections($page=0){
         $user = auth()->user();
 
         $nijeObicanKorisnik=true;
@@ -203,12 +226,27 @@ class AnswerPollController extends Controller
         foreach($ankete as $key =>$val)
             if($val->obrisanoFlag) unset($ankete[$key]);
 
-        $niz= ['ankete'=> $ankete, 'tipAnkete'=> 'izbora'];
+        if(empty($page) || $page<0 ){
+            $page=0;
+        }
+
+        $hasmore=$page*self::PAGINATION_OFFSET + self::PAGINATION_OFFSET < count($ankete);
+        $ankete= $ankete->splice($page*self::PAGINATION_OFFSET, self::PAGINATION_OFFSET);
+
+        $niz= ['ankete'=> $ankete,
+            'page' =>$page,
+            'hasMore' => $hasmore,
+            'route' => 'izbori',
+            'tipAnkete'=> 'izbora'
+        ];
+
+
+
 
         return view('homepages.aktivneAnkete',$niz);
     }
 
-    public function  list_active_referendum(){
+    public function  list_active_referendum($page=0){
         $user = auth()->user();
 
         $nijeObicanKorisnik=true;
@@ -235,8 +273,21 @@ class AnswerPollController extends Controller
 
         foreach($ankete as $key =>$val)
             if($val->obrisanoFlag) unset($ankete[$key]);
+        if(empty($page) || $page<0 ){
+            $page=0;
+        }
 
-        $niz= ['ankete'=> $ankete, 'tipAnkete'=> 'referenduma'];
+        $hasmore=$page*self::PAGINATION_OFFSET + self::PAGINATION_OFFSET < count($ankete);
+        $ankete= $ankete->splice($page*self::PAGINATION_OFFSET, self::PAGINATION_OFFSET);
+
+        $niz= ['ankete'=> $ankete,
+            'page' =>$page,
+            'hasMore' => $hasmore,
+            'route' => 'referendumi',
+            'tipAnkete'=> 'referenduma'
+        ];
+
+
 
         return view('homepages.aktivneAnkete',$niz);
     }
