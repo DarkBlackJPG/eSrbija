@@ -6,6 +6,11 @@ use App\Ankete;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Sluzi za obradu zahteva koji se odnosi na prikaz statistike anketama u sistemu
+ * 
+ * @version 1.0
+ */
 class AnketeController extends Controller
 {
 

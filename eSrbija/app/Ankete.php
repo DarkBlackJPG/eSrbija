@@ -50,6 +50,13 @@ class Ankete extends Model
         return $this->belongsToMany('App\Mesto', 'ankete_mestos', 'ankete_id', 'mesto_id');
     }
 
+    /**
+     * Dohvatanje pitanja za anketu sa datim id-ijem sa informacijom o broju odgovora po pitanju
+     *
+     * @author Dušan Stijović
+     * @param id idAnkete
+     * @return Illuminate\Database\Eloquent\Collection
+     */
 
     public static function pitanjaAnketeSaBrojemOdgovoraPoPitanju($id){
         $anketa = Ankete::where('id', $id)->with('pitanja.odgovori.korisnici')->first();

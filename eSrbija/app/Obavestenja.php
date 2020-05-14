@@ -41,10 +41,24 @@ class Obavestenja extends Model
         return $this->belongsToMany('App\Mesto', 'mesto_obavestenjas', 'obavestenja_id', 'mesto_id');
     }
 
+    /** Sluzi za dohvatanje svih obavestenja moderatora sa dartim id-ijem
+    *
+    *@author Dušan Stijović
+    *@param id idMoredatora
+    *@return Illuminate\Database\Eloquent\Collection
+    */
     public static function svaObavestenjaModeratora($id){
        return Obavestenja::where(['korisnik_id' => $id, 'obrisanoFlag' => false])->paginate(4);
     }
 
+
+      /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto 
+    *
+    *@author Dušan Stijović
+    *@param id idMoredatora
+    *@param idMesto idMesta
+    *@return Illuminate\Database\Eloquent\Collection
+    */
     public static function svaObavestenjaZaKategorijuIMestoKorisnika($id, $idMesto){
         
         $kategorija = Kategorije::where("id", '=' , $id)->first();

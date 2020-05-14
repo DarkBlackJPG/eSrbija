@@ -8,6 +8,13 @@ use App\Moderator;
 use App\NeprivilegovanKorisnik;
 use Illuminate\Http\Request;
 
+
+/**
+ * Sluzi za obradu zahteva koji se odnose na obavestenja koja se nalaze u sistemu.
+ * 
+ * @version 1.0
+ * 
+ */
 class ObavestenjaController extends Controller
 {
     /**
