@@ -13,10 +13,20 @@ class CreateKategorijeObavestenjasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategorije_obavestenjas', function (Blueprint $table) {
-            $table->integer('kategorije_id');
-            $table->integer('obavestenja_id');
-            $table->timestamps();
+          Schema::create('kategorije_obavestenjas', function (Blueprint $table){
+            $table->unsignedBigInteger('obavestenja_id');
+            $table->unsignedBigInteger('kategorije_id');
+            $table->unique(['obavestenja_id', 'kategorije_id']);
+            $table->primary(['obavestenja_id', 'kategorije_id']);
+            $table->foreign('obavestenja_id')
+                ->references('id')
+                ->on('obavestenjas')
+                ->onDelete('cascade');
+
+            $table->foreign('kategorije_id')
+                ->references('id')
+                ->on('kategorijes')
+                ->onDelete('cascade');
         });
     }
 

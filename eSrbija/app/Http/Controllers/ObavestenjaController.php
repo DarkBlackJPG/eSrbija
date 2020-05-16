@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Mesto;
 use App\Obavestenja;
 use App\Kategorije;
 use App\Moderator;
 use App\NeprivilegovanKorisnik;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 /**
  * Sluzi za obradu zahteva koji se odnose na obavestenja koja se nalaze u sistemu.
- * 
+ *
  * @version 1.0
- * 
+ *
  */
 class ObavestenjaController extends Controller
 {
@@ -103,6 +105,7 @@ class ObavestenjaController extends Controller
     public function prikaziMojaObavestenja(){
 
         $user = auth()->user();
+
         $obavestenja = null;
         if ( !$user->isMod && !$user->isAdmin ) {
             return redirect()->route("home");
@@ -135,7 +138,7 @@ class ObavestenjaController extends Controller
                 }
                 else{
                     $idMesto = NeprivilegovanKorisnik::find(auth()->user()->id)->first()->opstinaPrebivalista_id;
-                }    
+                }
                 $obavestenja = Obavestenja::svaObavestenjaZaKategorijuIMestoKorisnika($id, $idMesto);
         }
 
@@ -149,8 +152,52 @@ class ObavestenjaController extends Controller
             $obavestenje = Obavestenja::find($id);
             $obavestenje->obrisanoFlag = true;
             $obavestenje->save();
-        
+
         return redirect()->back()->with("info", "Obavestenje uspesno obrisano");
-        
+
+    }
+
+    public function return_create_view(){
+        $mesta = Mesto::dohvatiSveNaziveMesta(); // ovo vraca objekte klase Mesto
+        $nazivi='';
+        $count = count($mesta);
+        $i=0;
+        foreach ($mesta as $value){ //pravi string 'Bg', 'Cacak','Subotica', itd...
+
+            if($i < $count-1){
+                $nazivi.= '\''.$value->naziv.'\''.',';}
+            else $nazivi.='\''.$value->naziv.'\'';
+            $i++;
+
+        }
+        $user = auth()->user();
+
+        $sve_kategorije= Kategorije::Dohvati_nazive_svih_kategorija();
+        $nazivi_kategorija="";
+        $count = count($sve_kategorije);
+        $i=0;
+        foreach ($sve_kategorije as $value){ //pravi string 'VAzno', 'finansiie', itd...
+
+            if($i < $count-1){
+                $nazivi_kategorija.= '\''.$value->naziv.'\''.',';}
+            else $nazivi_kategorija.='\''.$value->naziv.'\'';
+            $i++;
+
+        }
+        $dozvole='';
+        if($user->isAdmin) $dozvole = $nazivi_kategorija;
+        else {
+            $count = count($user->ovalascenja());
+            $i=0;
+            foreach ($user->ovlascenja() as $val){ //proveriti radi li
+                if($i<$count-1)
+                 $dozvole.='\''. Kategorije::find($val->kategorije_id)->naziv . '\',';
+                else    $dozvole.='\''. Kategorije::find($val->kategorije_id)->naziv . '\'';
+                $i++;
+            }
+        }
+
+
+        return view('homepages.createpost',['mesta' => $nazivi, 'kategorije'=>$nazivi_kategorija, 'dozvole'=> $dozvole] );
     }
 }

@@ -28,7 +28,7 @@ class CreateObavestenjasTable extends Migration
                 ->on('korisniks')
                 ->onDelete('cascade');
         });
-        Schema::create('kategorije_obavestenja', function (Blueprint $table){
+      /*  Schema::create('kategorije_obavestenja', function (Blueprint $table){
             $table->unsignedBigInteger('obavestenja_id');
             $table->unsignedBigInteger('kategorije_id');
             $table->unique(['obavestenja_id', 'kategorije_id']);
@@ -42,7 +42,7 @@ class CreateObavestenjasTable extends Migration
                 ->references('id')
                 ->on('kategorijes')
                 ->onDelete('cascade');
-        });
+        });*/
     }
 
     /**

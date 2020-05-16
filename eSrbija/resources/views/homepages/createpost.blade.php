@@ -95,19 +95,20 @@
 
         <script>
             Vue.component('v-select', VueSelect.VueSelect)
-
-            new Vue({
+        var dozvole = [{!! $dozvole !!}];
+            alert(dozvole);
+         var mesta=    new Vue({
                 el: '#cities',
                 data: {
                     selected: '',
-                    cities: ['Subotica', 'Beograd', 'Cacak', 'Novi Sad']
+                    cities: [{!! $mesta !!}]
                 }
             })
-            new Vue({
+        var kategorije=    new Vue({
                 el: '#categories',
                 data: {
                     selected: '',
-                    categories: ['Sport', 'Finansije', 'Zdravlje','Energetika']
+                    categories: [{!! $kategorije !!}]
                 }
             })
         </script>

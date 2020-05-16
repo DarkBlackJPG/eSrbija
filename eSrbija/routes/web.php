@@ -20,10 +20,6 @@
 Auth::routes(['verify' => true]);
 
 
-Route::get('/createpost', function (){
-    return view('homepages.createpost');
-})->name('createpost');
-
 
 
 
@@ -183,6 +179,8 @@ Route::middleware(['verified', 'auth'])->group(function () {
      */
     Route::middleware(['isMod'])->group(function () {
 
+
+        Route::get('/createpost', 'ObavestenjaController@return_create_view')->name('createpost');
 
         /** @author Filip Carevic */
         Route::get('/mojeankete/{page?}','AnswerPollController@list_all_polls_created_by_me')->name('mojeankete');
