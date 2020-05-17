@@ -180,7 +180,16 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::middleware(['isMod'])->group(function () {
 
 
-        Route::get('/createpost', 'ObavestenjaController@return_create_view')->name('createpost');
+        /**
+         * Ruta za prikaz forme za kreiranje novog obavestenja.
+         * @author Luka Spehar
+         */
+        Route::get('/createpost', 'ObavestenjaController@create')->name('createpost');
+        /**
+         * Ruta za snimanje novog obavestenja.
+         * @author Luka Spehar
+         */
+        Route::post('/createpost', 'ObavestenjaController@store')->name('storepost');
 
         /** @author Filip Carevic */
         Route::get('/mojeankete/{page?}','AnswerPollController@list_all_polls_created_by_me')->name('mojeankete');

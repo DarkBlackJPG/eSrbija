@@ -30,24 +30,115 @@ class ObavestenjaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
+     * Prikazije formu za kreiranje novog obavestenja.
+     * @author Luka Spehar
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $mesta = Mesto::dohvatiSveNaziveMesta(); // vraca objekte klase Mesto
+        $nazivi='';
+        $count = count($mesta);
+        $i=0;
+        foreach ($mesta as $value) { //pravi string 'Beograd', 'Cacak','Subotica', itd...
+            if($i < $count-1){
+                $nazivi.= '\''.$value->naziv.'\''.',';}
+            else
+                $nazivi.='\''.$value->naziv.'\'';
+            $i++;
+        }
+        $user = auth()->user();
+
+        $sve_kategorije= Kategorije::Dohvati_nazive_svih_kategorija();
+        $nazivi_kategorija="";
+        $count = count($sve_kategorije);
+        $i=0;
+        foreach ($sve_kategorije as $value) { //pravi string 'Vazno', 'Finansije', itd...
+            if($i < $count-1) {
+                $nazivi_kategorija.= '\''.$value->naziv.'\''.',';}
+            else 
+                $nazivi_kategorija.='\''.$value->naziv.'\'';
+            $i++;
+        }
+
+        $dozvole='';
+        if($user->isAdmin)
+            $dozvole = $nazivi_kategorija;
+        else {
+            $count = count($user->ovlascenja()->getResults());
+            $i=0;
+            foreach ($user->ovlascenja()->getResults() as $val) {
+                if($i<$count-1)
+                    $dozvole.='\''. $val->naziv . '\',';
+                else
+                    $dozvole.='\''. $val->naziv . '\'';
+                $i++;
+            }
+        }
+        
+        return view('homepages.createpost',['mesta' => $nazivi, 'kategorije'=>$nazivi_kategorija, 'dozvole'=> $dozvole] );
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * Snima novo obavestenje.
+     * @author Luka Spehar
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'kategorije' => 'required',
+            'mesta' => 'required'
+        ]);
+
+        $dozvole = explode(",", request('dozvole'));
+        $kategorije = explode(",", request('kategorije'));
+        $mesta = explode(",", request('mesta'));
+        $valid = true;
+
+        foreach($kategorije as $kategorija) {
+            if(!in_array($kategorija, $dozvole))
+                $valid = false;
+        }
+        if(!$valid) {
+            return redirect('/home')->with('dozvole', 'Nemate dozvolu da postavljate obaveštenja u sve izabrane kategorije!');
+        }
+
+        $obavestenje = Obavestenja::create([
+            'naslov' => request('title'),
+            'opis' => request('description'),
+            'link' => request('link'),
+            'nivoLokNac' => request('nivo'),
+            'korisnik_id' => auth()->user()->id,
+            'obrisanoFlag' => false
+        ]);
+        
+        $kategorije_ids = [];
+        $i = 0;
+        foreach($kategorije as $kategorija) {
+            $kategorijaObjekat = Kategorije::where("naziv", "=", $kategorija)->firstOrFail();
+            $usersToNotify = $kategorijaObjekat->pretplaceni()->getResults();
+            foreach($usersToNotify as $user) {
+                //TODO
+                //poslati prijavljenima email da je postavljeno novo obavestenje
+            }
+            
+            $kategorije_ids[$i] = $kategorijaObjekat->id;
+            $i++;
+        }
+        $mesta_ids = [];
+        $i = 0;
+        foreach($mesta as $mesto) {
+            $mesta_ids[$i] = Mesto::where("naziv", "=", $mesto)->firstOrFail()->id;
+            $i++;
+        }
+
+        $obavestenje->pripadaKategorijama()->attach($kategorije_ids);
+        $obavestenje->vezanoZaMesto()->attach($mesta_ids);
+
+        return redirect('/home')->with('obavestenje', 'Obaveštenje uspešno kreirano!');
     }
 
     /**
@@ -155,49 +246,5 @@ class ObavestenjaController extends Controller
 
         return redirect()->back()->with("info", "Obavestenje uspesno obrisano");
 
-    }
-
-    public function return_create_view(){
-        $mesta = Mesto::dohvatiSveNaziveMesta(); // ovo vraca objekte klase Mesto
-        $nazivi='';
-        $count = count($mesta);
-        $i=0;
-        foreach ($mesta as $value){ //pravi string 'Bg', 'Cacak','Subotica', itd...
-
-            if($i < $count-1){
-                $nazivi.= '\''.$value->naziv.'\''.',';}
-            else $nazivi.='\''.$value->naziv.'\'';
-            $i++;
-
-        }
-        $user = auth()->user();
-
-        $sve_kategorije= Kategorije::Dohvati_nazive_svih_kategorija();
-        $nazivi_kategorija="";
-        $count = count($sve_kategorije);
-        $i=0;
-        foreach ($sve_kategorije as $value){ //pravi string 'VAzno', 'finansiie', itd...
-
-            if($i < $count-1){
-                $nazivi_kategorija.= '\''.$value->naziv.'\''.',';}
-            else $nazivi_kategorija.='\''.$value->naziv.'\'';
-            $i++;
-
-        }
-        $dozvole='';
-        if($user->isAdmin) $dozvole = $nazivi_kategorija;
-        else {
-            $count = count($user->ovalascenja());
-            $i=0;
-            foreach ($user->ovlascenja() as $val){ //proveriti radi li
-                if($i<$count-1)
-                 $dozvole.='\''. Kategorije::find($val->kategorije_id)->naziv . '\',';
-                else    $dozvole.='\''. Kategorije::find($val->kategorije_id)->naziv . '\'';
-                $i++;
-            }
-        }
-
-
-        return view('homepages.createpost',['mesta' => $nazivi, 'kategorije'=>$nazivi_kategorija, 'dozvole'=> $dozvole] );
     }
 }

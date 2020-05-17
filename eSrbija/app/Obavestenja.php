@@ -14,6 +14,19 @@ use Illuminate\Database\Eloquent\Model;
 class Obavestenja extends Model
 {
     /**
+     * Niz polja koja smeju biti kreirana POST requestom.
+     * @author Luka Spehar
+     */
+    protected $fillable = [
+        'naslov',
+        'opis',
+        'link',
+        'nivoLokNac',
+        'korisnik_id',
+        'obrisanoFlag'
+    ];
+
+    /**
      * This method returns the App\Korisnik that created this Obavestenja
      * 
      * @author Stefan Teslic
@@ -28,7 +41,7 @@ class Obavestenja extends Model
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function pripadaKategorijama(){
-        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id');
+        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id')->withTimestamps();
     }
     /**
      * This method returns all App\Mesto this Obavestenje is bound to
@@ -38,7 +51,7 @@ class Obavestenja extends Model
      */
 
     public function vezanoZaMesto() {
-        return $this->belongsToMany('App\Mesto', 'mesto_obavestenjas', 'obavestenja_id', 'mesto_id');
+        return $this->belongsToMany('App\Mesto', 'mesto_obavestenjas', 'obavestenja_id', 'mesto_id')->withTimeStamps();
     }
 
     /** Sluzi za dohvatanje svih obavestenja moderatora sa dartim id-ijem
@@ -52,7 +65,7 @@ class Obavestenja extends Model
     }
 
 
-      /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto 
+    /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto 
     *
     *@author Dušan Stijović
     *@param id idMoredatora
@@ -83,8 +96,5 @@ class Obavestenja extends Model
         }
         
         return $obavestenja;
-
     }
-
-
 }

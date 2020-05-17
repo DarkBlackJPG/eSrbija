@@ -2,27 +2,48 @@
 
 @section('homepagecontent')
 
+@if(session('obavestenje'))
+    <script>
+        //ispisuje poruku o uspesno kreiranom obavestenju
+        Toast.fire({
+            icon: 'success',
+            title: '{{session('obavestenje')}}',
+        });
+    </script>
+@endif
 
-        @if(session('tokenVerifiedSuccessfully'))
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: '{{session('tokenVerifiedSuccessfully')}}',
-                    text: 'Uspesno ste potvrdili Vasu elektronsku postu!',
-                    confirmButtonText: 'Razumem',
-                })
-            </script>
-        @endif
-        @if(session('tokenInvalid'))
-            <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: '{{session('tokenInvalid')}}',
-                    text: 'Vas link je istekao',
-                    confirmButtonText: 'Razumem',
-                })
-            </script>
-        @endif
+@if(session('dozvole'))
+    <script>
+        //ispisuje poruku o nedozvoljenom pokusaju postavljanja obavestenja
+        Toast.fire({
+            icon: 'warning',
+            title: '{{session('dozvole')}}',
+        });
+    </script>
+@endif
+
+@if(session('tokenVerifiedSuccessfully'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: '{{session('tokenVerifiedSuccessfully')}}',
+            text: 'Uspesno ste potvrdili Vasu elektronsku postu!',
+            confirmButtonText: 'Razumem',
+        })
+    </script>
+@endif
+
+@if(session('tokenInvalid'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: '{{session('tokenInvalid')}}',
+            text: 'Vas link je istekao',
+            confirmButtonText: 'Razumem',
+        })
+    </script>
+@endif
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
             <div class="carousel-inner " style=" width:100%; height: 200px !important;">

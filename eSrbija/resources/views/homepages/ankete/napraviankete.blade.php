@@ -295,8 +295,6 @@
                         }
                     }
                 }
-
-
             }
             document.forma.submit();
 

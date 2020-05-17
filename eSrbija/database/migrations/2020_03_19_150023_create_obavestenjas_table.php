@@ -17,10 +17,10 @@ class CreateObavestenjasTable extends Migration
             $table->bigIncrements('id');
             $table->string('naslov');
             $table->text('opis');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->smallInteger('nivoLokNac');
             $table->unsignedBigInteger('korisnik_id');
-            $table->boolean('obrisanoFlag');
+            $table->boolean('obrisanoFlag')->default(false);
             $table->timestamps();
 
             $table->foreign('korisnik_id')
