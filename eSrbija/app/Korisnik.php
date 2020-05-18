@@ -136,7 +136,7 @@ class Korisnik extends Authenticatable implements MustVerifyEmail
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function sviOdgovori(){
-        return $this->belongsToMany('App\PonudjeniOdgovori', 'odgovori_korisnik', 'korisnik_id', 'ponudjeni_odgovori_id');
+        return $this->belongsToMany('App\PonudjeniOdgovori', 'odgovori_korisniks', 'korisnik_id', 'ponudjeni_odgovori_id');
     }
     /**
      * Relationship method between Korisnik and App\Ankete

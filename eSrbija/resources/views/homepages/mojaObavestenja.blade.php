@@ -20,9 +20,13 @@
         <div class="col-md-12 text-center">
            <div class="card">
                @if($isAdmin)
+                    <br/>
                     <h2>U sistemu nema obavestenja</h2>
+                    <br/>
                 @else
+                    <br/>
                     <h2>Nemate nijedno obavestenje</h2>
+                    <br/>
                @endif
             </div>
         </div>

@@ -59,7 +59,7 @@ class CreateKorisniksTable extends Migration
                 ->onDelete('cascade');
         });
 
-        Schema::create('odgovori_korisnik', function (Blueprint $table){
+        Schema::create('odgovori_korisniks', function (Blueprint $table){
             $table->unsignedBigInteger('korisnik_id');
             $table->unsignedBigInteger('ponudjeni_odgovori_id');
             $table->unique(['korisnik_id', 'ponudjeni_odgovori_id']);
@@ -84,7 +84,7 @@ class CreateKorisniksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ponudjeni_odgovori_korisnik');
+        Schema::dropIfExists('odgovori_korisniks');
         Schema::dropIfExists('kategorije_korisnik_ovlascenjas');
         Schema::dropIfExists('kategorije_korisnik_pretplates');
         Schema::dropIfExists('korisniks');

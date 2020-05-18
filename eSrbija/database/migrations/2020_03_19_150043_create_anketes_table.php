@@ -55,5 +55,6 @@ class CreateAnketesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('anketes');
+        Schema::dropIfExists('ankete_mestos');
     }
 }

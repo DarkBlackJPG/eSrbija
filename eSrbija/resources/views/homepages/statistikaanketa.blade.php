@@ -2,11 +2,6 @@
 @section('homepagecontent')
 
 
-   
- 
-
-
-
     <div class='statistika'>
             @foreach ($pitanja as $pitanje)
                 <div class="row">

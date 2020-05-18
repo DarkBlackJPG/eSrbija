@@ -22,7 +22,7 @@ class Kategorije extends Model
      * @author Stefan Teslic
      */
     public function obavestenja(){
-        return $this->belongsToMany('App\Obavestenja', 'kategorije_obavestenjas', 'kategorije_id', 'obavestenja_id')->withTimestamps();
+        return $this->belongsToMany('App\Obavestenja', 'kategorije_obavestenjas', 'kategorije_id', 'obavestenja_id');
     }
     /**
      * Relationship method which binds Kategorije with  Korisnik model

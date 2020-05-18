@@ -111,10 +111,10 @@ class Ankete extends Model
         return DB::table('anketes')->
         whereRaw("anketes.isActive = 1 and  id not  in
                  ( select a.id
-        from anketes a, korisniks, ponudjeni_odgovoris po, pitanjas, odgovori_korisnik
+        from anketes a, korisniks, ponudjeni_odgovoris po, pitanjas, odgovori_korisniks
         where a.id=pitanjas.ankete_id and pitanjas.id=po.pitanja_id
-        and po.id = odgovori_korisnik.ponudjeni_odgovori_id
-         and odgovori_korisnik.korisnik_id = $userid )
+        and po.id = odgovori_korisniks.ponudjeni_odgovori_id
+         and odgovori_korisniks.korisnik_id = $userid )
          ")->orderBy('created_at', 'DESC')->get();
 
 
@@ -128,10 +128,10 @@ class Ankete extends Model
         return DB::table('anketes')->
         whereRaw("anketes.isActive = 1 and anketes.tip =$tip and id not  in
                  ( select a.id
-        from anketes a, korisniks, ponudjeni_odgovoris po, pitanjas, odgovori_korisnik
+        from anketes a, korisniks, ponudjeni_odgovoris po, pitanjas, odgovori_korisniks
         where a.id=pitanjas.ankete_id and pitanjas.id=po.pitanja_id
-        and po.id = odgovori_korisnik.ponudjeni_odgovori_id
-         and odgovori_korisnik.korisnik_id = $userid )
+        and po.id = odgovori_korisniks.ponudjeni_odgovori_id
+         and odgovori_korisniks.korisnik_id = $userid )
          ")->orderBy('created_at', 'DESC')->get();
     }
 

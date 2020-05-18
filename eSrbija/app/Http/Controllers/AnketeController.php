@@ -106,8 +106,7 @@ class AnketeController extends Controller
         $pitanjaSaBrojemOdgovora = Ankete::pitanjaAnketeSaBrojemOdgovoraPoPitanju($id);
 
         if(!$pitanjaSaBrojemOdgovora["isAnswered"]){
-            //alert()->info('Anketa','Za izabranu anketu nema statistike!')->autoClose(5000)->timerProgressBar();
-            return redirect()->back()->with("info", "Za izabranu anketu nema statistike!");
+               return redirect()->back()->with("info", "Za izabranu anketu nema statistike!");
         } else{
             return view("homepages.statistikaanketa", ["pitanja"=>$pitanjaSaBrojemOdgovora["pitanja"], "brojOdgovora"=>$pitanjaSaBrojemOdgovora["brojOdgovora"]]);
         }

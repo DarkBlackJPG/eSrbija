@@ -18,7 +18,6 @@ class MestoObavestenjas extends Migration
             $table->integer('mesto_id');
             $table->integer('obavestenja_id');
             $table->timestamps();
-
         });
 
     }
@@ -31,5 +30,6 @@ class MestoObavestenjas extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('mesto_obavestenjas');
     }
 }

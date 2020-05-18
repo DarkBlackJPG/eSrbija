@@ -31,7 +31,7 @@ class PonudjeniOdgovori extends Model
      * @author Stefan Teslic
      */
     public function korisnici() {
-        return $this->belongsToMany('App\Korisnik', 'odgovori_korisnik', 'ponudjeni_odgovori_id', 'korisnik_id');
+        return $this->belongsToMany('App\Korisnik', 'odgovori_korisniks', 'ponudjeni_odgovori_id', 'korisnik_id');
     }
 
     public static function napraviOdgovor($pitanje, $tekst){

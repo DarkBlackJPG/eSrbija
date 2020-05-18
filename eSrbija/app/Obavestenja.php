@@ -41,7 +41,7 @@ class Obavestenja extends Model
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function pripadaKategorijama(){
-        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id')->withTimestamps();
+        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id');
     }
     /**
      * This method returns all App\Mesto this Obavestenje is bound to
@@ -78,8 +78,7 @@ class Obavestenja extends Model
         $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
         
         foreach ($obavestenja as  $key => $obavestenje){
-            if($obavestenje->nivoLokNac == 0){
-                //Sta prikazati adminu, sve ili nema tu opciju
+            if($obavestenje->nivoLokNac == config('constants.LOKALNI_NIVO')){
                 $mesta = $obavestenje->vezanoZaMesto;
 
                 $mesta_id = [];
@@ -89,7 +88,7 @@ class Obavestenja extends Model
                         $found = true;
                 }
 
-                if( !found ){
+                if( !$found ){
                     $obavestenja->forget($key);
                 }
             }

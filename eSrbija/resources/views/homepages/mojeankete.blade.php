@@ -59,12 +59,12 @@
             </div>
         </div>
     @else
-        <div class="row align-items-center">
+        <div class="row justify-content-center">
             <div class= "col-lg-12 ankete">
 
                 @foreach($anketeMoje as $anketa)
-                    <div class = "row align-items-center">
-                        <div class = "col-12  col-md-8">
+                    <div class = "row justify-content-center ">
+                        <div class = "col-12  col-md-10">
                 <div class="card">
 
                             <div class="card-header visina30 inline text-right">
