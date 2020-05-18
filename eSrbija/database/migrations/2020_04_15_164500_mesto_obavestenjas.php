@@ -14,7 +14,6 @@ class MestoObavestenjas extends Migration
     public function up()
     {
         Schema::create('mesto_obavestenjas', function (Blueprint $table) {
-       
             $table->integer('mesto_id');
             $table->integer('obavestenja_id');
             $table->timestamps();
