@@ -11,7 +11,9 @@
     <div class = "row justify-content-center align-items-center" >
         <div class="col-md-12 text-center">
            <div class="card">
+                <br/>
                 <h2>Izabrana kategorija nema nijedno obavestenje</h2>
+                <br/>
             </div>
         </div>
     </div>
