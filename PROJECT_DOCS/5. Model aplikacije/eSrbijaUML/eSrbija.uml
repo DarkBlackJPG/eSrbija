@@ -29746,7 +29746,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">1216</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">1148</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">44</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">56</XPD:ATTR>
@@ -29780,7 +29780,7 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">580,383;580,636;1264,636;1264,99</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">580,383;580,636;1184,636;1184,99</XPD:ATTR>
 <XPD:REF name="Model">MGZXOUW4QUqfSqSE+l33PwAA</XPD:REF>
 <XPD:REF name="Head">sBE+AsdujkqOoDyOqip3LQAA</XPD:REF>
 <XPD:REF name="Tail">JINKJmJ420qTGYfqwmgpDwAA</XPD:REF>
@@ -29866,7 +29866,7 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">736,491;736,620;1288,620;1288,99</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">736,491;736,620;1208,620;1208,99</XPD:ATTR>
 <XPD:REF name="Model">VJ/SwCeSs0iAmDEdL5AsFAAA</XPD:REF>
 <XPD:REF name="Head">sBE+AsdujkqOoDyOqip3LQAA</XPD:REF>
 <XPD:REF name="Tail">uxPnXWYUC0istXBvina0gwAA</XPD:REF>
@@ -42059,7 +42059,7 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:OBJ name="OwnedViews[59]" type="UMLAssociationView" guid="2RvT5JAyaUm2IzUN6ZgxOwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">1344,107;1203,150</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">1344,108;1203,150</XPD:ATTR>
 <XPD:REF name="Model">afHv5TqO80mcH1xn56AsUAAA</XPD:REF>
 <XPD:REF name="Head">au4zFzICDUiSB6/1Fb+eFwAA</XPD:REF>
 <XPD:REF name="Tail">QdfPLnnmsUaGAXTI1EgDmwAA</XPD:REF>
