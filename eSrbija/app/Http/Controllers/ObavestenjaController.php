@@ -137,7 +137,7 @@ class ObavestenjaController extends Controller
         $obavestenje->pripadaKategorijama()->attach($kategorije_ids);
         $obavestenje->vezanoZaMesto()->attach($mesta_ids);
 
-        //ako je obavestenje lokalno, izbacivanje svih korisnika koji ne stanjuju u relevantnim mestima
+        //ako je obavestenje lokalno, izbacivanje svih korisnika koji ne stanuju u relevantnim mestima
         if(request('nivo') == 1) {
             $mestaObavestenja = $obavestenje->vezanoZaMesto()->getResults();
             foreach($usersToNotify as $korisnik) {
