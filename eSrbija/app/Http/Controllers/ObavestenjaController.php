@@ -9,6 +9,7 @@ use App\Moderator;
 use App\NeprivilegovanKorisnik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Mail\SubscriptionNotification;
 
 
 /**
@@ -105,6 +106,24 @@ class ObavestenjaController extends Controller
         if(!$valid) {
             return redirect('/home')->with('dozvole', 'Nemate dozvolu da postavljate obaveštenja u sve izabrane kategorije!');
         }
+        
+        $kategorije_ids = [];
+        $usersToNotify = [];
+        $i = 0;
+        foreach($kategorije as $kategorija) {
+            $kategorijaObjekat = Kategorije::where("naziv", "=", $kategorija)->firstOrFail();
+            $usersToNotify = array_unique(array_merge($usersToNotify, $kategorijaObjekat->pretplaceni()->getResults()));
+            
+            $kategorije_ids[$i] = $kategorijaObjekat->id;
+            $i++;
+        }
+
+        $mesta_ids = [];
+        $i = 0;
+        foreach($mesta as $mesto) {
+            $mesta_ids[$i] = Mesto::where("naziv", "=", $mesto)->firstOrFail()->id;
+            $i++;
+        }
 
         $obavestenje = Obavestenja::create([
             'naslov' => request('title'),
@@ -114,29 +133,26 @@ class ObavestenjaController extends Controller
             'korisnik_id' => auth()->user()->id,
             'obrisanoFlag' => false
         ]);
-        
-        $kategorije_ids = [];
-        $i = 0;
-        foreach($kategorije as $kategorija) {
-            $kategorijaObjekat = Kategorije::where("naziv", "=", $kategorija)->firstOrFail();
-            $usersToNotify = $kategorijaObjekat->pretplaceni()->getResults();
-            foreach($usersToNotify as $user) {
-                //TODO
-                //poslati prijavljenima email da je postavljeno novo obavestenje
-            }
-            
-            $kategorije_ids[$i] = $kategorijaObjekat->id;
-            $i++;
-        }
-        $mesta_ids = [];
-        $i = 0;
-        foreach($mesta as $mesto) {
-            $mesta_ids[$i] = Mesto::where("naziv", "=", $mesto)->firstOrFail()->id;
-            $i++;
-        }
 
         $obavestenje->pripadaKategorijama()->attach($kategorije_ids);
         $obavestenje->vezanoZaMesto()->attach($mesta_ids);
+
+        //ako je obavestenje lokalno, izbacivanje svih korisnika koji ne stanjuju u relevantnim mestima
+        if(request('nivo') == 1) {
+            $mestaObavestenja = $obavestenje->vezanoZaMesto()->getResults();
+            foreach($usersToNotify as $korisnik) {
+                $mestoPrebivalista = $korisnik->neprivilegovaniKorisnik()->getResults()->mestoPrebivalista()->getResults();
+                if(!in_array($mestoPrebivalista, $mestaObavestenja)) {
+                    $usersToNotify=array_diff($usersToNotify, array($korisnik));
+                }
+            }
+        }
+
+        //slanje mejlova
+        foreach($usersToNotify as $korisnik) {
+            $mail = new SubsciptionNotification();
+            Mail::to($korisnik->email)->send(new SubscriptionNotification($obavestenje));
+        } 
 
         return redirect('/home')->with('obavestenje', 'Obaveštenje uspešno kreirano!');
     }

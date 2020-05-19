@@ -91,7 +91,7 @@ class Korisnik extends Authenticatable implements MustVerifyEmail
      * @author Stefan Teslic
      * @return App\NeprivilegovanKorisnik
      */
-    public function neprivilegovaniKorisnici() {
+    public function neprivilegovaniKorisnik() {
         return $this->hasOne('App\NeprivilegovanKorisnik', 'id', 'id');
     }
     /**
