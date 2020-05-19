@@ -31878,9 +31878,8 @@
 <XPD:REF name="Type_">jp6sRsh0d0iLGTu4pL+6YgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#TypedParameters" type="integer">2</XPD:ATTR>
-<XPD:REF name="TypedParameters[0]">+xz+DvqR0E2BOhgDP9PINgAA</XPD:REF>
-<XPD:REF name="TypedParameters[1]">AZ6P0IygkESFA8/wiIcLKQAA</XPD:REF>
+<XPD:ATTR name="#TypedParameters" type="integer">1</XPD:ATTR>
+<XPD:REF name="TypedParameters[0]">AZ6P0IygkESFA8/wiIcLKQAA</XPD:REF>
 <XPD:ATTR name="#Attributes" type="integer">10</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="1nz6yQ4vmESmiH0il5vPYQAA">
 <XPD:ATTR name="Name" type="string">id</XPD:ATTR>
@@ -33565,8 +33564,8 @@ RegisterController.php
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">392</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">228</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">228</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">174</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="HWNsX5MdB0uHviEotAgvuAAA">
@@ -33630,7 +33629,7 @@ RegisterController.php
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">555,272;748,272</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">619,272;748,272</XPD:ATTR>
 <XPD:REF name="Model">RIkEqcmcyUSPGEf42zcrWQAA</XPD:REF>
 <XPD:REF name="Head">b7KSi6RhKk2WxIUzl08DrwAA</XPD:REF>
 <XPD:REF name="Tail">5ikDse79J0OsAlVbPiy8mQAA</XPD:REF>
@@ -33834,7 +33833,7 @@ RegisterController.php
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">776,468;550,468;550,323</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">776,468;550,468;550,401</XPD:ATTR>
 <XPD:REF name="Model">5OGPKX1MmEy7Y9RTCmlmvwAA</XPD:REF>
 <XPD:REF name="Head">5ikDse79J0OsAlVbPiy8mQAA</XPD:REF>
 <XPD:REF name="Tail">Xmw3S/NeEEiiwyNW/sWZSQAA</XPD:REF>
@@ -33921,7 +33920,7 @@ RegisterController.php
 <XPD:ATTR name="Left" type="integer">352</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">680</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">Ecu7FxkjA0adpMaR132ujQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="/5p9dYGrS0ymDkEG+F5aIgAA">
@@ -33952,7 +33951,7 @@ RegisterController.php
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">468,323;468,680</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">468,401;468,680</XPD:ATTR>
 <XPD:REF name="Model">3ooI6CVVH0mY9CFZyxMgMwAA</XPD:REF>
 <XPD:REF name="Head">2RHZ7Pn/FkO70Y+IgB7/dwAA</XPD:REF>
 <XPD:REF name="Tail">5ikDse79J0OsAlVbPiy8mQAA</XPD:REF>
@@ -34070,7 +34069,7 @@ RegisterController.php
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">515,729;728,733</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">515,734;728,735</XPD:ATTR>
 <XPD:REF name="Model">I9tLM+JlEkWeBUT7LJavcwAA</XPD:REF>
 <XPD:REF name="Head">uyPIxZcLwkSKBcVcdMt/vAAA</XPD:REF>
 <XPD:REF name="Tail">2RHZ7Pn/FkO70Y+IgB7/dwAA</XPD:REF>
@@ -34320,7 +34319,7 @@ da jos nije njegov zahtev odobren i nece biti ulogovan
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">392,275;215,275</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">392,302;215,284</XPD:ATTR>
 <XPD:REF name="Model">mJ7QahtLVEuliqnl1iIDOwAA</XPD:REF>
 <XPD:REF name="Head">eMnH1nxyRkC0O4sWdlDpsgAA</XPD:REF>
 <XPD:REF name="Tail">5ikDse79J0OsAlVbPiy8mQAA</XPD:REF>
@@ -34533,7 +34532,7 @@ da jos nije njegov zahtev odobren i nece biti ulogovan
 <XPD:ATTR name="Left" type="integer">120</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">112</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">231</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">fnWqGid+DkettHpbxb+f4gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="rOSzNir7Kkm9yE8JXAC6DgAA">
@@ -34596,7 +34595,7 @@ da jos nije njegov zahtev odobren i nece biti ulogovan
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">350,157;524,153</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">350,162;524,155</XPD:ATTR>
 <XPD:REF name="Model">eDPUaw+CBEaqYnlai4+X4AAA</XPD:REF>
 <XPD:REF name="Head">my3y/uEBVUG4cAisLaflRQAA</XPD:REF>
 <XPD:REF name="Tail">8YZ/lbG+cUKJnQ7s/6eyWwAA</XPD:REF>
@@ -34802,8 +34801,8 @@ da jos nije njegov zahtev odobren i nece biti ulogovan
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">860</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">428</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">234</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">56</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">252</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">121</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkNone</XPD:ATTR>
 <XPD:REF name="Model">aqersoM0WEuwJRnAg6pCZAAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="IAznJodJs0iWwTwU3UPaBAAA">
@@ -34919,7 +34918,7 @@ da jos nije njegov zahtev odobren i nece biti ulogovan
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">860,428;350,428;350,207</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">860,428;350,428;350,220</XPD:ATTR>
 <XPD:REF name="Model">WlCPKCUWwkSQhnUojSqnrwAA</XPD:REF>
 <XPD:REF name="Head">8YZ/lbG+cUKJnQ7s/6eyWwAA</XPD:REF>
 <XPD:REF name="Tail">gstYwAgbFUqVo605WBDaLQAA</XPD:REF>
@@ -35288,7 +35287,7 @@ da postoji prijavljen korisnik sa tim kredencijalima
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">973,483;938,780</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">976,548;940,780</XPD:ATTR>
 <XPD:REF name="Model">Hml+Sx/ACEWuuYBQLe/8bQAA</XPD:REF>
 <XPD:REF name="Head">XO1QvLTvCE6wcZxkHopwLQAA</XPD:REF>
 <XPD:REF name="Tail">gstYwAgbFUqVo605WBDaLQAA</XPD:REF>
@@ -35534,8 +35533,8 @@ da postoji prijavljen korisnik sa tim kredencijalima
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">136</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">64</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">174</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">fnWqGid+DkettHpbxb+f4gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="QSIgBt0c7kW3nkkl/RL/ZQAA">
@@ -35565,7 +35564,7 @@ da postoji prijavljen korisnik sa tim kredencijalima
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">299,112;468,114</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">309,117;468,116</XPD:ATTR>
 <XPD:REF name="Model">Y+ajoNK5R0ql8rUgeRVXwAAA</XPD:REF>
 <XPD:REF name="Head">eJ2Q9bWYK0CuAqg5Lzz4fAAA</XPD:REF>
 <XPD:REF name="Tail">IQ6lrEPcZkeDvUV7JsC+zgAA</XPD:REF>
@@ -35652,7 +35651,7 @@ da postoji prijavljen korisnik sa tim kredencijalima
 <XPD:ATTR name="Left" type="integer">744</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">392</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">ILtPbZkHA0aof6jWV+6E0QAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="q1gdnB5/eEOOD8vK6FoIMQAA">
@@ -35681,7 +35680,7 @@ da postoji prijavljen korisnik sa tim kredencijalima
 <XPD:OBJ name="OwnedViews[6]" type="UMLAssociationView" guid="tQB7Wqdepk2nLELDLDoMLAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">857,273;834,392</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">858,273;835,392</XPD:ATTR>
 <XPD:REF name="Model">ATRbVDnAGUSYiSjBHjQyDwAA</XPD:REF>
 <XPD:REF name="Head">RhFfBl0TKUacO7oCHMidZgAA</XPD:REF>
 <XPD:REF name="Tail">/nrVcs/Zyk+ide1P9r5xkwAA</XPD:REF>
@@ -35798,7 +35797,7 @@ da postoji prijavljen korisnik sa tim kredencijalima
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">907,439;1044,439</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">907,444;1044,441</XPD:ATTR>
 <XPD:REF name="Model">ngiBkRCNb0+/lrcPk0meEAAA</XPD:REF>
 <XPD:REF name="Head">ocvqBtLN+kSPhQVkOzR1QQAA</XPD:REF>
 <XPD:REF name="Tail">RhFfBl0TKUacO7oCHMidZgAA</XPD:REF>
@@ -36115,7 +36114,7 @@ da postoji prijavljen korisnik sa tim kredencijalima
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">744,395;299,155</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">744,402;309,165</XPD:ATTR>
 <XPD:REF name="Model">raMeWAV7ik23ZUQzWn4A/gAA</XPD:REF>
 <XPD:REF name="Head">IQ6lrEPcZkeDvUV7JsC+zgAA</XPD:REF>
 <XPD:REF name="Tail">RhFfBl0TKUacO7oCHMidZgAA</XPD:REF>
@@ -36219,7 +36218,7 @@ i da je mejl uspesno poslat
 <XPD:REF name="DiagramOwner">miCHmgmJ+kqhBh7C74bsngAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="WTlZlUpgqUqPe7HoU0HOaAAA">
 <XPD:REF name="Diagram">92qahWsPsU6KdFvgpuVDrAAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">18</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">20</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="9LcdLS4REEu8NMC+aPHu/AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -36899,7 +36898,7 @@ i da je mejl uspesno poslat
 <XPD:ATTR name="Left" type="integer">540</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">60</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">Ecu7FxkjA0adpMaR132ujQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="awW1VxHqwUSGouNz17ZJggAA">
@@ -36960,7 +36959,7 @@ i da je mejl uspesno poslat
 <XPD:OBJ name="OwnedViews[13]" type="UMLAssociationView" guid="CP00sqbBPUibCMgaP4fePgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">703,105;992,97</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">703,111;992,98</XPD:ATTR>
 <XPD:REF name="Model">I9tLM+JlEkWeBUT7LJavcwAA</XPD:REF>
 <XPD:REF name="Head">xUD3kxaXFE6K4x4uSm5CbgAA</XPD:REF>
 <XPD:REF name="Tail">zg8b6LNdFUCdHydtx2k96gAA</XPD:REF>
@@ -37045,7 +37044,7 @@ i da je mejl uspesno poslat
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">604,260;616,155</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">604,260;615,168</XPD:ATTR>
 <XPD:REF name="Model">PGWQVPBVfUGnAgZLt97kywAA</XPD:REF>
 <XPD:REF name="Head">zg8b6LNdFUCdHydtx2k96gAA</XPD:REF>
 <XPD:REF name="Tail">9LcdLS4REEu8NMC+aPHu/AAA</XPD:REF>
@@ -37262,6 +37261,26 @@ Ako je lozinka uspesno resetovana, korisnik ce se ulogovati i bice redirectovan 
 <XPD:REF name="Model">3n0QVgO/JU+IaS3duFKXPgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
+<XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="ukYw400kc02BWS/0Q26cxAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">128</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">84</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">337</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">AuthController.php ne postoji kao takav. On je deo 
+Laravel Framework-a out-of-the-box i sastoji se iz vise kontrolera.
+Pristupa mu se pozivanjem Auth::routes() u web.php gde se
+rute ka tim Kontrolerima i njihovim metodama generisu.
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[19]" type="UMLNoteLinkView" guid="uLgZrtqcXkO18EFOf8+zZQAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">553,260;357,151</XPD:ATTR>
+<XPD:REF name="Head">ukYw400kc02BWS/0Q26cxAAA</XPD:REF>
+<XPD:REF name="Tail">9LcdLS4REEu8NMC+aPHu/AAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedDiagrams[5]" type="UMLClassDiagram" guid="BIbgpID2yU6+OkCL/IW8SgAA">
@@ -37270,7 +37289,7 @@ Ako je lozinka uspesno resetovana, korisnik ce se ulogovati i bice redirectovan 
 <XPD:REF name="DiagramOwner">miCHmgmJ+kqhBh7C74bsngAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="vjKWsrQJj0yMJjY2WSFlSgAA">
 <XPD:REF name="Diagram">BIbgpID2yU6+OkCL/IW8SgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">6</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="nzFOtabgBEuXPD+kS1dtTQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -37539,14 +37558,34 @@ Ako je lozinka uspesno resetovana, korisnik ce se ulogovati i bice redirectovan 
 <XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="IYxRTzaLDkuA5KdxPer2pgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">332</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">348</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">376</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">448</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">69</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">AuthCOntroller.php sa formom za logout iliti linkom za logout je dostupna na svakoj
 stranici kada je korisnik ulogovan. Kada korisnik zeli da se izloguje, potrebno je da pritisne
 logut link i bice preusmeren na welcome stranicu sa uspesno resetovanom sesijom
 </XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="gTUvbh7jpkCThfZYS2vyLAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">60</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">337</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">AuthController.php ne postoji kao takav. On je deo 
+Laravel Framework-a out-of-the-box i sastoji se iz vise kontrolera.
+Pristupa mu se pozivanjem Auth::routes() u web.php gde se
+rute ka tim Kontrolerima i njihovim metodama generisu.
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLNoteLinkView" guid="KDXmZivjukiH6v7l0YaWzAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">297,184;219,127</XPD:ATTR>
+<XPD:REF name="Head">gTUvbh7jpkCThfZYS2vyLAAA</XPD:REF>
+<XPD:REF name="Tail">nzFOtabgBEuXPD+kS1dtTQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -37594,8 +37633,8 @@ logut link i bice preusmeren na welcome stranicu sa uspesno resetovanom sesijom
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">744</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">232</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">228</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">174</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="2qIAqKMzqEyhZbQRxvyJfAAA">
@@ -37624,10 +37663,10 @@ logut link i bice preusmeren na welcome stranicu sa uspesno resetovanom sesijom
 <XPD:OBJ name="OwnedViews[2]" type="UMLClassView" guid="p8NiVign30yvTMe44ApZ+AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">736</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">384</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">752</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">484</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">174</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">fnWqGid+DkettHpbxb+f4gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="fBR6rJoNDk2/zUz0dHnbKAAA">
@@ -37657,7 +37696,7 @@ logut link i bice preusmeren na welcome stranicu sa uspesno resetovanom sesijom
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">433,292;744,282</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">433,300;744,313</XPD:ATTR>
 <XPD:REF name="Model">n3TbtV7ITkS2Sq/w4fz8egAA</XPD:REF>
 <XPD:REF name="Head">KQobhxfqmUS87JeDxv1fbwAA</XPD:REF>
 <XPD:REF name="Tail">KXrrgaU3gEaI5bW4NVphjQAA</XPD:REF>
@@ -37742,7 +37781,7 @@ logut link i bice preusmeren na welcome stranicu sa uspesno resetovanom sesijom
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">433,324;736,408</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">429,343;752,497</XPD:ATTR>
 <XPD:REF name="Model">Z9Bm+3nku0uBeVSLnVFeUAAA</XPD:REF>
 <XPD:REF name="Head">p8NiVign30yvTMe44ApZ+AAA</XPD:REF>
 <XPD:REF name="Tail">KXrrgaU3gEaI5bW4NVphjQAA</XPD:REF>
@@ -37943,8 +37982,8 @@ logut link i bice preusmeren na welcome stranicu sa uspesno resetovanom sesijom
 <XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="6qtc2RVqKESCHXOxnOr3fAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">204</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">404</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">44</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">460</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">445</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Sa stranice za registraciju Usera, moze da se ode do Welcome stranice,
@@ -38031,8 +38070,8 @@ korisnik nalazi na toj stranicu
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">704</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">248</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">228</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">174</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Yl+JT45KGkict8EGut+jcgAA">
@@ -38061,10 +38100,10 @@ korisnik nalazi na toj stranicu
 <XPD:OBJ name="OwnedViews[3]" type="UMLClassView" guid="V/066NHGFkGBzeuW++pT2gAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">700</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">396</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">720</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">520</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">174</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">fnWqGid+DkettHpbxb+f4gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="Bpns78QLck6yJd6yMTT9GwAA">
@@ -38179,7 +38218,7 @@ korisnik nalazi na toj stranicu
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">367,305;704,297</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">367,311;704,328</XPD:ATTR>
 <XPD:REF name="Model">32GZp/GZwkiGz6W4VhUi7gAA</XPD:REF>
 <XPD:REF name="Head">XgucUFBOZUO8saU6Bjc26wAA</XPD:REF>
 <XPD:REF name="Tail">DXB7GPdgCUa/JZGhBmoI0wAA</XPD:REF>
@@ -38264,7 +38303,7 @@ korisnik nalazi na toj stranicu
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">367,329;700,421</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">367,348;720,530</XPD:ATTR>
 <XPD:REF name="Model">4H0alk8qdEC9TIYFK9D5EQAA</XPD:REF>
 <XPD:REF name="Head">V/066NHGFkGBzeuW++pT2gAA</XPD:REF>
 <XPD:REF name="Tail">DXB7GPdgCUa/JZGhBmoI0wAA</XPD:REF>
@@ -38348,8 +38387,8 @@ korisnik nalazi na toj stranicu
 <XPD:OBJ name="OwnedViews[7]" type="UMLNoteView" guid="Rxksjyh1ZUm0YqH2PSNAxgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">124</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">416</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">40</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">484</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">445</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">68</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Sa stranice za registraciju Moderatora moze da se ode do Welcome stranice,
@@ -38366,7 +38405,7 @@ korisnik nalazi na toj stranicu
 <XPD:REF name="DiagramOwner">miCHmgmJ+kqhBh7C74bsngAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="XqUtRiwQD0CBdFstcM4ykQAA">
 <XPD:REF name="Diagram">bnOihdJQV0q6Dye0oJJCLQAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">9</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">11</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="/HsHCSLbBES12KiZoAbi5wAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -38436,8 +38475,8 @@ korisnik nalazi na toj stranicu
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">728</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">272</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">228</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">174</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="w3vai7R0g0WuI4bClhF0zgAA">
@@ -38466,10 +38505,10 @@ korisnik nalazi na toj stranicu
 <XPD:OBJ name="OwnedViews[3]" type="UMLClassView" guid="YXJL1zlGe0uDDx6QhtmBBAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">728</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">404</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">164</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">96</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">752</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">456</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">174</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">109</XPD:ATTR>
 <XPD:ATTR name="StereotypeDisplay" type="UMLStereotypeDisplayKind">sdkIcon</XPD:ATTR>
 <XPD:REF name="Model">fnWqGid+DkettHpbxb+f4gAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="L1zp1XDMv0awQ9kl3qQtsgAA">
@@ -38584,7 +38623,7 @@ korisnik nalazi na toj stranicu
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">477,322;728,320</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">477,329;728,349</XPD:ATTR>
 <XPD:REF name="Model">uQ4bQ/jy6U+9dxk2W5O3QAAA</XPD:REF>
 <XPD:REF name="Head">fVu5Oe8y/kSddz8mHY17xQAA</XPD:REF>
 <XPD:REF name="Tail">/HsHCSLbBES12KiZoAbi5wAA</XPD:REF>
@@ -38670,7 +38709,7 @@ korisnik nalazi na toj stranicu
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">344,371;344,448;728,448</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">344,371;344,510;752,510</XPD:ATTR>
 <XPD:REF name="Model">I3ocrk/cv0yPkde0bq/3NgAA</XPD:REF>
 <XPD:REF name="Head">YXJL1zlGe0uDDx6QhtmBBAAA</XPD:REF>
 <XPD:REF name="Tail">/HsHCSLbBES12KiZoAbi5wAA</XPD:REF>
@@ -38756,7 +38795,7 @@ korisnik nalazi na toj stranicu
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="ShowExtendedNotation" type="boolean">True</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">444,371;444,416;728,416</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">444,371;444,480;752,480</XPD:ATTR>
 <XPD:REF name="Model">jPLueFYdmEqdOiKGgUO+wQAA</XPD:REF>
 <XPD:REF name="Head">YXJL1zlGe0uDDx6QhtmBBAAA</XPD:REF>
 <XPD:REF name="Tail">/HsHCSLbBES12KiZoAbi5wAA</XPD:REF>
@@ -38840,13 +38879,29 @@ korisnik nalazi na toj stranicu
 <XPD:OBJ name="OwnedViews[8]" type="UMLNoteView" guid="XJBiRDjLMEWocYiZ7N2icgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">248</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">488</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">212</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">640</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">439</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">38</XPD:ATTR>
 <XPD:ATTR name="Text" type="string">Sa reset stranice moze da se pristupi linkovima na welcome stranicu, login controller i na
 stranice za registraciju user-a i na registraciju moderatora
 </XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLNoteLinkView" guid="Ck3FLDfw7Ua4nGgcZ40GaAAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">816,564;816,640;650,640</XPD:ATTR>
+<XPD:REF name="Head">XJBiRDjLMEWocYiZ7N2icgAA</XPD:REF>
+<XPD:REF name="Tail">YXJL1zlGe0uDDx6QhtmBBAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLNoteLinkView" guid="XKigI8Q4sk6AwXYR646eZgAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">320,320;216,320;216,640</XPD:ATTR>
+<XPD:REF name="Head">XJBiRDjLMEWocYiZ7N2icgAA</XPD:REF>
+<XPD:REF name="Tail">/HsHCSLbBES12KiZoAbi5wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -38865,6 +38920,15 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:REF name="Views[5]">/e/8S/PxPUe6dwpsL45A+gAA</XPD:REF>
 <XPD:REF name="Views[6]">Aordp832gEO5v4KAN0FDegAA</XPD:REF>
 <XPD:REF name="Views[7]">qGso4liDsk+jfik7SwfDBAAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="UEPlBOseRk6lkejzjL0AxQAA">
+<XPD:ATTR name="Name" type="string">index</XPD:ATTR>
+<XPD:REF name="Owner">Ecu7FxkjA0adpMaR132ujQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="AcdUKEQZ+UmrF398pDxFWwAA">
+<XPD:ATTR name="Name" type="string">glavnaStranica</XPD:ATTR>
+<XPD:REF name="Owner">Ecu7FxkjA0adpMaR132ujQAA</XPD:REF>
+</XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">4</XPD:ATTR>
 <XPD:REF name="Associations[0]">LHAuv9aK3EWNsyf4Ha+TbwAA</XPD:REF>
 <XPD:REF name="Associations[1]">8U93wHaut0+SEMeP09NctgAA</XPD:REF>
@@ -38931,6 +38995,55 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:REF name="Views[17]">L/57e+VjhUWOQ0xO7+wrmgAA</XPD:REF>
 <XPD:REF name="Views[18]">TQmaoZhb3UiX69AbGOU9FwAA</XPD:REF>
 <XPD:REF name="Views[19]">UP82ZiLtt06A7gwqOvJemwAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">6</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="8aouAthAyUqIdhk73135BgAA">
+<XPD:ATTR name="Name" type="string">getForm</XPD:ATTR>
+<XPD:REF name="Owner">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="B39Nd8h0IEKnEW7RIdjTAAAA">
+<XPD:ATTR name="Name" type="string">validateLogin</XPD:ATTR>
+<XPD:REF name="Owner">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="mAnIusbkvEWzO8t9TwVgQQAA">
+<XPD:ATTR name="Name" type="string">$request</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Request</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">B39Nd8h0IEKnEW7RIdjTAAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="d+P7USGZpE28cyA/vMg/NwAA">
+<XPD:ATTR name="Name" type="string">attemptLogin</XPD:ATTR>
+<XPD:REF name="Owner">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="J6qGEAF8jEi/6KbnqIfo2QAA">
+<XPD:ATTR name="Name" type="string">$request</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Request</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">d+P7USGZpE28cyA/vMg/NwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="JpkplCrqJ0avgVo4NPU0pgAA">
+<XPD:ATTR name="Name" type="string">login</XPD:ATTR>
+<XPD:REF name="Owner">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="HSlp8lW1H0usfFXTYc0dzwAA">
+<XPD:ATTR name="Name" type="string">$request</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Request</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">JpkplCrqJ0avgVo4NPU0pgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[4]" type="UMLOperation" guid="xRmn1jGrH0KW7yBIqJZjdgAA">
+<XPD:ATTR name="Name" type="string">guard</XPD:ATTR>
+<XPD:REF name="Owner">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[5]" type="UMLOperation" guid="AKpB0Vm+bUWOLoZpHYWZMAAA">
+<XPD:ATTR name="Name" type="string">logout</XPD:ATTR>
+<XPD:REF name="Owner">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="vnMZItUtLEq2Ng83GkhIfQAA">
+<XPD:ATTR name="Name" type="string">$request</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Request</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">AKpB0Vm+bUWOLoZpHYWZMAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">8</XPD:ATTR>
 <XPD:REF name="Associations[0]">lQPDulNTtUCV6K7ffXlBdgAA</XPD:REF>
 <XPD:REF name="Associations[1]">dV/C8LL/f06qpjxhw32UoQAA</XPD:REF>
@@ -38940,6 +39053,13 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:REF name="Associations[5]">jQ9gMWQGgkaOOQqlCFDZZAAA</XPD:REF>
 <XPD:REF name="Associations[6]">/PYy+8NN00W2RMjT4nv+hgAA</XPD:REF>
 <XPD:REF name="Associations[7]">3aFfjmZS2kOFuBf47wJxSAAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="+gER/svgB0OCo+1GcmN6MwAA">
+<XPD:ATTR name="Name" type="string">$redirectTo</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
+<XPD:ATTR name="InitialValue" type="string">RouteServiceProvider::HOME</XPD:ATTR>
+<XPD:REF name="Owner">AmaffPCsPkef/6I+b7jkwQAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[3]" type="UMLAssociation" guid="BvVgfaz3x0CVBXeh6FCA6gAA">
 <XPD:ATTR name="StereotypeProfile" type="string">WAE</XPD:ATTR>
@@ -39001,6 +39121,15 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:REF name="Views[21]">Wfh9ZySjgkm9pmiiE1YRHgAA</XPD:REF>
 <XPD:REF name="Views[22]">8/uHTEKxS06xw01VYm92JQAA</XPD:REF>
 <XPD:REF name="Views[23]">5kGhZikTrEiQtxY/Nz5ULQAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">2</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="uC2ZdyuGsEOi9AcDAeQppAAA">
+<XPD:ATTR name="Name" type="string">getUserRegistrationForm</XPD:ATTR>
+<XPD:REF name="Owner">fnWqGid+DkettHpbxb+f4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="HNtFN6wkHkKQ7GYWIP1jHgAA">
+<XPD:ATTR name="Name" type="string">getModeratorRegistrationForm</XPD:ATTR>
+<XPD:REF name="Owner">fnWqGid+DkettHpbxb+f4gAA</XPD:REF>
+</XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">10</XPD:ATTR>
 <XPD:REF name="Associations[0]">aw1zKmroOUyUMFQ0V8H+xwAA</XPD:REF>
 <XPD:REF name="Associations[1]">WyKYLzMt10SLlarDnSZ/UQAA</XPD:REF>
@@ -39053,6 +39182,17 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:REF name="Views[1]">HsrywIXsS02szDis7wZUCwAA</XPD:REF>
 <XPD:REF name="Views[2]">X+j6sKamG02vLyViAcBFUAAA</XPD:REF>
 <XPD:REF name="Views[3]">yoHIjN71j0q+xxD5uCBLEAAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="jV2bBvj5DUeJDBfJCUojdAAA">
+<XPD:ATTR name="Name" type="string">register</XPD:ATTR>
+<XPD:REF name="Owner">ILtPbZkHA0aof6jWV+6E0QAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="Bgn7tpmbnkiHRCvIXrS2iQAA">
+<XPD:ATTR name="Name" type="string">$request</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Request</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">jV2bBvj5DUeJDBfJCUojdAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">4</XPD:ATTR>
 <XPD:REF name="Associations[0]">XiLoiEhPSkq8xqbGuI7PGQAA</XPD:REF>
 <XPD:REF name="Associations[1]">2bNynappJUymzgU3aoZPrQAA</XPD:REF>
@@ -39447,11 +39587,52 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:REF name="Views[1]">5mtpLI4W+0iMLHMaxRSM+AAA</XPD:REF>
 <XPD:REF name="Views[2]">UIxLllg85EStRSpyc3pnIwAA</XPD:REF>
 <XPD:REF name="Views[3]">xzPcT46lmU6sU+1OwBZiKAAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">5</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="FImjTn7IDEGX20tkzktKnQAA">
+<XPD:ATTR name="Name" type="string">NeprivilegovanKorisnikRegistracija</XPD:ATTR>
+<XPD:ATTR name="StereotypeProfile" type="string">UMLStandard</XPD:ATTR>
+<XPD:ATTR name="StereotypeName" type="string">create</XPD:ATTR>
+<XPD:REF name="Owner">aqersoM0WEuwJRnAg6pCZAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="OTNI4AvQzU6bjucsN+fKMQAA">
+<XPD:ATTR name="Name" type="string">register</XPD:ATTR>
+<XPD:REF name="Owner">aqersoM0WEuwJRnAg6pCZAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="+ofIoqDacEmZkJKlrF+QNgAA">
+<XPD:ATTR name="Name" type="string">$request</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Request</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">OTNI4AvQzU6bjucsN+fKMQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="MiOAbHCTmkSlM9p4yGOphwAA">
+<XPD:ATTR name="Name" type="string">verify</XPD:ATTR>
+<XPD:REF name="Owner">aqersoM0WEuwJRnAg6pCZAAA</XPD:REF>
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="FhSYiglquke01L8hpYZWsQAA">
+<XPD:ATTR name="Name" type="string">$request</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">Request</XPD:ATTR>
+<XPD:REF name="BehavioralFeature">MiOAbHCTmkSlM9p4yGOphwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="6YVHR5H+rEKYfNsW5BWVXQAA">
+<XPD:ATTR name="Name" type="string">getResendForm</XPD:ATTR>
+<XPD:REF name="Owner">aqersoM0WEuwJRnAg6pCZAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[4]" type="UMLOperation" guid="9ZE7b3U8KU2bGknky07GywAA">
+<XPD:ATTR name="Name" type="string">resend</XPD:ATTR>
+<XPD:REF name="Owner">aqersoM0WEuwJRnAg6pCZAAA</XPD:REF>
+</XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">4</XPD:ATTR>
 <XPD:REF name="Associations[0]">pbo+AO4m406+zuNmIXFY1AAA</XPD:REF>
 <XPD:REF name="Associations[1]">zu6vuBgnLEq1sQptdyt2/wAA</XPD:REF>
 <XPD:REF name="Associations[2]">wDF/OgHldUKr4CdDe+9ZJAAA</XPD:REF>
 <XPD:REF name="Associations[3]">xaTLWu4pZUy4EKs49CIyFQAA</XPD:REF>
+<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="Pa7thewntkKWONUnE8HKTgAA">
+<XPD:ATTR name="Name" type="string">$redirectTo</XPD:ATTR>
+<XPD:ATTR name="InitialValue" type="string">RouteServiceProvider::HOME</XPD:ATTR>
+<XPD:REF name="Owner">aqersoM0WEuwJRnAg6pCZAAA</XPD:REF>
+</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[20]" type="UMLAssociation" guid="E3XlZ7Q6cEqXHG/mfJrDAwAA">
 <XPD:ATTR name="StereotypeName" type="string">submit</XPD:ATTR>
@@ -39819,6 +40000,11 @@ stranice za registraciju user-a i na registraciju moderatora
 <XPD:REF name="Views[29]">MgGf8hn4iUqSNBMDok8mvwAA</XPD:REF>
 <XPD:REF name="Views[30]">x8I8u4a2aEelqN80u2npCAAA</XPD:REF>
 <XPD:REF name="Views[31]">PXMNxQglD0aWQMpEo2/IpwAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="vILWBMEgnUWTJz4VkdXhUQAA">
+<XPD:ATTR name="Name" type="string">generateView</XPD:ATTR>
+<XPD:REF name="Owner">sEnaPQ0JbEKie1rnzvNU4wAA</XPD:REF>
+</XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">9</XPD:ATTR>
 <XPD:REF name="Associations[0]">V+/xmx/5s0iQzrrWrtkKPgAA</XPD:REF>
 <XPD:REF name="Associations[1]">sVYn2etpok6qY+U8R8pSLwAA</XPD:REF>
