@@ -217,7 +217,7 @@ class ObavestenjaController extends Controller
     * @param int $id
     * @return view
     */
-    public function prikaziObavesenjaZaKategoriju($id){//Greske ako je null nesto, pogledati i obezbediti se od toga
+    public function prikaziObavesenjaZaKategoriju($id){
         $kategorija = Kategorije::where("id", '=' , $id)->first();
 
         if( auth()->user()->isAdmin &&  auth()->user()->isMod ){
