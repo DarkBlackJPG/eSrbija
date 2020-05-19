@@ -24710,11 +24710,6 @@
 <XPD:REF name="Views[0]">X6y32HVPlUyQcOnr7tRGaQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedFrames" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="OwnedFrames[0]" type="UMLFrame" guid="S/QJUc6OEUuKs4H8pDtH+QAA">
-<XPD:ATTR name="Name" type="string">Frame1</XPD:ATTR>
-<XPD:REF name="InteractionInstanceSet">HwwQu5/03EamwsP+Iew91QAA</XPD:REF>
-</XPD:OBJ>
 </XPD:OBJ>
 <XPD:ATTR name="#ParticipatingInstances" type="integer">7</XPD:ATTR>
 <XPD:OBJ name="ParticipatingInstances[0]" type="UMLObject" guid="RQO+RkYjCECH9xX4HnbNqAAA">
