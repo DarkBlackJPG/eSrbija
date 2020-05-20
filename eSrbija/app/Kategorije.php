@@ -48,7 +48,7 @@ class Kategorije extends Model
      * @author Stefan Teslic
      */
     public function pretplaceni() {
-        return $this->belongsToMany('App\Korisnik', 'kategorije_pretplates', 'kategorije_id', 'korisnik_id')->withTimestamps();
+        return $this->belongsToMany('App\Korisnik', 'kategorije_pretplates', 'kategorije_id', 'korisnik_id');
     }
     public static function Dohvati_nazive_svih_kategorija(){
         return DB::table('kategorijes')->select('naziv') ->get();

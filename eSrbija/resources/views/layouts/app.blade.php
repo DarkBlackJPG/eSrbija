@@ -101,7 +101,7 @@
                                 @elseif(auth()->user()->isMod == true)
                                     {{auth()->user()->moderatori()->first()->naziv}} <span class="caret"></span>
                                 @else
-                                    {{auth()->user()->neprivilegovaniKorisnici()->first()->ime." ".auth()->user()->neprivilegovaniKorisnici()->first()->prezime}} <span class="caret"></span>
+                                    {{auth()->user()->neprivilegovaniKorisnik()->first()->ime." ".auth()->user()->neprivilegovaniKorisnik()->first()->prezime}} <span class="caret"></span>
                                 @endif
 
                             </a>

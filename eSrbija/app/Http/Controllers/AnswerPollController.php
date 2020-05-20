@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ankete;
+use App\NeprivilegovanKorisnik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,7 @@ class AnswerPollController extends Controller
     const REFERENDUM=1;
     const OBICNA=0;
     const PAGINATION_OFFSET=4;
+
     public function list_all_polls_created_by_me($page=0){
         $user = auth()->user();
         $ankete = null;
@@ -30,10 +32,11 @@ class AnswerPollController extends Controller
         if(empty($page) || $page<0 ){
             $page=0;
         }
-
-        $hasmore=$page*self::PAGINATION_OFFSET + self::PAGINATION_OFFSET < count($ankete);
-        $ankete= $ankete->splice($page*self::PAGINATION_OFFSET, self::PAGINATION_OFFSET);
-
+           $hasmore=false;
+        if($ankete!=null) {
+            $hasmore = $page * self::PAGINATION_OFFSET + self::PAGINATION_OFFSET < count($ankete);
+            $ankete = $ankete->splice($page * self::PAGINATION_OFFSET, self::PAGINATION_OFFSET);
+        }
         $niz= ['anketeMoje'=> $ankete,
             'page' =>$page,
             'hasMore' => $hasmore,
@@ -67,10 +70,34 @@ class AnswerPollController extends Controller
 
 
 
-
     public function answer_poll($id)
     {
         $anketa = Ankete::findOrFail($id);
+        $ispravno=false;
+        $user = auth()->user();
+        $isMod = $user->isMod && !$user->isAdmin;
+        $obicanKorisnik = !$user->isMod && !$user->isAdmin;
+        if($anketa->nivoLokNac===1) {
+            $mesto = null;
+            if ($isMod) {
+                $mod = $user->moderatori()->first();
+                $mesto = $mod->opstinaPoslovanja();}
+            else if ($obicanKorisnik){
+             $neprKor = $user->neprivilegovaniKorisnik()->first();
+            $mesto = $neprKor->opstinaPrebivalista();
+            }
+            if ($isMod || $obicanKorisnik) {
+                foreach ($anketa->vezanoZaMesto() as $mestoA) {
+                    if ($mestoA === $mesto) {
+                        $ispravno = true;
+                        break;
+                    }
+                }
+                if (!$ispravno)
+                    return redirect(route('ankete'))->with(['poruka' => 'Nemate pravo pristupa', 'icon' => 'warning']);;
+
+            }
+        }
 
         return view('homepages.ankete.popunianketu', ['anketa' => $anketa]);
 
@@ -81,12 +108,17 @@ class AnswerPollController extends Controller
             $userid=auth()->user()->id;
             $nijeObicanKorisnik=true;
         $userMesto=1;
-           if(!auth()->user()->isAdmin && !auth()->user()->isMod ) {
+           if(!auth()->user()->isAdmin ) {
                 $nijeObicanKorisnik=false;
 
-                 $neprivKor= auth()->user()->neprivilegovaniKorisnici()->first();
-                 $userMesto=$neprivKor->opstinaPrebivalista->id;
+                if(auth()->user()->isMod){
+                    $mod = auth()->user()->moderatori()->first();
+                    $userMesto = $mod->opstinaPoslovanja()->first()->id;
 
+                }else {
+                    $neprivKor = auth()->user()->neprivilegovaniKorisnik()->first();
+                    $userMesto = $neprivKor->opstinaPrebivalista->id;
+                }
            }
 
 
@@ -142,9 +174,34 @@ class AnswerPollController extends Controller
         $lista_odgovora_postojecih_u_bazi=[];
         {
             $anketa = Ankete::findOrFail($id);
-            $ispravno = true;
             $i=1;
 
+            $ispravno=false;
+            $user = auth()->user();
+            $isMod = $user->isMod && !$user->isAdmin;
+            $obicanKorisnik = !$user->isMod && !$user->isAdmin;
+            if($anketa->nivoLokNac===1) {
+                $mesto = null;
+                if ($isMod) {
+                    $mod = $user->moderatori()->first();
+                    $mesto = $mod->opstinaPoslovanja();}
+                else if ($obicanKorisnik){
+                    $neprKor = $user->neprivilegovaniKorisnik()->first();
+                    $mesto = $neprKor->opstinaPrebivalista();
+                }
+                if ($isMod || $obicanKorisnik) {
+                    foreach ($anketa->vezanoZaMesto() as $mestoA) {
+                        if ($mestoA === $mesto) {
+                            $ispravno = true;
+                            break;
+                        }
+                    }
+
+                    if (!$ispravno)
+                        return redirect(route('ankete'))->with(['poruka' => 'Neuspesno odgovoreno na anketu', 'icon' => 'warning']);;
+
+                }
+            }
             foreach ($anketa->pitanja as $pitanje) {
 
                 if(empty(\request($pitanje->id))) {
@@ -203,12 +260,17 @@ class AnswerPollController extends Controller
 
         $nijeObicanKorisnik=true;
         $userMesto=1;
-        if(!auth()->user()->isAdmin && !auth()->user()->isMod ) {
+        if(!auth()->user()->isAdmin ) {
             $nijeObicanKorisnik=false;
 
-            $neprivKor= auth()->user()->neprivilegovaniKorisnici()->first();
-            $userMesto=$neprivKor->opstinaPrebivalista->id;
+            if(auth()->user()->isMod){
+                $mod = auth()->user()->moderatori()->first();
+                $userMesto = $mod->opstinaPoslovanja()->first()->id;
 
+            }else {
+                $neprivKor = auth()->user()->neprivilegovaniKorisnik()->first();
+                $userMesto = $neprivKor->opstinaPrebivalista->id;
+            }
         }
         $ankete = Ankete::dohvatiAktivneINeodgovorenePoTipu(self::IZBORI, $user->id);
 
@@ -251,12 +313,17 @@ class AnswerPollController extends Controller
 
         $nijeObicanKorisnik=true;
         $userMesto=1;
-        if(!auth()->user()->isAdmin && !auth()->user()->isMod ) {
+        if(!auth()->user()->isAdmin ) {
             $nijeObicanKorisnik=false;
 
-            $neprivKor= auth()->user()->neprivilegovaniKorisnici()->first();
-            $userMesto=$neprivKor->opstinaPrebivalista->id;
+            if(auth()->user()->isMod){
+                $mod = auth()->user()->moderatori()->first();
+                $userMesto = $mod->opstinaPoslovanja()->first()->id;
 
+            }else {
+                $neprivKor = auth()->user()->neprivilegovaniKorisnik()->first();
+                $userMesto = $neprivKor->opstinaPrebivalista->id;
+            }
         }
         $ankete = Ankete::dohvatiAktivneINeodgovorenePoTipu(self::REFERENDUM, $user->id);
 
