@@ -43,28 +43,18 @@
         })
     </script>
 @endif
-
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-            <div class="carousel-inner " style=" width:100%; height: 200px !important;">
-                <div class="carousel-item active carusell">
-                    <div class="offset-2 col-sm-8 carusell ">
-                        <h1>EPIDEMIJA KORONA VIRUSA</h1>
-                        <hr/>
-                        <p>Zbog epidemije smrtonosnog virusa, proglasava se vanredno stanje na teritoriji Republike Srbije</p>
-                        <hr/>
+            <div class="carousel-inner" style="width:100%; height: 200px !important;">
+                @foreach($vaznaObavestenja as $obavestenje)
+                    <div class="carousel-item @if($obavestenje == $vaznaObavestenja->first()) {{'active'}} @endif carusell">
+                        <div class="offset-2 col-sm-8 carusell">
+                            <h1>{{$obavestenje->naslov}}</h1>
+                            <hr/>
+                            <p>{{$obavestenje->opis}}</p>
+                            <hr/>
+                        </div>
                     </div>
-
-                </div>
-                <div class="carousel-item carusell">
-                    <div class="offset-2 col-sm-8 carusell ">
-                        <h1>Opasnost od poplava</h1>
-                        <hr/>
-                        <p>Zbog previsokog vodostaja reke Zapadne Morave proglasava se vanredno stanje na teritoriji grada Cacka i okolnih opstina</p>
-                        <hr/>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -72,7 +62,8 @@
             </a>
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>2</a>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
 
         <div class="col col-xs-12">

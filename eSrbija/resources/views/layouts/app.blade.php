@@ -139,7 +139,6 @@
                                     title: 'Imate '+data.number+' novih zahteva za moderatora!',
                                 })
                             }
-
                         },
                     });
                 }

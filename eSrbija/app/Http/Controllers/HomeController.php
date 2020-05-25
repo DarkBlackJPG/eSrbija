@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Kategorije;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,38 @@ class HomeController extends Controller
         return view('home');
     }
     public function glavnaStranica() {
-        return view('homepages.obavestenja');
+        $kategorijaVazno = Kategorije::where("naziv", "=", "VAZNO")->firstOrFail();
+        $vaznaObavestenja = $kategorijaVazno->obavestenja()->getResults();
+        
+        return view('homepages.obavestenja', ['vaznaObavestenja' => $vaznaObavestenja]);
+    }
+
+    /**
+     * Prijava na izabranu kategoriju obavestenja.
+     * 
+     * @author Luka Spehar
+     * @return \Illuminate\Http\Response
+     */
+    public function subscribe(Request $request) {
+        dd('asdf');
+        $user = auth()->user();
+        $kategorija = Kategorije::findOrFail(request('kategorijaId'));
+        $kategorija->pretplaceni()->attach($user->id);
+
+        return response()->json(['status' => 'success']);
+    }
+
+    /**
+     * Odjava sa izabrane kategorije obavestenja.
+     * 
+     * @author Luka Spehar
+     * @return \Illuminate\Http\Response
+     */
+    public function unsubscribe(Request $request) {
+        $user = auth()->user();
+        $kategorija = Kategorije::findOrFail(request('kategorijaId'));
+        $kategorija->pretplaceni()->detach($user->id);
+
+        return response()->json(['status' => 'success']);
     }
 }

@@ -1,12 +1,44 @@
 @extends('layouts.app')
 
-
-
-
-
-
-
 @section('content')
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<script>
+    function subscriptionChange() {
+        var source = event.target;
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        if(source.checked){
+            $.ajax({
+                type:'POST',
+                url:'{{route('subscribe')}}',
+                data: {_token: CSRF_TOKEN, kategorijaId:source.id},
+                dataType: 'JSON',
+                succes:function(data) {
+                    if(data.status == "success")
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Uspešno prijavljeni na kategoriju ' + source.name + '!',
+                    });
+                }
+            });
+        }
+        else {
+            $.ajax({
+                type:'POST',
+                url:'{{route('unsubscribe')}}',
+                data: {_token: CSRF_TOKEN, kategorijaId:source.id},
+                dataType: 'JSON',
+                succes:function(data) {
+                    if(data.status == "success")
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Uspešno odjavljeni sa kategorije ' + source.name + '!',
+                    });
+                }
+            });
+        }
+    }
+</script>
+
 <div class="container">
     <div class="row  ">
         <div class=" col-12  col-md-3">
@@ -36,9 +68,8 @@
                                     <tr>
                                         <td>
                                             <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('obavestenja_za_kategoriju',$kategorija->id) }}">{{ $kategorija->naziv }}</a>
-                                              <input type="checkbox">
+                                              <input id="{{$kategorija->id}}" name="{{$kategorija->naziv}}" type="checkbox" onclick="subscriptionChange()">
                                         </td>
-
                                     <tr>
                                 @endforeach
 
@@ -85,7 +116,6 @@
                             </a>
                         </h4>
                     </div>
-
                 </div>
                 @endif
                 @if(auth()->user()->isAdmin || auth()->user()->isMod)

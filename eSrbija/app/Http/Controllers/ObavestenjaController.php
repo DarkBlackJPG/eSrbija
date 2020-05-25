@@ -31,9 +31,9 @@ class ObavestenjaController extends Controller
     }
 
     /**
-     * Prikazije formu za kreiranje novog obavestenja.
+     * Prikazuje formu za kreiranje novog obavestenja.
      * @author Luka Spehar
-     * @return \Illuminate\Http\Response
+     *
      */
     public function create()
     {
@@ -112,7 +112,7 @@ class ObavestenjaController extends Controller
         $i = 0;
         foreach($kategorije as $kategorija) {
             $kategorijaObjekat = Kategorije::where("naziv", "=", $kategorija)->firstOrFail();
-            $usersToNotify = array_unique(array_merge($usersToNotify, $kategorijaObjekat->pretplaceni()->getResults()));
+            //$usersToNotify = array_unique(array_merge($usersToNotify, $kategorijaObjekat->pretplaceni()->getCurrentlyAttachedPivots()->toArray()));
             
             $kategorije_ids[$i] = $kategorijaObjekat->id;
             $i++;
@@ -138,21 +138,21 @@ class ObavestenjaController extends Controller
         $obavestenje->vezanoZaMesto()->attach($mesta_ids);
 
         //ako je obavestenje lokalno, izbacivanje svih korisnika koji ne stanuju u relevantnim mestima
-        if(request('nivo') == 1) {
-            $mestaObavestenja = $obavestenje->vezanoZaMesto()->getResults();
+        /*if(request('nivo') == 1) {
+            $mestaObavestenja = $obavestenje->vezanoZaMesto()->getCurrentlyAttachedPivots()->toArray();
             foreach($usersToNotify as $korisnik) {
                 $mestoPrebivalista = $korisnik->neprivilegovaniKorisnik()->getResults()->mestoPrebivalista()->getResults();
                 if(!in_array($mestoPrebivalista, $mestaObavestenja)) {
                     $usersToNotify=array_diff($usersToNotify, array($korisnik));
                 }
             }
-        }
+        }*/
 
         //slanje mejlova
-        foreach($usersToNotify as $korisnik) {
+        /*foreach($usersToNotify as $korisnik) {
             $mail = new SubsciptionNotification();
             Mail::to($korisnik->email)->send(new SubscriptionNotification($obavestenje));
-        } 
+        } */
 
         return redirect('/home')->with('obavestenje', 'Obaveštenje uspešno kreirano!');
     }

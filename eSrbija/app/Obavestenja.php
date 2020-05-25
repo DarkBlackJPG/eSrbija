@@ -41,7 +41,7 @@ class Obavestenja extends Model
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function pripadaKategorijama(){
-        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id');
+        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id')->withTimestamps();
     }
     /**
      * This method returns all App\Mesto this Obavestenje is bound to
