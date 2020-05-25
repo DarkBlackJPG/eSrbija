@@ -1,18 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<meta name="csrf-token" content="{{ csrf_token() }}" />
+<meta id = "csrfToken"name="csrf-token" content="{{ csrf_token() }}" />
 <script>
     function subscriptionChange() {
         var source = event.target;
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        var CSRF_TOKEN = $('#csrfToken').attr('content');
         if(source.checked){
+
             $.ajax({
                 type:'POST',
                 url:'{{route('subscribe')}}',
-                data: {_token: CSRF_TOKEN, kategorijaId:source.id},
+                data: { _token: CSRF_TOKEN,kategorijaId:source.id},
                 dataType: 'JSON',
-                succes:function(data) {
+                success:function(data) {
                     if(data.status == "success")
                     Toast.fire({
                         icon: 'success',
@@ -27,7 +28,7 @@
                 url:'{{route('unsubscribe')}}',
                 data: {_token: CSRF_TOKEN, kategorijaId:source.id},
                 dataType: 'JSON',
-                succes:function(data) {
+                success:function(data) {
                     if(data.status == "success")
                     Toast.fire({
                         icon: 'success',

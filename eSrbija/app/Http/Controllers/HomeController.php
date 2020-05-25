@@ -29,18 +29,17 @@ class HomeController extends Controller
     public function glavnaStranica() {
         $kategorijaVazno = Kategorije::where("naziv", "=", "VAZNO")->firstOrFail();
         $vaznaObavestenja = $kategorijaVazno->obavestenja()->getResults();
-        
+
         return view('homepages.obavestenja', ['vaznaObavestenja' => $vaznaObavestenja]);
     }
 
     /**
      * Prijava na izabranu kategoriju obavestenja.
-     * 
+     *
      * @author Luka Spehar
      * @return \Illuminate\Http\Response
      */
     public function subscribe(Request $request) {
-        dd('asdf');
         $user = auth()->user();
         $kategorija = Kategorije::findOrFail(request('kategorijaId'));
         $kategorija->pretplaceni()->attach($user->id);
@@ -50,7 +49,7 @@ class HomeController extends Controller
 
     /**
      * Odjava sa izabrane kategorije obavestenja.
-     * 
+     *
      * @author Luka Spehar
      * @return \Illuminate\Http\Response
      */
