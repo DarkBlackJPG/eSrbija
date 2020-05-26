@@ -213,11 +213,10 @@ class AdministratorController extends Controller
      */
     public function moderatorRequestCheck() {
         $moderators = Moderator::where('approved',0)->where('adminNotified', 0)->update(['adminNotified'=> 1]);
-
         if($moderators > 0){
             return response()->json(['number' => $moderators]);
         } else {
-            return response('nothing', 500);
+            return response('nothing', 200);
         }
     }
 }

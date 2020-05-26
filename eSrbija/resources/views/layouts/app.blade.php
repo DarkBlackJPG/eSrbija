@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -126,11 +127,11 @@
         <main class="py-4">
             @yield('content')
         </main>
-        @if(auth()->user() != null && (auth()->user()->isAdmin == true && auth()->user()->isMod == true ))
+        @if(auth()->user() != null && (auth()->user()->isAdmin == true))
             <script>
                 function checkMod() {
                     $.ajax({
-                        type: 'GET',
+                        type: 'get',
                         url: "/admin/moderator_request",
                         success: function (data) {
                             if(data.number > 0) {

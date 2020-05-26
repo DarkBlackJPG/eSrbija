@@ -159,14 +159,14 @@ Route::middleware(['verified', 'auth'])->group(function () {
 
     /**
      * Ruta za prijavljivanje na kategoriju.
-     * 
+     *
      * @author Luka Spehar
      */
     Route::post('/home/subscribe', 'HomeController@subscribe')->name('subscribe');
 
     /**
      * Ruta za odjavljivanje sa kategorije.
-     * 
+     *
      * @author Luka Spehar
      */
     Route::post('/home/unsubscribe', 'HomeController@unsubscribe')->name('unsubscribe');
