@@ -57,23 +57,16 @@
                     <div id="collapseOne" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <table class="table">
-
-                                <tr>
-                                    <td>
-                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="{{route('home')}}">Vazno</a>
-                                        <span class="badge">2</span>
-
-                                    </td>
-                                </tr>
                                 @foreach (App\Kategorije::all() as $kategorija)
                                     <tr>
                                         <td>
                                             <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('obavestenja_za_kategoriju',$kategorija->id) }}">{{ $kategorija->naziv }}</a>
-                                              <input id="{{$kategorija->id}}" name="{{$kategorija->naziv}}" type="checkbox" onclick="subscriptionChange()">
+                                            @if(!auth()->user()->isMod && !auth()->user()->isAdmin)
+                                            <input id="{{$kategorija->id}}" name="{{$kategorija->naziv}}" type="checkbox" onclick="subscriptionChange()">
+                                            @endif
                                         </td>
                                     <tr>
                                 @endforeach
-
                             </table>
                         </div>
                     </div>

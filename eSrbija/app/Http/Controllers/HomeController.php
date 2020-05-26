@@ -27,9 +27,13 @@ class HomeController extends Controller
         return view('home');
     }
     public function glavnaStranica() {
-        $kategorijaVazno = Kategorije::where("naziv", "=", "VAZNO")->firstOrFail();
+        $kategorijaVazno = Kategorije::where(['naziv' => 'VAZNO'])->firstOrFail();
         $vaznaObavestenja = $kategorijaVazno->obavestenja()->getResults();
-
+        foreach($vaznaObavestenja as $key => $value) {
+            if($vaznaObavestenja[$key]->obrisanoFlag){
+                $vaznaObavestenja->forget($key);
+            }
+        }
         return view('homepages.obavestenja', ['vaznaObavestenja' => $vaznaObavestenja]);
     }
 

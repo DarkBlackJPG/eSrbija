@@ -43,6 +43,7 @@
         })
     </script>
 @endif
+        @if($vaznaObavestenja != null && count($vaznaObavestenja) != 0)
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" style="width:100%; height: 200px !important;">
                 @foreach($vaznaObavestenja as $obavestenje)
@@ -65,6 +66,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        @endif
 
         <div class="col col-xs-12">
             <div class="blog-grids">
