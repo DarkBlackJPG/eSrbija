@@ -93,7 +93,7 @@ class ObavestenjaController extends Controller
             'kategorije' => 'required',
             'mesta' => 'required'
         ]);
-
+        
         $dozvole = explode(",", request('dozvole'));
         $kategorije = explode(",", request('kategorije'));
         $mesta = explode(",", request('mesta'));
@@ -120,9 +120,11 @@ class ObavestenjaController extends Controller
 
         $mesta_ids = [];
         $i = 0;
-        foreach($mesta as $mesto) {
-            $mesta_ids[$i] = Mesto::where("naziv", "=", $mesto)->firstOrFail()->id;
-            $i++;
+        if($mesta[0] != "none") {
+            foreach($mesta as $mesto) {
+                $mesta_ids[$i] = Mesto::where("naziv", "=", $mesto)->firstOrFail()->id;
+                $i++;
+            }
         }
 
         $obavestenje = Obavestenja::create([
@@ -135,7 +137,8 @@ class ObavestenjaController extends Controller
         ]);
 
         $obavestenje->pripadaKategorijama()->attach($kategorije_ids);
-        $obavestenje->vezanoZaMesto()->attach($mesta_ids);
+        if($mesta[0] != "none")
+            $obavestenje->vezanoZaMesto()->attach($mesta_ids);
 
         //ako je obavestenje lokalno, izbacivanje svih korisnika koji ne stanuju u relevantnim mestima
         /*if(request('nivo') == 1) {

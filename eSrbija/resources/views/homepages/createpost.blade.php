@@ -20,10 +20,10 @@
                     <h4>Kategorija <span class="requred">*</span>  </h4>
                     <br/>
                     <label for="vazno">Važno</label>
-                    <input type="radio" id="vazno" onclick="showHideMesta()" name="severity" value="vazno">
+                    <input type="radio" id="vazno" onclick="showHideKategorije()" name="severity" value="vazno">
                     &nbsp;
                     <label for="informatiovno">Informativno</label>
-                    <input type="radio" id="informativno" onclick="showHideMesta()" name="severity" value="informativno" checked>
+                    <input type="radio" id="informativno" onclick="showHideKategorije()" name="severity" value="informativno" checked>
 
                     <div class="col-md-12" style="padding:0;">
                         <v-select multiple :options="categories" style="background-color: white;" v-model="selected" id="categories">
@@ -35,33 +35,35 @@
                             </template>
                         </v-select>
                     </div>
+
                     <input type="hidden" id="kategorije" name="kategorije">
                     <input type="hidden" id="dozvole" name="dozvole">
 
-                    <br/>
+                    <hr/>
                     <table>
-
                         <tr>
                             <td>
-                                <input type="radio" name="nivo" value="1" checked>&nbsp;Lokalni nivo &nbsp;&nbsp;
-                                <input type="radio" name="nivo" value="0"> Nacionalni nivo <br/>
+                                <input type="radio" id="lokalno" onclick="showHideMesta()" name="nivo" value="1" checked>&nbsp;Lokalni nivo &nbsp;&nbsp;
+                                <input type="radio" id="nacionalno" onclick="showHideMesta()" name="nivo" value="0"> Nacionalni nivo <br/>
 
                             </td>
                         </tr>
                     </table>
                 </div>
-                <hr>
-                <h5>Lokaliteti na koje se obaveštenje odnosi <span class="requred">*</span></h5>
-                <div class="col-sm-12" style="padding: 0;">
-                    <v-select multiple :options="cities" style="background-color: white;" v-model="selected" id="cities">
-                        <template >
-                            <input
-                                id="citesInput"
-                                class="vs__search"
-                                :required="!selected"
-                            >
-                        </template>
-                    </v-select>
+                <div id="showHideMesta">
+                    <hr>
+                    <h5>Lokaliteti na koje se obaveštenje odnosi <span class="requred">*</span></h5>
+                    <div class="col-sm-12" style="padding: 0;">
+                        <v-select multiple :options="cities" style="background-color: white;" v-model="selected" id="cities">
+                            <template >
+                                <input
+                                    id="citesInput"
+                                    class="vs__search"
+                                    :required="!selected"
+                                >
+                            </template>
+                        </v-select>
+                    </div>
                 </div>
                 <input type="hidden" id="mesta" name="mesta">
 
@@ -116,11 +118,19 @@
                 }
             })
 
-            //sakriva ili pokazuje polje za unos kategorija u zavinosti od izabranog lokaliteta
-            function showHideMesta() {
+            //sakriva ili pokazuje polje za unos kategorija u zavinosti od izabrane vaznosti
+            function showHideKategorije() {
                 var vazno = document.getElementById("vazno");
-                var selectMesto = document.getElementById("categories");
-                selectMesto.style.display = vazno.checked ? "none" : "initial";
+                var selectKategorije = document.getElementById("categories");
+                selectKategorije.style.display = vazno.checked ? "none" : "initial";
+            }
+
+
+            //sakriva ili pokazuje polje za unos mesta u zavinosti od izabranog lokaliteta
+            function showHideMesta() {
+                var nacionalno = document.getElementById("nacionalno");
+                var selectMesta = document.getElementById("showHideMesta");
+                selectMesta.style.display = nacionalno.checked ? "none" : "initial";
             }
 
             //submituje podatke iz forme serveru uz odgovarajuce provere validnosti
@@ -128,6 +138,7 @@
                 //provera da li su sva obavezna polja popunjena
                 var vazno = document.getElementById("vazno");
                 var informativno = document.getElementById("informativno");
+                var lokalno = document.getElementById("lokalno");
                 var naslov = document.getElementById("title");
                 var opis = document.getElementById("description");
                 
@@ -139,7 +150,7 @@
                     return;
                 }
 
-                if(mesta.selected.length == 0) {
+                if(lokalno.checked && mesta.selected.length == 0) {
                     Toast.fire({
                         icon: 'warning',
                         title: 'Polje za mesta na koja se obaveštenje odnosi ne sme biti prazno!',
@@ -179,11 +190,8 @@
                 });
                 if(exit) return;
 
-                if(document.getElementById("informativno").checked)
-                    document.getElementById("kategorije").value = kategorije.selected;
-                else
-                    document.getElementById("kategorije").value = "VAZNO";
-                document.getElementById("mesta").value = mesta.selected;
+                document.getElementById("kategorije").value = izabraneKategorije;
+                document.getElementById("mesta").value = lokalno.checked ? mesta.selected : "none";
                 document.getElementById("dozvole").value = dozvole;
 
                 //prosledjivanje podataka

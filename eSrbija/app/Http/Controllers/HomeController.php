@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Kategorije;
+use \App\Obavestenja;
+use \Illuminate\Support\Collection;
 
 class HomeController extends Controller
 {
@@ -26,15 +28,29 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Prikazuje glavnu stranicu za ulogovane korisnike.
+     * 
+     * @author Filip Carevic, Luka Spehar
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function glavnaStranica() {
         $kategorijaVazno = Kategorije::where(['naziv' => 'VAZNO'])->firstOrFail();
-        $vaznaObavestenja = $kategorijaVazno->obavestenja()->getResults();
+        $vaznaObavestenja = $kategorijaVazno->obavestenja()->latest()->getResults();
         foreach($vaznaObavestenja as $key => $value) {
             if($vaznaObavestenja[$key]->obrisanoFlag){
                 $vaznaObavestenja->forget($key);
             }
         }
-        return view('homepages.obavestenja', ['vaznaObavestenja' => $vaznaObavestenja]);
+
+        $obavestenjaIds = \DB::table('kategorije_obavestenjas')->select('obavestenja_id')->where('kategorije_id', '!=', $kategorijaVazno->id)->distinct()->pluck('obavestenja_id');
+        $ostalaObavestenja = Obavestenja::orderBy('created_at', 'desc')->whereIn('id', $obavestenjaIds)->where('obrisanoFlag', false)->paginate(4);
+        
+        return view('homepages.obavestenja', [
+            'vaznaObavestenja' => $vaznaObavestenja,
+            'ostalaObavestenja' => $ostalaObavestenja
+        ]);
     }
 
     /**

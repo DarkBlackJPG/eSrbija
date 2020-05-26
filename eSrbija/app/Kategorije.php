@@ -51,7 +51,6 @@ class Kategorije extends Model
         return $this->belongsToMany('App\Korisnik', 'kategorije_pretplates', 'kategorije_id', 'korisnik_id');
     }
     public static function Dohvati_nazive_svih_kategorija(){
-        return DB::table('kategorijes')->select('naziv') ->get();
-
+        return DB::table('kategorijes')->select('naziv')->get();
     }
  }

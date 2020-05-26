@@ -43,57 +43,65 @@
         })
     </script>
 @endif
-        @if($vaznaObavestenja != null && count($vaznaObavestenja) != 0)
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" style="width:100%; height: 200px !important;">
-                @foreach($vaznaObavestenja as $obavestenje)
-                    <div class="carousel-item @if($obavestenje == $vaznaObavestenja->first()) {{'active'}} @endif carusell">
-                        <div class="offset-2 col-sm-8 carusell">
-                            <h1>{{$obavestenje->naslov}}</h1>
-                            <hr/>
-                            <p>{{$obavestenje->opis}}</p>
-                            <hr/>
+        @if($vaznaObavestenja != null && count($vaznaObavestenja) > 0)
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" style="width:100%; height: 200px !important;">
+                    @foreach($vaznaObavestenja as $obavestenje)
+                        <div class="carousel-item @if($obavestenje == $vaznaObavestenja->first()) {{'active'}} @endif carusell">
+                            <div class="offset-2 col-sm-8 carusell">
+                                <h1>{{$obavestenje->naslov}}</h1>
+                                <hr/>
+                                <p>{{$obavestenje->opis}}</p>
+                                <hr/>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        @endif
+
+        <div class = "row justify-content-center align-items-center" >
+            @if($ostalaObavestenja != null)
+                @foreach($ostalaObavestenja as $obavestenje)
+                    <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
+                        <div class="blog-grids-moderator">
+                            <div class="grid">
+                                <div class="entry-body text-center">
+                                    @foreach($obavestenje->pripadaKategorijama as $kategorija)
+                                        <span class="cat"> 
+                                            @if($kategorija != $obavestenje->pripadaKategorijama()->first()) {{'|'}} @endif 
+                                            &nbsp;
+                                            <a href="{{route('obavestenja_za_kategoriju',$kategorija->id)}}">{{$kategorija->naziv}}</a>
+                                        </span>
+                                    @endforeach
+                                    <h3>{{ $obavestenje->naslov }}</h3>
+                                    <p>{{ $obavestenje->opis }}</p>
+                                    <span class="date">{{$obavestenje->created_at->diffForHumans()}}</span>
+                                </div>
+                                @if($obavestenje->link != null)
+                                    <div class="read-more-date">
+                                        <a href="{{$obavestenje->link}}" target="_blank">Read More...</a>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 @endforeach
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-        @endif
-
-        <div class="col col-xs-12">
-            <div class="blog-grids">
-                <div class="grid">
-
-                    <div class="entry-body">
-                        <span class="cat">Sport</span>
-                        <h3><a href="#" target="_blank">Kosarka</a></h3>
-                        <p>Kosarkaski savez Srbije donosi odluku o ukidanju 3. srpske lige</p>
-                        <div class="read-more-date">
-                            <a href="#" target="_blank">Read More..</a>
-                            <span class="date">3 Hours ago</span>
-                        </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        {{ $ostalaObavestenja->links() }}
                     </div>
                 </div>
-                <div class="grid">
-                    <div class="entry-body">
-                        <span class="cat">Finansije</span>
-                        <h3><a href="#" target="_blank">Odluka o kupoprodaji Komercijalne banke</a></h3>
-                        <p>Министар финансија у Влади Републике Србије Синиша Мали, председник Извршног одбора Нове Љубљанске банке д.д (НЛБ) Блаж Бродњак и члан Извршног одбора те банке Арчибалд Кремсер потписали су данас у Министарству финансија Уговор о купопродаји акција, у вези са 83,23% обичних акција Комерцијалне банке а.д Београд. Потписивањем овог уговора, банка ће добити новог стратешког партнера, који ће након завршетка трансакције преузети и управљање банком.</p>
-                        <div class="read-more-date">
-                            <a href="#" target="_blank">Read More..</a>
-                            <span class="date">3 Hours ago</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @else
+                <h2>Jos uvek nema obavestenja.</h2>
+            @endif
         </div>
-
 @endsection
