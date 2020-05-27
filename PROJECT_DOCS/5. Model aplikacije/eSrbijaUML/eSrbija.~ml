@@ -17993,11 +17993,11 @@
 <XPD:REF name="Namespace">32/TKNmvhkudo01KF+DjKQAA</XPD:REF>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="IatgRa6SSECjtBV+wn1ZdAAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaAdmin:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaAdmin</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">5TgvCnMnMkO7l5BmWC2DKAAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="n4sYf+dNv0Kx0HwR6RZZWgAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaAdmin:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaAdmin</XPD:ATTR>
 <XPD:REF name="Context">IatgRa6SSECjtBV+wn1ZdAAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="7tvQ72/6AkaJGkySCzr2SwAA">
@@ -18446,7 +18446,7 @@
 <XPD:REF name="Namespace">32/TKNmvhkudo01KF+DjKQAA</XPD:REF>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="6jS0XXvhl0WSecGnncNMggAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaModeratora:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaModeratora</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">PdeO24ZlAEOCjXKuomAF5QAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="1CAheB6e7Eqhx+8nzf6VUwAA">
@@ -18896,19 +18896,19 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[20]" type="UMLPackage" guid="T2qyOp5z4UuYfvHevXKqUAAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin-realizacija</XPD:ATTR>
 <XPD:REF name="Namespace">32/TKNmvhkudo01KF+DjKQAA</XPD:REF>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="R3/hMe9HcECG9zMxONRNVQAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">T2qyOp5z4UuYfvHevXKqUAAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="bYHcQLQ0G02D4XF/+wnjIQAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin</XPD:ATTR>
 <XPD:REF name="Context">R3/hMe9HcECG9zMxONRNVQAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="cC4lxf9d1EegLUsa6+FuVwAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuAdmin</XPD:ATTR>
 <XPD:REF name="DiagramOwner">bYHcQLQ0G02D4XF/+wnjIQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="lm/IsE4wBUWuu+sScsQyBwAA">
 <XPD:REF name="Diagram">cC4lxf9d1EegLUsa6+FuVwAA</XPD:REF>
@@ -19591,7 +19591,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[21]" type="UMLPackage" guid="noVST3tPKU25O/EHm+9DiQAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuModerator:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZaKategorijuModerator-realizacija</XPD:ATTR>
 <XPD:REF name="Namespace">32/TKNmvhkudo01KF+DjKQAA</XPD:REF>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="Ure36WGCbEysISr8/I25YgAA">
@@ -19603,7 +19603,7 @@
 <XPD:REF name="Context">Ure36WGCbEysISr8/I25YgAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="NgvozW3U4kG+mqc8iVMANgAA">
-<XPD:ATTR name="Name" type="string">prikazObavestenjaPoKategorijamaModerator</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazObavestenjaZaKategorijuModerator</XPD:ATTR>
 <XPD:REF name="DiagramOwner">rROcYMhBuEG53s1dCi0RjwAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="T7uOFCgt2EebOiJLpT+QPgAA">
 <XPD:REF name="Diagram">NgvozW3U4kG+mqc8iVMANgAA</XPD:REF>
@@ -20352,7 +20352,7 @@
 <XPD:REF name="Namespace">32/TKNmvhkudo01KF+DjKQAA</XPD:REF>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="Ofw9OQ2lkUyht7d0xP+mbQAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjanaZaKategorijuNeprivilegovaniKorisnik:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjanaZaKategorijuNeprivilegovaniKorisnik</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">T6PAMWkAYUmBKxmbOCr2kQAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="87dCFUOs30WdTUdtxytX1QAA">
@@ -20360,7 +20360,7 @@
 <XPD:REF name="Context">Ofw9OQ2lkUyht7d0xP+mbQAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="Nn901BGVAE+8Cowo55BTJQAA">
-<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZakategorijuNeprivilegovaniKorisnik:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">prikazSvihObavestenjaZakategorijuNeprivilegovaniKorisnik</XPD:ATTR>
 <XPD:REF name="DiagramOwner">87dCFUOs30WdTUdtxytX1QAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="3VdCG7cSe0W2GikhfmXcDgAA">
 <XPD:REF name="Diagram">Nn901BGVAE+8Cowo55BTJQAA</XPD:REF>
@@ -21109,7 +21109,7 @@
 <XPD:REF name="Namespace">32/TKNmvhkudo01KF+DjKQAA</XPD:REF>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="w4P9kNBu1U2zNZhRErL9jQAA">
-<XPD:ATTR name="Name" type="string">BrisanjeObavestenjaAdmin:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">BrisanjeObavestenjaAdmin</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">e/stFvvbDU2Tf5eH7yWOBwAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="P0/QyY6Su0yyVjGVP/cpWgAA">
@@ -21654,7 +21654,7 @@
 <XPD:REF name="Namespace">32/TKNmvhkudo01KF+DjKQAA</XPD:REF>
 <XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="2t7e4gnNHECU3P5fIq5LOwAA">
-<XPD:ATTR name="Name" type="string">BrisanjeObavestenjaModerator:realizacija</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">BrisanjeObavestenjaModerator</XPD:ATTR>
 <XPD:REF name="RepresentedClassifier">GIFAoe4Vn0mc9cibhr5RWgAA</XPD:REF>
 <XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="lezLG96wBkyNHJ0gbpKjuAAA">
@@ -21662,7 +21662,7 @@
 <XPD:REF name="Context">2t7e4gnNHECU3P5fIq5LOwAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="cW6rhrmPVEui1K96i6bXigAA">
-<XPD:ATTR name="Name" type="string">brisanjeObavestenja</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">brisanjeObavestenjaModerator</XPD:ATTR>
 <XPD:REF name="DiagramOwner">lezLG96wBkyNHJ0gbpKjuAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="H++kZKblJkyo2Rv+nSSblwAA">
 <XPD:REF name="Diagram">cW6rhrmPVEui1K96i6bXigAA</XPD:REF>

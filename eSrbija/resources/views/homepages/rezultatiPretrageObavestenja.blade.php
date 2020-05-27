@@ -7,6 +7,9 @@
     function returnToTop() {
         document.location.href = "#topOfPage";
     }
+    function returnToHomepage() {
+        document.location.href = "{{route('home')}}";
+    }
 </script>
 
 @section('homepagecontent')
@@ -40,7 +43,14 @@
         @endforeach
         </div>
         <div class = "row justify-content-center align-items-center">
-            <button class="btn btn-primary" onclick="returnToTop()"><div style="color:white;">Nazad na vrh</div></button>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" onclick="returnToTop()">
+                    Nazad na vrh
+                </button>
+                <button class="btn btn-secondary" onclick="returnToHomepage()">
+                    Nazad na pocetnu stranicu
+                </button>
+            </div>
         </div>
     @else
         <div class = "row justify-content-center align-items-center" >
