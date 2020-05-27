@@ -1,24 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<meta id = "csrfToken"name="csrf-token" content="{{ csrf_token() }}" />
+<meta id="csrfToken" name="csrf-token" content="{{ csrf_token() }}"/>
 <script>
+    $(document).ready(function() {
+        $("#naziv").addEventListener('keyup', function(e) {
+            if(e.key === "Enter") {
+                document.searchForm.submit();
+                return false;
+            }
+        });
+    });
+
     function subscriptionChange() {
         var source = event.target;
         var CSRF_TOKEN = $('#csrfToken').attr('content');
         if(source.checked){
-
             $.ajax({
                 type:'POST',
                 url:'{{route('subscribe')}}',
                 data: { _token: CSRF_TOKEN,kategorijaId:source.id},
                 dataType: 'JSON',
                 success:function(data) {
-                    if(data.status == "success")
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Uspešno prijavljeni na kategoriju ' + source.name + '!',
-                    });
+                        if(data.status == "success") {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Uspešno prijavljeni na kategoriju ' + source.name + '!',
+                        });
+                    }
                 }
             });
         }
@@ -29,11 +38,12 @@
                 data: {_token: CSRF_TOKEN, kategorijaId:source.id},
                 dataType: 'JSON',
                 success:function(data) {
-                    if(data.status == "success")
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Uspešno odjavljeni sa kategorije ' + source.name + '!',
-                    });
+                    if(data.status == "success") {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Uspešno odjavljeni sa kategorije ' + source.name + '!',
+                        });
+                    }
                 }
             });
         }
@@ -41,10 +51,11 @@
 </script>
 
 <div class="container">
-    <div class="row  ">
+    <div class="row">
         <div class=" col-12  col-md-3">
-    <form>
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+    <form id="searchForm" name="searchForm" action="{{route('search')}}" method="POST">
+        @csrf
+        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" id="naslov" name="naslov" value="{{old('naslov')}}">
     </form>
             <div class="panel-group pt-5" id="accordion">
                 <div class="panel panel-default">

@@ -172,6 +172,13 @@ Route::middleware(['verified', 'auth'])->group(function () {
     Route::post('/home/unsubscribe', 'HomeController@unsubscribe')->name('unsubscribe');
 
     /**
+     * Ruta za pretragu obavestenja po naslovu.
+     * 
+     * @author Luka Spehar
+     */
+    Route::post('/search', 'HomeController@search')->name('search');
+
+    /**
     * Ruta za prikaz obavestenja za kategoriju za dati id-ijem
     * @author Dušan Stijović
     */

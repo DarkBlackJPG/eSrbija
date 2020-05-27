@@ -69,7 +69,7 @@
         @endif
 
         
-        @if($ostalaObavestenja != null)
+        @if($ostalaObavestenja != null && $ostalaObavestenja->count() > 0)
             <div class = "row justify-content-center align-items-center" >
             @foreach($ostalaObavestenja as $obavestenje)
                 <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6"> 

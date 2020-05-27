@@ -54,6 +54,7 @@
 
 </head>
 <body>
+    <a name="topOfPage"></a>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

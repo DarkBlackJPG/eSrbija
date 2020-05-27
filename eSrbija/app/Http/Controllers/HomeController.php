@@ -54,6 +54,19 @@ class HomeController extends Controller
     }
 
     /**
+     * Pretraga obavestenja po naslovu.
+     * 
+     * @author Luka Spehar
+     * @return void
+     */
+    public function search() {
+        $searchFor = request('naslov');
+        $obavestenja = Obavestenja::where('naslov', 'LIKE', '%'.$searchFor.'%')->where('obrisanoFlag', false)->get();
+
+        return view('homepages.rezultatiPretrageObavestenja', ['obavestenja' => $obavestenja]);
+    }
+
+    /**
      * Prijava na izabranu kategoriju obavestenja.
      *
      * @author Luka Spehar
