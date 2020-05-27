@@ -77,12 +77,10 @@ class Mesto extends Model
         return $this->belongsToMany('App\Ankete', 'ankete_mestos', 'mesto_id', 'ankete_id');
     }
 
-
-
-
     public static function dohvatiSveNaziveMesta(){
         return DB::table('mestos')->get('naziv');
     }
+    
     public static function dohvatiMestoPoNazivu($naziv){
         return DB::table('mestos')->where('naziv',$naziv)->first();
     }

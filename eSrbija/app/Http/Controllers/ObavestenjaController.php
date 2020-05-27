@@ -38,7 +38,7 @@ class ObavestenjaController extends Controller
     public function create()
     {
         $mesta = Mesto::dohvatiSveNaziveMesta(); // vraca objekte klase Mesto
-        $nazivi='';
+        $nazivi = '';
         $count = count($mesta);
         $i=0;
         foreach ($mesta as $value) { //pravi string 'Beograd', 'Cacak','Subotica', itd...
@@ -107,25 +107,14 @@ class ObavestenjaController extends Controller
             return redirect('/home')->with('dozvole', 'Nemate dozvolu da postavljate obaveštenja u sve izabrane kategorije!');
         }
         
-        $kategorije_ids = [];
-        $usersToNotify = [];
-        $i = 0;
-        foreach($kategorije as $kategorija) {
-            $kategorijaObjekat = Kategorije::where("naziv", "=", $kategorija)->firstOrFail();
-            //$usersToNotify = array_unique(array_merge($usersToNotify, $kategorijaObjekat->pretplaceni()->getCurrentlyAttachedPivots()->toArray()));
-            
-            $kategorije_ids[$i] = $kategorijaObjekat->id;
-            $i++;
+        $kategorije_ids = \DB::table('kategorijes')->select('id')->whereIn('naziv', $kategorije)->pluck('id');
+
+        $mesta_ids = null;
+        if($mesta[0] != 'none') {
+            $mesta_ids = \DB::table('mestos')->select('id')->whereIn('naziv', $kategorije)->pluck('id');
         }
 
-        $mesta_ids = [];
-        $i = 0;
-        if($mesta[0] != "none") {
-            foreach($mesta as $mesto) {
-                $mesta_ids[$i] = Mesto::where("naziv", "=", $mesto)->firstOrFail()->id;
-                $i++;
-            }
-        }
+        $usersToNotify = \DB::table('kategorije_pretplates')->select('korisnik_id')->whereIn('kategorije_id', $kategorije_ids)->get();
 
         $obavestenje = Obavestenja::create([
             'naslov' => request('title'),
@@ -137,25 +126,26 @@ class ObavestenjaController extends Controller
         ]);
 
         $obavestenje->pripadaKategorijama()->attach($kategorije_ids);
-        if($mesta[0] != "none")
+        if($mesta[0] != "none") {
             $obavestenje->vezanoZaMesto()->attach($mesta_ids);
-
-        //ako je obavestenje lokalno, izbacivanje svih korisnika koji ne stanuju u relevantnim mestima
-        /*if(request('nivo') == 1) {
-            $mestaObavestenja = $obavestenje->vezanoZaMesto()->getCurrentlyAttachedPivots()->toArray();
-            foreach($usersToNotify as $korisnik) {
-                $mestoPrebivalista = $korisnik->neprivilegovaniKorisnik()->getResults()->mestoPrebivalista()->getResults();
-                if(!in_array($mestoPrebivalista, $mestaObavestenja)) {
-                    $usersToNotify=array_diff($usersToNotify, array($korisnik));
-                }
-            }
-        }*/
+        }
 
         //slanje mejlova
-        /*foreach($usersToNotify as $korisnik) {
-            $mail = new SubsciptionNotification();
-            Mail::to($korisnik->email)->send(new SubscriptionNotification($obavestenje));
-        } */
+        $mestaObavestenja = $obavestenje->vezanoZaMesto()->getResults();
+        foreach($usersToNotify as $korisnik) {
+            $send = true;
+            //ako je obavestenje lokalno proveriti da li ga treba poslati trenutnom korisniku
+            if(request('nivo') == 1) {
+                $mestoPrebivalista = $korisnik->neprivilegovaniKorisnik()->getResults()->mestoPrebivalista()->getResults();
+                if(!$mestaObavestenja->contains('id', $mestoPrebivalista->id)) {
+                    $send = false;
+                }
+            }
+
+            if($send) {
+                Mail::to($korisnik->email)->send(new SubscriptionNotification($obavestenje));
+            }
+        } 
 
         return redirect('/home')->with('obavestenje', 'Obaveštenje uspešno kreirano!');
     }
