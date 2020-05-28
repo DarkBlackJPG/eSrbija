@@ -65,6 +65,9 @@ class Obavestenja extends Model
     }
 
 
+  
+
+
     /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto 
     *
     *@author Dušan Stijović
@@ -75,7 +78,7 @@ class Obavestenja extends Model
     public static function svaObavestenjaZaKategorijuIMestoKorisnika($id, $idMesto){
         
         $kategorija = Kategorije::where("id", '=' , $id)->first();
-        $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
+        $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->get();
         
         foreach ($obavestenja as  $key => $obavestenje){
             if($obavestenje->nivoLokNac == config('constants.LOKALNI_NIVO')){
@@ -93,7 +96,23 @@ class Obavestenja extends Model
                 }
             }
         }
-        
-        return $obavestenja;
+
+        return Obavestenja::paginateObavestenja($obavestenja);
+       
+    }
+
+
+      /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto 
+    *
+    *@author Dušan Stijović
+    *@param obavestenja niz Obavestenja
+    *@return Illuminate\Database\Eloquent\Collection 
+    */
+    public static function paginateObavestenja($obavestenja){
+        $obavestenjaId = [];
+        foreach ($obavestenja as $key => $obavestenje) {
+            $obavestenjaId[] = $obavestenje->id;
+        }
+        return Obavestenja::whereIn("id", $obavestenjaId)->paginate(4);
     }
 }
