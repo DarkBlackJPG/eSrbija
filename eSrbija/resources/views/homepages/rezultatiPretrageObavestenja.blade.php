@@ -1,5 +1,11 @@
 @extends('fixed.home')
 
+<script>
+    function backToHomepage() {
+        document.location.href='{{route('home')}}';
+    }
+</script>
+
 @section('homepagecontent')
     @if($obavestenja != null && $obavestenja->count() > 0)
         <div class = "row justify-content-center align-items-center">
@@ -33,6 +39,12 @@
             <div class="col-sm-12">
                 {{ $obavestenja->links() }}
             </div>
+        </div>
+        <br/>
+        <div class="row justify-content-center align-items-center">
+            <button class="btn btn-secondary" onclick="backToHomepage()">
+                Nazad na pocetnu stranicu
+            </button>
         </div>
     @else
         <div class = "row justify-content-center align-items-center" >

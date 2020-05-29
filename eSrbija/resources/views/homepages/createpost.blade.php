@@ -45,7 +45,6 @@
                             <td>
                                 <input type="radio" id="lokalno" onclick="showHideMesta()" name="nivo" value="1" checked>&nbsp;Lokalni nivo &nbsp;&nbsp;
                                 <input type="radio" id="nacionalno" onclick="showHideMesta()" name="nivo" value="0"> Nacionalni nivo <br/>
-
                             </td>
                         </tr>
                     </table>

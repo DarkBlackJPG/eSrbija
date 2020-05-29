@@ -49,7 +49,8 @@ class HomeController extends Controller
         
         return view('homepages.obavestenja', [
             'vaznaObavestenja' => $vaznaObavestenja,
-            'ostalaObavestenja' => $ostalaObavestenja
+            'ostalaObavestenja' => $ostalaObavestenja,
+            'search' => false
         ]);
     }
 
@@ -61,13 +62,14 @@ class HomeController extends Controller
      */
     public function search() {
         request()->flash();
-        $searchFor = request('naslov');
+        $searchFor = request('naslov') ?? request()->query('naslov');
         $obavestenja = null;
         if($searchFor != "") {
             $obavestenja = Obavestenja::where('naslov', 'LIKE', '%'.$searchFor.'%')->where('obrisanoFlag', false)->paginate(4);
+            $obavestenja->appends(['naslov' => $searchFor]);
         }
 
-        return view('homepages.rezultatiPretrageObavestenja', ['obavestenja' => $obavestenja, 'searchFor' => $searchFor]);
+        return view('homepages.rezultatiPretrageObavestenja', ['obavestenja' => $obavestenja]);
     }
 
     /**

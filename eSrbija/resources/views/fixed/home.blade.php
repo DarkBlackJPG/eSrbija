@@ -3,15 +3,6 @@
 @section('content')
 <meta id="csrfToken" name="csrf-token" content="{{ csrf_token() }}"/>
 <script>
-    $(document).ready(function() {
-        $("#naziv").addEventListener('keyup', function(e) {
-            if(e.key === "Enter") {
-                document.searchForm.submit();
-                return false;
-            }
-        });
-    });
-
     function subscriptionChange() {
         var source = event.target;
         var CSRF_TOKEN = $('#csrfToken').attr('content');
@@ -55,7 +46,8 @@
         <div class=" col-12  col-md-3">
     <form id="searchForm" name="searchForm" action="{{route('search')}}" method="GET">
         @csrf
-        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" id="naslov" name="naslov" value="{{old('naslov')}}">
+        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" id="naslov" name="naslov"
+        @if(request()->path() == 'search')value="{{old('naslov')}}"@endif>
     </form>
             <div class="panel-group pt-5" id="accordion">
                 <div class="panel panel-default">
