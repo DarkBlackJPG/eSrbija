@@ -1,19 +1,6 @@
 @extends('fixed.home')
 
-<script>
-    $(document).ready(function() {
-        $("#naslov").attr('value') = '{{old('naslov')}}';
-    });
-    function returnToTop() {
-        document.location.href = "#topOfPage";
-    }
-    function returnToHomepage() {
-        document.location.href = "{{route('home')}}";
-    }
-</script>
-
 @section('homepagecontent')
-
     @if($obavestenja != null && $obavestenja->count() > 0)
         <div class = "row justify-content-center align-items-center">
         @foreach($obavestenja as $obavestenje)
@@ -42,14 +29,9 @@
             </div>
         @endforeach
         </div>
-        <div class = "row justify-content-center align-items-center">
-            <div class="form-group">
-                <button type="button" class="btn btn-primary" onclick="returnToTop()">
-                    Nazad na vrh
-                </button>
-                <button class="btn btn-secondary" onclick="returnToHomepage()">
-                    Nazad na pocetnu stranicu
-                </button>
+        <div class="row">
+            <div class="col-sm-12">
+                {{ $obavestenja->links() }}
             </div>
         </div>
     @else
@@ -57,5 +39,4 @@
             <h2>Nema obavestenja sa zadatim naslovom ili naslovom slicnim njemu.</h2>
         </div>
     @endif
-
 @endsection

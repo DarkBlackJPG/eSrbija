@@ -53,7 +53,7 @@
 <div class="container">
     <div class="row">
         <div class=" col-12  col-md-3">
-    <form id="searchForm" name="searchForm" action="{{route('search')}}" method="POST">
+    <form id="searchForm" name="searchForm" action="{{route('search')}}" method="GET">
         @csrf
         <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" id="naslov" name="naslov" value="{{old('naslov')}}">
     </form>

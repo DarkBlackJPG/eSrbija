@@ -60,10 +60,14 @@ class HomeController extends Controller
      * @return void
      */
     public function search() {
+        request()->flash();
         $searchFor = request('naslov');
-        $obavestenja = Obavestenja::where('naslov', 'LIKE', '%'.$searchFor.'%')->where('obrisanoFlag', false)->get();
+        $obavestenja = null;
+        if($searchFor != "") {
+            $obavestenja = Obavestenja::where('naslov', 'LIKE', '%'.$searchFor.'%')->where('obrisanoFlag', false)->paginate(4);
+        }
 
-        return view('homepages.rezultatiPretrageObavestenja', ['obavestenja' => $obavestenja]);
+        return view('homepages.rezultatiPretrageObavestenja', ['obavestenja' => $obavestenja, 'searchFor' => $searchFor]);
     }
 
     /**

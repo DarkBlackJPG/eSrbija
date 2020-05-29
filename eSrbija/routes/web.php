@@ -176,7 +176,7 @@ Route::middleware(['verified', 'auth'])->group(function () {
      * 
      * @author Luka Spehar
      */
-    Route::post('/search', 'HomeController@search')->name('search');
+    Route::get('/search', 'HomeController@search')->name('search');
 
     /**
     * Ruta za prikaz obavestenja za kategoriju za dati id-ijem
