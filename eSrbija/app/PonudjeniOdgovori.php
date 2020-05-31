@@ -34,6 +34,12 @@ class PonudjeniOdgovori extends Model
         return $this->belongsToMany('App\Korisnik', 'odgovori_korisniks', 'ponudjeni_odgovori_id', 'korisnik_id');
     }
 
+    /**
+     * pamti ponudjen odgovor u bazi
+     * @param $pitanje
+     * @param $tekst
+     * @author Filip Carevic
+     */
     public static function napraviOdgovor($pitanje, $tekst){
         $pitanje->odgovori()->create([
             'tekst'=> $tekst

@@ -1,7 +1,7 @@
 @extends('fixed.home')
 
 @section('homepagecontent')
-
+    <!-- Filip Carevic 0065/2017-->
 
         <form action="{{route('save_answers',['id'=> $anketa->id])}}" name="forma" method="post" enctype="multipart/form-data">
             @csrf

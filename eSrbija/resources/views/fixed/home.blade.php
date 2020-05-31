@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <meta id="csrfToken" name="csrf-token" content="{{ csrf_token() }}"/>
 <script>
     function subscriptionChange() {

@@ -2,7 +2,7 @@
 
 @section('homepagecontent')
 
-
+<!-- Filip Carevic 0065/2017-->
 
         <form action="{{ route('savepoll')}}"  enctype="multipart/form-data" method="post" id="forma" name="forma">
             @csrf

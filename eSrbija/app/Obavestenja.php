@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Obavestenja Model -  Each database table has a corresponding "Model" 
- * which is used to interact with that table. Models allow you to query 
+ * Obavestenja Model -  Each database table has a corresponding "Model"
+ * which is used to interact with that table. Models allow you to query
  * for data in your tables, as well as insert new records into the table.
- * 
+ *
  * @version 1.0
  */
 class Obavestenja extends Model
@@ -28,7 +28,7 @@ class Obavestenja extends Model
 
     /**
      * This method returns the App\Korisnik that created this Obavestenja
-     * 
+     *
      * @author Stefan Teslic
      * @return App\Korisnik
      */
@@ -41,11 +41,11 @@ class Obavestenja extends Model
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function pripadaKategorijama(){
-        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id')->withTimestamps();
+        return $this->belongsToMany('App\Kategorije','kategorije_obavestenjas', 'obavestenja_id', 'kategorije_id'); //->withTimestamps();
     }
     /**
      * This method returns all App\Mesto this Obavestenje is bound to
-     * 
+     *
      * @author Stefan Teslic
      * @return Illuminate\Database\Eloquent\Collection
      */
@@ -65,10 +65,10 @@ class Obavestenja extends Model
     }
 
 
-  
 
 
-    /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto 
+
+    /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto
     *
     *@author Dušan Stijović
     *@param id idMoredatora
@@ -76,10 +76,10 @@ class Obavestenja extends Model
     *@return Illuminate\Database\Eloquent\Collection
     */
     public static function svaObavestenjaZaKategorijuIMestoKorisnika($id, $idMesto){
-        
+
         $kategorija = Kategorije::where("id", '=' , $id)->first();
         $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->get();
-        
+
         foreach ($obavestenja as  $key => $obavestenje){
             if($obavestenje->nivoLokNac == config('constants.LOKALNI_NIVO')){
                 $mesta = $obavestenje->vezanoZaMesto;
@@ -98,15 +98,15 @@ class Obavestenja extends Model
         }
 
         return Obavestenja::paginateObavestenja($obavestenja);
-       
+
     }
 
 
-      /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto 
+      /** Sluzi za dohvatanja obavestenja koja su relevantna za korisnika sa datim idijem i za dato mesto
     *
     *@author Dušan Stijović
     *@param obavestenja niz Obavestenja
-    *@return Illuminate\Database\Eloquent\Collection 
+    *@return Illuminate\Database\Eloquent\Collection
     */
     public static function paginateObavestenja($obavestenja){
         $obavestenjaId = [];

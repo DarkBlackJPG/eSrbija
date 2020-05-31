@@ -7,6 +7,13 @@ use App\NeprivilegovanKorisnik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * Class AnswerPollController
+ * @package App\Http\Controllers
+ * @version 1.0
+ * Sluzi za obradu zahteva vezanih za izlistavanje anketa, referenduma i izbora, popunjavanje i zatvaranje istih
+ */
+
 class AnswerPollController extends Controller
 {
     const IZBORI =2;
@@ -14,6 +21,14 @@ class AnswerPollController extends Controller
     const OBICNA=0;
     const PAGINATION_OFFSET=4;
 
+    /**
+     * @param int $page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * @author Filip Carevic
+     *
+     * lista sve neobrisane ankete koje je korisnik napravio ukoliko je moderator, ukoliko je admin lista sve neobrisane
+     */
     public function list_all_polls_created_by_me($page=0){
         $user = auth()->user();
         $ankete = null;
@@ -51,6 +66,14 @@ class AnswerPollController extends Controller
 
     }
 
+    /**
+     * zatvara anketu sa datim id-m ukoliko ju je korisnik napravio, ili je korisnik administrator
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *@author Filip Carevic
+     *
+     */
     public function close_poll($id){
 
 
@@ -66,8 +89,13 @@ class AnswerPollController extends Controller
     }
 
 
-
-
+    /**
+     * pravi formu za popunjavanje za anketu sa zadatim id-em
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     *
+     * @author Filip Carevic
+     */
 
 
     public function answer_poll($id)
@@ -103,6 +131,17 @@ class AnswerPollController extends Controller
 
     }
 
+
+    /**
+     *
+     * lista sve aktivne i neodgovorene ankete. Ankete lokalnog nivoa prikazuje samo u slucaju da se korisnikovo mesto prebivaista
+     * (moderatorovo mesto poslovanja) nalazi u listi mesta za koje se anketa vezuje. Ukoliko je korisnik admin, lista sve aktivne i neodgovorene
+     * @param int $page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * * @author Filip Carevic
+     *
+     *
+     */
     public function list_active($page=0)
     {
             $userid=auth()->user()->id;
@@ -167,6 +206,15 @@ class AnswerPollController extends Controller
 
 
     }
+
+    /**
+     * belezi odgovore u bazi za anketu sa zadatim id-em za ulogovanog korisnika
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     * @author Filip Carevic
+     *
+     */
 
 
     public function save_answers($id){
@@ -254,6 +302,15 @@ class AnswerPollController extends Controller
 
     }
 
+    /**
+     * lista aktivne i neodgovorene izbore.Ankete lokalnog nivoa prikazuje samo u slucaju da se korisnikovo mesto prebivaista
+     * (moderatorovo mesto poslovanja) nalazi u listi mesta za koje se anketa vezuje. Ukoliko je korisnik admin, lista sve aktivne i neodgovorene
+     *
+     * @param int $page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author Filip Carevic
+     */
+
 
     public function  list_active_elections($page=0){
         $user = auth()->user();
@@ -308,6 +365,15 @@ class AnswerPollController extends Controller
         return view('homepages.aktivneAnkete',$niz);
     }
 
+    /**
+     * lista aktivne i neodgovorene referendume.Ankete lokalnog nivoa prikazuje samo u slucaju da se korisnikovo mesto prebivaista
+     * (moderatorovo mesto poslovanja) nalazi u listi mesta za koje se anketa vezuje. Ukoliko je korisnik admin, lista sve aktivne i neodgovorene
+     *
+     * @param int $page
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * @author Filip Carevic
+     */
     public function  list_active_referendum($page=0){
         $user = auth()->user();
 

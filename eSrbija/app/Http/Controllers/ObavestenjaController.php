@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Korisnik;
 use App\Mesto;
 use App\Obavestenja;
 use App\Kategorije;
@@ -10,6 +11,7 @@ use App\NeprivilegovanKorisnik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Mail\SubscriptionNotification;
+use Illuminate\Support\Facades\Mail;
 
 
 /**
@@ -57,7 +59,7 @@ class ObavestenjaController extends Controller
         foreach ($sve_kategorije as $value) { //pravi string 'Vazno', 'Finansije', itd...
             if($i < $count-1) {
                 $nazivi_kategorija.= '\''.$value->naziv.'\''.',';}
-            else 
+            else
                 $nazivi_kategorija.='\''.$value->naziv.'\'';
             $i++;
         }
@@ -76,7 +78,7 @@ class ObavestenjaController extends Controller
                 $i++;
             }
         }
-        
+
         return view('homepages.createpost',['mesta' => $nazivi, 'kategorije'=>$nazivi_kategorija, 'dozvole'=> $dozvole] );
     }
 
@@ -93,7 +95,7 @@ class ObavestenjaController extends Controller
             'kategorije' => 'required',
             'mesta' => 'required'
         ]);
-        
+
         $dozvole = explode(",", request('dozvole'));
         $kategorije = explode(",", request('kategorije'));
         $mesta = explode(",", request('mesta'));
@@ -106,46 +108,54 @@ class ObavestenjaController extends Controller
         if(!$valid) {
             return redirect('/home')->with('dozvole', 'Nemate dozvolu da postavljate obaveštenja u sve izabrane kategorije!');
         }
-        
+
         $kategorije_ids = \DB::table('kategorijes')->select('id')->whereIn('naziv', $kategorije)->pluck('id');
 
         $mesta_ids = null;
         if($mesta[0] != 'none') {
-            $mesta_ids = \DB::table('mestos')->select('id')->whereIn('naziv', $kategorije)->pluck('id');
+            $mesta_ids = \DB::table('mestos')->select('id')->whereIn('naziv', $mesta)->pluck('id');
+        }
+        if($kategorije[0]=="VAZNO") $usersToNotify=Korisnik::all();
+        else {
+            $usersToNotify = \DB::table('kategorije_pretplates')->select('korisnik_id')->whereIn('kategorije_id', $kategorije_ids)->pluck('korisnik_id');
+            $usersToNotify = Korisnik::find($usersToNotify);
         }
 
-        $usersToNotify = \DB::table('kategorije_pretplates')->select('korisnik_id')->whereIn('kategorije_id', $kategorije_ids)->get();
 
-        $obavestenje = Obavestenja::create([
-            'naslov' => request('title'),
-            'opis' => request('description'),
-            'link' => request('link'),
-            'nivoLokNac' => request('nivo'),
-            'korisnik_id' => auth()->user()->id,
-            'obrisanoFlag' => false
-        ]);
-
+            $obavestenje = Obavestenja::create([
+                'naslov' => request('title'),
+                'opis' => request('description'),
+                'link' => request('link'),
+                'nivoLokNac' => request('nivo'),
+                'korisnik_id' => auth()->user()->id,
+                'obrisanoFlag' => false
+            ]);
         $obavestenje->pripadaKategorijama()->attach($kategorije_ids);
+
         if($mesta[0] != "none") {
+
             $obavestenje->vezanoZaMesto()->attach($mesta_ids);
         }
 
         //slanje mejlova
         $mestaObavestenja = $obavestenje->vezanoZaMesto()->getResults();
+
         foreach($usersToNotify as $korisnik) {
             $send = true;
             //ako je obavestenje lokalno proveriti da li ga treba poslati trenutnom korisniku
             if(request('nivo') == 1) {
-                $mestoPrebivalista = $korisnik->neprivilegovaniKorisnik()->getResults()->mestoPrebivalista()->getResults();
+                $mestoPrebivalista = $korisnik->neprivilegovaniKorisnik()->getResults()->opstinaPrebivalista()->getResults();
                 if(!$mestaObavestenja->contains('id', $mestoPrebivalista->id)) {
                     $send = false;
                 }
             }
 
             if($send) {
+
+
                 Mail::to($korisnik->email)->send(new SubscriptionNotification($obavestenje));
             }
-        } 
+        }
 
         return redirect('/home')->with('obavestenje', 'Obaveštenje uspešno kreirano!');
     }

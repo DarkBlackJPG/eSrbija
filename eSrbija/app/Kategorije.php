@@ -35,7 +35,7 @@ class Kategorije extends Model
      * @author Stefan Teslic
      */
     public function ovlasceni() {
-        return $this->belongsToMany('App\Korisnik', 'kategorije_ovlascenjas', 'kategorije_id', 'korisnik_id')->withTimestamps();
+        return $this->belongsToMany('App\Korisnik', 'kategorije_ovlascenjas', 'kategorije_id', 'korisnik_id'); //->withTimestamps();
     }
     /**
      * Relationship method which binds Kategorije with  Korisnik model
@@ -50,6 +50,13 @@ class Kategorije extends Model
     public function pretplaceni() {
         return $this->belongsToMany('App\Korisnik', 'kategorije_pretplates', 'kategorije_id', 'korisnik_id');
     }
+
+    /**
+     * Dohvata nazive svih kategorija
+     * @return \Illuminate\Support\Collection
+     *
+     * @author Filip Carevic
+     */
     public static function Dohvati_nazive_svih_kategorija(){
         return DB::table('kategorijes')->select('naziv')->get();
     }

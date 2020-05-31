@@ -35,6 +35,14 @@ class Pitanja extends Model
     public function odgovori() {
         return $this->hasMany('App\PonudjeniOdgovori', 'pitanja_id', 'id');
     }
+
+    /**
+     * pamti pitanje u bazi
+     * @param $anketa Anketa za koju se vezuje pitanje
+     * @param $tekst String
+     * @return mixed
+     * @author Filip Carevic
+     */
     public static function napraviPitanje($anketa, $tekst){
         return $anketa->pitanja()->create([
             'tekst'=> $tekst

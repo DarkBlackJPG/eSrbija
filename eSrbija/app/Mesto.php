@@ -77,10 +77,21 @@ class Mesto extends Model
         return $this->belongsToMany('App\Ankete', 'ankete_mestos', 'mesto_id', 'ankete_id');
     }
 
+    /**
+     * Dohvata sve nazive mesta
+     * @return \Illuminate\Support\Collection
+     * @author Filip Carevic
+     */
     public static function dohvatiSveNaziveMesta(){
         return DB::table('mestos')->get('naziv');
     }
-    
+
+    /** dohvata mesto po nazivu
+     * @param $naziv String
+     * @return Model|\Illuminate\Database\Query\Builder|object|null
+     *
+     * @author Filip Carevic
+     */
     public static function dohvatiMestoPoNazivu($naziv){
         return DB::table('mestos')->where('naziv',$naziv)->first();
     }

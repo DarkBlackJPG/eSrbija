@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 
 /**
  * Mailable klasa za notifikacije o novim obavestenjima iz pretplacenih kategorija.
- * 
+ *
  * @author Luka Spehar
  */
 class SubscriptionNotification extends Mailable
@@ -25,7 +25,7 @@ class SubscriptionNotification extends Mailable
      */
     public function __construct($obavestenje)
     {
-        this.$obavestenje = $obavestenje;
+        $this->obavestenje = $obavestenje;
     }
 
     /**

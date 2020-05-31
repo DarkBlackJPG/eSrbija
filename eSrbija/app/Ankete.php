@@ -81,13 +81,13 @@ class Ankete extends Model
     }
 
 
-
-
-
-    /**
+    /**pamti anketu u bazi podataka
+     * @param $naziv String nazivAnkete
+     * @param $nivoLokNac int   lokalnost ankete
+     * @param $tip int     izbori/referendumi/obicna
+     * @return mixed
+     *
      * @author Filip Carevic
-     *
-     *
      */
     public static function napraviAnketu($naziv, $nivoLokNac,$tip){
         return auth()->user()->mojeAnkete()->create( [
@@ -99,14 +99,36 @@ class Ankete extends Model
         ]);
     }
 
+
+    /**
+     * dohvata sve neobrisane ankete
+     * @return \Illuminate\Support\Collection
+     * @author Filip Carevic
+     */
     public static function dohvatiSveAnkete(){
         return DB::table('anketes')->where('obrisanoFlag' , false)->orderBy('created_at','DESC')->get();
 
     }
+
+    /**dohvata sve neobrisane ankete koje je ulogovani moderator napravio
+     *
+     * @return \Illuminate\Support\Collection
+     * @author Filip Carevic
+     *
+     */
     public static function dohvatiSveModeratoroveAnkete(){
         DB::table('anketes')->where(['korisnik_id'=> auth()->user()->id] )->orderBy('created_at','DESC')->get();
 
     }
+
+    /**
+     * dohvata sve aktivne i neodgovorene ankete za datog korisnika
+     * @param $userid
+     * @return \Illuminate\Support\Collection
+     *
+     * @author Filip Carevic
+     */
+
     public static function dohvatiSveAktivneINeodgovoreneAnkete($userid){
         return DB::table('anketes')->
         whereRaw("anketes.isActive = 1 and  id not  in
@@ -119,11 +141,28 @@ class Ankete extends Model
 
 
     }
+
+    /**
+     * Proverava da li anketa vezana za zadatog mesto. Vraca null ukoliko nije
+     * @param $userMesto
+     * @param $anketa
+     * @return \Illuminate\Support\Collection
+     *
+     * @author Filip Carevic
+     */
     public static function dohvatiVezuAnketeMesto($userMesto, $anketa){
         return DB::table('ankete_mestos')->where(['mesto_id'=> $userMesto, 'ankete_id' => $anketa->id])->get();
 
     }
 
+    /**
+     * dohvata sve aktivne i neodgovorene ankete po tipu
+     * @param $tip izbori*referendumi/obican
+     * @param $userid
+     * @return \Illuminate\Support\Collection
+     * @author Filip Carevic
+     *
+     */
     public static function dohvatiAktivneINeodgovorenePoTipu($tip, $userid){
         return DB::table('anketes')->
         whereRaw("anketes.isActive = 1 and anketes.tip =$tip and id not  in

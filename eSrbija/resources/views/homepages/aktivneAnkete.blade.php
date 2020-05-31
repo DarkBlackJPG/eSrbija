@@ -1,6 +1,7 @@
 @extends('fixed.home')
 
 @section('homepagecontent')
+    <!-- Filip Carevic 0065/2017-->
 
     @if(session('poruka'))
 

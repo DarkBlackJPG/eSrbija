@@ -10,12 +10,32 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+/**
+ * Class CreatePolController
+ * @package App\Http\Controllers
+ * Sluzi za obradu zahteva koji se odnose na kreiranje i brisanje ankete
+ * @version 1.0
+ * @author  Filip Carevic
+ */
+
 class CreatePolController extends Controller
 {
     //
+    /**
+     *  * @author Filip Carevic
+     * @const int
+     *
+     * sve konstante su tipa int
+     */
     const IZBORI =2 , REFERENDUM=1, OBICNA=0;
     const DOZVOLA_OBICNE=1, DOZVOLA_REFERENDUMI_IZBORI_OBICNE = 2, DOZVOLA_NACIONALNI_I_LOKALNI=2, DOZVOLA_LOKALNI=1;
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @author  Filip Carevic
+     *
+     * funkcija pravi formmu za unos ankete
+     */
     public function return_view(){
         $mesta = Mesto::dohvatiSveNaziveMesta(); // ovo vraca objekte klase Mesto
         $nazivi='';
@@ -41,12 +61,27 @@ class CreatePolController extends Controller
         return view('homepages.ankete.napraviankete',['mesta' => $nazivi,'dozvola_tip'=>$dozvola_tip, 'dozvola_lokalnosti'=> $dozvola_lokalnosti]);
     }
 
+    /**
+     * @param String $arg
+     * @return bool
+     * * @author Filip Carevic
+     * fja proverava da li je argument definisan ili je prazan string
+     */
     public function isEmptyOrNullString($arg) {
         if(empty($arg)) return true;
         if($arg=='') return true;
         return false;
     }
 
+
+    /**
+     *  funkcija pamti proverava i pamti podatke vezane za anketu dobijene iz forme
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     *
+     *
+     * * @author Filip Carevic
+     */
     public function create_poll (){
         { //provera ispravnosti
             $ispravno = true;
@@ -134,6 +169,15 @@ class CreatePolController extends Controller
 
     }
 
+
+    /**
+     *  * @author Filip Carevic
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * fja sluzi za postavlja indikatora obrisano u bazi za anketu sa datim id-em
+     * ukoliko je korisnik napravio istu ili je administrator
+     */
         public function delete_poll($id){
 
           /*  $anketa= Ankete::findOrFail($id);
