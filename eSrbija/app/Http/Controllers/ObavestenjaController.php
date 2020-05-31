@@ -84,6 +84,7 @@ class ObavestenjaController extends Controller
 
     /**
      * Snima novo obavestenje.
+     * 
      * @author Luka Spehar
      * @return \Illuminate\Http\Response
      */
@@ -115,25 +116,26 @@ class ObavestenjaController extends Controller
         if($mesta[0] != 'none') {
             $mesta_ids = \DB::table('mestos')->select('id')->whereIn('naziv', $mesta)->pluck('id');
         }
-        if($kategorije[0]=="VAZNO") $usersToNotify=Korisnik::all();
+
+        if($kategorije[0]=="VAZNO") {
+            $usersToNotify=Korisnik::all();
+        }
         else {
             $usersToNotify = \DB::table('kategorije_pretplates')->select('korisnik_id')->whereIn('kategorije_id', $kategorije_ids)->pluck('korisnik_id');
             $usersToNotify = Korisnik::find($usersToNotify);
         }
 
-
-            $obavestenje = Obavestenja::create([
-                'naslov' => request('title'),
-                'opis' => request('description'),
-                'link' => request('link'),
-                'nivoLokNac' => request('nivo'),
-                'korisnik_id' => auth()->user()->id,
-                'obrisanoFlag' => false
-            ]);
+        $obavestenje = Obavestenja::create([
+            'naslov' => request('title'),
+            'opis' => request('description'),
+            'link' => request('link'),
+            'nivoLokNac' => request('nivo'),
+            'korisnik_id' => auth()->user()->id,
+            'obrisanoFlag' => false
+        ]);
         $obavestenje->pripadaKategorijama()->attach($kategorije_ids);
 
         if($mesta[0] != "none") {
-
             $obavestenje->vezanoZaMesto()->attach($mesta_ids);
         }
 
@@ -151,8 +153,6 @@ class ObavestenjaController extends Controller
             }
 
             if($send) {
-
-
                 Mail::to($korisnik->email)->send(new SubscriptionNotification($obavestenje));
             }
         }
