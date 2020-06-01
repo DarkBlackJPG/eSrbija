@@ -117,7 +117,7 @@ class Ankete extends Model
      *
      */
     public static function dohvatiSveModeratoroveAnkete(){
-        DB::table('anketes')->where(['korisnik_id'=> auth()->user()->id] )->orderBy('created_at','DESC')->get();
+       return   DB::table('anketes')->where(['korisnik_id'=> auth()->user()->id] )->orderBy('created_at','DESC')->get();
 
     }
 
