@@ -84,7 +84,7 @@ class ObavestenjaController extends Controller
 
     /**
      * Snima novo obavestenje.
-     * 
+     *
      * @author Luka Spehar
      * @return \Illuminate\Http\Response
      */
@@ -221,7 +221,7 @@ class ObavestenjaController extends Controller
             return redirect()->route("home");
         }
         if( $user->isAdmin && $user->isMod ) {
-            $obavestenja = Obavestenja::where(['obrisanoFlag' => false])->paginate(4);
+            $obavestenja = Obavestenja::where(['obrisanoFlag' => false])->orderBy('created_at', 'DESC')->paginate(4);
         } else {
             $obavestenja = Obavestenja::svaObavestenjaModeratora($user->id);
         }
@@ -240,7 +240,7 @@ class ObavestenjaController extends Controller
         $kategorija = Kategorije::where("id", '=' , $id)->first();
 
         if( auth()->user()->isAdmin &&  auth()->user()->isMod ){
-            $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->paginate(4);
+            $obavestenja = $kategorija->obavestenja()->where('obrisanoFlag', false)->orderBy('created_at', 'DESC')->paginate(4);
         }
         else {
                 if( auth()->user()->isMod){
@@ -255,6 +255,12 @@ class ObavestenjaController extends Controller
         return view("homepages.obavestenja_po_kategorijama", ['mojaObavestenja' => $obavestenja, "imeKategorije" => $kategorija->naziv]);
     }
 
+    /**
+     * fja brise obavestenje sa datim id-em
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse|void
+     * @author Dusan Stijovic
+     */
     public function obrisiObavestenje($id){
 
         if(!auth()->user()->isMod && !auth()->user()->isAdmin) return;

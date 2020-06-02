@@ -66,7 +66,12 @@
                                         <td>
                                             <span class="glyphicon glyphicon-file text-info"></span><a href="{{route('obavestenja_za_kategoriju',$kategorija->id) }}">{{ $kategorija->naziv }}</a>
                                             @if(!auth()->user()->isMod && !auth()->user()->isAdmin)
-                                            <input id="{{$kategorija->id}}" name="{{$kategorija->naziv}}" type="checkbox" onclick="subscriptionChange()">
+                                            <input id="{{$kategorija->id}}" name="{{$kategorija->naziv}}" type="checkbox"
+                                                   @if(auth()->user()->pretplate()->get()->contains('id',$kategorija->id))
+                                                       checked
+                                                   @endif
+
+                                                   onclick="subscriptionChange()">
                                             @endif
                                         </td>
                                     <tr>

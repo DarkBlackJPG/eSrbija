@@ -1,8 +1,8 @@
 <?php
 
 return [
-   "NACIONALNI_NIVO"=>1,
-   "LOKALNI_NIVO"=>0
+   "NACIONALNI_NIVO"=>0,
+   "LOKALNI_NIVO"=>1
 ];
 
 ?>

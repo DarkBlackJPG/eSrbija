@@ -31,10 +31,10 @@
             </div>
         </div>
     </div>
-@else   
+@else
     <div class = "row justify-content-center align-items-center" >
         @foreach($mojaObavestenja as $mojeObavestenje)
-            <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6"> 
+            <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="blog-grids-moderator">
                     <div class="grid">
                         <div class="entry-body text-center">
@@ -43,17 +43,30 @@
                             @endforeach
                             |
                             <h3><a href="#" target="_blank">{{ $mojeObavestenje->naslov }}</a></h3>
-                            <p>{{ $mojeObavestenje->opis }}</p>                         
+                            <p>{{ $mojeObavestenje->opis }}</p>
+                                <span class="date">{{$mojeObavestenje->created_at->diffForHumans()}}</span>
                         </div>
-                        <div class = "deleteBtn">
+
+
+                        <div class = "row">
+                        <div  class  ="col-6">
+                            @if($mojeObavestenje->link != null)
+                            <div class="read-more-date">
+                                <a href="{{$mojeObavestenje->link}}" target="_blank">Read More...</a>
+                            </div>
+
+                            @endif
+                        </div>
+                        <div class = "text-right pl-3 col-6">
                             <form action="{{ route('obrisiObavestenje', ['id'=> $mojeObavestenje->id]) }}" method="post">
                                 @csrf
                                 <input type="submit" class = "btn btn-dark" value="Obrisi">
                             </form>
                         </div>
+                        </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         @endforeach
     </div>
 @endif

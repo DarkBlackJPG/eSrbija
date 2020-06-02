@@ -61,7 +61,7 @@ class Obavestenja extends Model
     *@return Illuminate\Database\Eloquent\Collection
     */
     public static function svaObavestenjaModeratora($id){
-       return Obavestenja::where(['korisnik_id' => $id, 'obrisanoFlag' => false])->paginate(4);
+       return Obavestenja::where(['korisnik_id' => $id, 'obrisanoFlag' => false])->orderBy('created_at', 'DESC')->paginate(4);
     }
 
 
@@ -113,6 +113,6 @@ class Obavestenja extends Model
         foreach ($obavestenja as $key => $obavestenje) {
             $obavestenjaId[] = $obavestenje->id;
         }
-        return Obavestenja::whereIn("id", $obavestenjaId)->paginate(4);
+        return Obavestenja::whereIn("id", $obavestenjaId)->orderBy('created_at', 'DESC')->paginate(4);
     }
 }
