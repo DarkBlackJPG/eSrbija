@@ -38,6 +38,7 @@
 
                     <input type="hidden" id="kategorije" name="kategorije">
                     <input type="hidden" id="dozvole" name="dozvole">
+                    <input type="hidden" id="dozvolaZaLokalnost" name="dozvolaZaLokalnost">
 
                     <hr/>
                     <table>
@@ -96,7 +97,6 @@
                         Odustani
                     </button>
                 </div>
-
             </form>
         </div>
 
@@ -189,9 +189,20 @@
                 });
                 if(exit) return;
 
+                @if($dozvolaZaLokalnost == 1)
+                    if(document.getElementById("nacionalno").checked) {
+                        Toast.fire({
+                            icon: 'warning',
+                            title: 'Nemate dozvolu da postavljate obaveštenja nacionalnog nivoa!',
+                        });
+                        return;
+                    }
+                @endif
+
                 document.getElementById("kategorije").value = izabraneKategorije;
                 document.getElementById("mesta").value = lokalno.checked ? mesta.selected : "none";
                 document.getElementById("dozvole").value = dozvole;
+                document.getElementById("dozvolaZaLokalnost").value = true;
 
                 //prosledjivanje podataka
                 document.createPostForm.submit();

@@ -79,7 +79,18 @@ class ObavestenjaController extends Controller
             }
         }
 
-        return view('homepages.createpost',['mesta' => $nazivi, 'kategorije'=>$nazivi_kategorija, 'dozvole'=> $dozvole] );
+        $dozvolaZaLokalnost = $user->isAdmin ? 2 : 1;
+        if(!$user->isAdmin) {
+            $mod = Moderator::find($user->id);
+            $dozvolaZaLokalnost = $mod->lokalnost;
+        }
+
+        return view('homepages.createpost',[
+            'mesta' => $nazivi,
+            'kategorije'=> $nazivi_kategorija,
+            'dozvole'=> $dozvole,
+            'dozvolaZaLokalnost' => $dozvolaZaLokalnost
+            ]);
     }
 
     /**
@@ -97,17 +108,22 @@ class ObavestenjaController extends Controller
             'mesta' => 'required'
         ]);
 
-        $dozvole = explode(",", request('dozvole'));
+        $dozvolaZaLokalnost = request('dozvolaZaLokalnost');
+        $dozvoleZaMesta = explode(",", request('dozvole'));
         $kategorije = explode(",", request('kategorije'));
         $mesta = explode(",", request('mesta'));
         $valid = true;
 
         foreach($kategorije as $kategorija) {
-            if(!in_array($kategorija, $dozvole))
+            if(!in_array($kategorija, $dozvoleZaMesta))
                 $valid = false;
         }
         if(!$valid) {
             return redirect('/home')->with('dozvole', 'Nemate dozvolu da postavljate obaveštenja u sve izabrane kategorije!');
+        }
+
+        if(!$dozvolaZaLokalnost) {
+            return redirect('/home')->with('dozvole', 'Nemate dozvolu da postavljate obaveštenja nacionalnog nivoa!');
         }
 
         $kategorije_ids = \DB::table('kategorijes')->select('id')->whereIn('naziv', $kategorije)->pluck('id');
