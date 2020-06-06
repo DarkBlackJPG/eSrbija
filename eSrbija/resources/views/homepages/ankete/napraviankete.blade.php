@@ -12,7 +12,7 @@
                     <button type="button" class="btn btn-dark" onclick="check_and_send()">
                         Objavi
                     </button>
-                    <button type="button" class="btn btn-dark" onclick="window.location='{{route('ankete')}}'">
+                    <button type="button" class="btn btn-dark mt-1" onclick="window.location='{{route('ankete')}}'">
                         Odustani
                     </button>
                 </div>
@@ -234,14 +234,15 @@
 
 
         function  check_and_send() {
-
-            if(document.forma.naziv.value == ""){
+    let rex= /\w+/;
+            if(document.forma.naziv.value == "" || !rex.test(document.forma.naziv.value)){
                 Toast.fire({
                     icon: 'warning',
                     title: 'Niste uneli naziv ankete!',
                 });
                 return;
             }
+
             else if(document.getElementById("lokalni").checked && mesta.selected =="") {
 
                 Toast.fire({
@@ -275,7 +276,7 @@
                     });return;}
 
                 for(let i=0 ; i<pitanja.length; i++ ){
-                    if(pitanja[i].value=="") {Toast.fire({
+                    if(pitanja[i].value=="" || !rex.test(pitanja[i].value)) {Toast.fire({
                         icon: 'warning',
                         title: 'Niste uneli tekstove svih pitanja!',
                     }); return;}
@@ -288,7 +289,8 @@
 
                         for(let j =0 ; j< odgovori.length; j++) {
                             if(odgovori[j].class=="pitanje") { console.log("preskace pitanje") ;continue;}
-                            if (odgovori[j].value=="") {Toast.fire({
+                            let rex=/\w+/;
+                            if (odgovori[j].value=="" || !rex.test(odgovori[j].value)) {Toast.fire({
                                 icon: 'warning',
                                 title: 'Nisu uneti tekstovi svih odgovora!',
                             }); return ;}

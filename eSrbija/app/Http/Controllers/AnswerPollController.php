@@ -101,6 +101,8 @@ class AnswerPollController extends Controller
     public function answer_poll($id)
     {
         $anketa = Ankete::findOrFail($id);
+        $sveNepopunjene = Ankete::dohvatiSveAktivneINeodgovoreneAnkete(auth()->user()->id);
+
         $ispravno=false;
         $user = auth()->user();
         $isMod = $user->isMod && !$user->isAdmin;
@@ -109,23 +111,23 @@ class AnswerPollController extends Controller
             $mesto = null;
             if ($isMod) {
                 $mod = $user->moderatori()->first();
-                $mesto = $mod->opstinaPoslovanja();}
+                $mesto = $mod->opstinaPoslovanja()->first();}
             else if ($obicanKorisnik){
              $neprKor = $user->neprivilegovaniKorisnik()->first();
-            $mesto = $neprKor->opstinaPrebivalista();
+            $mesto = $neprKor->opstinaPrebivalista()->first();
             }
             if ($isMod || $obicanKorisnik) {
-                foreach ($anketa->vezanoZaMesto() as $mestoA) {
-                    if ($mestoA === $mesto) {
-                        $ispravno = true;
-                        break;
-                    }
-                }
+                if($anketa->vezanoZaMesto()->get()->contains('id', $mesto->id))$ispravno=true;
                 if (!$ispravno)
+
                     return redirect(route('ankete'))->with(['poruka' => 'Nemate pravo pristupa', 'icon' => 'warning']);;
 
             }
+
         }
+        if(!$sveNepopunjene->contains('id', $anketa->id))return redirect(route('ankete'))->with(['poruka' => 'Nemate pravo popunjavanja ankete', 'icon' => 'warning']);
+        if(!$obicanKorisnik)return redirect(route('ankete'))->with(['poruka' => 'Nemate pravo popunjavanja ankete', 'icon' => 'warning']);;
+
 
         return view('homepages.ankete.popunianketu', ['anketa' => $anketa]);
 
@@ -222,6 +224,7 @@ class AnswerPollController extends Controller
         $lista_odgovora_postojecih_u_bazi=[];
         {
             $anketa = Ankete::findOrFail($id);
+
             $i=1;
 
             $ispravno=false;
@@ -244,7 +247,7 @@ class AnswerPollController extends Controller
                             break;
                         }
                     }
-
+                    if(auth()->user()->isMod || auth()->user()->isAdmin) $ispravno=false;
                     if (!$ispravno)
                         return redirect(route('ankete'))->with(['poruka' => 'Neuspesno odgovoreno na anketu', 'icon' => 'warning']);;
 

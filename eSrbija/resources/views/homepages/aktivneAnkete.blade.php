@@ -49,9 +49,11 @@
                                             <h3>{{$anketa->naziv}}</h3>
                                         </div>
                                         <div class=" card-footer card-footer2 text-right">
+
                                             <form action="{{route('anketeid', ['id' => $anketa->id])}}" method="GET" >
                                                 <button class = " btn2  btn-outline-dark italic"> Popuni anketu</button>
                                             </form>
+
                                         </div>
                                 </div>
                     @endforeach
