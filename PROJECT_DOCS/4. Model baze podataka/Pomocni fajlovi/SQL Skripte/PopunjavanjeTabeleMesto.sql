@@ -1,4 +1,4 @@
-INSERT INTO esrbija.mestos (`naziv`, `created_at`, `updated_at`) -- umesto "esrbija" pisete nazvi vase baze
+INSERT INTO mestos (`naziv`, `created_at`, `updated_at`) -- umesto "esrbija" pisete nazvi vase baze
 values 
 ('LAZAREVAC', now(), now()),
 ('LAJKOVAC', now(), now()),
@@ -114,4 +114,4 @@ values
 ('GRAD PRIŠTINA', now(), now()),
 ('AP KOSOVO I METOHIJA', now(), now());
 
-select * from esrbija.mestos;
+select * from mestos;

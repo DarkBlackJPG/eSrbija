@@ -39,7 +39,6 @@ class ModeratorRegistracija extends Controller
 
         $kategorije = $request->kategorije;
         $kategorije = explode(",", $kategorije);
-
         $request->validate([
             'naziv' => [
                 'required',
@@ -109,7 +108,6 @@ class ModeratorRegistracija extends Controller
                 array_push($categoryIds, $category->id);
             }
         }
-
         $user = new Korisnik();
         $user->email = $request['email'];
         $user->password = Hash::make($request['password']);
