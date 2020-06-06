@@ -46,7 +46,7 @@ class HomeController extends Controller
 
         $obavestenjaIds = \DB::table('kategorije_obavestenjas')->select('obavestenja_id')->where('kategorije_id', '!=', $kategorijaVazno->id)->distinct()->pluck('obavestenja_id');
         $ostalaObavestenja = Obavestenja::orderBy('created_at', 'desc')->whereIn('id', $obavestenjaIds)->where('obrisanoFlag', false)->paginate(4);
-        
+
         return view('homepages.obavestenja', [
             'vaznaObavestenja' => $vaznaObavestenja,
             'ostalaObavestenja' => $ostalaObavestenja,
