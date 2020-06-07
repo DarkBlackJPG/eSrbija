@@ -1,0 +1,6 @@
+U izveštaju se vide neki test primeri koji su manuelni.
+Ti test primeri nisu bili moguci da se istestiraju do kraja
+jer poseduju vue element na koji Selenium ne reaguje, a parcijalno
+testirani pretplata i odjava sa kategorija jer ne postoji drugi nacin
+da verifikujemo ispravnost osim da postavimo novu objavu sa kategorijama
+na koje je korisnik pretplacen odnosno bio pretplacen.

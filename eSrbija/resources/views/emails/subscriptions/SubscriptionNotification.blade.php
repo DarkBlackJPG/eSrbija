@@ -8,8 +8,4 @@
 <br>
 Posetite e-Srbija web stranicu da ga pročitate.
 
-@component('mail::button', ['url' => 'http://localhost:8000'])
-e-Srbija
-@endcomponent
-
 @endcomponent

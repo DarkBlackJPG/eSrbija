@@ -1,0 +1,174 @@
+{
+  "id": "b01ff15f-01bc-4259-85e0-e85dca0d09ca",
+  "version": "2.0",
+  "name": "SSU_odjavljivanje",
+  "url": "http://localhost:8000",
+  "tests": [{
+    "id": "6eb3871d-a5ab-4998-b5a2-840fdd4b5332",
+    "name": "7.1",
+    "commands": [{
+      "id": "ee33bd2b-c269-4780-bc69-dae5430fbdf8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9656f5b5-345a-4fb1-8063-124857e92937",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "970x1085",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62ba5c73-c0ef-4f17-9875-140172ea6261",
+      "comment": "",
+      "command": "click",
+      "target": "css=.linkTransitionToRed:nth-child(1)",
+      "targets": [
+        ["css=.linkTransitionToRed:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//a[@href='http://localhost:8000/login']", "xpath:href"],
+        ["xpath=//a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "59920ab0-b386-4c95-82e8-ec504d06a2e5",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/main/div/div/div/div/div[2]/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "korisnik@korisnik.com"
+    }, {
+      "id": "4f0712ee-dc92-411c-8fe9-23befdeb08d6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/main/div/div/div/div/div[2]/form/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "a5437107-4970-4050-a281-5b8472b065b9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(1)",
+      "targets": [
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=//input[@value='Uloguj se']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/main/div/div/div/div/div[2]/form/div[4]/div/input", "xpath:idRelative"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa9f7d28-1440-4c04-bcf6-5523e628e174",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Obavestenja",
+      "targets": [
+        ["linkText=Obavestenja", "linkText"],
+        ["css=.panel:nth-child(1) > .panel-heading a", "css:finder"],
+        ["xpath=//a[contains(text(),'Obavestenja')]", "xpath:link"],
+        ["xpath=//div[@id='accordion']/div/div/h4/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#collapseOne')]", "xpath:href"],
+        ["xpath=//h4/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Obavestenja')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2f3fc82-05f5-40e8-a778-105571a24c13",
+      "comment": "",
+      "command": "assertChecked",
+      "target": "id=1",
+      "targets": [
+        ["id=1", "id"],
+        ["name=Omladina i sport", "name"],
+        ["css=#\\31", "css:finder"],
+        ["xpath=//input[@id='1']", "xpath:attributes"],
+        ["xpath=//div[@id='collapseOne']/div/table/tbody/tr/td/input", "xpath:idRelative"],
+        ["xpath=//td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "730a57c7-9723-4374-8e45-f5df342a421e",
+      "comment": "",
+      "command": "click",
+      "target": "id=1",
+      "targets": [
+        ["id=1", "id"],
+        ["name=Omladina i sport", "name"],
+        ["css=#\\31", "css:finder"],
+        ["xpath=//input[@id='1']", "xpath:attributes"],
+        ["xpath=//div[@id='collapseOne']/div/table/tbody/tr/td/input", "xpath:idRelative"],
+        ["xpath=//td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff6b1cef-e191-4239-af87-101d0ceef6df",
+      "comment": "",
+      "command": "click",
+      "target": "id=navbarDropdown",
+      "targets": [
+        ["id=navbarDropdown", "id"],
+        ["linkText=Korisnik Korisnik", "linkText"],
+        ["css=#navbarDropdown", "css:finder"],
+        ["xpath=//a[contains(text(),'Korisnik Korisnik')]", "xpath:link"],
+        ["xpath=//a[@id='navbarDropdown']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Korisnik Korisnik ')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9d5d42b-29b7-4e72-86ad-9d0d06468fea",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.dropdown-item", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"event.preventDefault();\n                                                 document.getElementById('logout-form').submit();\"]", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul[2]/li/div/a", "xpath:idRelative"],
+        ["xpath=//a[@href='http://localhost:8000/home']", "xpath:href"],
+        ["xpath=//li/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "02ee16e2-013e-4bf6-9123-8246c7290f0c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.title > .blueTextHighlight",
+      "targets": [
+        ["css=.title > .blueTextHighlight", "css:finder"],
+        ["xpath=//font", "xpath:position"],
+        ["xpath=//font[contains(.,'Srb')]", "xpath:innerText"]
+      ],
+      "value": "Srb"
+    }]
+  }],
+  "suites": [{
+    "id": "25370c11-9534-4c37-8df4-1b13bb4fffd5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["6eb3871d-a5ab-4998-b5a2-840fdd4b5332"]
+  }],
+  "urls": ["http://localhost:8000/"],
+  "plugins": []
+}
