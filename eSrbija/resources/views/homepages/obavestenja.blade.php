@@ -103,6 +103,6 @@
                 </div>
             </div>
         @else
-            <h2>Jos uvek nema obavestenja.</h2>
+            <h2>Još uvek nema informativnih obaveštenja.</h2>
         @endif
 @endsection
