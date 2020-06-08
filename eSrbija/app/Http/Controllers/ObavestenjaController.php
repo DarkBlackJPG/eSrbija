@@ -134,7 +134,7 @@ class ObavestenjaController extends Controller
         }
 
         if($kategorije[0]=="VAZNO") {
-            $usersToNotify=Korisnik::all();
+            $usersToNotify=Korisnik::where(['isMod' => false, 'isAdmin' => false]);
         }
         else {
             $usersToNotify = \DB::table('kategorije_pretplates')->select('korisnik_id')->whereIn('kategorije_id', $kategorije_ids)->pluck('korisnik_id');
@@ -157,7 +157,6 @@ class ObavestenjaController extends Controller
 
         //slanje mejlova
         $mestaObavestenja = $obavestenje->vezanoZaMesto()->getResults();
-
         foreach($usersToNotify as $korisnik) {
             $send = true;
             //ako je obavestenje lokalno proveriti da li ga treba poslati trenutnom korisniku
