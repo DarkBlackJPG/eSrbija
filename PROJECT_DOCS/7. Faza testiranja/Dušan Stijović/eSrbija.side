@@ -3691,27 +3691,132 @@
       ],
       "value": "sssss"
     }, {
-      "id": "a45c168d-df40-4b54-9d30-79ac7097288a",
+      "id": "43de70f7-64ab-40a9-8123-0422f74c716e",
       "comment": "",
       "command": "click",
-      "target": "css=.vs__search",
+      "target": "css=.row:nth-child(4) input:nth-child(3)",
       "targets": [
-        ["css=.vs__search", "css:finder"],
-        ["xpath=//input[@type='search']", "xpath:attributes"],
-        ["xpath=//div[@id='vs1__combobox']/div/input", "xpath:idRelative"],
-        ["xpath=//div/div/div/input", "xpath:position"]
+        ["css=.row:nth-child(4) input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@name='nivo'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='forma']/div[3]/table/tbody/tr[2]/td/input[2]", "xpath:idRelative"],
+        ["xpath=//td/input[2]", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "4329c0c8-77db-43a2-af4b-5e524d6f88e0",
+      "id": "c9548247-13f0-4e15-a027-0ada6055e8c9",
       "comment": "",
-      "command": "mouseUp",
-      "target": "css=.pt-3 h3",
+      "command": "click",
+      "target": "css=.row:nth-child(1)",
       "targets": [
-        ["css=.pt-3 h3", "css:finder"],
-        ["xpath=//form[@id='forma']/div[5]/table/tbody/tr/td/h3", "xpath:idRelative"],
-        ["xpath=//div[5]/table/tbody/tr/td/h3", "xpath:position"],
-        ["xpath=//h3[contains(.,'Tip:')]", "xpath:innerText"]
+        ["css=.row:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='app']/main/div/div", "xpath:idRelative"],
+        ["xpath=//main/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2d63d3f-7a55-4518-b149-60d35f920647",
+      "comment": "",
+      "command": "type",
+      "target": "name=naziv",
+      "targets": [
+        ["name=naziv", "name"],
+        ["css=.form-control:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='naziv']", "xpath:attributes"],
+        ["xpath=//form[@id='forma']/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6e183177-5609-4566-8c2c-3bd93865bf43",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group > .btn:nth-child(1)",
+      "targets": [
+        ["css=.form-group > .btn:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='forma']/div/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Objavi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f14169b5-f330-47f4-ad5b-69a0eed88fe4",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=searchForm",
+      "targets": [
+        ["id=searchForm", "id"],
+        ["name=searchForm", "name"],
+        ["css=#searchForm", "css:finder"],
+        ["xpath=//form[@id='searchForm']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/main/div/div/div/form", "xpath:idRelative"],
+        ["xpath=//div/div/form", "xpath:position"]
+      ],
+      "value": "187.20000076293945,19.775001525878906"
+    }, {
+      "id": "a2ccbf31-be99-4e8a-be86-673b6421fa5a",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=searchForm",
+      "targets": [
+        ["id=searchForm", "id"],
+        ["name=searchForm", "name"],
+        ["css=#searchForm", "css:finder"],
+        ["xpath=//form[@id='searchForm']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/main/div/div/div/form", "xpath:idRelative"],
+        ["xpath=//div/div/form", "xpath:position"]
+      ],
+      "value": "187.20000076293945,19.775001525878906"
+    }, {
+      "id": "857217f3-15cf-479b-a464-0b603f0961ef",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=searchForm",
+      "targets": [
+        ["id=searchForm", "id"],
+        ["name=searchForm", "name"],
+        ["css=#searchForm", "css:finder"],
+        ["xpath=//form[@id='searchForm']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/main/div/div/div/form", "xpath:idRelative"],
+        ["xpath=//div/div/form", "xpath:position"]
+      ],
+      "value": "187.20000076293945,19.775001525878906"
+    }, {
+      "id": "15d2687c-9e99-4c75-bccb-a97c49004d20",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-3",
+      "targets": [
+        ["css=.col-md-3", "css:finder"],
+        ["xpath=//div[@id='app']/main/div/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b72a54f3-5968-4598-aadf-43dcb3189cee",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchForm",
+      "targets": [
+        ["id=searchForm", "id"],
+        ["name=searchForm", "name"],
+        ["css=#searchForm", "css:finder"],
+        ["xpath=//form[@id='searchForm']", "xpath:attributes"],
+        ["xpath=//div[@id='app']/main/div/div/div/form", "xpath:idRelative"],
+        ["xpath=//div/div/form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "047de850-8d5a-462e-bb41-eec3f35047d0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.form-group > .btn:nth-child(1)",
+      "targets": [
+        ["css=.form-group > .btn:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='forma']/div/div/button", "xpath:idRelative"],
+        ["xpath=//div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Objavi')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -8466,19 +8571,6 @@
       ],
       "value": ""
     }, {
-      "id": "062f86a7-31d3-4632-a0f4-0e18ec9d3df9",
-      "comment": "",
-      "command": "click",
-      "target": "name=11",
-      "targets": [
-        ["name=11", "name"],
-        ["css=label > input", "css:finder"],
-        ["xpath=//input[@name='11']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/main/div/div/div[2]/form/div/div/div/div[2]/ul/li/div/label/input", "xpath:idRelative"],
-        ["xpath=//label/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "e6bc388a-f665-4610-be1e-b9eeabe0c8a7",
       "comment": "",
       "command": "click",
@@ -8654,19 +8746,6 @@
       ],
       "value": ""
     }, {
-      "id": "416991ce-46aa-4b1c-85a6-491fd8aceaf1",
-      "comment": "",
-      "command": "click",
-      "target": "name=19",
-      "targets": [
-        ["name=19", "name"],
-        ["css=.row:nth-child(2) .panel-body:nth-child(2) input", "css:finder"],
-        ["xpath=//input[@name='19']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/main/div/div/div[2]/form/div/div/div/div[2]/ul/li/div/label/input", "xpath:idRelative"],
-        ["xpath=//label/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "47847682-6ae8-4422-86bd-3d6a95da5302",
       "comment": "",
       "command": "click",
@@ -8676,18 +8755,6 @@
         ["xpath=(//input[@name='19'])[2]", "xpath:attributes"],
         ["xpath=//div[@id='app']/main/div/div/div[2]/form/div/div/div/div[3]/ul/li/div/label/input", "xpath:idRelative"],
         ["xpath=//div[3]/ul/li/div/label/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "19e3f9fd-7e4c-4b65-8a85-d78ea8075481",
-      "comment": "",
-      "command": "click",
-      "target": "css=.panel-body:nth-child(4) input",
-      "targets": [
-        ["css=.panel-body:nth-child(4) input", "css:finder"],
-        ["xpath=(//input[@name='19'])[3]", "xpath:attributes"],
-        ["xpath=//div[@id='app']/main/div/div/div[2]/form/div/div/div/div[4]/ul/li/div/label/input", "xpath:idRelative"],
-        ["xpath=//div[4]/ul/li/div/label/input", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -8715,51 +8782,37 @@
       ],
       "value": ""
     }, {
-      "id": "4cb0ef83-4869-4a31-8d47-9953cd5132ed",
+      "id": "d808cd92-3862-4a14-a00e-2a2b5e058e7b",
       "comment": "",
       "command": "click",
-      "target": "name=20",
+      "target": "css=h3",
       "targets": [
-        ["name=20", "name"],
-        ["css=.row:nth-child(3) input", "css:finder"],
-        ["xpath=//input[@name='20']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/main/div/div/div[2]/form/div[2]/div/div/div[2]/ul/li/div/label/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div[2]/ul/li/div/label/input", "xpath:position"]
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/main/div/div/div[2]/div/div/div/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Nema anketa raspolozivih za popunjavanje')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "b7251a46-09ee-4079-a0c9-9e192c63bef1",
-      "comment": "",
-      "command": "click",
-      "target": "css=.row:nth-child(4)",
-      "targets": [
-        ["css=.row:nth-child(4)", "css:finder"],
-        ["xpath=//div[@id='app']/main/div/div/div[2]/form/div[3]", "xpath:idRelative"],
-        ["xpath=//form/div[3]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "7eafd5e1-4b88-49ce-a28e-5ff102e26bf1",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn:nth-child(1)",
-      "targets": [
-        ["css=.btn:nth-child(1)", "css:finder"],
-        ["xpath=//input[@value='Potvrdi']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/main/div/div/div[2]/form/div[3]/div/input", "xpath:idRelative"],
-        ["xpath=//div/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "6608ca0d-0427-4f17-aaf7-0217cd866b8c",
+      "id": "48e43f57-e54f-4cc7-8f1e-9b605bf60b9a",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "css=.btn:nth-child(1)",
+      "target": "css=h3",
       "targets": [
-        ["css=.btn:nth-child(1)", "css:finder"],
-        ["xpath=//input[@value='Potvrdi']", "xpath:attributes"],
-        ["xpath=//div[@id='app']/main/div/div/div[2]/form/div[3]/div/input", "xpath:idRelative"],
-        ["xpath=//div/input", "xpath:position"]
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/main/div/div/div[2]/div/div/div/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Nema anketa raspolozivih za popunjavanje')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a92b3f4-2a73-4987-906e-bd4333677624",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
       ],
       "value": ""
     }]
